@@ -1,0 +1,89 @@
+---
+title: Composite Biological OrthoAge Index
+description: "A weighted score of how far inflammation, mineral regulation, bone and cartilage output, muscle breakdown, and nerve and vessel coupling have aged."
+---
+
+The CBOAI sums five domains of orthopaedic ageing into one score. It uses 15 biomarkers. A higher score means more of the panel sits outside its healthy range, with the most weight on the domains that matter most for this index.
+
+See [Indices](/biomarkers/indices) for how every index is calculated.
+
+## Domains
+
+| Domain | Biomarkers | αd |
+| --- | --- | --- |
+| Inflammation & Immune Aging (IIA) | [hs-CRP](/biomarkers/hs-crp), [NLR](/biomarkers/nlr), [IL-6](/biomarkers/il-6) | 6 |
+| Endocrine-Mineral Regulation (EMR) | [PTH](/biomarkers/pth), [Ca/P ratio](/biomarkers/ca-p-ratio), [Vitamin D](/biomarkers/vitamin-d) | 1 |
+| Bone & Cartilage Output (BCO) | [PINP](/biomarkers/pinp), [CTX-II](/biomarkers/ctx-ii), [Osteocalcin](/biomarkers/osteocalcin) | 1 |
+| Muscle-ECM Degeneration (M-ECMD) | [CK-MM](/biomarkers/ck-mm), [Aldolase A](/biomarkers/aldolase-a), [MMP-9](/biomarkers/mmp-9), [MDA](/biomarkers/mda) | 5 |
+| Neurovascular Coupling (NVC) | [VEGF](/biomarkers/vegf), [BDNF](/biomarkers/bdnf) | 3 |
+
+αd is the fixed priority of each domain in this index.
+
+## Example
+
+These are the results of one example patient, worked through step by step.
+
+### Biomarker Z-scores
+
+Each result becomes a Z-score: `(value − mean) / SD`, with the mean and SD taken from the healthy range.
+
+#### Inflammation & Immune Aging (IIA)
+
+| Biomarker | Healthy range | Mean | SD | Direction | Value | Z | \|Z\| |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| [hs-CRP](/biomarkers/hs-crp) | 0.2–3.0 mg·L⁻¹ | 1.6 | 0.7 | ↑ Bad | 3.5 | 2.71 | 2.71 |
+| [NLR](/biomarkers/nlr) | 1.0–3.0 ratio | 2 | 0.5 | ↑ Bad | 3.2 | 2.40 | 2.40 |
+| [IL-6](/biomarkers/il-6) | 0.5–7.0 pg·mL⁻¹ | 3.75 | 1.63 | ↑ Bad | 9.8 | 3.71 | 3.71 |
+
+#### Endocrine-Mineral Regulation (EMR)
+
+| Biomarker | Healthy range | Mean | SD | Direction | Value | Z | \|Z\| |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| [PTH](/biomarkers/pth) | 15–65 pg·mL⁻¹ | 40 | 12.5 | ↑ Bad | 75.3 | 2.82 | 2.82 |
+| [Ca/P ratio](/biomarkers/ca-p-ratio) | 2.0–2.8 ratio | 2.4 | 0.2 | Normal best | 2.9 | 2.50 | 2.50 |
+| [Vitamin D](/biomarkers/vitamin-d) | 30–100 ng·mL⁻¹ | 65 | 17.5 | ↓ Bad | 25.4 | -2.26 | 2.26 |
+
+#### Bone & Cartilage Output (BCO)
+
+| Biomarker | Healthy range | Mean | SD | Direction | Value | Z | \|Z\| |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| [PINP](/biomarkers/pinp) | 20–80 ng·mL⁻¹ | 50 | 15 | ↓ Bad | 9.7 | -2.69 | 2.69 |
+| [CTX-II](/biomarkers/ctx-ii) | 120–450 pg·mL⁻¹ | 285 | 82.5 | ↑ Bad | 510.7 | 2.74 | 2.74 |
+| [Osteocalcin](/biomarkers/osteocalcin) | 11–43 ng·mL⁻¹ | 27 | 8 | ↓ Bad | 8.9 | -2.26 | 2.26 |
+
+#### Muscle-ECM Degeneration (M-ECMD)
+
+| Biomarker | Healthy range | Mean | SD | Direction | Value | Z | \|Z\| |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| [CK-MM](/biomarkers/ck-mm) | 50–170 U·L⁻¹ | 110 | 30 | ↑ Bad | 190 | 2.67 | 2.67 |
+| [Aldolase A](/biomarkers/aldolase-a) | 1.2–7.5 U·L⁻¹ | 4.35 | 1.58 | ↑ Bad | 8.5 | 2.63 | 2.63 |
+| [MMP-9](/biomarkers/mmp-9) | 20–140 ng·mL⁻¹ | 80 | 30 | ↑ Bad | 155.8 | 2.53 | 2.53 |
+| [MDA](/biomarkers/mda) | 1.0–3.5 µmol·L⁻¹ | 2.25 | 0.63 | ↑ Bad | 4.6 | 3.73 | 3.73 |
+
+#### Neurovascular Coupling (NVC)
+
+| Biomarker | Healthy range | Mean | SD | Direction | Value | Z | \|Z\| |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| [VEGF](/biomarkers/vegf) | 30–250 pg·mL⁻¹ | 140 | 55 | Context | 305.6 | 3.01 | 3.01 |
+| [BDNF](/biomarkers/bdnf) | 15–40 ng·mL⁻¹ | 27.5 | 6.25 | ↓ Bad | 12.8 | -2.35 | 2.35 |
+
+### Domain scores
+
+| Domain | Mean \|Z\|d | Wd | Mean \|Z\|d × Wd | αd | Score |
+| --- | --- | --- | --- | --- | --- |
+| IIA | 2.94 | 0.22 | 0.64 | 6 | 3.82 |
+| EMR | 2.53 | 0.19 | 0.47 | 1 | 0.47 |
+| BCO | 2.56 | 0.19 | 0.48 | 1 | 0.48 |
+| M-ECMD | 2.89 | 0.21 | 0.61 | 5 | 3.07 |
+| NVC | 2.68 | 0.20 | 0.53 | 3 | 1.59 |
+| **Total** | **13.60** | **1.00** | **2.73** | | **9.42** |
+
+The example patient's CBOAI is **9.42**.
+
+Inflammation & Immune Aging adds the most to the score (3.82 of 9.42).
+
+## Notes
+
+- The mean and SD come from the healthy range, so a result inside the range has a |Z| of 2 or less.
+- The score has no fixed upper limit. Compare it over time for the same person, not between indices.
+- This page is general information, not medical advice. Discuss results with a clinician.

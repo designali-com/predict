@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "switch-controlled",
+  "type": "registry:block",
+  "description": "Controlled",
+  "files": [
+    {
+      "path": "registry/predict/components/switch/switch-controlled.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { Switch } from \"@workspace/ui/components/switch\"\n\nexport function SwitchControlled() {\n  const [shared, setShared] = React.useState(false)\n\n  return (\n    <div className=\"grid w-full max-w-xs gap-2\">\n      <label className=\"flex items-center justify-between gap-4 text-xs\">\n        Share reports with my doctor\n        <Switch checked={shared} onCheckedChange={setShared} />\n      </label>\n      <p className=\"text-xs text-muted-foreground\">\n        {shared ? \"Dr. Patel can see new reports.\" : \"Reports are private.\"}\n      </p>\n    </div>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

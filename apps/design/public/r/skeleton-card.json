@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "skeleton-card",
+  "type": "registry:block",
+  "description": "Card",
+  "files": [
+    {
+      "path": "registry/predict/components/skeleton/skeleton-card.tsx",
+      "content": "\"use client\"\n\nimport { Skeleton } from \"@workspace/ui/components/skeleton\"\n\nexport function SkeletonCard() {\n  return (\n    <div className=\"grid w-full max-w-sm gap-3 rounded-lg border p-4\">\n      <Skeleton className=\"h-4 w-24\" />\n      <Skeleton className=\"h-8 w-32\" />\n      <Skeleton className=\"h-3 w-full\" />\n      <Skeleton className=\"h-3 w-5/6\" />\n    </div>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

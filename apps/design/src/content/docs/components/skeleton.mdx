@@ -1,0 +1,57 @@
+---
+title: Skeleton
+description: "A placeholder shape shown while content loads."
+---
+
+## Demos
+
+A profile row in its loading state.
+
+<ComponentPreview name="skeleton-demo" />
+
+## Usage
+
+Use skeletons when the layout of the incoming content is known. Match the size and position of the real content so nothing jumps when it arrives. For an action with an unknown result, use a spinner or a [Progress](/docs/components/progress) bar.
+
+Import it from `@workspace/ui/components/skeleton`.
+
+```tsx
+import { Skeleton } from "@workspace/ui/components/skeleton"
+```
+
+```tsx
+<Skeleton className="h-4 w-32" />
+```
+
+### Anatomy
+
+- **Skeleton** — A pulsing block. Size and shape come from `className`.
+
+### Notes
+
+- Use `rounded-full` for avatars and round icons.
+- Skeletons are decorative. Announce loading to screen readers in another way, such as `aria-busy` on the container.
+
+## Examples
+
+### Card
+
+Match the shape of the content that will load, such as a result card.
+
+<ComponentPreview name="skeleton-card" />
+
+### List
+
+Repeat a row to stand in for a list of results.
+
+<ComponentPreview name="skeleton-list" />
+
+## Props
+
+These are the props you set most often. Unlisted props pass through to the underlying element.
+
+### Skeleton
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `className` | `string` | — | Classes merged onto the element. Set the size here. |

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "calendar-range",
+  "type": "registry:block",
+  "description": "Range",
+  "files": [
+    {
+      "path": "registry/predict/components/calendar/calendar-range.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { Calendar } from \"@workspace/ui/components/calendar\"\n\ntype DateRange = { from: Date | undefined; to?: Date }\n\nexport function CalendarRange() {\n  const [range, setRange] = React.useState<DateRange | undefined>(() => {\n    const from = new Date()\n    const to = new Date()\n    to.setDate(from.getDate() + 4)\n    return { from, to }\n  })\n\n  return (\n    <Calendar\n      mode=\"range\"\n      selected={range}\n      onSelect={setRange}\n      numberOfMonths={2}\n      className=\"rounded-lg border\"\n    />\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

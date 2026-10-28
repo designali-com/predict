@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "radio-group-disabled",
+  "type": "registry:block",
+  "description": "Disabled",
+  "files": [
+    {
+      "path": "registry/predict/components/radio-group/radio-group-disabled.tsx",
+      "content": "\"use client\"\n\nimport { RadioGroup, RadioGroupItem } from \"@workspace/ui/components/radio-group\"\n\nexport function RadioGroupDisabled() {\n  return (\n    <RadioGroup defaultValue=\"home\" aria-label=\"Collection\" className=\"w-full max-w-xs\">\n      <label className=\"flex items-center gap-2 text-xs\">\n        <RadioGroupItem value=\"home\" />\n        Home visit\n      </label>\n      <label className=\"flex items-center gap-2 text-xs\">\n        <RadioGroupItem value=\"clinic\" />\n        Clinic\n      </label>\n      <label className=\"flex items-center gap-2 text-xs text-muted-foreground\">\n        <RadioGroupItem value=\"kit\" disabled />\n        Self-collection kit (unavailable)\n      </label>\n    </RadioGroup>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card-small",
+  "type": "registry:block",
+  "description": "Small",
+  "files": [
+    {
+      "path": "registry/predict/components/card/card-small.tsx",
+      "content": "\"use client\"\n\nimport {\n  Card,\n  CardDescription,\n  CardHeader,\n  CardTitle,\n} from \"@workspace/ui/components/card\"\n\nexport function CardSmall() {\n  return (\n    <Card size=\"sm\" className=\"w-full max-w-sm\">\n      <CardHeader>\n        <CardTitle>Next draw</CardTitle>\n        <CardDescription>Thursday, 8:30 AM at home.</CardDescription>\n      </CardHeader>\n    </Card>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

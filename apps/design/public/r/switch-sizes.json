@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "switch-sizes",
+  "type": "registry:block",
+  "description": "Sizes",
+  "files": [
+    {
+      "path": "registry/predict/components/switch/switch-sizes.tsx",
+      "content": "\"use client\"\n\nimport { Switch } from \"@workspace/ui/components/switch\"\n\nexport function SwitchSizes() {\n  return (\n    <div className=\"grid w-full max-w-xs gap-4\">\n      <label className=\"flex items-center justify-between gap-4 text-xs\">\n        Default\n        <Switch defaultChecked />\n      </label>\n      <label className=\"flex items-center justify-between gap-4 text-xs\">\n        Small\n        <Switch size=\"sm\" defaultChecked />\n      </label>\n    </div>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "switch-disabled",
+  "type": "registry:block",
+  "description": "Disabled",
+  "files": [
+    {
+      "path": "registry/predict/components/switch/switch-disabled.tsx",
+      "content": "\"use client\"\n\nimport { Switch } from \"@workspace/ui/components/switch\"\n\nexport function SwitchDisabled() {\n  return (\n    <label className=\"flex w-full max-w-xs items-center justify-between gap-4 text-xs text-muted-foreground\">\n      Research programme (closed)\n      <Switch disabled />\n    </label>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

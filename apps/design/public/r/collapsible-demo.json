@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "collapsible-demo",
+  "type": "registry:block",
+  "description": "Basic",
+  "files": [
+    {
+      "path": "registry/predict/components/collapsible/collapsible-demo.tsx",
+      "content": "\"use client\"\n\nimport { ChevronsUpDownIcon } from \"lucide-react\"\n\nimport { Button } from \"@workspace/ui/components/button\"\nimport {\n  Collapsible,\n  CollapsibleContent,\n  CollapsibleTrigger,\n} from \"@workspace/ui/components/collapsible\"\n\nexport function CollapsibleDemo() {\n  return (\n    <Collapsible className=\"flex w-full max-w-xs flex-col gap-2\">\n      <div className=\"flex items-center justify-between gap-4 px-3\">\n        <p className=\"text-sm font-medium\">3 markers out of range</p>\n        <CollapsibleTrigger\n          render={<Button variant=\"ghost\" size=\"icon-sm\" aria-label=\"Toggle markers\" />}\n        >\n          <ChevronsUpDownIcon />\n        </CollapsibleTrigger>\n      </div>\n      <div className=\"rounded-md border px-3 py-2 text-xs\">LDL-C · 142 mg/dL</div>\n      <CollapsibleContent className=\"flex flex-col gap-2\">\n        <div className=\"rounded-md border px-3 py-2 text-xs\">HbA1c · 5.9 %</div>\n        <div className=\"rounded-md border px-3 py-2 text-xs\">Vitamin D · 22 ng/mL</div>\n      </CollapsibleContent>\n    </Collapsible>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

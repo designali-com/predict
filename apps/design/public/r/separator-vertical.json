@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "separator-vertical",
+  "type": "registry:block",
+  "description": "Vertical",
+  "files": [
+    {
+      "path": "registry/predict/components/separator/separator-vertical.tsx",
+      "content": "\"use client\"\n\nimport { Separator } from \"@workspace/ui/components/separator\"\n\nexport function SeparatorVertical() {\n  return (\n    <div className=\"flex h-5 items-center gap-4 text-xs\">\n      <span>Overview</span>\n      <Separator orientation=\"vertical\" />\n      <span>History</span>\n      <Separator orientation=\"vertical\" />\n      <span>Notes</span>\n    </div>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

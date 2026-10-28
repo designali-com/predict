@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input-demo",
+  "type": "registry:block",
+  "description": "Basic",
+  "files": [
+    {
+      "path": "registry/predict/components/input/input-demo.tsx",
+      "content": "\"use client\"\n\nimport { Input } from \"@workspace/ui/components/input\"\n\nexport function InputDemo() {\n  return (\n    <label className=\"grid w-full max-w-sm gap-1.5 text-xs font-medium\">\n      Email\n      <Input type=\"email\" placeholder=\"you@example.com\" />\n    </label>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

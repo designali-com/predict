@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "skeleton-demo",
+  "type": "registry:block",
+  "description": "Basic",
+  "files": [
+    {
+      "path": "registry/predict/components/skeleton/skeleton-demo.tsx",
+      "content": "\"use client\"\n\nimport { Skeleton } from \"@workspace/ui/components/skeleton\"\n\nexport function SkeletonDemo() {\n  return (\n    <div className=\"flex w-full max-w-sm items-center gap-4\">\n      <Skeleton className=\"size-12 rounded-full\" />\n      <div className=\"grid flex-1 gap-2\">\n        <Skeleton className=\"h-4 w-3/4\" />\n        <Skeleton className=\"h-4 w-1/2\" />\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

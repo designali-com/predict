@@ -1,0 +1,77 @@
+---
+title: Toggle
+description: "A button that stays pressed or unpressed."
+---
+
+## Demos
+
+An icon toggle. Give it an `aria-label`.
+
+<ComponentPreview name="toggle-demo" />
+
+## Usage
+
+Use a toggle for a two-state action on the current item, like bookmark or favourite. For a setting, use a [Switch](/docs/components/switch). For a one-off action, use a [Button](/docs/components/button).
+
+Import it from `@workspace/ui/components/toggle`.
+
+```tsx
+import { Toggle } from "@workspace/ui/components/toggle"
+```
+
+```tsx
+<Toggle aria-label="Bookmark">
+  <BookmarkIcon />
+</Toggle>
+```
+
+### Anatomy
+
+- **Toggle** — A button with `aria-pressed`. Pressed toggles get a muted background.
+
+### Notes
+
+- Icon-only toggles need an `aria-label`. Keep the label the same in both states. The pressed state is announced for you.
+- Put `data-icon="inline-start"` or `data-icon="inline-end"` on an icon next to text so the padding stays even.
+- `toggleVariants` is exported to style other elements like a toggle.
+
+## Examples
+
+### Outline
+
+Set `variant="outline"` to show the edge when off.
+
+<ComponentPreview name="toggle-outline" />
+
+### Sizes
+
+`sm`, `default`, and `lg`.
+
+<ComponentPreview name="toggle-sizes" />
+
+### With text
+
+An icon and a label. Mark the icon with `data-icon`.
+
+<ComponentPreview name="toggle-with-text" />
+
+### Disabled
+
+A toggle that cannot be pressed.
+
+<ComponentPreview name="toggle-disabled" />
+
+## Props
+
+These are the props you set most often. Unlisted props pass through to the underlying element.
+
+### Toggle
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `variant` | `"default" or "outline"` | `default` | Visual style. |
+| `size` | `"sm", "default", or "lg"` | `default` | Height and padding. |
+| `defaultPressed` | `boolean` | `false` | Pressed on first render. |
+| `pressed` | `boolean` | — | Pressed state when controlled. |
+| `onPressedChange` | `(pressed) => void` | — | Called when the state changes. |
+| `disabled` | `boolean` | `false` | Blocks input and dims the toggle. |

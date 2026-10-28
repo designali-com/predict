@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "switch-demo",
+  "type": "registry:block",
+  "description": "Basic",
+  "files": [
+    {
+      "path": "registry/predict/components/switch/switch-demo.tsx",
+      "content": "\"use client\"\n\nimport { Switch } from \"@workspace/ui/components/switch\"\n\nexport function SwitchDemo() {\n  return (\n    <label className=\"flex w-full max-w-xs items-center justify-between gap-4 text-xs\">\n      Result notifications\n      <Switch defaultChecked />\n    </label>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

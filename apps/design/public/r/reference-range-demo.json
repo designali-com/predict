@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "reference-range-demo",
+  "type": "registry:block",
+  "description": "Basic",
+  "files": [
+    {
+      "path": "registry/predict/tools/reference-range/reference-range-demo.tsx",
+      "content": "\"use client\"\n\nimport { ReferenceRange } from \"@workspace/ui/tools/reference-range\"\n\nexport function ReferenceRangeDemo() {\n  return (\n    <div className=\"mx-auto flex w-full justify-center\">\n      <ReferenceRange\n        name=\"Glucose, fasting\"\n        value={92}\n        unit=\"mg/dL\"\n        range={{ low: 70, high: 99 }}\n      />\n    </div>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

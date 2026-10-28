@@ -1,0 +1,79 @@
+---
+title: Sheet
+description: "A panel that slides in from the edge of the screen."
+---
+
+## Demos
+
+A sheet that slides in from the right.
+
+<ComponentPreview name="sheet-demo" />
+
+## Usage
+
+Use a sheet for a task or detail that needs more room than a dialog but should keep the page in view: a filter panel, a note form, record details. Right is the usual side. Use bottom for short actions on mobile.
+
+Import it from `@workspace/ui/components/sheet`.
+
+```tsx
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@workspace/ui/components/sheet"
+```
+
+### Anatomy
+
+- **Sheet** — Holds the open state.
+- **SheetTrigger** — Opens the sheet.
+- **SheetContent** — The panel, with backdrop and a close button. `side` sets the edge.
+- **SheetHeader** — Holds the title and description.
+- **SheetTitle** — Names the sheet for screen readers. Always include it.
+- **SheetDescription** — Supporting text.
+- **SheetFooter** — Actions, pinned to the bottom.
+- **SheetClose** — Closes the sheet. Pass a button through `render`.
+
+### Notes
+
+- The sheet is a modal. Focus is trapped inside until it closes.
+- Left and right sheets take three quarters of the width on small screens.
+
+## Examples
+
+### Side
+
+Set `side` on `SheetContent` to open from any edge.
+
+<ComponentPreview name="sheet-side" />
+
+### Without close button
+
+Set `showCloseButton={false}` and give the reader explicit actions instead.
+
+<ComponentPreview name="sheet-no-close-button" />
+
+## Props
+
+These are the props you set most often. Unlisted props pass through to the underlying element.
+
+### Sheet
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `defaultOpen` | `boolean` | `false` | Open on first render. |
+| `open` | `boolean` | — | Open state when controlled. |
+| `onOpenChange` | `(open) => void` | — | Called when the sheet opens or closes. |
+
+### SheetContent
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `side` | `"top", "right", "bottom", or "left"` | `right` | Edge the sheet slides from. |
+| `showCloseButton` | `boolean` | `true` | Show the X button in the corner. |
+| `className` | `string` | — | Classes merged onto the panel. |

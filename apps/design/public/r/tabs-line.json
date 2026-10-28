@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tabs-line",
+  "type": "registry:block",
+  "description": "Line",
+  "files": [
+    {
+      "path": "registry/predict/components/tabs/tabs-line.tsx",
+      "content": "\"use client\"\n\nimport { Tabs, TabsContent, TabsList, TabsTrigger } from \"@workspace/ui/components/tabs\"\n\nexport function TabsLine() {\n  return (\n    <Tabs defaultValue=\"overview\" className=\"w-full max-w-md\">\n      <TabsList variant=\"line\">\n        <TabsTrigger value=\"overview\">Overview</TabsTrigger>\n        <TabsTrigger value=\"history\">History</TabsTrigger>\n      </TabsList>\n      <TabsContent value=\"overview\">Line tabs keep the page quieter.</TabsContent>\n      <TabsContent value=\"history\">Earlier panels stay one click away.</TabsContent>\n    </Tabs>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

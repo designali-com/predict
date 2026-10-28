@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "separator-demo",
+  "type": "registry:block",
+  "description": "Basic",
+  "files": [
+    {
+      "path": "registry/predict/components/separator/separator-demo.tsx",
+      "content": "\"use client\"\n\nimport { Separator } from \"@workspace/ui/components/separator\"\n\nexport function SeparatorDemo() {\n  return (\n    <div className=\"w-full max-w-sm\">\n      <div className=\"flex flex-col gap-1\">\n        <p className=\"text-sm font-medium\">Heart health</p>\n        <p className=\"text-xs text-muted-foreground\">\n          Seven markers from your October panel.\n        </p>\n      </div>\n      <Separator className=\"my-4\" />\n      <p className=\"text-xs\">ApoB, LDL-C, HDL-C, Triglycerides, Lp(a).</p>\n    </div>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

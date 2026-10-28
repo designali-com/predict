@@ -1,0 +1,137 @@
+---
+title: Biomarkers
+description: "The 40 biomarkers PREDICT tracks, with their healthy ranges and which direction is a concern."
+---
+
+Each biomarker has its own page with a live reference range card, what it measures, how to read a high or low result, and notes on testing.
+
+## How to read a range
+
+Every biomarker has a healthy range, read as the middle 95% of healthy values. From that:
+
+- **Mean** is `(low + high) / 2`.
+- **SD** is `(high − low) / 4`.
+- **Z-score** is `(value − mean) / SD`. Inside the range, Z is between −2 and +2.
+
+**Direction** says which way is bad:
+
+| Direction | Meaning |
+| --- | --- |
+| ↑ Bad | A raised value is the concern. A low one is not flagged as a concern. |
+| ↓ Bad | A lowered value is the concern. |
+| Normal best | Either side is a concern. |
+| Context | Either side may matter, depending on the person. |
+
+The card colour steps up with |Z| using the status colours. See [Reference Range](/docs/tools/reference-range) for the full scale.
+
+## All biomarkers
+
+### Inflammation
+
+| Biomarker | Name | Unit | Healthy range | Direction |
+| --- | --- | --- | --- | --- |
+| [hs-CRP](/biomarkers/hs-crp) | High-sensitivity C-reactive protein | mg·L⁻¹ | 0.2–3 | ↑ Bad |
+| [CRP](/biomarkers/crp) | C-reactive protein | mg·L⁻¹ | 0.1–4.9 | ↑ Bad |
+| [NLR](/biomarkers/nlr) | Neutrophil-to-lymphocyte ratio | — | 1–3 | ↑ Bad |
+| [IL-6](/biomarkers/il-6) | Interleukin-6 | pg·mL⁻¹ | 0.5–7 | ↑ Bad |
+| [TNF-α](/biomarkers/tnf-alpha) | Tumor necrosis factor-α | pg·mL⁻¹ | 1–8 | ↑ Bad |
+
+### Muscle
+
+| Biomarker | Name | Unit | Healthy range | Direction |
+| --- | --- | --- | --- | --- |
+| [CK-MM](/biomarkers/ck-mm) | Creatine kinase, muscle isoenzyme | U·L⁻¹ | 50–170 | ↑ Bad |
+| [Aldolase A](/biomarkers/aldolase-a) | Aldolase A | U·L⁻¹ | 1.2–7.5 | ↑ Bad |
+| [IGF-1](/biomarkers/igf-1) | Insulin-like growth factor-1 | ng·mL⁻¹ | 90–360 | ↓ Bad |
+| [Myostatin](/biomarkers/myostatin) | Myostatin | ng·mL⁻¹ | 2–12 | ↑ Bad |
+
+### Bone and mineral
+
+| Biomarker | Name | Unit | Healthy range | Direction |
+| --- | --- | --- | --- | --- |
+| [MMP-9](/biomarkers/mmp-9) | Matrix metalloproteinase-9 | ng·mL⁻¹ | 20–140 | ↑ Bad |
+| [CTX-II](/biomarkers/ctx-ii) | C-terminal cross-linked telopeptide of type II collagen | pg·mL⁻¹ | 120–450 | ↑ Bad |
+| [PTH](/biomarkers/pth) | Parathyroid hormone | pg·mL⁻¹ | 15–65 | ↑ Bad |
+| [Ca/P ratio](/biomarkers/ca-p-ratio) | Calcium-to-phosphorus ratio | — | 2–2.8 | Normal best |
+| [Vitamin D](/biomarkers/vitamin-d) | 25-hydroxyvitamin D | ng·mL⁻¹ | 30–100 | ↓ Bad |
+| [Osteocalcin](/biomarkers/osteocalcin) | Osteocalcin | ng·mL⁻¹ | 11–43 | ↓ Bad |
+| [PINP](/biomarkers/pinp) | Procollagen type I N-terminal propeptide | ng·mL⁻¹ | 20–80 | ↓ Bad |
+
+### Glucose and insulin
+
+| Biomarker | Name | Unit | Healthy range | Direction |
+| --- | --- | --- | --- | --- |
+| [FBS](/biomarkers/fbs) | Fasting blood sugar | mg·dL⁻¹ | 70–99 | ↑ Bad |
+| [FSI](/biomarkers/fsi) | Fasting serum insulin | µIU·mL⁻¹ | 2–20 | ↑ Bad |
+| [HbA1c](/biomarkers/hba1c) | Glycated hemoglobin | % | 4–5.6 | ↑ Bad |
+
+### Lipids
+
+| Biomarker | Name | Unit | Healthy range | Direction |
+| --- | --- | --- | --- | --- |
+| [TC](/biomarkers/total-cholesterol) | Total cholesterol | mg·dL⁻¹ | 120–199 | ↑ Bad |
+| [LDL-C](/biomarkers/ldl-c) | Low-density lipoprotein cholesterol | mg·dL⁻¹ | 50–99 | ↑ Bad |
+| [HDL-C](/biomarkers/hdl-c) | High-density lipoprotein cholesterol | mg·dL⁻¹ | 40–80 | ↓ Bad |
+| [TG](/biomarkers/triglycerides) | Triglycerides | mg·dL⁻¹ | 50–149 | ↑ Bad |
+
+### Nerve and blood vessel
+
+| Biomarker | Name | Unit | Healthy range | Direction |
+| --- | --- | --- | --- | --- |
+| [BDNF](/biomarkers/bdnf) | Brain-derived neurotrophic factor | ng·mL⁻¹ | 15–40 | ↓ Bad |
+| [VEGF](/biomarkers/vegf) | Vascular endothelial growth factor | pg·mL⁻¹ | 30–250 | Context |
+| [NOx](/biomarkers/nox) | Nitric oxide metabolites (nitrate + nitrite) | µmol·L⁻¹ | 20–60 | ↓ Bad |
+| [NGF](/biomarkers/ngf) | Nerve growth factor | pg·mL⁻¹ | 20–80 | ↓ Bad |
+| [Substance P](/biomarkers/substance-p) | Substance P | pg·mL⁻¹ | 30–200 | ↑ Bad |
+| [GFAP](/biomarkers/gfap) | Glial fibrillary acidic protein | pg·mL⁻¹ | 20–120 | ↑ Bad |
+| [ET-1](/biomarkers/et-1) | Endothelin-1 | pg·mL⁻¹ | 0.5–3 | ↑ Bad |
+
+### Oxidative stress and fibrosis
+
+| Biomarker | Name | Unit | Healthy range | Direction |
+| --- | --- | --- | --- | --- |
+| [MDA](/biomarkers/mda) | Malondialdehyde | µmol·L⁻¹ | 1–3.5 | ↑ Bad |
+| [TGF-β1](/biomarkers/tgf-beta1) | Transforming growth factor-β1 | ng·mL⁻¹ | 1–8 | ↑ Bad |
+| [TIMP-1](/biomarkers/timp-1) | Tissue inhibitor of metalloproteinase-1 | ng·mL⁻¹ | 60–180 | ↓ Bad |
+
+### Kidney and protein
+
+| Biomarker | Name | Unit | Healthy range | Direction |
+| --- | --- | --- | --- | --- |
+| [eGFR](/biomarkers/egfr) | Estimated glomerular filtration rate | mL·min⁻¹·1.73 m⁻² | 90–120 | ↓ Bad |
+| [Cr](/biomarkers/creatinine) | Creatinine, serum | mg·dL⁻¹ | 0.7–1.3 | ↑ Bad |
+| [BUN](/biomarkers/bun) | Blood urea nitrogen | mg·dL⁻¹ | 7–20 | ↑ Bad |
+| [UA](/biomarkers/uric-acid) | Uric acid | mg·dL⁻¹ | 3.5–7.2 | ↑ Bad |
+| [Urea](/biomarkers/urea) | Serum urea | mg·dL⁻¹ | 15–40 | ↑ Bad |
+| [ALB](/biomarkers/albumin) | Serum albumin | g·dL⁻¹ | 3.5–5 | ↓ Bad |
+
+### Cartilage
+
+| Biomarker | Name | Unit | Healthy range | Direction |
+| --- | --- | --- | --- | --- |
+| [COMP](/biomarkers/comp) | Cartilage oligomeric matrix protein | ng·mL⁻¹ | 200–600 | ↑ Bad |
+
+## Indices
+
+Groups of these biomarkers are combined into composite scores, such as the [CBMI](/biomarkers/indices/cbmi) and [CBVAI](/biomarkers/indices/cbvai). See [Indices](/biomarkers/indices) for all five and how they are calculated.
+
+## In code
+
+The list is in `@workspace/ui/lib/biomarkers`, with the same ids as these pages.
+
+```tsx
+import { biomarkerRange, getBiomarker } from "@workspace/ui/lib/biomarkers"
+import { ReferenceRange } from "@workspace/ui/tools/reference-range"
+
+const crp = getBiomarker("hs-crp")!
+
+<ReferenceRange
+  name={crp.abbreviation}
+  description={crp.name}
+  value={3.5}
+  unit={crp.unit}
+  range={biomarkerRange(crp)}
+/>
+```
+
+This section is general information, not medical advice.

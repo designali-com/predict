@@ -1,0 +1,25 @@
+{
+  "title": "Components",
+  "pages": [
+    "accordion",
+    "button",
+    "calendar",
+    "card",
+    "collapsible",
+    "dialog",
+    "input",
+    "popover",
+    "progress",
+    "radio-group",
+    "scroll-area",
+    "separator",
+    "sheet",
+    "sidebar",
+    "skeleton",
+    "slider",
+    "switch",
+    "tabs",
+    "toggle",
+    "tooltip"
+  ]
+}

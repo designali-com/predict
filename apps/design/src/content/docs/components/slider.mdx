@@ -1,0 +1,65 @@
+---
+title: Slider
+description: "A control for picking a value or a range by dragging along a track."
+---
+
+## Demos
+
+A controlled slider with its value shown beside the label.
+
+<ComponentPreview name="slider-demo" />
+
+## Usage
+
+Use a slider when the exact number matters less than its position in a range, such as average sleep or a target band. When the reader needs an exact value, use an [Input](/docs/components/input), or show the value next to the slider.
+
+Import it from `@workspace/ui/components/slider`.
+
+```tsx
+import { Slider } from "@workspace/ui/components/slider"
+```
+
+```tsx
+<Slider aria-label="Target range" defaultValue={[70, 100]} min={40} max={200} />
+```
+
+### Anatomy
+
+- **Slider** — Track, filled range, and one thumb per value.
+
+### Notes
+
+- Pass `defaultValue` or `value` as an array. One item gives one thumb, two items give a range.
+- Every slider needs a name. Use `aria-label` or a visible label.
+- Arrow keys move by `step`. Page Up and Page Down move by larger steps.
+
+## Examples
+
+### Range
+
+Pass two values to get two thumbs.
+
+<ComponentPreview name="slider-range" />
+
+### Disabled
+
+A slider the reader can see but not move.
+
+<ComponentPreview name="slider-disabled" />
+
+## Props
+
+These are the props you set most often. Unlisted props pass through to the underlying element.
+
+### Slider
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `defaultValue` | `number[]` | — | Value on first render. |
+| `value` | `number[]` | — | Value when controlled. |
+| `onValueChange` | `(value) => void` | — | Called while the value changes. |
+| `min` | `number` | `0` | Lowest value. |
+| `max` | `number` | `100` | Highest value. |
+| `step` | `number` | `1` | Amount each step moves. |
+| `orientation` | `"horizontal" or "vertical"` | `horizontal` | Direction of the track. |
+| `disabled` | `boolean` | `false` | Blocks input and dims the slider. |

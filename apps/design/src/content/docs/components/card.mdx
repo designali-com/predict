@@ -1,0 +1,69 @@
+---
+title: Card
+description: "A surface that groups related content and actions."
+---
+
+## Demos
+
+A header and content.
+
+<ComponentPreview name="card-demo" />
+
+## Usage
+
+Use a card to group one result, one appointment, or one summary so it reads as a unit. Do not nest cards. If everything on a page is a card, nothing stands out.
+
+Import it from `@workspace/ui/components/card`.
+
+```tsx
+import {
+  Card,
+  CardAction,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@workspace/ui/components/card"
+```
+
+### Anatomy
+
+- **Card** — The surface. `size` sets the inner spacing.
+- **CardHeader** — Holds the title, description, and action.
+- **CardTitle** — The card heading.
+- **CardDescription** — Muted supporting text under the title.
+- **CardAction** — Sits at the top right of the header.
+- **CardContent** — The main body.
+- **CardFooter** — Actions at the bottom. Add `border-t` for a divider.
+
+### Notes
+
+- An image placed first inside **Card** runs to the top edge with rounded corners.
+- Add `border-b` to **CardHeader** to separate it from the content.
+- Keep one primary action per card.
+
+## Examples
+
+### With action and footer
+
+`CardAction` sits at the top right of the header. `CardFooter` holds the card's actions.
+
+<ComponentPreview name="card-with-action" />
+
+### Small
+
+Set `size="sm"` for tighter padding in lists and dashboards.
+
+<ComponentPreview name="card-small" />
+
+## Props
+
+These are the props you set most often. Unlisted props pass through to the underlying element.
+
+### Card
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `size` | `"default" or "sm"` | `default` | Inner spacing of the card. |
+| `className` | `string` | — | Classes merged onto the element. |

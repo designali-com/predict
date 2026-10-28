@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "age-calculator-on-change",
+  "type": "registry:block",
+  "description": "Listen for changes",
+  "files": [
+    {
+      "path": "registry/predict/tools/age-calculator/age-calculator-on-change.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport {\n  AgeCalculator,\n  type AgeResult,\n} from \"@workspace/ui/tools/age-calculator\"\n\nexport function AgeCalculatorOnChange() {\n  const [result, setResult] = React.useState<AgeResult | null>(null)\n\n  return (\n    <div className=\"mx-auto flex w-full flex-col items-center gap-3\">\n      <AgeCalculator\n        defaultBirthDate={new Date(2025, 1, 10)}\n        defaultMeasuredDate={new Date(2026, 0, 20)}\n        onChange={setResult}\n      />\n      <p className=\"text-xs text-muted-foreground\">\n        {result\n          ? `onChange: ${result.ageMonths.toFixed(2)} months, ${result.completedYears} completed years`\n          : \"onChange: null\"}\n      </p>\n    </div>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

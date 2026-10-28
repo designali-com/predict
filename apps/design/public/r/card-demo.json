@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card-demo",
+  "type": "registry:block",
+  "description": "Basic",
+  "files": [
+    {
+      "path": "registry/predict/components/card/card-demo.tsx",
+      "content": "\"use client\"\n\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardHeader,\n  CardTitle,\n} from \"@workspace/ui/components/card\"\n\nexport function CardDemo() {\n  return (\n    <Card className=\"w-full max-w-sm\">\n      <CardHeader>\n        <CardTitle>ApoB</CardTitle>\n        <CardDescription>Collected 12 Oct, after a 10 hour fast.</CardDescription>\n      </CardHeader>\n      <CardContent>\n        <p className=\"text-2xl font-medium tabular-nums\">\n          78 <span className=\"text-sm text-muted-foreground\">mg/dL</span>\n        </p>\n        <p className=\"text-muted-foreground\">Optimal range is below 90 mg/dL.</p>\n      </CardContent>\n    </Card>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

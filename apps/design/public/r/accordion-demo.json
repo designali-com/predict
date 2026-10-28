@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "accordion-demo",
+  "type": "registry:block",
+  "description": "Basic",
+  "files": [
+    {
+      "path": "registry/predict/components/accordion/accordion-demo.tsx",
+      "content": "\"use client\"\n\nimport {\n  Accordion,\n  AccordionContent,\n  AccordionItem,\n  AccordionTrigger,\n} from \"@workspace/ui/components/accordion\"\n\nexport function AccordionDemo() {\n  return (\n    <Accordion defaultValue={[\"fasting\"]} className=\"w-full max-w-md\">\n      <AccordionItem value=\"fasting\">\n        <AccordionTrigger>Do I need to fast before the test?</AccordionTrigger>\n        <AccordionContent>\n          Yes. Fast for 10 to 12 hours. Water is fine.\n        </AccordionContent>\n      </AccordionItem>\n      <AccordionItem value=\"results\">\n        <AccordionTrigger>When will my results be ready?</AccordionTrigger>\n        <AccordionContent>\n          Most panels are ready within 48 hours of collection.\n        </AccordionContent>\n      </AccordionItem>\n      <AccordionItem value=\"range\">\n        <AccordionTrigger>What does out of range mean?</AccordionTrigger>\n        <AccordionContent>\n          The value sits outside the reference range for your age and sex.\n          Your report explains what to do next.\n        </AccordionContent>\n      </AccordionItem>\n    </Accordion>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "reference-range-interactive",
+  "type": "registry:block",
+  "description": "Interactive",
+  "files": [
+    {
+      "path": "registry/predict/tools/reference-range/reference-range-interactive.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { Input } from \"@workspace/ui/components/input\"\nimport { ReferenceRange } from \"@workspace/ui/tools/reference-range\"\n\nexport function ReferenceRangeInteractive() {\n  const [value, setValue] = React.useState(4.2)\n\n  return (\n    <div className=\"mx-auto flex w-full max-w-sm flex-col gap-3\">\n      <Input\n        type=\"number\"\n        step={0.1}\n        aria-label=\"Potassium in mmol/L\"\n        value={Number.isNaN(value) ? \"\" : value}\n        onChange={(event) => setValue(event.target.valueAsNumber)}\n      />\n      <ReferenceRange\n        name=\"Potassium\"\n        value={value}\n        unit=\"mmol/L\"\n        decimals={1}\n        range={{ low: 3.5, high: 5.1, criticalLow: 2.8, criticalHigh: 6.2 }}\n      />\n    </div>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

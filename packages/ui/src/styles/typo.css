@@ -1,0 +1,44 @@
+@theme {
+    /* Heading Scale */
+    --text-heading-72: 4.5rem;
+    --text-heading-64: 4rem;
+    --text-heading-56: 3.5rem;
+    --text-heading-48: 3rem;
+    --text-heading-40: 2.5rem;
+    --text-heading-32: 2rem;
+    --text-heading-24: 1.5rem;
+    --text-heading-20: 1.25rem;
+    --text-heading-16: 1rem;
+    --text-heading-14: 0.875rem;
+}
+
+/* Semantic HTML Defaults */
+@layer base {
+    h1 {
+        @apply text-heading-32;
+
+    }
+
+    h2 {
+        @apply  text-heading-24;
+
+    }
+
+    h3 {
+        @apply  text-heading-20 font-medium;
+
+    }
+
+    h4 {
+        @apply text-heading-16;
+
+    }
+
+    p {
+        @apply text-heading-16 text-muted-foreground;
+    }
+
+    small {
+        @apply text-heading-14 text-muted-foreground;
+    }
+}

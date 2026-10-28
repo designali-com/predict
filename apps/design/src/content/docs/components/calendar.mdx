@@ -1,0 +1,74 @@
+---
+title: Calendar
+description: "A month grid for picking a date or a range of dates."
+---
+
+## Demos
+
+Pick a single date.
+
+<ComponentPreview name="calendar-demo" />
+
+## Usage
+
+Use a calendar when the day of the week or nearby dates matter, such as booking a blood draw. For a date the reader already knows, like a birthday, a text input is faster. Put the calendar inside a popover when space is tight.
+
+Import it from `@workspace/ui/components/calendar`. It is built on [React DayPicker](https://daypicker.dev), so every DayPicker prop works.
+
+```tsx
+import { Calendar } from "@workspace/ui/components/calendar"
+```
+
+```tsx
+const [date, setDate] = React.useState<Date | undefined>(new Date())
+
+<Calendar mode="single" selected={date} onSelect={setDate} />
+```
+
+### Anatomy
+
+- **Calendar** — The month grid with navigation.
+- **CalendarDayButton** — The button for each day. Exported so you can reuse it in a custom `components.DayButton`.
+
+### Notes
+
+- Set `mode` to `single`, `multiple`, or `range`. The shape of `selected` follows the mode.
+- Use `disabled` to block dates, for example days before today or days with no slots.
+- `captionLayout="dropdown"` adds month and year dropdowns for dates far from today.
+
+## Examples
+
+### Range
+
+Set `mode="range"` to pick a start and end date.
+
+<ComponentPreview name="calendar-range" />
+
+### Month and year dropdowns
+
+Set `captionLayout="dropdown"` to jump between months and years, for example a date of birth.
+
+<ComponentPreview name="calendar-dropdown" />
+
+### Disabled dates
+
+Pass a matcher to `disabled`. Here, past days and Sundays cannot be booked.
+
+<ComponentPreview name="calendar-disabled-dates" />
+
+## Props
+
+These are the props you set most often. Unlisted props pass through to DayPicker.
+
+### Calendar
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `mode` | `"single", "multiple", or "range"` | — | How many dates can be selected. |
+| `selected` | `Date, Date[], or DateRange` | — | The selected date or dates. |
+| `onSelect` | `(value) => void` | — | Called when the selection changes. |
+| `captionLayout` | `"label", "dropdown", "dropdown-months", or "dropdown-years"` | `label` | How the month caption is shown. |
+| `showOutsideDays` | `boolean` | `true` | Show days from the next and previous month. |
+| `disabled` | `Matcher or Matcher[]` | — | Dates that cannot be picked. |
+| `buttonVariant` | `Button variant` | `ghost` | Variant of the previous and next buttons. |
+| `className` | `string` | — | Classes merged onto the root. |

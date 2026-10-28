@@ -1,0 +1,140 @@
+---
+title: Typography
+description: Typography scale and semantic text styles used across the design system.
+---
+
+Typography establishes a consistent visual hierarchy across pages, sections, dashboards, and UI components.
+
+Our typography system uses semantic HTML elements and reusable Tailwind CSS utility classes. Default styles are defined globally in `typo.css`.
+
+## Heading Scale
+
+The heading scale defines the font sizes available throughout the design system.
+
+| Token | Font Size | Rem |
+| --- | ---: | ---: |
+| `text-heading-72` | 72px | `4.5rem` |
+| `text-heading-64` | 64px | `4rem` |
+| `text-heading-56` | 56px | `3.5rem` |
+| `text-heading-48` | 48px | `3rem` |
+| `text-heading-40` | 40px | `2.5rem` |
+| `text-heading-32` | 32px | `2rem` |
+| `text-heading-24` | 24px | `1.5rem` |
+| `text-heading-20` | 20px | `1.25rem` |
+| `text-heading-16` | 16px | `1rem` |
+| `text-heading-14` | 14px | `0.875rem` |
+
+## Semantic HTML Defaults
+
+Global styles automatically apply typography tokens to standard HTML elements.
+
+### Examples
+
+| Example | Element | Applied Style |
+| --- | --- | --- |
+| <h1>The Future of Muscle Intelligence</h1> | `h1` | `text-heading-32` |
+| <h2>The Future of Muscle Intelligence</h2> | `h2` | `text-heading-24` |
+| <h3>The Future of Muscle Intelligence</h3> | `h3` | `text-heading-20 font-medium` |
+| <h4>The Future of Muscle Intelligence</h4> | `h4` | `text-heading-16` |
+| <p>The Future of Muscle Intelligence</p> | `p` | `text-heading-16 text-muted-foreground` |
+| <small>The Future of Muscle Intelligence</small> | `small` | `text-heading-14 text-muted-foreground` |
+
+## Heading Styles
+
+### H1 — Primary Heading
+
+Uses `text-heading-32`, equivalent to `2rem` or `32px`.
+
+```tsx
+<h1>The Future of Muscle Intelligence</h1>
+```
+
+### H2 — Secondary Heading
+
+Uses `text-heading-24`, equivalent to `1.5rem` or `24px`.
+
+```tsx
+<h2>The Future of Muscle Intelligence</h2>
+```
+
+### H3 — Tertiary Heading
+
+Uses `text-heading-20` with `font-medium`, equivalent to `1.25rem` or `20px`.
+
+```tsx
+<h3>The Future of Muscle Intelligence</h3>
+```
+
+### H4 — Compact Heading
+
+Uses `text-heading-16`, equivalent to `1rem` or `16px`.
+
+```tsx
+<h4>The Future of Muscle Intelligence</h4>
+```
+
+## Body Text
+
+Paragraphs and small text use muted foreground colors to establish a clear visual hierarchy.
+
+| Element | Font Size | Text Color |
+| --- | --- | --- |
+| `p` | 16px | `text-muted-foreground` |
+| `small` | 14px | `text-muted-foreground` |
+
+### Paragraph
+
+```tsx
+<p>
+  Understand your biomarkers and discover insights into your muscle health.
+</p>
+```
+
+### Small Text
+
+```tsx
+<small>
+  Reference ranges may vary based on individual characteristics.
+</small>
+```
+
+## Custom Heading Sizes
+
+Use the available typography utilities when a heading requires a different size from the semantic defaults.
+
+```tsx
+<h1 className="text-heading-48">
+  Predict Your Future
+</h1>
+
+<h2 className="text-heading-32">
+  Your Biomarker Profile
+</h2>
+
+<h3 className="text-heading-20">
+  Muscle Health
+</h3>
+```
+
+## Guidelines
+
+- Use semantic HTML elements to maintain a consistent content hierarchy.
+- Use `h1` for the main page heading.
+- Use `h2`, `h3`, and `h4` for nested sections.
+- Use `p` for paragraphs and descriptions.
+- Use `small` for secondary information and metadata.
+- Use `text-muted-foreground` for supporting text.
+- Apply larger heading tokens when a custom visual hierarchy is required.
+
+## Implementation
+
+Typography styles are maintained in:
+
+- `packages/ui/src/styles/typo.css` — heading tokens and semantic HTML defaults.
+- `packages/ui/src/styles/globals.css` — global stylesheet and typography imports.
+
+Import the typography stylesheet into your global CSS:
+
+```css
+@import "./typo.css";
+```

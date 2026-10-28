@@ -1,0 +1,113 @@
+---
+title: Composite Biological LegAge Index
+description: "A weighted score of inflammation, vessel, musculoskeletal, bone, nerve, cardiometabolic, and kidney function in the legs."
+---
+
+The CBLAI sums seven domains of leg ageing into one score. It uses 25 biomarkers, the most of any index. A higher score means more of the panel sits outside its healthy range, with the most weight on the domains that matter most for this index.
+
+See [Indices](/biomarkers/indices) for how every index is calculated.
+
+## Domains
+
+| Domain | Biomarkers | αd |
+| --- | --- | --- |
+| Inflammation Risk Factor (IRF) | [hs-CRP](/biomarkers/hs-crp), [NLR](/biomarkers/nlr), [IL-6](/biomarkers/il-6), [MDA](/biomarkers/mda) | 2 |
+| Vascular & Angiogenic Function (VAF) | [VEGF](/biomarkers/vegf), [MMP-9](/biomarkers/mmp-9), [TGF-β1](/biomarkers/tgf-beta1) | 2 |
+| Musculoskeletal Health Factor (MHF) | [COMP](/biomarkers/comp), [CK-MM](/biomarkers/ck-mm), [Aldolase A](/biomarkers/aldolase-a), [CTX-II](/biomarkers/ctx-ii) | 2 |
+| Bone Metabolic Function (BMF) | [PTH](/biomarkers/pth), [Ca/P ratio](/biomarkers/ca-p-ratio), [Vitamin D](/biomarkers/vitamin-d), [Osteocalcin](/biomarkers/osteocalcin) | 1 |
+| Peripheral Nerve Function (PNF) | [BDNF](/biomarkers/bdnf), [Substance P](/biomarkers/substance-p) | 1 |
+| Cardiometabolic Function (CMF) | [HbA1c](/biomarkers/hba1c), [TC](/biomarkers/total-cholesterol), [LDL-C](/biomarkers/ldl-c), [HDL-C](/biomarkers/hdl-c), [TG](/biomarkers/triglycerides) | 6 |
+| Renal Filtration Factor (RFF) | [Creatinine](/biomarkers/creatinine), [BUN](/biomarkers/bun), [eGFR](/biomarkers/egfr) | 3 |
+
+αd is the fixed priority of each domain in this index.
+
+## Example
+
+These are the results of one example patient, worked through step by step.
+
+### Biomarker Z-scores
+
+Each result becomes a Z-score: `(value − mean) / SD`, with the mean and SD taken from the healthy range.
+
+#### Inflammation Risk Factor (IRF)
+
+| Biomarker | Healthy range | Mean | SD | Direction | Value | Z | \|Z\| |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| [hs-CRP](/biomarkers/hs-crp) | 0.2–3.0 mg·L⁻¹ | 1.6 | 0.7 | ↑ Bad | 3.5 | 2.71 | 2.71 |
+| [NLR](/biomarkers/nlr) | 1.0–3.0 ratio | 2 | 0.5 | ↑ Bad | 3.2 | 2.40 | 2.40 |
+| [IL-6](/biomarkers/il-6) | 0.5–7.0 pg·mL⁻¹ | 3.75 | 1.63 | ↑ Bad | 9.8 | 3.71 | 3.71 |
+| [MDA](/biomarkers/mda) | 1.0–3.5 µmol·L⁻¹ | 2.25 | 0.63 | ↑ Bad | 4.6 | 3.73 | 3.73 |
+
+#### Vascular & Angiogenic Function (VAF)
+
+| Biomarker | Healthy range | Mean | SD | Direction | Value | Z | \|Z\| |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| [VEGF](/biomarkers/vegf) | 30–250 pg·mL⁻¹ | 140 | 55 | Context | 305.6 | 3.01 | 3.01 |
+| [MMP-9](/biomarkers/mmp-9) | 20–140 ng·mL⁻¹ | 80 | 30 | ↑ Bad | 155.8 | 2.53 | 2.53 |
+| [TGF-β1](/biomarkers/tgf-beta1) | 10–40 pg·mL⁻¹ | 25 | 7.5 | Context | 45.8 | 2.77 | 2.77 |
+
+#### Musculoskeletal Health Factor (MHF)
+
+| Biomarker | Healthy range | Mean | SD | Direction | Value | Z | \|Z\| |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| [COMP](/biomarkers/comp) | 200–600 ng·mL⁻¹ | 400 | 100 | ↑ Bad | 850 | 4.50 | 4.50 |
+| [CK-MM](/biomarkers/ck-mm) | 50–170 U·L⁻¹ | 110 | 30 | ↑ Bad | 190 | 2.67 | 2.67 |
+| [Aldolase A](/biomarkers/aldolase-a) | 1.2–7.5 U·L⁻¹ | 4.35 | 1.58 | ↑ Bad | 8.5 | 2.63 | 2.63 |
+| [CTX-II](/biomarkers/ctx-ii) | 120–450 pg·mL⁻¹ | 285 | 82.5 | ↑ Bad | 510.7 | 2.74 | 2.74 |
+
+#### Bone Metabolic Function (BMF)
+
+| Biomarker | Healthy range | Mean | SD | Direction | Value | Z | \|Z\| |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| [PTH](/biomarkers/pth) | 15–65 pg·mL⁻¹ | 40 | 12.5 | ↑ Bad | 75.3 | 2.82 | 2.82 |
+| [Ca/P ratio](/biomarkers/ca-p-ratio) | 2.0–2.8 ratio | 2.4 | 0.2 | Normal best | 2.9 | 2.50 | 2.50 |
+| [Vitamin D](/biomarkers/vitamin-d) | 30–100 ng·mL⁻¹ | 65 | 17.5 | ↓ Bad | 25.4 | -2.26 | 2.26 |
+| [Osteocalcin](/biomarkers/osteocalcin) | 11–43 ng·mL⁻¹ | 27 | 8 | ↓ Bad | 8.9 | -2.26 | 2.26 |
+
+#### Peripheral Nerve Function (PNF)
+
+| Biomarker | Healthy range | Mean | SD | Direction | Value | Z | \|Z\| |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| [BDNF](/biomarkers/bdnf) | 15–40 ng·mL⁻¹ | 27.5 | 6.25 | ↓ Bad | 12.8 | -2.35 | 2.35 |
+| [Substance P](/biomarkers/substance-p) | 30–200 pg·mL⁻¹ | 115 | 42.5 | ↑ Bad | 225.6 | 2.60 | 2.60 |
+
+#### Cardiometabolic Function (CMF)
+
+| Biomarker | Healthy range | Mean | SD | Direction | Value | Z | \|Z\| |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| [HbA1c](/biomarkers/hba1c) | 4.0–5.6 % | 4.8 | 0.4 | ↑ Bad | 7.6 | 7.00 | 7.00 |
+| [TC](/biomarkers/total-cholesterol) | 120–199 mg·dL⁻¹ | 159.5 | 19.8 | ↑ Bad | 225.6 | 3.34 | 3.34 |
+| [LDL-C](/biomarkers/ldl-c) | 50–99 mg·dL⁻¹ | 74.5 | 12.3 | ↑ Bad | 185.5 | 9.02 | 9.02 |
+| [HDL-C](/biomarkers/hdl-c) | 40–80 mg·dL⁻¹ | 60 | 10 | ↓ Bad | 35.7 | -2.43 | 2.43 |
+| [TG](/biomarkers/triglycerides) | 50–149 mg·dL⁻¹ | 99.5 | 24.8 | ↑ Bad | 165.8 | 2.67 | 2.67 |
+
+#### Renal Filtration Factor (RFF)
+
+| Biomarker | Healthy range | Mean | SD | Direction | Value | Z | \|Z\| |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| [Creatinine](/biomarkers/creatinine) | 0.7–1.3 mg·dL⁻¹ | 1 | 0.15 | ↑ Bad | 1.8 | 5.33 | 5.33 |
+| [BUN](/biomarkers/bun) | 7–20 mg·dL⁻¹ | 13.5 | 3.25 | ↑ Bad | 21.8 | 2.55 | 2.55 |
+| [eGFR](/biomarkers/egfr) | 90–120 mL·min⁻¹·1.73 m⁻² | 105 | 7.5 | ↓ Bad | 82.7 | -2.97 | 2.97 |
+
+### Domain scores
+
+| Domain | Mean \|Z\|d | Wd | Mean \|Z\|d × Wd | αd | Score |
+| --- | --- | --- | --- | --- | --- |
+| IRF | 3.14 | 0.14 | 0.44 | 2 | 0.88 |
+| VAF | 2.77 | 0.12 | 0.34 | 2 | 0.68 |
+| MHF | 3.13 | 0.14 | 0.44 | 2 | 0.87 |
+| BMF | 2.46 | 0.11 | 0.27 | 1 | 0.27 |
+| PNF | 2.48 | 0.11 | 0.27 | 1 | 0.27 |
+| CMF | 4.89 | 0.22 | 1.06 | 6 | 6.39 |
+| RFF | 3.62 | 0.16 | 0.58 | 3 | 1.75 |
+| **Total** | **22.49** | **1.00** | **3.40** | | **11.11** |
+
+The example patient's CBLAI is **11.11**.
+
+Cardiometabolic Function adds the most to the score (6.39 of 11.11).
+
+## Notes
+
+- The mean and SD come from the healthy range, so a result inside the range has a |Z| of 2 or less.
+- The score has no fixed upper limit. Compare it over time for the same person, not between indices.
+- This page is general information, not medical advice. Discuss results with a clinician.

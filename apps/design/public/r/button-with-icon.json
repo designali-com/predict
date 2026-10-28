@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-with-icon",
+  "type": "registry:block",
+  "description": "With icon",
+  "files": [
+    {
+      "path": "registry/predict/components/button/button-with-icon.tsx",
+      "content": "\"use client\"\n\nimport { ArrowRightIcon, DownloadIcon } from \"lucide-react\"\n\nimport { Button } from \"@workspace/ui/components/button\"\n\nexport function ButtonWithIcon() {\n  return (\n    <div className=\"flex flex-wrap items-center justify-center gap-3\">\n      <Button size=\"sm\">\n        <DownloadIcon data-icon=\"inline-start\" />\n        Download\n      </Button>\n      <Button variant=\"outline\">\n        <DownloadIcon data-icon=\"inline-start\" />\n        Download\n      </Button>\n      <Button>\n        Continue\n        <ArrowRightIcon data-icon=\"inline-end\" />\n      </Button>\n      <Button variant=\"secondary\" size=\"lg\">\n        <DownloadIcon data-icon=\"inline-start\" />\n        Download\n      </Button>\n      <Button size=\"lg\">\n        Continue\n        <ArrowRightIcon data-icon=\"inline-end\" />\n      </Button>\n    </div>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tooltip-toolbar",
+  "type": "registry:block",
+  "description": "Toolbar",
+  "files": [
+    {
+      "path": "registry/predict/components/tooltip/tooltip-toolbar.tsx",
+      "content": "\"use client\"\n\nimport { DownloadIcon, PrinterIcon, ShareIcon } from \"lucide-react\"\n\nimport { Button } from \"@workspace/ui/components/button\"\nimport {\n  Tooltip,\n  TooltipContent,\n  TooltipProvider,\n  TooltipTrigger,\n} from \"@workspace/ui/components/tooltip\"\n\nconst actions = [\n  { label: \"Download report\", icon: DownloadIcon },\n  { label: \"Share with doctor\", icon: ShareIcon },\n  { label: \"Print\", icon: PrinterIcon },\n]\n\nexport function TooltipToolbar() {\n  return (\n    <TooltipProvider delay={300}>\n      <div className=\"flex items-center gap-1 rounded-full border p-1\">\n        {actions.map((action) => (\n          <Tooltip key={action.label}>\n            <TooltipTrigger\n              render={<Button variant=\"ghost\" size=\"icon-sm\" aria-label={action.label} />}\n            >\n              <action.icon />\n            </TooltipTrigger>\n            <TooltipContent>{action.label}</TooltipContent>\n          </Tooltip>\n        ))}\n      </div>\n    </TooltipProvider>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

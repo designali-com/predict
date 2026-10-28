@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "collapsible-controlled",
+  "type": "registry:block",
+  "description": "Controlled",
+  "files": [
+    {
+      "path": "registry/predict/components/collapsible/collapsible-controlled.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { Button } from \"@workspace/ui/components/button\"\nimport {\n  Collapsible,\n  CollapsibleContent,\n  CollapsibleTrigger,\n} from \"@workspace/ui/components/collapsible\"\n\nexport function CollapsibleControlled() {\n  const [open, setOpen] = React.useState(false)\n\n  return (\n    <Collapsible\n      open={open}\n      onOpenChange={setOpen}\n      className=\"flex w-full max-w-xs flex-col gap-2\"\n    >\n      <p className=\"text-xs text-muted-foreground\">\n        Your ApoB is in the optimal range. LDL-C is slightly high.\n      </p>\n      <CollapsibleContent className=\"text-xs text-muted-foreground\">\n        LDL-C measures the cholesterol carried by LDL particles. ApoB counts the\n        particles themselves, so the two can disagree.\n      </CollapsibleContent>\n      <CollapsibleTrigger render={<Button variant=\"link\" size=\"sm\" className=\"w-fit px-0\" />}>\n        {open ? \"Show less\" : \"Read more\"}\n      </CollapsibleTrigger>\n    </Collapsible>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

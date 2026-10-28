@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input-file",
+  "type": "registry:block",
+  "description": "File",
+  "files": [
+    {
+      "path": "registry/predict/components/input/input-file.tsx",
+      "content": "\"use client\"\n\nimport { Input } from \"@workspace/ui/components/input\"\n\nexport function InputFile() {\n  return (\n    <label className=\"grid w-full max-w-sm gap-1.5 text-xs font-medium\">\n      Upload lab report\n      <Input type=\"file\" accept=\"application/pdf\" />\n    </label>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

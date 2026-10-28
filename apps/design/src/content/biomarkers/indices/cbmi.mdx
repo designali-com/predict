@@ -1,0 +1,94 @@
+---
+title: Composite Biological Musculoskeletal Index
+description: "A weighted score of inflammation, muscle and cartilage breakdown, bone turnover, cardiometabolic, and nerve and vessel risk."
+---
+
+The CBMI sums five domains of musculoskeletal risk into one score. It uses 21 biomarkers. A higher score means more of the panel sits outside its healthy range, with the most weight on the domains that matter most for this index.
+
+See [Indices](/biomarkers/indices) for how every index is calculated.
+
+## Domains
+
+| Domain | Biomarkers | αd |
+| --- | --- | --- |
+| Inflammatory Risk (IR) | [hs-CRP](/biomarkers/hs-crp), [NLR](/biomarkers/nlr), [IL-6](/biomarkers/il-6) | 2 |
+| Muscle-Cartilage Degeneration Risk (MCDR) | [CK-MM](/biomarkers/ck-mm), [Aldolase A](/biomarkers/aldolase-a), [IGF-1](/biomarkers/igf-1), [Myostatin](/biomarkers/myostatin), [CTX-II](/biomarkers/ctx-ii) | 2 |
+| Bone Turnover Risk (BTR) | [PTH](/biomarkers/pth), [Ca/P ratio](/biomarkers/ca-p-ratio), [Vitamin D](/biomarkers/vitamin-d), [Osteocalcin](/biomarkers/osteocalcin), [PINP](/biomarkers/pinp) | 1 |
+| Cardiometabolic Risk (CMR) | [HbA1c](/biomarkers/hba1c), [TC](/biomarkers/total-cholesterol), [LDL-C](/biomarkers/ldl-c), [HDL-C](/biomarkers/hdl-c) | 6 |
+| Neurovascular Function Risk (NVFR) | [BDNF](/biomarkers/bdnf), [VEGF](/biomarkers/vegf), [NOx](/biomarkers/nox) | 1 |
+
+αd is the fixed priority of each domain in this index.
+
+## Example
+
+These are the results of one example patient, worked through step by step.
+
+### Biomarker Z-scores
+
+Each result becomes a Z-score: `(value − mean) / SD`, with the mean and SD taken from the healthy range.
+
+#### Inflammatory Risk (IR)
+
+| Biomarker | Healthy range | Mean | SD | Direction | Value | Z | \|Z\| |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| [hs-CRP](/biomarkers/hs-crp) | 0.2–3.0 mg·L⁻¹ | 1.6 | 0.7 | ↑ Bad | 3.5 | 2.71 | 2.71 |
+| [NLR](/biomarkers/nlr) | 1.0–3.0 ratio | 2 | 0.5 | ↑ Bad | 3.2 | 2.40 | 2.40 |
+| [IL-6](/biomarkers/il-6) | 0.5–7.0 pg·mL⁻¹ | 3.75 | 1.63 | ↑ Bad | 9.8 | 3.71 | 3.71 |
+
+#### Muscle-Cartilage Degeneration Risk (MCDR)
+
+| Biomarker | Healthy range | Mean | SD | Direction | Value | Z | \|Z\| |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| [CK-MM](/biomarkers/ck-mm) | 50–170 U·L⁻¹ | 110 | 30 | ↑ Bad | 190 | 2.67 | 2.67 |
+| [Aldolase A](/biomarkers/aldolase-a) | 1.2–7.5 U·L⁻¹ | 4.35 | 1.58 | ↑ Bad | 8.5 | 2.63 | 2.63 |
+| [IGF-1](/biomarkers/igf-1) | 90–360 ng·mL⁻¹ | 225 | 67.5 | ↓ Bad | 82.8 | -2.11 | 2.11 |
+| [Myostatin](/biomarkers/myostatin) | 2–12 ng·mL⁻¹ | 7 | 2.5 | ↑ Bad | 18.3 | 4.52 | 4.52 |
+| [CTX-II](/biomarkers/ctx-ii) | 120–450 pg·mL⁻¹ | 285 | 82.5 | ↑ Bad | 510.7 | 2.74 | 2.74 |
+
+#### Bone Turnover Risk (BTR)
+
+| Biomarker | Healthy range | Mean | SD | Direction | Value | Z | \|Z\| |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| [PTH](/biomarkers/pth) | 15–65 pg·mL⁻¹ | 40 | 12.5 | ↑ Bad | 75.3 | 2.82 | 2.82 |
+| [Ca/P ratio](/biomarkers/ca-p-ratio) | 2.0–2.8 ratio | 2.4 | 0.2 | Normal best | 2.9 | 2.50 | 2.50 |
+| [Vitamin D](/biomarkers/vitamin-d) | 30–100 ng·mL⁻¹ | 65 | 17.5 | ↓ Bad | 25.4 | -2.26 | 2.26 |
+| [Osteocalcin](/biomarkers/osteocalcin) | 11–43 ng·mL⁻¹ | 27 | 8 | ↓ Bad | 8.9 | -2.26 | 2.26 |
+| [PINP](/biomarkers/pinp) | 20–80 ng·mL⁻¹ | 50 | 15 | ↓ Bad | 9.7 | -2.69 | 2.69 |
+
+#### Cardiometabolic Risk (CMR)
+
+| Biomarker | Healthy range | Mean | SD | Direction | Value | Z | \|Z\| |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| [HbA1c](/biomarkers/hba1c) | 4.0–5.6 % | 4.8 | 0.4 | ↑ Bad | 7.6 | 7.00 | 7.00 |
+| [TC](/biomarkers/total-cholesterol) | 120–199 mg·dL⁻¹ | 159.5 | 19.8 | ↑ Bad | 225.6 | 3.34 | 3.34 |
+| [LDL-C](/biomarkers/ldl-c) | 50–99 mg·dL⁻¹ | 74.5 | 12.3 | ↑ Bad | 185.5 | 9.02 | 9.02 |
+| [HDL-C](/biomarkers/hdl-c) | 40–80 mg·dL⁻¹ | 60 | 10 | ↓ Bad | 35.7 | -2.43 | 2.43 |
+
+#### Neurovascular Function Risk (NVFR)
+
+| Biomarker | Healthy range | Mean | SD | Direction | Value | Z | \|Z\| |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| [BDNF](/biomarkers/bdnf) | 15–40 ng·mL⁻¹ | 27.5 | 6.25 | ↓ Bad | 12.8 | -2.35 | 2.35 |
+| [VEGF](/biomarkers/vegf) | 30–250 pg·mL⁻¹ | 140 | 55 | Context | 305.6 | 3.01 | 3.01 |
+| [NOx](/biomarkers/nox) | 20–60 µmol·L⁻¹ | 40 | 10 | ↓ Bad | 18.9 | -2.11 | 2.11 |
+
+### Domain scores
+
+| Domain | Mean \|Z\|d | Wd | Mean \|Z\|d × Wd | αd | Score |
+| --- | --- | --- | --- | --- | --- |
+| IR | 2.94 | 0.18 | 0.53 | 2 | 1.06 |
+| MCDR | 2.93 | 0.18 | 0.53 | 2 | 1.05 |
+| BTR | 2.51 | 0.15 | 0.39 | 1 | 0.39 |
+| CMR | 5.45 | 0.33 | 1.82 | 6 | 10.91 |
+| NVFR | 2.49 | 0.15 | 0.38 | 1 | 0.38 |
+| **Total** | **16.32** | **1.00** | **3.64** | | **13.79** |
+
+The example patient's CBMI is **13.79**.
+
+Cardiometabolic Risk adds the most to the score (10.91 of 13.79).
+
+## Notes
+
+- The mean and SD come from the healthy range, so a result inside the range has a |Z| of 2 or less.
+- The score has no fixed upper limit. Compare it over time for the same person, not between indices.
+- This page is general information, not medical advice. Discuss results with a clinician.

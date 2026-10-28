@@ -1,0 +1,10 @@
+{
+  "root": true,
+  "pages": [
+    "(root)",
+    "design",
+    "ui",
+    "tools",
+    "components"
+  ]
+}

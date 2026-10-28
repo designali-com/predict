@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "reference-range-panel",
+  "type": "registry:block",
+  "description": "Biomarker panel",
+  "files": [
+    {
+      "path": "registry/predict/tools/reference-range/reference-range-panel.tsx",
+      "content": "\"use client\"\n\nimport { biomarkerRange, biomarkers } from \"@workspace/ui/lib/biomarkers\"\nimport { ReferenceRange } from \"@workspace/ui/tools/reference-range\"\n\n// Example results, by biomarker id.\nconst results: Record<string, number> = {\n  \"hs-crp\": 3.5, crp: 4.2, nlr: 3.2, \"il-6\": 9.8, \"tnf-alpha\": 12.7,\n  \"ck-mm\": 190, \"aldolase-a\": 8.5, \"igf-1\": 82.8, myostatin: 18.3,\n  \"mmp-9\": 155.8, \"ctx-ii\": 510.7, pth: 75.3, \"ca-p-ratio\": 2.9,\n  \"vitamin-d\": 25.4, osteocalcin: 8.9, pinp: 9.7, fbs: 110, fsi: 28.8,\n  hba1c: 7.6, \"total-cholesterol\": 225.6, \"ldl-c\": 185.5, \"hdl-c\": 35.7,\n  triglycerides: 165.8, bdnf: 12.8, vegf: 305.6, nox: 18.9, ngf: 18.8,\n  \"substance-p\": 225.6, gfap: 125.7, \"et-1\": 4.6, mda: 4.6,\n  \"tgf-beta1\": 12.7, \"timp-1\": 55.9, egfr: 82.7, creatinine: 1.8,\n  bun: 21.8, \"uric-acid\": 8.9, urea: 45.6, albumin: 2.8, comp: 850,\n}\n\nexport function ReferenceRangePanel() {\n  return (\n    <div className=\"mx-auto grid w-full gap-3 sm:grid-cols-2 lg:grid-cols-3\">\n      {biomarkers.map((biomarker) => (\n        <ReferenceRange\n          key={biomarker.id}\n          name={biomarker.abbreviation}\n          description={biomarker.name}\n          value={results[biomarker.id] ?? Number.NaN}\n          unit={biomarker.unit}\n          range={biomarkerRange(biomarker)}\n          className=\"max-w-none\"\n        />\n      ))}\n    </div>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

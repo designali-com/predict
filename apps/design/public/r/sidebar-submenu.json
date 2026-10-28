@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sidebar-submenu",
+  "type": "registry:block",
+  "description": "Submenu",
+  "files": [
+    {
+      "path": "registry/predict/components/sidebar/sidebar-submenu.tsx",
+      "content": "\"use client\"\n\nimport { ActivityIcon, FileTextIcon, HomeIcon } from \"lucide-react\"\n\nimport {\n  Sidebar,\n  SidebarContent,\n  SidebarGroup,\n  SidebarGroupContent,\n  SidebarMenu,\n  SidebarMenuButton,\n  SidebarMenuItem,\n  SidebarMenuSub,\n  SidebarMenuSubButton,\n  SidebarMenuSubItem,\n  SidebarProvider,\n} from \"@workspace/ui/components/sidebar\"\n\nconst categories = [\"Heart\", \"Metabolic\", \"Hormones\", \"Inflammation\"]\n\nexport function SidebarSubmenu() {\n  return (\n    <SidebarProvider className=\"min-h-0 w-auto\">\n      <Sidebar collapsible=\"none\" className=\"h-96 rounded-lg border\">\n        <SidebarContent>\n          <SidebarGroup>\n            <SidebarGroupContent>\n              <SidebarMenu>\n                <SidebarMenuItem>\n                  <SidebarMenuButton>\n                    <HomeIcon />\n                    <span>Home</span>\n                  </SidebarMenuButton>\n                </SidebarMenuItem>\n                <SidebarMenuItem>\n                  <SidebarMenuButton>\n                    <ActivityIcon />\n                    <span>Biomarkers</span>\n                  </SidebarMenuButton>\n                  <SidebarMenuSub>\n                    {categories.map((category) => (\n                      <SidebarMenuSubItem key={category}>\n                        <SidebarMenuSubButton href=\"#\" isActive={category === \"Heart\"}>\n                          <span>{category}</span>\n                        </SidebarMenuSubButton>\n                      </SidebarMenuSubItem>\n                    ))}\n                  </SidebarMenuSub>\n                </SidebarMenuItem>\n                <SidebarMenuItem>\n                  <SidebarMenuButton>\n                    <FileTextIcon />\n                    <span>Reports</span>\n                  </SidebarMenuButton>\n                </SidebarMenuItem>\n              </SidebarMenu>\n            </SidebarGroupContent>\n          </SidebarGroup>\n        </SidebarContent>\n      </Sidebar>\n    </SidebarProvider>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

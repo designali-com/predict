@@ -1,0 +1,95 @@
+---
+title: Tabs
+description: "A set of panels where only one is shown at a time."
+---
+
+## Demos
+
+Default pill tabs.
+
+<ComponentPreview name="tabs-demo" />
+
+## Usage
+
+Use tabs to switch between views of the same subject, such as the overview, history, and notes of one biomarker. Do not use tabs for steps in a sequence, or for content the reader needs to compare at once.
+
+Import it from `@workspace/ui/components/tabs`.
+
+```tsx
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@workspace/ui/components/tabs"
+```
+
+```tsx
+<Tabs defaultValue="overview">
+  <TabsList>
+    <TabsTrigger value="overview">Overview</TabsTrigger>
+    <TabsTrigger value="history">History</TabsTrigger>
+  </TabsList>
+  <TabsContent value="overview">...</TabsContent>
+  <TabsContent value="history">...</TabsContent>
+</Tabs>
+```
+
+### Anatomy
+
+- **Tabs** — Holds the active value and the orientation.
+- **TabsList** — The row of triggers. `variant` sets the style.
+- **TabsTrigger** — One tab. Its `value` matches a panel.
+- **TabsContent** — The panel shown when its tab is active.
+
+### Notes
+
+- Arrow keys move between tabs. Tab moves into the active panel.
+- Keep labels to one or two words.
+- Line tabs are quieter. Use them when tabs sit inside a busy page.
+
+## Examples
+
+### Line
+
+Set `variant="line"` on `TabsList` for a quieter style.
+
+<ComponentPreview name="tabs-line" />
+
+### Vertical
+
+Set `orientation="vertical"` to stack the tabs beside the content.
+
+<ComponentPreview name="tabs-vertical" />
+
+### Disabled
+
+Disable a tab that has nothing to show yet.
+
+<ComponentPreview name="tabs-disabled" />
+
+## Props
+
+These are the props you set most often. Unlisted props pass through to the underlying element.
+
+### Tabs
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `defaultValue` | `any` | — | Active tab on first render. |
+| `value` | `any` | — | Active tab when controlled. |
+| `onValueChange` | `(value) => void` | — | Called when the active tab changes. |
+| `orientation` | `"horizontal" or "vertical"` | `horizontal` | Direction of the list. |
+
+### TabsList
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `variant` | `"default" or "line"` | `default` | Filled pill track or an outlined track. |
+
+### TabsTrigger
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `value` | `any` | — | Identifies the tab and its panel. |
+| `disabled` | `boolean` | `false` | Stops the tab from being selected. |

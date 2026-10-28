@@ -1,0 +1,110 @@
+---
+title: Button
+description: "A button or a control that looks like a button."
+---
+
+## Demos 
+
+Default is the primary action. Outline and ghost are quieter. Destructive is for a harmful action. Link looks like text.
+
+<ComponentPreview name="button-demo" />
+ 
+## Usage
+
+Use a button for an action on the current page: save, open, delete, or continue. If the control navigates to another URL, render it as a link. One primary button per section is enough. The rest should be outline, secondary, or ghost.
+
+Import it from `@workspace/ui/components/button`.
+
+```tsx
+import {
+  Button,
+} from "@workspace/ui/components/button"
+```
+
+### Anatomy
+
+- **Button** — `variant` is `default`, `outline`, `secondary`, `ghost`, `destructive`, `link`, or `invert`. `size` is `sm`, `default`, `lg`, or `icon-sm`, `icon`, `icon-lg`.
+
+### Notes
+
+- Icon-only buttons need an `aria-label`. The icon is not a name.
+- Put `data-icon="inline-start"` or `data-icon="inline-end"` on an icon so the padding stays even.
+- Disabled buttons stay visible. Do not hide an action the reader is not allowed to take. Explain why nearby if it is not obvious.
+- To make a button navigate, set `nativeButton={false}` and pass an anchor through `render`.
+
+## Examples
+
+### Outline
+
+A quieter action next to a primary one.
+
+<ComponentPreview name="button-outline" />
+
+### Secondary
+
+For actions that matter less than the primary one.
+
+<ComponentPreview name="button-secondary" />
+
+### Ghost
+
+No border or fill until hover. Use in toolbars and dense rows.
+
+<ComponentPreview name="button-ghost" />
+
+### Destructive
+
+For actions that delete or cannot be undone.
+
+<ComponentPreview name="button-destructive" />
+
+### Link
+
+Looks like text. Use for low-weight navigation.
+
+<ComponentPreview name="button-link" />
+
+### Invert
+
+Uses the foreground colour as the fill.
+
+<ComponentPreview name="button-invert" />
+
+### Sizes
+
+`sm`, `default`, and `lg`, plus a matching icon size for each.
+
+<ComponentPreview name="button-sizes" />
+
+### Icon
+
+An icon-only button. Always give it an `aria-label`.
+
+<ComponentPreview name="button-icon" />
+
+### With icon
+
+Mark the icon with `data-icon` so the padding adjusts on that side.
+
+<ComponentPreview name="button-with-icon" />
+
+### Disabled
+
+Disabled buttons fade and ignore clicks.
+
+<ComponentPreview name="button-disabled" />
+
+## Props
+
+These are the props you set most often. Unlisted props pass through to the underlying element.
+
+### Button
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `variant` | `"default", "outline", "secondary", "ghost", "destructive", "link", or "invert"` | `default` | Emphasis of the action. |
+| `size` | `"sm", "default", "lg", "icon-sm", "icon", or "icon-lg"` | `default` | Height and padding. |
+| `disabled` | `boolean` | `false` | Blocks the action and dims the button. |
+| `nativeButton` | `boolean` | `true` | Set false when render is not a button, such as a link. |
+| `render` | `ReactElement` | — | Element to render instead of a button. |
+| `className` | `string` | — | Classes merged onto the element. |

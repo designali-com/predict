@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sheet-side",
+  "type": "registry:block",
+  "description": "Side",
+  "files": [
+    {
+      "path": "registry/predict/components/sheet/sheet-side.tsx",
+      "content": "\"use client\"\n\nimport { Button } from \"@workspace/ui/components/button\"\nimport {\n  Sheet,\n  SheetContent,\n  SheetDescription,\n  SheetHeader,\n  SheetTitle,\n  SheetTrigger,\n} from \"@workspace/ui/components/sheet\"\n\nconst sides = [\"top\", \"right\", \"bottom\", \"left\"] as const\n\nexport function SheetSide() {\n  return (\n    <div className=\"flex flex-wrap items-center justify-center gap-3\">\n      {sides.map((side) => (\n        <Sheet key={side}>\n          <SheetTrigger render={<Button variant=\"outline\" className=\"capitalize\" />}>\n            {side}\n          </SheetTrigger>\n          <SheetContent side={side}>\n            <SheetHeader>\n              <SheetTitle className=\"capitalize\">{side} sheet</SheetTitle>\n              <SheetDescription>This sheet opens from the {side} edge.</SheetDescription>\n            </SheetHeader>\n          </SheetContent>\n        </Sheet>\n      ))}\n    </div>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

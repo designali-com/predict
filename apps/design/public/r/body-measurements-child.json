@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "body-measurements-child",
+  "type": "registry:block",
+  "description": "Child",
+  "files": [
+    {
+      "path": "registry/predict/tools/body-measurements/body-measurements-child.tsx",
+      "content": "\"use client\"\n\nimport { BodyMeasurements } from \"@workspace/ui/tools/body-measurements\"\n\nexport function BodyMeasurementsChild() {\n  return (\n    <div className=\"mx-auto flex w-full justify-center\">\n      <BodyMeasurements defaultWeight={20} defaultHeight={110} />\n    </div>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

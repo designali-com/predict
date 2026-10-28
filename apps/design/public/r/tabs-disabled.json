@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tabs-disabled",
+  "type": "registry:block",
+  "description": "Disabled",
+  "files": [
+    {
+      "path": "registry/predict/components/tabs/tabs-disabled.tsx",
+      "content": "\"use client\"\n\nimport { Tabs, TabsContent, TabsList, TabsTrigger } from \"@workspace/ui/components/tabs\"\n\nexport function TabsDisabled() {\n  return (\n    <Tabs defaultValue=\"overview\" className=\"w-full max-w-md\">\n      <TabsList>\n        <TabsTrigger value=\"overview\">Overview</TabsTrigger>\n        <TabsTrigger value=\"trends\" disabled>\n          Trends\n        </TabsTrigger>\n      </TabsList>\n      <TabsContent value=\"overview\">Trends appear after your second panel.</TabsContent>\n    </Tabs>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

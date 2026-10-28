@@ -1,0 +1,144 @@
+---
+title: Colors
+description: PREDICT design system color palette, semantic tokens, and severity indicators.
+---
+
+## Color Palette
+
+The PREDICT color system provides a consistent visual language for dashboards, biomarker reports, clinical interfaces, and health data visualizations.
+
+### Severity Colors
+
+Use these semantic colors to represent biomarker status and severity.
+
+<div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+
+  <div className="overflow-hidden rounded-xl border">
+    <div className="h-24 bg-[#00C950]" />
+    <div className="space-y-1 p-3">
+      <p className="font-medium">Normal</p>
+      <code className="text-xs">#00C950</code>
+      <p className="text-xs text-muted-foreground">status-normal</p>
+    </div>
+  </div>
+
+  <div className="overflow-hidden rounded-xl border">
+    <div className="h-24 bg-[#F0B100]" />
+    <div className="space-y-1 p-3">
+      <p className="font-medium">Mild</p>
+      <code className="text-xs">#F0B100</code>
+      <p className="text-xs text-muted-foreground">status-mild</p>
+    </div>
+  </div>
+
+  <div className="overflow-hidden rounded-xl border">
+    <div className="h-24 bg-[#2B7FFF]" />
+    <div className="space-y-1 p-3">
+      <p className="font-medium">Moderate</p>
+      <code className="text-xs">#2B7FFF</code>
+      <p className="text-xs text-muted-foreground">status-moderate</p>
+    </div>
+  </div>
+
+  <div className="overflow-hidden rounded-xl border">
+    <div className="h-24 bg-[#FF6900]" />
+    <div className="space-y-1 p-3">
+      <p className="font-medium">Severe</p>
+      <code className="text-xs">#FF6900</code>
+      <p className="text-xs text-muted-foreground">status-severe</p>
+    </div>
+  </div>
+
+  <div className="overflow-hidden rounded-xl border">
+    <div className="h-24 bg-[#FB2C36]" />
+    <div className="space-y-1 p-3">
+      <p className="font-medium">Extreme</p>
+      <code className="text-xs">#FB2C36</code>
+      <p className="text-xs text-muted-foreground">status-extreme</p>
+    </div>
+  </div>
+
+</div>
+
+### Primary Colors
+
+<div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
+
+  <div className="overflow-hidden rounded-xl border">
+    <div className="h-24 bg-[oklch(0.536_0.2917_295.68)]" />
+    <div className="p-3">
+      <p className="font-medium">Primary</p>
+      <code className="text-xs">oklch(0.536 0.2917 295.68)</code>
+    </div>
+  </div>
+
+  <div className="overflow-hidden rounded-xl border">
+    <div className="h-24 bg-white" />
+    <div className="p-3">
+      <p className="font-medium">White</p>
+      <code className="text-xs">#FFFFFF</code>
+    </div>
+  </div>
+
+  <div className="overflow-hidden rounded-xl border">
+    <div className="h-24 bg-black" />
+    <div className="p-3">
+      <p className="font-medium">Black</p>
+      <code className="text-xs">#000000</code>
+    </div>
+  </div>
+
+</div>
+
+### Chart Colors
+
+<div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+
+  <div className="overflow-hidden rounded-xl border">
+    <div className="h-20 bg-[oklch(99.2%_0.0052_295.7)]" />
+    <div className="p-3">
+      <p className="font-medium">Chart 1</p>
+      <code className="text-xs">--chart-1</code>
+    </div>
+  </div>
+
+  <div className="overflow-hidden rounded-xl border">
+    <div className="h-20 bg-[oklch(96.1%_0.0343_295.7)]" />
+    <div className="p-3">
+      <p className="font-medium">Chart 2</p>
+      <code className="text-xs">--chart-2</code>
+    </div>
+  </div>
+
+  <div className="overflow-hidden rounded-xl border">
+    <div className="h-20 bg-[oklch(90.2%_0.0897_295.7)]" />
+    <div className="p-3">
+      <p className="font-medium">Chart 3</p>
+      <code className="text-xs">--chart-3</code>
+    </div>
+  </div>
+
+  <div className="overflow-hidden rounded-xl border">
+    <div className="h-20 bg-[oklch(80.5%_0.1475_295.7)]" />
+    <div className="p-3">
+      <p className="font-medium">Chart 4</p>
+      <code className="text-xs">--chart-4</code>
+    </div>
+  </div>
+
+  <div className="overflow-hidden rounded-xl border">
+    <div className="h-20 bg-[oklch(53.6%_0.2917_295.7)]" />
+    <div className="p-3">
+      <p className="font-medium">Chart 5</p>
+      <code className="text-xs">--chart-5</code>
+    </div>
+  </div>
+
+</div>
+
+### Usage Guidelines
+
+- Use severity colors consistently across biomarker cards, reports, and health indicators.
+- Use semantic Tailwind tokens instead of hardcoding colors in application components.
+- Maintain accessible text contrast on every color surface.
+- Keep light and dark themes consistent with the global CSS variables.

@@ -1,0 +1,48 @@
+---
+title: Separator
+description: "A thin line that divides content."
+---
+
+## Demos
+
+A horizontal separator between a heading and the content below it.
+
+<ComponentPreview name="separator-demo" />
+
+## Usage
+
+Use a separator to split groups that would otherwise run together. Spacing alone is often enough. Reach for a line only when it is not.
+
+Import it from `@workspace/ui/components/separator`.
+
+```tsx
+import { Separator } from "@workspace/ui/components/separator"
+```
+
+### Anatomy
+
+- **Separator** — A one-pixel line in the border color.
+
+### Notes
+
+- A vertical separator stretches to the height of its row. Give the row a height, such as `h-5`.
+- Use margin classes like `my-4` to set the space around it.
+
+## Examples
+
+### Vertical
+
+Set `orientation="vertical"` between inline items. The parent needs a height.
+
+<ComponentPreview name="separator-vertical" />
+
+## Props
+
+These are the props you set most often. Unlisted props pass through to the underlying element.
+
+### Separator
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `orientation` | `"horizontal" or "vertical"` | `horizontal` | Direction of the line. |
+| `className` | `string` | — | Classes merged onto the element. |

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "popover-form",
+  "type": "registry:block",
+  "description": "With form",
+  "files": [
+    {
+      "path": "registry/predict/components/popover/popover-form.tsx",
+      "content": "\"use client\"\n\nimport { Button } from \"@workspace/ui/components/button\"\nimport { Input } from \"@workspace/ui/components/input\"\nimport {\n  Popover,\n  PopoverContent,\n  PopoverDescription,\n  PopoverHeader,\n  PopoverTitle,\n  PopoverTrigger,\n} from \"@workspace/ui/components/popover\"\n\nexport function PopoverForm() {\n  return (\n    <Popover>\n      <PopoverTrigger render={<Button variant=\"outline\" />}>Set target</PopoverTrigger>\n      <PopoverContent className=\"w-64\">\n        <PopoverHeader>\n          <PopoverTitle>Daily step target</PopoverTitle>\n          <PopoverDescription>Shown as a line on your activity chart.</PopoverDescription>\n        </PopoverHeader>\n        <div className=\"flex items-center gap-2\">\n          <Input type=\"number\" defaultValue={8000} aria-label=\"Steps\" />\n          <Button size=\"sm\">Save</Button>\n        </div>\n      </PopoverContent>\n    </Popover>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

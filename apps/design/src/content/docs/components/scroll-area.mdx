@@ -1,0 +1,60 @@
+---
+title: Scroll Area
+description: "A scrolling region with a styled scrollbar."
+---
+
+## Demos
+
+A fixed-height list of biomarkers that scrolls inside its border.
+
+<ComponentPreview name="scroll-area-demo" />
+
+## Usage
+
+Use a scroll area when a list must fit a fixed space, such as a sidebar or a panel inside a card. Let the page scroll when it can. Nested scrolling is harder to use, especially on touch.
+
+Import it from `@workspace/ui/components/scroll-area`.
+
+```tsx
+import { ScrollArea, ScrollBar } from "@workspace/ui/components/scroll-area"
+```
+
+```tsx
+<ScrollArea className="h-72 w-56 rounded-md border">
+  <div className="p-4">...</div>
+</ScrollArea>
+```
+
+### Anatomy
+
+- **ScrollArea** — The root and viewport. Adds a vertical scrollbar.
+- **ScrollBar** — Add one with `orientation="horizontal"` for sideways scrolling.
+
+### Notes
+
+- Give the scroll area a fixed height or width, or it grows with its content and never scrolls.
+- The viewport is focusable so keyboard users can scroll it.
+
+## Examples
+
+### Horizontal
+
+Add a `ScrollBar` with `orientation="horizontal"` for content that scrolls sideways.
+
+<ComponentPreview name="scroll-area-horizontal" />
+
+## Props
+
+These are the props you set most often. Unlisted props pass through to the underlying element.
+
+### ScrollArea
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `className` | `string` | — | Classes merged onto the root. Set the size here. |
+
+### ScrollBar
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `orientation` | `"vertical" or "horizontal"` | `vertical` | Direction of the scrollbar. |

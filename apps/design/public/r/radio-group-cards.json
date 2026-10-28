@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "radio-group-cards",
+  "type": "registry:block",
+  "description": "Cards",
+  "files": [
+    {
+      "path": "registry/predict/components/radio-group/radio-group-cards.tsx",
+      "content": "\"use client\"\n\nimport { RadioGroup, RadioGroupItem } from \"@workspace/ui/components/radio-group\"\n\nconst plans = [\n  { value: \"essential\", title: \"Essential\", description: \"40 biomarkers, once a year.\" },\n  { value: \"complete\", title: \"Complete\", description: \"100 biomarkers, twice a year.\" },\n]\n\nexport function RadioGroupCards() {\n  return (\n    <RadioGroup defaultValue=\"complete\" aria-label=\"Plan\" className=\"w-full max-w-sm\">\n      {plans.map((plan) => (\n        <label\n          key={plan.value}\n          className=\"flex items-start gap-3 rounded-lg border p-3 has-data-checked:border-primary\"\n        >\n          <RadioGroupItem value={plan.value} className=\"mt-0.5\" />\n          <span className=\"grid gap-1\">\n            <span className=\"text-sm font-medium\">{plan.title}</span>\n            <span className=\"text-xs text-muted-foreground\">{plan.description}</span>\n          </span>\n        </label>\n      ))}\n    </RadioGroup>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

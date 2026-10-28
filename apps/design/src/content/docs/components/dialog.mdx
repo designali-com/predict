@@ -1,0 +1,99 @@
+---
+title: Dialog
+description: "A window over the page that needs a response before the reader continues."
+---
+
+## Demos
+
+A dialog that holds a short form.
+
+<ComponentPreview name="dialog-demo" />
+
+## Usage
+
+Use a dialog for a short task or a decision that blocks the current flow: confirm a delete, edit a profile field. For longer forms or side content, use a [Sheet](/docs/components/sheet). Do not open a dialog the reader did not ask for.
+
+Import it from `@workspace/ui/components/dialog`.
+
+```tsx
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@workspace/ui/components/dialog"
+```
+
+```tsx
+<Dialog>
+  <DialogTrigger render={<Button variant="outline" />}>Open</DialogTrigger>
+  <DialogContent>
+    <DialogHeader>
+      <DialogTitle>Title</DialogTitle>
+      <DialogDescription>Description</DialogDescription>
+    </DialogHeader>
+    <DialogFooter showCloseButton />
+  </DialogContent>
+</Dialog>
+```
+
+### Anatomy
+
+- **Dialog** — Holds the open state.
+- **DialogTrigger** — Opens the dialog.
+- **DialogContent** — The window, with backdrop and a close button.
+- **DialogHeader** — Stacks the title and description.
+- **DialogTitle** — Names the dialog for screen readers. Always include it.
+- **DialogDescription** — Supporting text.
+- **DialogFooter** — Actions. Stacks on small screens.
+- **DialogClose** — Closes the dialog. Pass a button through `render`.
+
+### Notes
+
+- Focus moves into the dialog on open and back to the trigger on close.
+- Escape and a click on the backdrop close the dialog.
+- Put the safe action first in the footer and the destructive one last.
+
+## Examples
+
+### Confirm
+
+Confirm a destructive action. `showCloseButton={false}` hides the X so the reader picks an answer.
+
+<ComponentPreview name="dialog-confirm" />
+
+### Controlled
+
+Hold the state with `open` and `onOpenChange` to close the dialog after an action finishes.
+
+<ComponentPreview name="dialog-controlled" />
+
+## Props
+
+These are the props you set most often. Unlisted props pass through to the underlying element.
+
+### Dialog
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `defaultOpen` | `boolean` | `false` | Open on first render. |
+| `open` | `boolean` | — | Open state when controlled. |
+| `onOpenChange` | `(open) => void` | — | Called when the dialog opens or closes. |
+| `modal` | `boolean` | `true` | Block interaction with the page behind. |
+
+### DialogContent
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `showCloseButton` | `boolean` | `true` | Show the X button in the corner. |
+| `className` | `string` | — | Classes merged onto the window. |
+
+### DialogFooter
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `showCloseButton` | `boolean` | `false` | Add an outline Close button. |

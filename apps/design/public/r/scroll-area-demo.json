@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "scroll-area-demo",
+  "type": "registry:block",
+  "description": "Basic",
+  "files": [
+    {
+      "path": "registry/predict/components/scroll-area/scroll-area-demo.tsx",
+      "content": "\"use client\"\n\nimport { ScrollArea } from \"@workspace/ui/components/scroll-area\"\nimport { Separator } from \"@workspace/ui/components/separator\"\n\nconst markers = [\n  \"ApoB\",\n  \"LDL-C\",\n  \"HDL-C\",\n  \"Triglycerides\",\n  \"Lp(a)\",\n  \"HbA1c\",\n  \"Fasting glucose\",\n  \"Insulin\",\n  \"hs-CRP\",\n  \"Ferritin\",\n  \"Vitamin D\",\n  \"Vitamin B12\",\n  \"TSH\",\n  \"Free T4\",\n  \"ALT\",\n  \"AST\",\n  \"Creatinine\",\n  \"eGFR\",\n  \"Uric acid\",\n  \"Testosterone\",\n]\n\nexport function ScrollAreaDemo() {\n  return (\n    <ScrollArea className=\"h-72 w-56 rounded-md border\">\n      <div className=\"p-4\">\n        <p className=\"mb-4 text-sm font-medium\">Biomarkers</p>\n        {markers.map((marker) => (\n          <div key={marker}>\n            <div className=\"text-xs\">{marker}</div>\n            <Separator className=\"my-2\" />\n          </div>\n        ))}\n      </div>\n    </ScrollArea>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

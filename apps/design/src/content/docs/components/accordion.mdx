@@ -1,0 +1,83 @@
+---
+title: Accordion
+description: "A stack of headings that each expand to show a section of content."
+---
+
+## Demos
+
+One item open at a time. The first item starts open.
+
+<ComponentPreview name="accordion-demo" />
+
+## Usage
+
+Use an accordion to shorten a long page of related sections, such as FAQs or grouped biomarkers. Do not hide content the reader needs to compare side by side. If every section matters on first read, show them all.
+
+Import it from `@workspace/ui/components/accordion`.
+
+```tsx
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@workspace/ui/components/accordion"
+```
+
+```tsx
+<Accordion defaultValue={["fasting"]}>
+  <AccordionItem value="fasting">
+    <AccordionTrigger>Do I need to fast?</AccordionTrigger>
+    <AccordionContent>Yes. Fast for 10 to 12 hours.</AccordionContent>
+  </AccordionItem>
+</Accordion>
+```
+
+### Anatomy
+
+- **Accordion** — The bordered container. Holds the open state.
+- **AccordionItem** — One section. Needs a unique `value`.
+- **AccordionTrigger** — The heading button. The chevron is added for you.
+- **AccordionContent** — The panel that opens and closes.
+
+### Notes
+
+- `defaultValue` and `value` are arrays, even when only one item can be open.
+- Keep trigger text short and specific. It is read aloud as a button.
+- A disabled item stays visible but cannot be opened.
+
+## Examples
+
+### Multiple
+
+Set `multiple` so several items can stay open at once.
+
+<ComponentPreview name="accordion-multiple" />
+
+### Disabled
+
+A disabled item stays visible but cannot be opened.
+
+<ComponentPreview name="accordion-disabled" />
+
+## Props
+
+These are the props you set most often. Unlisted props pass through to the underlying element.
+
+### Accordion
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `defaultValue` | `any[]` | — | Items open on first render. |
+| `value` | `any[]` | — | Open items when controlled. |
+| `onValueChange` | `(value) => void` | — | Called when an item opens or closes. |
+| `multiple` | `boolean` | `false` | Allow more than one item open at once. |
+| `disabled` | `boolean` | `false` | Disables every item. |
+| `className` | `string` | — | Classes merged onto the element. |
+
+### AccordionItem
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `value` | `any` | — | Identifies the item in the open state. |
+| `disabled` | `boolean` | `false` | Stops this item from opening. |

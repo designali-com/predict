@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "body-measurements-demo",
+  "type": "registry:block",
+  "description": "Basic",
+  "files": [
+    {
+      "path": "registry/predict/tools/body-measurements/body-measurements-demo.tsx",
+      "content": "\"use client\"\n\nimport { BodyMeasurements } from \"@workspace/ui/tools/body-measurements\"\n\nexport function BodyMeasurementsDemo() {\n  return (\n    <div className=\"mx-auto flex w-full justify-center\">\n      <BodyMeasurements />\n    </div>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sheet-no-close-button",
+  "type": "registry:block",
+  "description": "Without close button",
+  "files": [
+    {
+      "path": "registry/predict/components/sheet/sheet-no-close-button.tsx",
+      "content": "\"use client\"\n\nimport { Button } from \"@workspace/ui/components/button\"\nimport {\n  Sheet,\n  SheetClose,\n  SheetContent,\n  SheetDescription,\n  SheetFooter,\n  SheetHeader,\n  SheetTitle,\n  SheetTrigger,\n} from \"@workspace/ui/components/sheet\"\n\nexport function SheetNoCloseButton() {\n  return (\n    <Sheet>\n      <SheetTrigger render={<Button variant=\"outline\" />}>Review consent</SheetTrigger>\n      <SheetContent side=\"bottom\" showCloseButton={false}>\n        <SheetHeader>\n          <SheetTitle>Share data for research?</SheetTitle>\n          <SheetDescription>\n            Your results are anonymised before they leave PREDICT. You can opt out at\n            any time.\n          </SheetDescription>\n        </SheetHeader>\n        <SheetFooter>\n          <SheetClose render={<Button size=\"sm\" />}>Agree</SheetClose>\n          <SheetClose render={<Button variant=\"outline\" size=\"sm\" />}>Not now</SheetClose>\n        </SheetFooter>\n      </SheetContent>\n    </Sheet>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

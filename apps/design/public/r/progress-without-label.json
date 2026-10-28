@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "progress-without-label",
+  "type": "registry:block",
+  "description": "Without label",
+  "files": [
+    {
+      "path": "registry/predict/components/progress/progress-without-label.tsx",
+      "content": "\"use client\"\n\nimport { Progress } from \"@workspace/ui/components/progress\"\n\nexport function ProgressWithoutLabel() {\n  return <Progress value={40} aria-label=\"Profile complete\" className=\"w-full max-w-sm\" />\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

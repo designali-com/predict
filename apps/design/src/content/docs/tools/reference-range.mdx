@@ -1,0 +1,158 @@
+---
+title: Reference Range
+description: "A lab result flagged against its reference range, with its Z-score and the value placed on a coloured bar."
+---
+
+## Demos
+
+A result inside its range.
+
+<ComponentPreview name="reference-range-demo" />
+
+## Usage
+
+Use a reference range card to show one lab result: the value, its flag, the range printed on the report, and where the value falls. For a full report, put several in a grid.
+
+Import it from `@workspace/ui/tools/reference-range`.
+
+```tsx
+import { ReferenceRange } from "@workspace/ui/tools/reference-range"
+```
+
+```tsx
+<ReferenceRange
+  name="Glucose, fasting"
+  value={92}
+  unit="mg/dL"
+  range={{ low: 70, high: 99 }}
+/>
+```
+
+### Anatomy
+
+- **Header** — The test name, an optional longer name, and a flag badge.
+- **Value** — The result and its unit, in the status colour.
+- **Range** — The reference range as printed on a report, such as `Ref 70–99 mg/dL`.
+- **Bar** — Coloured zones for the range with a marker at the value. Only shown for numbers with a low or high limit. The harmless side of a directional range is grey.
+- **Footer** — The Z-score and the direction, when there are any.
+
+### Flags
+
+| Flag | When |
+| --- | --- |
+| `normal` | Between `low` and `high`, inclusive. |
+| `low`, `high` | Outside `low` or `high`. |
+| `critical-low`, `critical-high` | Below `criticalLow` or above `criticalHigh`. Checked first. |
+| `abnormal` | Only when you pass `flag="abnormal"`, such as a text result that doesn't match. |
+| `unflagged` | A text value, or no `low` or `high`. |
+
+### Z-score and direction
+
+With both limits, the range is read as the middle 95% of healthy values. The mean is `(low + high) / 2`, the SD is `(high − low) / 4`, and Z is `(value − mean) / SD`. A value inside the range has a |Z| of 2 or less.
+
+`range.direction` says which way is bad:
+
+| Direction | Label | Meaning |
+| --- | --- | --- |
+| `high` | ↑ Bad | A raised value is a concern, such as CRP. A low one is not. |
+| `low` | ↓ Bad | A lowered value is a concern, such as HDL or vitamin D. |
+| `both` | Normal best | Either side is a concern. The default. |
+| `context` | Context | Either side may matter, depending on the person. |
+
+### Colours
+
+The colour uses the five-step severity scale from `globals.css`, in the same order as the Bio Clock. Change `--status-*` in your theme to recolour it.
+
+| Result | Colour |
+| --- | --- |
+| In range | `--status-normal` |
+| Out of range, \|Z\| under 3 (or no Z-score) | `--status-mild` |
+| \|Z\| 3 to under 4 | `--status-moderate` |
+| \|Z\| 4 to under 5, or `abnormal` | `--status-severe` |
+| \|Z\| 5 or more, or a critical flag | `--status-extreme` |
+| Out of range on the harmless side, or unflagged | Muted |
+
+### Notes
+
+- Limits are inclusive. A glucose of 99 with a high of 99 is normal.
+- A range with only `high` prints as `≤ 200`, and its bar starts at zero. A range with only `low` prints as `≥ 30`.
+- `range.text` replaces the printed range, for results such as `Negative`. Text values are never flagged on their own, so pass `flag` yourself.
+- `decimals` sets the decimal places for the value and the range.
+- The card sets `data-flag` and `data-tone`, for styling or tests.
+
+### Reference range helpers
+
+The flagging logic is in `@workspace/ui/lib/reference-range`, so you can use it without the UI.
+
+```tsx
+import {
+  flagValue,
+  formatReferenceRange,
+  isConcern,
+  rangeFlagLabels,
+  rangeStats,
+  zScore,
+} from "@workspace/ui/lib/reference-range"
+
+const potassium = { low: 3.5, high: 5.1, criticalLow: 2.8, criticalHigh: 6.2 }
+
+flagValue(6.8, potassium) // "critical-high"
+rangeFlagLabels[flagValue(5.4, potassium)] // "High"
+formatReferenceRange(potassium, 1) // "3.5–5.1"
+formatReferenceRange({ high: 200 }) // "≤ 200"
+
+const crp = { low: 0.2, high: 3, direction: "high" } as const
+rangeStats(crp) // { mean: 1.6, sd: 0.7 }
+zScore(3.5, crp) // 2.71
+isConcern("low", crp.direction) // false
+```
+
+`rangeTone(flag, z, direction)` from the component file returns the status colour the card uses.
+
+## Examples
+
+### Flags
+
+Low, high, critical, a lower limit only, a text result, and a result with no range.
+
+<ComponentPreview name="reference-range-flags" />
+
+### Interactive
+
+Change the value to see the flag and the marker move. Potassium has critical limits at 2.8 and 6.2 mmol/L.
+
+<ComponentPreview name="reference-range-interactive" />
+
+### Biomarker panel
+
+Forty example biomarkers, each with a direction. Most are out of range, so the colours step up with |Z|. CRP at 4.2 is inside its range, so it stays green even with a Z of +1.42.
+
+<ComponentPreview name="reference-range-panel" />
+
+## Props
+
+Unlisted props pass through to the `Card` that wraps the result.
+
+### ReferenceRange
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `name` | `string` | — | The test name, such as `Glucose` or `hs-CRP`. |
+| `description` | `string` | — | A longer name under the title. |
+| `value` | `number or string` | — | The result. |
+| `unit` | `string` | — | Unit shown after the value and the range. |
+| `range` | `ReferenceRange` | — | The limits to flag against. |
+| `decimals` | `number` | — | Decimal places for the value and the range. |
+| `flag` | `RangeFlag` | computed | Overrides the flag. |
+| `className` | `string` | — | Classes merged onto the card. |
+
+### ReferenceRange (type)
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `low` | `number` | Lowest normal value, inclusive. |
+| `high` | `number` | Highest normal value, inclusive. |
+| `criticalLow` | `number` | Values below this are critical low. |
+| `criticalHigh` | `number` | Values above this are critical high. |
+| `text` | `string` | Shown instead of the generated range, such as `Negative`. |
+| `direction` | `"high", "low", "both", or "context"` | Which way is bad. Defaults to `both`. |

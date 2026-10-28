@@ -1,0 +1,77 @@
+---
+title: Progress
+description: "A bar that shows how far a task has gone."
+---
+
+## Demos
+
+A labelled bar with a percentage.
+
+<ComponentPreview name="progress-demo" />
+
+## Usage
+
+Use a progress bar when a task takes more than a second and you know how much is left: an upload, an analysis, an onboarding flow. Set `value` to `null` when you cannot tell how long it will take.
+
+Import it from `@workspace/ui/components/progress`.
+
+```tsx
+import {
+  Progress,
+  ProgressLabel,
+  ProgressValue,
+} from "@workspace/ui/components/progress"
+```
+
+```tsx
+<Progress value={66}>
+  <ProgressLabel>Analysing your panel</ProgressLabel>
+  <ProgressValue />
+</Progress>
+```
+
+### Anatomy
+
+- **Progress** — The root. Renders the track and indicator for you.
+- **ProgressLabel** — Names the task. Read by screen readers.
+- **ProgressValue** — Shows the current value. Defaults to a percentage.
+- **ProgressTrack** and **ProgressIndicator** — Exported for custom layouts.
+
+### Notes
+
+- Without a **ProgressLabel**, give the root an `aria-label`.
+- Pass a function as the child of **ProgressValue** to format the text, for example "4 of 6 steps".
+- Do not use a progress bar to show a health score. It reads as a task, not a measurement.
+
+## Examples
+
+### Custom value
+
+Set `max` and pass a function to `ProgressValue` to show steps instead of a percentage.
+
+<ComponentPreview name="progress-custom-value" />
+
+### Without label
+
+A bar on its own. Give it an `aria-label`.
+
+<ComponentPreview name="progress-without-label" />
+
+### Indeterminate
+
+Set `value={null}` when the duration is unknown.
+
+<ComponentPreview name="progress-indeterminate" />
+
+## Props
+
+These are the props you set most often. Unlisted props pass through to the underlying element.
+
+### Progress
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `value` | `number or null` | — | Current value. `null` is indeterminate. |
+| `min` | `number` | `0` | Lowest value. |
+| `max` | `number` | `100` | Highest value. |
+| `className` | `string` | — | Classes merged onto the root. |

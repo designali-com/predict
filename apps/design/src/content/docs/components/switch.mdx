@@ -1,0 +1,71 @@
+---
+title: Switch
+description: "A toggle for a setting that is either on or off."
+---
+
+## Demos
+
+A switch with its label.
+
+<ComponentPreview name="switch-demo" />
+
+## Usage
+
+Use a switch for a setting that takes effect right away, like notifications. If the change only applies after a Save button, use a checkbox instead.
+
+Import it from `@workspace/ui/components/switch`.
+
+```tsx
+import { Switch } from "@workspace/ui/components/switch"
+```
+
+```tsx
+<label className="flex items-center justify-between gap-4">
+  Result notifications
+  <Switch defaultChecked />
+</label>
+```
+
+### Anatomy
+
+- **Switch** — The track and thumb. Wrap it in a `label` with its text.
+
+### Notes
+
+- The label should describe the setting, not the action. Write "Notifications", not "Turn on notifications".
+- Space toggles the switch when it has focus.
+
+## Examples
+
+### Sizes
+
+`default` and `sm`.
+
+<ComponentPreview name="switch-sizes" />
+
+### Disabled
+
+A switch that cannot be changed.
+
+<ComponentPreview name="switch-disabled" />
+
+### Controlled
+
+Hold the state with `checked` and `onCheckedChange`.
+
+<ComponentPreview name="switch-controlled" />
+
+## Props
+
+These are the props you set most often. Unlisted props pass through to the underlying element.
+
+### Switch
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `defaultChecked` | `boolean` | `false` | On by default. |
+| `checked` | `boolean` | — | State when controlled. |
+| `onCheckedChange` | `(checked) => void` | — | Called when the state changes. |
+| `size` | `"default" or "sm"` | `default` | Size of the switch. |
+| `disabled` | `boolean` | `false` | Blocks input and dims the switch. |
+| `name` | `string` | — | Field name for form submission. |

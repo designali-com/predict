@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "slider-range",
+  "type": "registry:block",
+  "description": "Range",
+  "files": [
+    {
+      "path": "registry/predict/components/slider/slider-range.tsx",
+      "content": "\"use client\"\n\nimport { Slider } from \"@workspace/ui/components/slider\"\n\nexport function SliderRange() {\n  return (\n    <div className=\"grid w-full max-w-sm gap-3\">\n      <span className=\"text-xs font-medium\">Target glucose range</span>\n      <Slider aria-label=\"Target glucose range\" defaultValue={[70, 100]} min={40} max={200} />\n    </div>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toggle-outline",
+  "type": "registry:block",
+  "description": "Outline",
+  "files": [
+    {
+      "path": "registry/predict/components/toggle/toggle-outline.tsx",
+      "content": "\"use client\"\n\nimport { StarIcon } from \"lucide-react\"\n\nimport { Toggle } from \"@workspace/ui/components/toggle\"\n\nexport function ToggleOutline() {\n  return (\n    <Toggle variant=\"outline\" aria-label=\"Favourite\" defaultPressed>\n      <StarIcon />\n    </Toggle>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

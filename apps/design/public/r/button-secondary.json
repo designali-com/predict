@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-secondary",
+  "type": "registry:block",
+  "description": "Secondary",
+  "files": [
+    {
+      "path": "registry/predict/components/button/button-secondary.tsx",
+      "content": "\"use client\"\n\nimport { Button } from \"@workspace/ui/components/button\"\n\nexport function ButtonSecondary() {\n  return <Button variant=\"secondary\">Remind me later</Button>\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

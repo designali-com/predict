@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-outline",
+  "type": "registry:block",
+  "description": "Outline",
+  "files": [
+    {
+      "path": "registry/predict/components/button/button-outline.tsx",
+      "content": "\"use client\"\n\nimport { Button } from \"@workspace/ui/components/button\"\n\nexport function ButtonOutline() {\n  return <Button variant=\"outline\">View report</Button>\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

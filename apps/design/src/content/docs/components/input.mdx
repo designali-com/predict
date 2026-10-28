@@ -1,0 +1,84 @@
+---
+title: Input
+description: "A single-line text field."
+---
+
+## Demos
+
+A labelled text field.
+
+<ComponentPreview name="input-demo" />
+
+## Usage
+
+Use an input for short free text: a name, an email, a number. For long text, use a textarea. Every input needs a visible label.
+
+Import it from `@workspace/ui/components/input`.
+
+```tsx
+import { Input } from "@workspace/ui/components/input"
+```
+
+```tsx
+<label className="grid gap-1.5 text-xs font-medium">
+  Email
+  <Input type="email" placeholder="you@example.com" />
+</label>
+```
+
+### Anatomy
+
+- **Input** — A styled `input` element. All native attributes work.
+
+### Notes
+
+- A placeholder is not a label. It disappears as soon as the reader types.
+- Set the right `type` and `inputMode` so phones show the right keyboard.
+- Set `aria-invalid` to show the error style. Put the error message right below the field.
+- Disabled fields are skipped by the keyboard. Use `readOnly` if the reader should still be able to copy the value.
+
+## Examples
+
+### Number
+
+Use `inputMode="decimal"` so mobile keyboards show a decimal point.
+
+<ComponentPreview name="input-number" />
+
+### File
+
+Restrict the picker with `accept`.
+
+<ComponentPreview name="input-file" />
+
+### Invalid
+
+Set `aria-invalid` and show the error below the field.
+
+<ComponentPreview name="input-invalid" />
+
+### Disabled
+
+A field the reader can see but not change.
+
+<ComponentPreview name="input-disabled" />
+
+### With button
+
+An input and its action in one row.
+
+<ComponentPreview name="input-with-button" />
+
+## Props
+
+These are the props you set most often. Unlisted props pass through to the `input` element.
+
+### Input
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `type` | `string` | `text` | Native input type. |
+| `placeholder` | `string` | — | Hint shown when the field is empty. |
+| `disabled` | `boolean` | `false` | Blocks input and dims the field. |
+| `aria-invalid` | `boolean` | — | Shows the error style. |
+| `className` | `string` | — | Classes merged onto the element. |

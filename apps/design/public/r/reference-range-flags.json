@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "reference-range-flags",
+  "type": "registry:block",
+  "description": "Flags",
+  "files": [
+    {
+      "path": "registry/predict/tools/reference-range/reference-range-flags.tsx",
+      "content": "\"use client\"\n\nimport { ReferenceRange } from \"@workspace/ui/tools/reference-range\"\n\nexport function ReferenceRangeFlags() {\n  return (\n    <div className=\"mx-auto grid w-full max-w-3xl gap-3 sm:grid-cols-2\">\n      <ReferenceRange\n        name=\"Haemoglobin\"\n        value={11.2}\n        unit=\"g/dL\"\n        decimals={1}\n        range={{ low: 12, high: 15.5 }}\n      />\n      <ReferenceRange\n        name=\"Total cholesterol\"\n        value={232}\n        unit=\"mg/dL\"\n        range={{ high: 200 }}\n      />\n      <ReferenceRange\n        name=\"Potassium\"\n        value={6.8}\n        unit=\"mmol/L\"\n        decimals={1}\n        range={{ low: 3.5, high: 5.1, criticalLow: 2.8, criticalHigh: 6.2 }}\n      />\n      <ReferenceRange\n        name=\"Vitamin D\"\n        value={34}\n        unit=\"ng/mL\"\n        range={{ low: 30 }}\n      />\n      <ReferenceRange\n        name=\"Urine protein\"\n        value=\"Positive\"\n        range={{ text: \"Negative\" }}\n        flag=\"abnormal\"\n      />\n      <ReferenceRange name=\"Blood group\" value=\"O+\" />\n    </div>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

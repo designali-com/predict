@@ -1,0 +1,79 @@
+---
+title: Radio Group
+description: "A set of options where only one can be selected."
+---
+
+## Demos
+
+Pick one option from a short list.
+
+<ComponentPreview name="radio-group-demo" />
+
+## Usage
+
+Use a radio group when the reader picks exactly one option from a short list, and seeing all options helps them choose. For more than about six options, use a select. For an on and off choice, use a [Switch](/docs/components/switch).
+
+Import it from `@workspace/ui/components/radio-group`.
+
+```tsx
+import { RadioGroup, RadioGroupItem } from "@workspace/ui/components/radio-group"
+```
+
+```tsx
+<RadioGroup defaultValue="weekly" aria-label="Exercise frequency">
+  <label className="flex items-center gap-2">
+    <RadioGroupItem value="daily" />
+    Every day
+  </label>
+  <label className="flex items-center gap-2">
+    <RadioGroupItem value="weekly" />
+    A few times a week
+  </label>
+</RadioGroup>
+```
+
+### Anatomy
+
+- **RadioGroup** — Holds the selected value. Lays items out in a grid.
+- **RadioGroupItem** — One option. Wrap it in a `label` with its text.
+
+### Notes
+
+- Arrow keys move between options. Tab moves out of the group.
+- Name the group with `aria-label` or a visible heading linked by `aria-labelledby`.
+- Pick a sensible default when there is one, so the reader does not have to.
+
+## Examples
+
+### Disabled
+
+Disable a single item, or the whole group with `disabled` on `RadioGroup`.
+
+<ComponentPreview name="radio-group-disabled" />
+
+### Cards
+
+Wrap each item in a bordered label to make a larger target.
+
+<ComponentPreview name="radio-group-cards" />
+
+## Props
+
+These are the props you set most often. Unlisted props pass through to the underlying element.
+
+### RadioGroup
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `defaultValue` | `any` | — | Selected value on first render. |
+| `value` | `any` | — | Selected value when controlled. |
+| `onValueChange` | `(value) => void` | — | Called when the selection changes. |
+| `disabled` | `boolean` | `false` | Disables every option. |
+| `name` | `string` | — | Field name for form submission. |
+
+### RadioGroupItem
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `value` | `any` | — | Value of this option. |
+| `disabled` | `boolean` | `false` | Disables this option. |

@@ -1,0 +1,96 @@
+---
+title: Body Measurements
+description: "Works out body mass index and body surface area from weight and height."
+---
+
+## Demos
+
+Change weight or height. Every result updates as you type.
+
+<ComponentPreview name="body-measurements-demo" />
+
+## Usage
+
+Use body measurements when a result or a dose depends on body size. It shows:
+
+- **BMI** — Weight in kilograms over height in metres squared, with its WHO category.
+- **BSA** — Body surface area in square metres, by three formulas.
+
+Import it from `@workspace/ui/tools/body-measurements`.
+
+```tsx
+import { BodyMeasurements } from "@workspace/ui/tools/body-measurements"
+```
+
+```tsx
+<BodyMeasurements defaultWeight={70} defaultHeight={175} />
+```
+
+### BSA formulas
+
+| Formula | When to use it |
+| --- | --- |
+| Mosteller | The common default. |
+| Du Bois | The historical reference. |
+| Haycock | Often used in children. |
+
+### Notes
+
+- The BMI categories are for adults. Assess children and adolescents with BMI-for-age percentiles instead.
+- Weight is in kilograms and height in centimetres.
+- Results show a dash until both fields are above zero.
+- The reset button goes back to the default weight and height.
+
+### Body measurement helpers
+
+The maths is in `@workspace/ui/lib/body-measurements`, so you can use it without the UI.
+
+```tsx
+import {
+  bmiCategory,
+  bodyMassIndex,
+  bodySurfaceArea,
+} from "@workspace/ui/lib/body-measurements"
+
+const bmi = bodyMassIndex(70, 175) // 22.86
+bmiCategory(bmi) // "normal"
+bodySurfaceArea(70, 175) // 1.84 m², Mosteller
+bodySurfaceArea(20, 110, "haycock") // 0.78 m²
+```
+
+`bmiCategoryLabels` turns a category into text, such as `Obesity class I`. `calculateBodyMeasurements(weight, height)` from the component file returns the BMI, its category, and all three BSA values at once, or `null` when either value is not above zero.
+
+## Examples
+
+### Custom values
+
+Pass `defaultWeight` and `defaultHeight` to start from someone's own measurements.
+
+<ComponentPreview name="body-measurements-default" />
+
+### Child
+
+A 20 kg child, 110 cm tall. Use the Haycock BSA, and read BMI against BMI-for-age percentiles rather than the adult category.
+
+<ComponentPreview name="body-measurements-child" />
+
+## Props
+
+Unlisted props pass through to the `Card` that wraps the calculator.
+
+### BodyMeasurements
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `defaultWeight` | `number` | `70` | Weight in kilograms on first render and after reset. |
+| `defaultHeight` | `number` | `175` | Height in centimetres on first render and after reset. |
+| `onChange` | `(result: BodyMeasurementsResult or null) => void` | — | Called when the result changes. |
+| `className` | `string` | — | Classes merged onto the card. |
+
+### BodyMeasurementsResult
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `bmi` | `number` | Body mass index. |
+| `category` | `BmiCategory` | WHO category, from `underweight` to `obesity-3`. |
+| `bsa` | `Record<BsaFormula, number>` | Body surface area in square metres for `mosteller`, `du-bois`, and `haycock`. |

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input-invalid",
+  "type": "registry:block",
+  "description": "Invalid",
+  "files": [
+    {
+      "path": "registry/predict/components/input/input-invalid.tsx",
+      "content": "\"use client\"\n\nimport { Input } from \"@workspace/ui/components/input\"\n\nexport function InputInvalid() {\n  return (\n    <label className=\"grid w-full max-w-sm gap-1.5 text-xs font-medium\">\n      Phone\n      <Input type=\"tel\" defaultValue=\"12345\" aria-invalid aria-describedby=\"phone-error\" />\n      <span id=\"phone-error\" className=\"font-normal text-destructive\">\n        Enter a 10 digit number.\n      </span>\n    </label>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

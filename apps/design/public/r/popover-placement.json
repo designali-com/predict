@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "popover-placement",
+  "type": "registry:block",
+  "description": "Placement",
+  "files": [
+    {
+      "path": "registry/predict/components/popover/popover-placement.tsx",
+      "content": "\"use client\"\n\nimport { Button } from \"@workspace/ui/components/button\"\nimport {\n  Popover,\n  PopoverContent,\n  PopoverDescription,\n  PopoverHeader,\n  PopoverTitle,\n  PopoverTrigger,\n} from \"@workspace/ui/components/popover\"\n\nconst sides = [\"top\", \"right\", \"bottom\", \"left\"] as const\n\nexport function PopoverPlacement() {\n  return (\n    <div className=\"flex flex-wrap items-center justify-center gap-3\">\n      {sides.map((side) => (\n        <Popover key={side}>\n          <PopoverTrigger render={<Button variant=\"ghost\" className=\"capitalize\" />}>\n            {side}\n          </PopoverTrigger>\n          <PopoverContent side={side} className=\"w-56\">\n            <PopoverHeader>\n              <PopoverTitle className=\"capitalize\">{side}</PopoverTitle>\n              <PopoverDescription>Opens on the {side} of its trigger.</PopoverDescription>\n            </PopoverHeader>\n          </PopoverContent>\n        </Popover>\n      ))}\n    </div>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

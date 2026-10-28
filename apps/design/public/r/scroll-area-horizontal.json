@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "scroll-area-horizontal",
+  "type": "registry:block",
+  "description": "Horizontal",
+  "files": [
+    {
+      "path": "registry/predict/components/scroll-area/scroll-area-horizontal.tsx",
+      "content": "\"use client\"\n\nimport { ScrollArea, ScrollBar } from \"@workspace/ui/components/scroll-area\"\n\nconst panels = [\n  { month: \"Jan\", score: 72 },\n  { month: \"Mar\", score: 75 },\n  { month: \"May\", score: 74 },\n  { month: \"Jul\", score: 79 },\n  { month: \"Sep\", score: 81 },\n  { month: \"Nov\", score: 83 },\n]\n\nexport function ScrollAreaHorizontal() {\n  return (\n    <ScrollArea className=\"w-full max-w-sm rounded-md border\">\n      <div className=\"flex w-max gap-3 p-4\">\n        {panels.map((panel) => (\n          <div key={panel.month} className=\"grid w-28 gap-1 rounded-md border p-3\">\n            <span className=\"text-xs text-muted-foreground\">{panel.month} panel</span>\n            <span className=\"text-xl font-medium tabular-nums\">{panel.score}</span>\n          </div>\n        ))}\n      </div>\n      <ScrollBar orientation=\"horizontal\" />\n    </ScrollArea>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

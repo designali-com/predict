@@ -1,0 +1,107 @@
+---
+title: Sidebar
+description: "App navigation that sits at the side of the page and can collapse."
+---
+
+## Demos
+
+A static sidebar with a header, a labelled group of links, a badge, and a footer.
+
+<ComponentPreview name="sidebar-demo" />
+
+## Usage
+
+Use the sidebar for the main navigation of an app with several top-level sections. Wrap the layout in **SidebarProvider** and put the page in **SidebarInset**. On mobile the sidebar opens as a [Sheet](/docs/components/sheet).
+
+Import it from `@workspace/ui/components/sidebar`.
+
+```tsx
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarGroup,
+  SidebarGroupLabel,
+  SidebarInset,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+  SidebarProvider,
+  SidebarTrigger,
+} from "@workspace/ui/components/sidebar"
+```
+
+```tsx
+<SidebarProvider>
+  <Sidebar collapsible="icon">
+    <SidebarContent>...</SidebarContent>
+  </Sidebar>
+  <SidebarInset>
+    <SidebarTrigger />
+    {children}
+  </SidebarInset>
+</SidebarProvider>
+```
+
+### Anatomy
+
+- **SidebarProvider** — Holds the open state and handles the Cmd/Ctrl + B shortcut.
+- **Sidebar** — The panel. Sets side, variant, and how it collapses.
+- **SidebarHeader** and **SidebarFooter** — Fixed areas at the top and bottom.
+- **SidebarContent** — The scrolling middle.
+- **SidebarGroup**, **SidebarGroupLabel**, **SidebarGroupContent** — A labelled section.
+- **SidebarMenu**, **SidebarMenuItem**, **SidebarMenuButton** — The list of links.
+- **SidebarMenuBadge**, **SidebarMenuAction**, **SidebarMenuSub** — A count, a trailing button, and nested links.
+- **SidebarTrigger** — A button that toggles the sidebar.
+- **SidebarInset** — The main content area next to the sidebar.
+- **useSidebar** — Hook that reads and sets the state.
+
+### Notes
+
+- The open state is saved in a cookie so it survives a reload.
+- With `collapsible="icon"`, set `tooltip` on each **SidebarMenuButton** so the label is still available when only the icon shows.
+- Mark the current page with `isActive`.
+- To render a link, pass an anchor through `render` on **SidebarMenuButton**.
+
+## Examples
+
+### Groups
+
+Split links into labelled groups with `SidebarSeparator` between them.
+
+<ComponentPreview name="sidebar-groups" />
+
+### Submenu
+
+Nest links under an item with `SidebarMenuSub`.
+
+<ComponentPreview name="sidebar-submenu" />
+
+## Props
+
+These are the props you set most often. Unlisted props pass through to the underlying element.
+
+### SidebarProvider
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `defaultOpen` | `boolean` | `true` | Open on first render. |
+| `open` | `boolean` | — | Open state when controlled. |
+| `onOpenChange` | `(open) => void` | — | Called when the state changes. |
+
+### Sidebar
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `side` | `"left" or "right"` | `left` | Edge of the screen. |
+| `variant` | `"sidebar", "floating", or "inset"` | `sidebar` | Visual style. |
+| `collapsible` | `"offcanvas", "icon", or "none"` | `offcanvas` | How the sidebar collapses. |
+
+### SidebarMenuButton
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `isActive` | `boolean` | `false` | Marks the current page. |
+| `variant` | `"default" or "outline"` | `default` | Visual style. |
+| `size` | `"default", "sm", or "lg"` | `default` | Height of the button. |
+| `tooltip` | `string or TooltipContent props` | — | Shown when the sidebar is collapsed to icons. |
+| `render` | `ReactElement` | — | Element to render instead of a button. |

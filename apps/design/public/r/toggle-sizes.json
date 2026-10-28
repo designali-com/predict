@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toggle-sizes",
+  "type": "registry:block",
+  "description": "Sizes",
+  "files": [
+    {
+      "path": "registry/predict/components/toggle/toggle-sizes.tsx",
+      "content": "\"use client\"\n\nimport { BookmarkIcon } from \"lucide-react\"\n\nimport { Toggle } from \"@workspace/ui/components/toggle\"\n\nexport function ToggleSizes() {\n  return (\n    <div className=\"flex flex-wrap items-center justify-center gap-3\">\n      <Toggle variant=\"outline\" size=\"sm\" aria-label=\"Bookmark\">\n        <BookmarkIcon />\n      </Toggle>\n      <Toggle variant=\"outline\" aria-label=\"Bookmark\">\n        <BookmarkIcon />\n      </Toggle>\n      <Toggle variant=\"outline\" size=\"lg\" aria-label=\"Bookmark\">\n        <BookmarkIcon />\n      </Toggle>\n    </div>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

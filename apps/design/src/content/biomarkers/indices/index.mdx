@@ -1,0 +1,58 @@
+---
+title: Indices
+description: "Composite scores that combine groups of biomarkers into one weighted number per body system."
+---
+
+A composite index turns a panel of biomarkers into one score. Biomarkers are grouped into domains, each domain gets a score, and the domain scores are weighted and added up.
+
+| Index | Name | Domains | Biomarkers |
+| --- | --- | --- | --- |
+| [CBMI](/biomarkers/indices/cbmi) | Composite Biological Musculoskeletal Index | 5 | 21 |
+| [CBOAI](/biomarkers/indices/cboai) | Composite Biological OrthoAge Index | 5 | 15 |
+| [CBNI](/biomarkers/indices/cbni) | Composite Biological Neurofunction Index | 5 | 11 |
+| [CBLAI](/biomarkers/indices/cblai) | Composite Biological LegAge Index | 7 | 25 |
+| [CBVAI](/biomarkers/indices/cbvai) | Composite Biological Venous Aging Index | 4 | 10 |
+
+## How an index is calculated
+
+<Steps>
+
+<Step>Z-score each biomarker</Step>
+
+The healthy range is read as the middle 95% of healthy values, so:
+
+- **Mean** is `(L + U) / 2`.
+- **SD** is `(U − L) / 4`.
+- **Z** is `(value − mean) / SD`.
+
+Only the size of the deviation counts, so each biomarker gives `|Z|`. See [Biomarkers](/biomarkers) for every range.
+
+<Step>Average each domain</Step>
+
+**Mean |Z|d** is the average `|Z|` of the biomarkers in domain `d`.
+
+<Step>Weight each domain by its share</Step>
+
+**Wd** is the domain's share of the total: `Mean |Z|d / Σ Mean |Z|d`. The weights add up to 1, so domains that are further out of range count for more.
+
+<Step>Apply the domain priority</Step>
+
+**αd** is a fixed priority for each domain, set per index. The same domain can have a different αd in different indices.
+
+<Step>Add it up</Step>
+
+The domain score is `k × αd × (Mean |Z|d × Wd)`, with `k = 1`. The index is the sum of the domain scores:
+
+```
+Index = Σ k × αd × (Mean |Z|d × Wd)
+```
+
+</Steps>
+
+## Reading a score
+
+- A result inside its healthy range has a |Z| of 2 or less, so a panel with every result in range keeps every domain low.
+- The score has no fixed upper limit. It is most useful compared over time for the same person.
+- Each index has its own domains and αd values, so scores from different indices are not comparable.
+
+This section is general information, not medical advice.

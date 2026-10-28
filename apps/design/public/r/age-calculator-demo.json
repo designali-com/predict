@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "age-calculator-demo",
+  "type": "registry:block",
+  "description": "Basic",
+  "files": [
+    {
+      "path": "registry/predict/tools/age-calculator/age-calculator-demo.tsx",
+      "content": "\"use client\"\n\nimport { AgeCalculator } from \"@workspace/ui/tools/age-calculator\"\n\nexport function AgeCalculatorDemo() {\n  return (\n    <div className=\"mx-auto flex w-full justify-center\">\n      <AgeCalculator />\n    </div>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

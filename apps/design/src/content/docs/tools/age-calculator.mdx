@@ -1,0 +1,95 @@
+---
+title: Age Calculator
+description: "Works out age on the day of a measurement, with a correction for babies born early."
+---
+
+## Demos
+
+Enter a date of birth. "Measured on" starts on today.
+
+<ComponentPreview name="age-calculator-demo" />
+
+## Usage
+
+Use the age calculator wherever a result depends on age, such as a growth chart or a reference range. It shows three ages:
+
+- **Chronological** — Months since birth, in WHO months of 30.4375 days. From 24 months it shows years and months, such as `3 y 2 mo`.
+- **Corrected** — Chronological age less the weeks born before term (40 weeks). Never below zero.
+- **Completed years** — Age as a birthday counts it.
+
+Import it from `@workspace/ui/tools/age-calculator`.
+
+```tsx
+import { AgeCalculator } from "@workspace/ui/tools/age-calculator"
+```
+
+```tsx
+<AgeCalculator defaultBirthDate={new Date(2025, 1, 10)} />
+```
+
+### Notes
+
+- Growth charts use corrected age for babies born before 37 weeks, usually until 24 months. For a baby born at term, leave "Born at" on 40 and both ages match.
+- Dates are read as UTC midnight, so the result is the same in every time zone.
+- The reset button goes back to the default dates and weeks.
+
+### Age helpers
+
+The maths is in `@workspace/ui/lib/age`, so you can use it without the UI.
+
+```tsx
+import {
+  ageInMonths,
+  ageInYears,
+  correctedAgeInMonths,
+  formatAge,
+} from "@workspace/ui/lib/age"
+
+const birth = new Date("2025-02-10")
+const measured = new Date("2026-01-20")
+
+formatAge(ageInMonths(birth, measured)) // "11.3 months"
+// Born at 32 weeks: eight weeks come off.
+formatAge(correctedAgeInMonths(birth, measured, 32)) // "9.5 months"
+ageInYears(birth, measured) // 0
+```
+
+`calculateAge(birth, measured, gestationalWeeks)` from the component file returns all three at once, or `null` when the measurement date is before the date of birth.
+
+## Examples
+
+### Born early
+
+A baby born at 32 weeks, measured at 11 months. Eight weeks come off, so the corrected age is 9.5 months.
+
+<ComponentPreview name="age-calculator-default" />
+
+### Listen for changes
+
+Pass `onChange` to get the result each time an input changes. You get `null` when no result can be worked out.
+
+<ComponentPreview name="age-calculator-on-change" />
+
+## Props
+
+Unlisted props pass through to the `Card` that wraps the calculator.
+
+### AgeCalculator
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `defaultBirthDate` | `Date` | — | Date of birth on first render and after reset. |
+| `defaultMeasuredDate` | `Date` | today | Measurement date on first render and after reset. |
+| `defaultGestationalWeeks` | `number` | `40` | Weeks of pregnancy at birth. |
+| `onChange` | `(result: AgeResult or null) => void` | — | Called when the result changes. |
+| `className` | `string` | — | Classes merged onto the card. |
+
+### AgeResult
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `ageMonths` | `number` | Chronological age in WHO months. |
+| `correctedAgeMonths` | `number` | Age in months corrected for prematurity. |
+| `completedYears` | `number` | Completed years. |
+
+Pass any month value to `formatAge` to show it as text.

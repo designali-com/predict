@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "progress-indeterminate",
+  "type": "registry:block",
+  "description": "Indeterminate",
+  "files": [
+    {
+      "path": "registry/predict/components/progress/progress-indeterminate.tsx",
+      "content": "\"use client\"\n\nimport { Progress } from \"@workspace/ui/components/progress\"\n\nexport function ProgressIndeterminate() {\n  return <Progress value={null} aria-label=\"Uploading\" className=\"w-full max-w-sm\" />\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

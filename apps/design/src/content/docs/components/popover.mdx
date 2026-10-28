@@ -1,0 +1,78 @@
+---
+title: Popover
+description: "A small floating panel anchored to a trigger."
+---
+
+## Demos
+
+A popover that explains a term.
+
+<ComponentPreview name="popover-demo" />
+
+## Usage
+
+Use a popover for extra detail or a small control that the reader opens on purpose: a definition, a date picker, a short filter. For a one-line label on hover, use a [Tooltip](/docs/components/tooltip). For a task that blocks the page, use a [Dialog](/docs/components/dialog).
+
+Import it from `@workspace/ui/components/popover`.
+
+```tsx
+import {
+  Popover,
+  PopoverContent,
+  PopoverDescription,
+  PopoverHeader,
+  PopoverTitle,
+  PopoverTrigger,
+} from "@workspace/ui/components/popover"
+```
+
+### Anatomy
+
+- **Popover** — Holds the open state.
+- **PopoverTrigger** — Opens the popover on click.
+- **PopoverContent** — The floating panel. Sets placement.
+- **PopoverHeader** — Stacks the title and description.
+- **PopoverTitle** — The panel heading.
+- **PopoverDescription** — Muted body text.
+
+### Notes
+
+- The popover flips to the other side when there is no room.
+- Escape and a click outside close it.
+- Pass a button through `render` on the trigger to reuse the [Button](/docs/components/button) styles.
+
+## Examples
+
+### Placement
+
+Use `side` and `align` to place the popover next to its trigger.
+
+<ComponentPreview name="popover-placement" />
+
+### With form
+
+A popover can hold a small form, such as setting a target value.
+
+<ComponentPreview name="popover-form" />
+
+## Props
+
+These are the props you set most often. Unlisted props pass through to the underlying element.
+
+### Popover
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `defaultOpen` | `boolean` | `false` | Open on first render. |
+| `open` | `boolean` | — | Open state when controlled. |
+| `onOpenChange` | `(open) => void` | — | Called when the popover opens or closes. |
+
+### PopoverContent
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `side` | `"top", "right", "bottom", "left", "inline-start", or "inline-end"` | `bottom` | Side of the trigger to open on. |
+| `align` | `"start", "center", or "end"` | `center` | Alignment along that side. |
+| `sideOffset` | `number` | `4` | Gap from the trigger in pixels. |
+| `alignOffset` | `number` | `0` | Shift along the side in pixels. |
+| `className` | `string` | — | Classes merged onto the panel. |

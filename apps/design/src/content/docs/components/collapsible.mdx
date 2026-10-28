@@ -1,0 +1,70 @@
+---
+title: Collapsible
+description: "A single section that can be shown or hidden."
+---
+
+## Demos
+
+The first marker is always visible. The trigger shows the rest.
+
+<ComponentPreview name="collapsible-demo" />
+
+## Usage
+
+Use a collapsible for one block of secondary content, like extra rows in a list. For several sections in a stack, use an [Accordion](/docs/components/accordion).
+
+Import it from `@workspace/ui/components/collapsible`.
+
+```tsx
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@workspace/ui/components/collapsible"
+```
+
+```tsx
+<Collapsible>
+  <CollapsibleTrigger render={<Button variant="ghost" />}>Show more</CollapsibleTrigger>
+  <CollapsibleContent>Hidden content</CollapsibleContent>
+</Collapsible>
+```
+
+### Anatomy
+
+- **Collapsible** — Holds the open state.
+- **CollapsibleTrigger** — The control that toggles the content.
+- **CollapsibleContent** — The content that shows and hides.
+
+### Notes
+
+- The component has no styles of its own. Style the trigger and content for the context.
+- Pass a button through `render` on the trigger to reuse the [Button](/docs/components/button) styles.
+- An icon-only trigger needs an `aria-label`.
+
+## Examples
+
+### Controlled
+
+Hold the state with `open` and `onOpenChange` to change the trigger label.
+
+<ComponentPreview name="collapsible-controlled" />
+
+## Props
+
+These are the props you set most often. Unlisted props pass through to the underlying element.
+
+### Collapsible
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `defaultOpen` | `boolean` | `false` | Open on first render. |
+| `open` | `boolean` | — | Open state when controlled. |
+| `onOpenChange` | `(open) => void` | — | Called when the state changes. |
+| `disabled` | `boolean` | `false` | Stops the trigger from toggling. |
+
+### CollapsibleTrigger
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `render` | `ReactElement` | — | Element to render instead of a button. |

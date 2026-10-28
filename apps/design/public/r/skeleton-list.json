@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "skeleton-list",
+  "type": "registry:block",
+  "description": "List",
+  "files": [
+    {
+      "path": "registry/predict/components/skeleton/skeleton-list.tsx",
+      "content": "\"use client\"\n\nimport { Skeleton } from \"@workspace/ui/components/skeleton\"\n\nexport function SkeletonList() {\n  return (\n    <div className=\"grid w-full max-w-sm gap-3\">\n      {Array.from({ length: 4 }).map((_, index) => (\n        <div key={index} className=\"flex items-center justify-between gap-4\">\n          <Skeleton className=\"h-4 w-28\" />\n          <Skeleton className=\"h-4 w-16\" />\n        </div>\n      ))}\n    </div>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

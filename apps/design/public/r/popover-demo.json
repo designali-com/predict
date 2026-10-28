@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "popover-demo",
+  "type": "registry:block",
+  "description": "Basic",
+  "files": [
+    {
+      "path": "registry/predict/components/popover/popover-demo.tsx",
+      "content": "\"use client\"\n\nimport { Button } from \"@workspace/ui/components/button\"\nimport {\n  Popover,\n  PopoverContent,\n  PopoverDescription,\n  PopoverHeader,\n  PopoverTitle,\n  PopoverTrigger,\n} from \"@workspace/ui/components/popover\"\n\nexport function PopoverDemo() {\n  return (\n    <Popover>\n      <PopoverTrigger render={<Button variant=\"outline\" />}>What is ApoB?</PopoverTrigger>\n      <PopoverContent>\n        <PopoverHeader>\n          <PopoverTitle>Apolipoprotein B</PopoverTitle>\n          <PopoverDescription>\n            Counts the particles that carry cholesterol into artery walls. It\n            predicts heart risk better than LDL-C alone.\n          </PopoverDescription>\n        </PopoverHeader>\n      </PopoverContent>\n    </Popover>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

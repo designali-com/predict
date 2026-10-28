@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toggle-disabled",
+  "type": "registry:block",
+  "description": "Disabled",
+  "files": [
+    {
+      "path": "registry/predict/components/toggle/toggle-disabled.tsx",
+      "content": "\"use client\"\n\nimport { BellOffIcon } from \"lucide-react\"\n\nimport { Toggle } from \"@workspace/ui/components/toggle\"\n\nexport function ToggleDisabled() {\n  return (\n    <Toggle variant=\"outline\" disabled aria-label=\"Mute\">\n      <BellOffIcon />\n    </Toggle>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

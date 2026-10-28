@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "progress-custom-value",
+  "type": "registry:block",
+  "description": "Custom value",
+  "files": [
+    {
+      "path": "registry/predict/components/progress/progress-custom-value.tsx",
+      "content": "\"use client\"\n\nimport {\n  Progress,\n  ProgressLabel,\n  ProgressValue,\n} from \"@workspace/ui/components/progress\"\n\nexport function ProgressCustomValue() {\n  return (\n    <Progress value={4} max={6} className=\"w-full max-w-sm\">\n      <ProgressLabel>Onboarding</ProgressLabel>\n      <ProgressValue>{() => \"4 of 6 steps\"}</ProgressValue>\n    </Progress>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

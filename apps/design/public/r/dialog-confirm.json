@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dialog-confirm",
+  "type": "registry:block",
+  "description": "Confirm",
+  "files": [
+    {
+      "path": "registry/predict/components/dialog/dialog-confirm.tsx",
+      "content": "\"use client\"\n\nimport { Button } from \"@workspace/ui/components/button\"\nimport {\n  Dialog,\n  DialogClose,\n  DialogContent,\n  DialogDescription,\n  DialogFooter,\n  DialogHeader,\n  DialogTitle,\n  DialogTrigger,\n} from \"@workspace/ui/components/dialog\"\n\nexport function DialogConfirm() {\n  return (\n    <Dialog>\n      <DialogTrigger render={<Button variant=\"destructive\" />}>\n        Delete report\n      </DialogTrigger>\n      <DialogContent showCloseButton={false}>\n        <DialogHeader>\n          <DialogTitle>Delete this report?</DialogTitle>\n          <DialogDescription>\n            The October panel and its notes will be removed. This cannot be undone.\n          </DialogDescription>\n        </DialogHeader>\n        <DialogFooter>\n          <DialogClose render={<Button variant=\"outline\" />}>Keep report</DialogClose>\n          <DialogClose render={<Button variant=\"destructive\" />}>Delete</DialogClose>\n        </DialogFooter>\n      </DialogContent>\n    </Dialog>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

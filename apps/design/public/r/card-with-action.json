@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card-with-action",
+  "type": "registry:block",
+  "description": "With action and footer",
+  "files": [
+    {
+      "path": "registry/predict/components/card/card-with-action.tsx",
+      "content": "\"use client\"\n\nimport { Button } from \"@workspace/ui/components/button\"\nimport {\n  Card,\n  CardAction,\n  CardContent,\n  CardDescription,\n  CardFooter,\n  CardHeader,\n  CardTitle,\n} from \"@workspace/ui/components/card\"\n\nexport function CardWithAction() {\n  return (\n    <Card className=\"w-full max-w-sm\">\n      <CardHeader>\n        <CardTitle>ApoB</CardTitle>\n        <CardDescription>Collected 12 Oct, after a 10 hour fast.</CardDescription>\n        <CardAction>\n          <Button variant=\"link\" size=\"sm\">\n            History\n          </Button>\n        </CardAction>\n      </CardHeader>\n      <CardContent>\n        <p className=\"text-2xl font-medium tabular-nums\">\n          78 <span className=\"text-sm text-muted-foreground\">mg/dL</span>\n        </p>\n      </CardContent>\n      <CardFooter className=\"gap-2 border-t\">\n        <Button size=\"sm\">View report</Button>\n        <Button size=\"sm\" variant=\"outline\">\n          Share\n        </Button>\n      </CardFooter>\n    </Card>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}
