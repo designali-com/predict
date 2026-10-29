@@ -9,6 +9,7 @@ import { cn } from "@workspace/ui/lib/utils"
 const navLinks = [
     { name: "Docs", href: "/docs" },
     { name: "Components", href: "/docs/components/accordion" }, 
+    { name: "Blocks", href: "/blocks" },
     { name: "Brand", href: "/docs/design/logos" },  
     { name: "Biomarkers", href: "/biomarkers" }, 
 ]

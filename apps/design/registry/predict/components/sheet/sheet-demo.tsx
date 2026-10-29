@@ -31,7 +31,7 @@ export function SheetDemo() {
           </label>
         </div>
         <SheetFooter>
-          <Button size="sm">Save note</Button>
+          <SheetClose render={<Button size="sm" />}>Save note</SheetClose>
           <SheetClose render={<Button variant="outline" size="sm" />}>Cancel</SheetClose>
         </SheetFooter>
       </SheetContent>

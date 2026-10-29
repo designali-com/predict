@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "mascot-demo",
+  "type": "registry:block",
+  "description": "Basic",
+  "files": [
+    {
+      "path": "registry/predict/ui/mascot/mascot-demo.tsx",
+      "content": "\"use client\"\n\nimport { PredictMascot } from \"@workspace/ui/predict/predict-mascot\"\n\nexport function MascotDemo() {\n  return <PredictMascot />\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

@@ -48,16 +48,22 @@ import {
 - **Sidebar** — The panel. Sets side, variant, and how it collapses.
 - **SidebarHeader** and **SidebarFooter** — Fixed areas at the top and bottom.
 - **SidebarContent** — The scrolling middle.
+- **SidebarInput** — A compact search field for the header.
+- **SidebarSeparator** — A line between groups.
 - **SidebarGroup**, **SidebarGroupLabel**, **SidebarGroupContent** — A labelled section.
-- **SidebarMenu**, **SidebarMenuItem**, **SidebarMenuButton** — The list of links.
-- **SidebarMenuBadge**, **SidebarMenuAction**, **SidebarMenuSub** — A count, a trailing button, and nested links.
+- **SidebarGroupAction** — A small button in the corner of a group, such as "Add".
+- **SidebarMenu**, **SidebarMenuItem**, **SidebarMenuButton** — The list of items. Buttons by default.
+- **SidebarMenuBadge**, **SidebarMenuAction** — A count and a trailing button on an item.
+- **SidebarMenuSub**, **SidebarMenuSubItem**, **SidebarMenuSubButton** — Nested links. The sub button renders an anchor.
+- **SidebarMenuSkeleton** — A loading row for a menu.
 - **SidebarTrigger** — A button that toggles the sidebar.
+- **SidebarRail** — A thin edge strip that toggles the sidebar on click.
 - **SidebarInset** — The main content area next to the sidebar.
-- **useSidebar** — Hook that reads and sets the state.
+- **useSidebar** — Hook that returns `state`, `open`, `setOpen`, `openMobile`, `setOpenMobile`, `isMobile`, and `toggleSidebar`.
 
 ### Notes
 
-- The open state is saved in a cookie so it survives a reload.
+- The open state is written to the `sidebar_state` cookie. Read it on the server and pass it to `defaultOpen` to keep the state across reloads.
 - With `collapsible="icon"`, set `tooltip` on each **SidebarMenuButton** so the label is still available when only the icon shows.
 - Mark the current page with `isActive`.
 - To render a link, pass an anchor through `render` on **SidebarMenuButton**.
@@ -105,3 +111,23 @@ These are the props you set most often. Unlisted props pass through to the under
 | `size` | `"default", "sm", or "lg"` | `default` | Height of the button. |
 | `tooltip` | `string or TooltipContent props` | — | Shown when the sidebar is collapsed to icons. |
 | `render` | `ReactElement` | — | Element to render instead of a button. |
+
+### SidebarMenuAction
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `showOnHover` | `boolean` | `false` | Hide the action until the item is hovered or focused. |
+
+### SidebarMenuSubButton
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `isActive` | `boolean` | `false` | Marks the current page. |
+| `size` | `"sm" or "md"` | `md` | Size of the link. |
+| `render` | `ReactElement` | — | Element to render instead of an anchor. |
+
+### SidebarMenuSkeleton
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `showIcon` | `boolean` | `false` | Show an icon placeholder before the text. |

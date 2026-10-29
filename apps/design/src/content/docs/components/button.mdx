@@ -16,14 +16,13 @@ Use a button for an action on the current page: save, open, delete, or continue.
 Import it from `@workspace/ui/components/button`.
 
 ```tsx
-import {
-  Button,
-} from "@workspace/ui/components/button"
+import { Button } from "@workspace/ui/components/button"
 ```
 
 ### Anatomy
 
-- **Button** — `variant` is `default`, `outline`, `secondary`, `ghost`, `destructive`, `link`, or `invert`. `size` is `sm`, `default`, `lg`, or `icon-sm`, `icon`, `icon-lg`.
+- **Button** — `variant` is `default`, `outline`, `outlineglass`, `secondary`, `ghost`, `destructive`, `link`, or `invert`. `size` is `sm`, `default`, `lg`, `icon-sm`, `icon`, or `icon-lg`.
+- **buttonVariants** — The class function behind **Button**. Use it to style another element, such as a link, as a button.
 
 ### Notes
 
@@ -36,7 +35,7 @@ import {
 
 ### Outline
 
-A quieter action next to a primary one.
+A quieter action next to a primary one. `outlineglass` is the same with a soft inner shadow.
 
 <ComponentPreview name="button-outline" />
 
@@ -63,6 +62,12 @@ For actions that delete or cannot be undone.
 Looks like text. Use for low-weight navigation.
 
 <ComponentPreview name="button-link" />
+
+### As a link
+
+For navigation, render an `a` through `render` and set `nativeButton={false}`.
+
+<ComponentPreview name="button-as-link" />
 
 ### Invert
 
@@ -102,7 +107,7 @@ These are the props you set most often. Unlisted props pass through to the under
 
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `variant` | `"default", "outline", "secondary", "ghost", "destructive", "link", or "invert"` | `default` | Emphasis of the action. |
+| `variant` | `"default", "outline", "outlineglass", "secondary", "ghost", "destructive", "link", or "invert"` | `default` | Emphasis of the action. |
 | `size` | `"sm", "default", "lg", "icon-sm", "icon", or "icon-lg"` | `default` | Height and padding. |
 | `disabled` | `boolean` | `false` | Blocks the action and dims the button. |
 | `nativeButton` | `boolean` | `true` | Set false when render is not a button, such as a link. |

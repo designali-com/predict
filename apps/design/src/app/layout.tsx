@@ -5,7 +5,6 @@ import "@workspace/ui/globals.css"
 import { ThemeProvider } from "@/src/components/theme-provider"
 import { cn } from "@workspace/ui/lib/utils";
 import { NeueMontreal } from "@/src/lib/fonts"; 
-import { Header } from "../components/layout/header";
 
 const fontMono = Geist_Mono({
   subsets: ["latin"],
@@ -97,10 +96,7 @@ export default function RootLayout({
     >
       <body>
         <ThemeProvider>
-          <div className="bg-white dark:bg-black"> 
-            <Header/>
-            <main className="flex-1 min-h-screen">{children}</main> 
-          </div>
+          <div className="bg-white dark:bg-black">{children}</div>
         </ThemeProvider>
       </body>
     </html>

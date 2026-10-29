@@ -1,0 +1,63 @@
+---
+title: Mascot
+description: "The PREDICT mascot, with eyes that follow the cursor."
+---
+
+## Demos
+
+Move the cursor around the page. The eyes follow it, blink, and the arms sway.
+
+<ComponentPreview name="mascot-demo" />
+
+## Usage
+
+Use the mascot to add character to empty states, onboarding, and success screens. Keep it to one per screen, and don't use it where the user is reading results.
+
+Import it from `@workspace/ui/predict/predict-mascot`.
+
+```tsx
+import { PredictMascot } from "@workspace/ui/predict/predict-mascot"
+```
+
+```tsx
+<PredictMascot className="size-24" />
+```
+
+### Anatomy
+
+- **Head** — A circle in `--primary`.
+- **Eyes** — Two rounded bars in `--background`. They move up to 22 units towards the cursor and blink about every six seconds.
+- **Arms** — Sway gently every 3.5 seconds.
+- **Legs** — Four legs, still.
+
+### Notes
+
+- The default size is `size-30`. Passing `className` replaces it, so include a size.
+- The eyes track the mouse anywhere on the page, not only over the mascot. They don't move on touch screens.
+- It has `role="img"` and the label "PREDICT mascot". Pass `aria-hidden` when it is only decoration.
+- For a still version, such as in print or an email, use `PredictMascut` from `@workspace/ui/predict/logo`.
+
+## Examples
+
+### Sizes
+
+`size-12`, `size-20`, and `size-30`.
+
+<ComponentPreview name="mascot-sizes" />
+
+### Static
+
+`PredictMascut` has no animation and draws in brand purple.
+
+<ComponentPreview name="mascot-static" />
+
+## Props
+
+Unlisted props pass through to the `svg` element.
+
+### PredictMascot
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `className` | `string` | `size-30` | Classes for the `svg`. Replaces the default size. |
+| `aria-label` | `string` | `PREDICT mascot` | Accessible name. |

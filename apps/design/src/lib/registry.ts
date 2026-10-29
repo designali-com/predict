@@ -4,7 +4,7 @@ import path from "node:path";
 import { Project, ScriptKind } from "ts-morph";
 import { Index } from "@/registry/__index__";
 
-type RegistryFile = {
+export type RegistryFile = {
   path: string;
   type?: string;
   target?: string;

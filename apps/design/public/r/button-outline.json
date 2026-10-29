@@ -6,7 +6,7 @@
   "files": [
     {
       "path": "registry/predict/components/button/button-outline.tsx",
-      "content": "\"use client\"\n\nimport { Button } from \"@workspace/ui/components/button\"\n\nexport function ButtonOutline() {\n  return <Button variant=\"outline\">View report</Button>\n}\n",
+      "content": "\"use client\"\n\nimport { Button } from \"@workspace/ui/components/button\"\n\nexport function ButtonOutline() {\n  return (\n    <div className=\"flex flex-wrap items-center justify-center gap-3\">\n      <Button variant=\"outline\">View report</Button>\n      <Button variant=\"outlineglass\">View report</Button>\n    </div>\n  )\n}\n",
       "type": "registry:block"
     }
   ]

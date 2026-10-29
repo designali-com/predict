@@ -15,7 +15,7 @@ Use the age calculator wherever a result depends on age, such as a growth chart 
 
 - **Chronological** — Months since birth, in WHO months of 30.4375 days. From 24 months it shows years and months, such as `3 y 2 mo`.
 - **Corrected** — Chronological age less the weeks born before term (40 weeks). Never below zero.
-- **Completed years** — Age as a birthday counts it.
+- **Completed years** — Age as a birthday counts it. Someone born on 29 February has their birthday on 1 March in other years.
 
 Import it from `@workspace/ui/tools/age-calculator`.
 
@@ -30,6 +30,7 @@ import { AgeCalculator } from "@workspace/ui/tools/age-calculator"
 ### Notes
 
 - Growth charts use corrected age for babies born before 37 weeks, usually until 24 months. For a baby born at term, leave "Born at" on 40 and both ages match.
+- "Born at" takes 22 to 42 weeks. Clearing it goes back to 40. Over 40 weeks makes no correction.
 - Dates are read as UTC midnight, so the result is the same in every time zone.
 - The reset button goes back to the default dates and weeks.
 

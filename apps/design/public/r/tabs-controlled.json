@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tabs-controlled",
+  "type": "registry:block",
+  "description": "Controlled",
+  "files": [
+    {
+      "path": "registry/predict/components/tabs/tabs-controlled.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { Tabs, TabsContent, TabsList, TabsTrigger } from \"@workspace/ui/components/tabs\"\n\nexport function TabsControlled() {\n  const [tab, setTab] = React.useState(\"overview\")\n\n  return (\n    <div className=\"flex w-full max-w-md flex-col gap-3\">\n      <Tabs value={tab} onValueChange={setTab}>\n        <TabsList>\n          <TabsTrigger value=\"overview\">Overview</TabsTrigger>\n          <TabsTrigger value=\"history\">History</TabsTrigger>\n          <TabsTrigger value=\"notes\">Notes</TabsTrigger>\n        </TabsList>\n        <TabsContent value=\"overview\">Latest reading is within range.</TabsContent>\n        <TabsContent value=\"history\">Three panels in the last year.</TabsContent>\n        <TabsContent value=\"notes\">Collected after a 10 hour fast.</TabsContent>\n      </Tabs>\n      <p className=\"text-muted-foreground text-xs\">Active tab: {tab}</p>\n    </div>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+---
+title: Label
+description: "Text that names a form control."
+---
+
+## Demos
+
+A label for a text input.
+
+<ComponentPreview name="label-demo" />
+
+## Usage
+
+Give every form control a label. Clicking the label focuses or toggles its control, and screen readers read it out when the control gets focus.
+
+Import it from `@workspace/ui/components/label`.
+
+```tsx
+import { Label } from "@workspace/ui/components/label"
+```
+
+```tsx
+<Label htmlFor="email">Email</Label>
+<Input id="email" type="email" />
+```
+
+### Anatomy
+
+- **Label** — A native `label` element. It lays out its children in a row with a small gap, so it can hold a control and its text.
+
+### Notes
+
+- Link the label to its control with `htmlFor` and a matching `id`, or put the control inside the label.
+- The label dims when a disabled control with the `peer` class comes before it, or when it sits inside a `group` with `data-disabled="true"`.
+- Write labels as short nouns, such as "Email" or "Date of birth". Put hints in a separate line of text.
+
+## Examples
+
+### With a control
+
+Wrap a switch, radio, or checkbox in the label so the whole row is clickable.
+
+<ComponentPreview name="label-with-control" />
+
+### Disabled
+
+Add `peer` to a disabled control placed before the label. Here `flex-col-reverse` keeps the label on top.
+
+<ComponentPreview name="label-disabled" />
+
+## Props
+
+These are the props you set most often. Unlisted props pass through to the `label` element.
+
+### Label
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `htmlFor` | `string` | — | The `id` of the control it names. |
+| `className` | `string` | — | Extra classes for the label. |

@@ -28,22 +28,27 @@ import { Input } from "@workspace/ui/components/input"
 
 ### Anatomy
 
-- **Input** — A styled `input` element. All native attributes work.
+- **Input** — A styled `input` element. All native attributes work. `size` is `sm`, `default`, or `lg`.
 
 ### Notes
 
 - A placeholder is not a label. It disappears as soon as the reader types.
 - Set the right `type` and `inputMode` so phones show the right keyboard.
 - Set `aria-invalid` to show the error style. Put the error message right below the field.
+- Match `size` to the button next to it. Both use `h-8`, `h-10`, and `h-12`.
 - Disabled fields are skipped by the keyboard. Use `readOnly` if the reader should still be able to copy the value.
 
 ## Examples
 
+### Sizes
+
+`sm`, `default`, and `lg`. Match the size of a button next to it.
+
+<ComponentPreview name="input-sizes" />
+
 ### Number
 
-Use `inputMode="decimal"` so mobile keyboards show a decimal point.
-
-<ComponentPreview name="input-number" />
+For numbers, such as weight or a dose, use a [Number Field](/docs/components/number-field). It adds step buttons, arrow keys, limits, and number formatting.
 
 ### File
 
@@ -77,8 +82,10 @@ These are the props you set most often. Unlisted props pass through to the `inpu
 
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |
+| `size` | `"sm", "default", or "lg"` | `default` | Height, padding, and text size. |
 | `type` | `string` | `text` | Native input type. |
 | `placeholder` | `string` | — | Hint shown when the field is empty. |
 | `disabled` | `boolean` | `false` | Blocks input and dims the field. |
+| `readOnly` | `boolean` | `false` | Keeps the value selectable but not editable. |
 | `aria-invalid` | `boolean` | — | Shows the error style. |
 | `className` | `string` | — | Classes merged onto the element. |

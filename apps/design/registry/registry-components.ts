@@ -156,6 +156,17 @@ export const components: Registry["items"] = [
     ],
   },
   {
+    name: "button-as-link",
+    description: "As a link",
+    type: "registry:block",
+    files: [
+      {
+        path: "components/button/button-as-link.tsx",
+        type: "registry:block",
+      },
+    ],
+  },
+  {
     name: "calendar-demo",
     description: "Basic",
     type: "registry:block",
@@ -195,6 +206,17 @@ export const components: Registry["items"] = [
     files: [
       {
         path: "components/calendar/calendar-disabled-dates.tsx",
+        type: "registry:block",
+      },
+    ],
+  },
+  {
+    name: "calendar-in-popover",
+    description: "In a popover",
+    type: "registry:block",
+    files: [
+      {
+        path: "components/calendar/calendar-in-popover.tsx",
         type: "registry:block",
       },
     ],
@@ -299,17 +321,6 @@ export const components: Registry["items"] = [
     ],
   },
   {
-    name: "input-number",
-    description: "Number",
-    type: "registry:block",
-    files: [
-      {
-        path: "components/input/input-number.tsx",
-        type: "registry:block",
-      },
-    ],
-  },
-  {
     name: "input-file",
     description: "File",
     type: "registry:block",
@@ -354,6 +365,105 @@ export const components: Registry["items"] = [
     ],
   },
   {
+    name: "input-sizes",
+    description: "Sizes",
+    type: "registry:block",
+    files: [
+      {
+        path: "components/input/input-sizes.tsx",
+        type: "registry:block",
+      },
+    ],
+  },
+  {
+    name: "label-demo",
+    description: "Basic",
+    type: "registry:block",
+    files: [
+      {
+        path: "components/label/label-demo.tsx",
+        type: "registry:block",
+      },
+    ],
+  },
+  {
+    name: "label-with-control",
+    description: "With a control",
+    type: "registry:block",
+    files: [
+      {
+        path: "components/label/label-with-control.tsx",
+        type: "registry:block",
+      },
+    ],
+  },
+  {
+    name: "label-disabled",
+    description: "Disabled",
+    type: "registry:block",
+    files: [
+      {
+        path: "components/label/label-disabled.tsx",
+        type: "registry:block",
+      },
+    ],
+  },
+  {
+    name: "number-field-demo",
+    description: "Basic",
+    type: "registry:block",
+    files: [
+      {
+        path: "components/number-field/number-field-demo.tsx",
+        type: "registry:block",
+      },
+    ],
+  },
+  {
+    name: "number-field-sizes",
+    description: "Sizes",
+    type: "registry:block",
+    files: [
+      {
+        path: "components/number-field/number-field-sizes.tsx",
+        type: "registry:block",
+      },
+    ],
+  },
+  {
+    name: "number-field-format",
+    description: "Decimal format",
+    type: "registry:block",
+    files: [
+      {
+        path: "components/number-field/number-field-format.tsx",
+        type: "registry:block",
+      },
+    ],
+  },
+  {
+    name: "number-field-controlled",
+    description: "Controlled",
+    type: "registry:block",
+    files: [
+      {
+        path: "components/number-field/number-field-controlled.tsx",
+        type: "registry:block",
+      },
+    ],
+  },
+  {
+    name: "number-field-disabled",
+    description: "Disabled",
+    type: "registry:block",
+    files: [
+      {
+        path: "components/number-field/number-field-disabled.tsx",
+        type: "registry:block",
+      },
+    ],
+  },
+  {
     name: "popover-demo",
     description: "Basic",
     type: "registry:block",
@@ -382,6 +492,17 @@ export const components: Registry["items"] = [
     files: [
       {
         path: "components/popover/popover-form.tsx",
+        type: "registry:block",
+      },
+    ],
+  },
+  {
+    name: "popover-align",
+    description: "Alignment",
+    type: "registry:block",
+    files: [
+      {
+        path: "components/popover/popover-align.tsx",
         type: "registry:block",
       },
     ],
@@ -728,6 +849,17 @@ export const components: Registry["items"] = [
     ],
   },
   {
+    name: "tabs-controlled",
+    description: "Controlled",
+    type: "registry:block",
+    files: [
+      {
+        path: "components/tabs/tabs-controlled.tsx",
+        type: "registry:block",
+      },
+    ],
+  },
+  {
     name: "toggle-demo",
     description: "Basic",
     type: "registry:block",
@@ -778,6 +910,17 @@ export const components: Registry["items"] = [
     files: [
       {
         path: "components/toggle/toggle-disabled.tsx",
+        type: "registry:block",
+      },
+    ],
+  },
+  {
+    name: "toggle-controlled",
+    description: "Controlled",
+    type: "registry:block",
+    files: [
+      {
+        path: "components/toggle/toggle-controlled.tsx",
         type: "registry:block",
       },
     ],

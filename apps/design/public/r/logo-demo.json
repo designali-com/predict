@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "logo-demo",
+  "type": "registry:block",
+  "description": "Basic",
+  "files": [
+    {
+      "path": "registry/predict/ui/logo/logo-demo.tsx",
+      "content": "\"use client\"\n\nimport { Logo } from \"@workspace/ui/predict/logo\"\n\nexport function LogoDemo() {\n  return <Logo aria-label=\"PREDICT\" role=\"img\" className=\"h-60 w-auto\" />\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

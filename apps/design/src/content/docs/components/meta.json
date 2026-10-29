@@ -8,6 +8,8 @@
     "collapsible",
     "dialog",
     "input",
+    "label",
+    "number-field",
     "popover",
     "progress",
     "radio-group",

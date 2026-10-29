@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "number-field-format",
+  "type": "registry:block",
+  "description": "Decimal format",
+  "files": [
+    {
+      "path": "registry/predict/components/number-field/number-field-format.tsx",
+      "content": "\"use client\"\n\nimport {\n  NumberField,\n  NumberFieldDecrement,\n  NumberFieldGroup,\n  NumberFieldIncrement,\n  NumberFieldInput,\n  NumberFieldScrubArea,\n} from \"@workspace/ui/components/number-field\"\n\nexport function NumberFieldFormat() {\n  return (\n    <NumberField\n      defaultValue={5.6}\n      min={3}\n      max={15}\n      step={0.1}\n      format={{ minimumFractionDigits: 1, maximumFractionDigits: 1 }}\n      className=\"max-w-48\"\n    >\n      <NumberFieldScrubArea label=\"HbA1c (%)\" />\n      <NumberFieldGroup>\n        <NumberFieldDecrement />\n        <NumberFieldInput />\n        <NumberFieldIncrement />\n      </NumberFieldGroup>\n    </NumberField>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

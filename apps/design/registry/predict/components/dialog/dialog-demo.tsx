@@ -38,7 +38,7 @@ export function DialogDemo() {
         </div>
         <DialogFooter>
           <DialogClose render={<Button variant="outline" />}>Cancel</DialogClose>
-          <Button>Save</Button>
+          <DialogClose render={<Button />}>Save</DialogClose>
         </DialogFooter>
       </DialogContent>
     </Dialog>

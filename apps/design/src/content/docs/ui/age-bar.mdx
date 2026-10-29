@@ -1,0 +1,71 @@
+---
+title: Age Bar
+description: "Biological age next to chronological age, with how much faster or slower the body is ageing."
+---
+
+## Demos
+
+A biological age of 48 against a chronological age of 38.
+
+<ComponentPreview name="age-bar-demo" />
+
+## Usage
+
+Use the age bar to compare a person's biological age with their real age at a glance. For the full picture with domains and severity, use the [Bio Clock](/docs/ui/bio-clock).
+
+Import it from `@workspace/ui/predict/age-bar`.
+
+```tsx
+import { AgeBar } from "@workspace/ui/predict/age-bar"
+```
+
+```tsx
+<AgeBar biologicalAge={48} chronologicalAge={38} />
+```
+
+### Anatomy
+
+- **Markers** — One for each age, with the number and its label above a bar. The older age is always on the right.
+- **Range** — The shaded band between the two markers, with one tick for each year of difference.
+- **Badge** — How much faster or slower the person is ageing, above the range.
+- **Scale** — The tick ruler along the bottom, labelled 0 and 100.
+
+### Reading the badge
+
+The badge divides the older age by the younger one.
+
+| Case | Badge | Example |
+| --- | --- | --- |
+| Biological age is higher | Aging *n*x faster, in `--destructive` | 48 and 38 → 1.3x faster |
+| Biological age is lower | Aging *n*x slower, in `--status-normal` | 32 and 40 → 1.3x slower |
+| Both ages are equal | Aging on pace | 45 and 45 |
+
+### Notes
+
+- The markers are not placed by age along the 0 to 100 scale. They sit 30 points either side of the middle, and move out to 35 points as the gap grows from 15 to 17.5 years. This keeps the labels apart at any age.
+- The markers, range, and badge animate in from the middle when the component mounts.
+- The bar fills its container's width. Set the width on the parent.
+
+## Examples
+
+### Aging slower
+
+A biological age below the chronological age.
+
+<ComponentPreview name="age-bar-slower" />
+
+### On pace
+
+The same age for both.
+
+<ComponentPreview name="age-bar-on-pace" />
+
+## Props
+
+### AgeBar
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `biologicalAge` | `number` | `48` | Age from the biomarker results. |
+| `chronologicalAge` | `number` | `38` | Age from the date of birth. |
+| `className` | `string` | — | Classes merged onto the wrapper. |

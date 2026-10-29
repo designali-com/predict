@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "loader-demo",
+  "type": "registry:block",
+  "description": "Basic",
+  "files": [
+    {
+      "path": "registry/predict/ui/loader/loader-demo.tsx",
+      "content": "\"use client\"\n\nimport { PredictLoader } from \"@workspace/ui/predict/loader\"\n\nexport function LoaderDemo() {\n  return <PredictLoader size={40} />\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

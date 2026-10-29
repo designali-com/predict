@@ -4,10 +4,6 @@ import * as React from "react";
 
 interface LogoProps extends React.SVGProps<SVGSVGElement> { }
 
-type PredictLogoProps = {
-  className?: string
-}
-
 export const Logo: React.FC<LogoProps> = (props) => {
   return (
     <svg
@@ -63,13 +59,15 @@ export const LogoIcon: React.FC<LogoProps> = (props) => {
 
 export function PredictLogo({
   className = "",
-}: PredictLogoProps) {
+  ...props
+}: LogoProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 7872.5 1230.04"
       fill="currentColor"
       className={className}
+      {...props}
     >
       <g id="Layer_1-2" data-name="Layer 1">
         <g>
@@ -97,13 +95,15 @@ export function PredictLogo({
 
 export function PredictMascut({
   className = "",
-}: PredictLogoProps) {
+  ...props
+}: LogoProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 351 339"
       fill="currentColor"
       className={className}
+      {...props}
     >
       <rect x={47} width={258} height={258} rx={129} fill="#8504FE" />
       <rect

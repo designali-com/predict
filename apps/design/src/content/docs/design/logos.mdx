@@ -1,6 +1,121 @@
 ---
-title: Logos
-description: PREDICT design system color palette, semantic tokens, and severity indicators.
+title: Brand Guidelines
+description: "How to use the PREDICT logo, colours, type, mascot, and voice, with downloadable assets."
 ---
- 
- <PredictLogos />
+
+PREDICT helps people understand their biology. We turn biomarker science into results people can read, trust, and act on. The brand should feel the same: clear, precise, and calm.
+
+## Principles
+
+- **Clear** — Say one thing at a time. Plenty of white space, few colours, plain words.
+- **Precise** — Health data is exact, so the brand is too. Align things, use real units, and never round away meaning.
+- **Calm** — Results can be worrying. Inform without alarming, and save strong colour for what needs attention.
+- **Human** — Science, explained by people. The mascot and the voice keep it warm.
+
+## Logo assets
+
+Download the logo for light or dark backgrounds, as SVG for screens and print or as PNG (2048 px) for documents and slides. Use these files instead of recreating the logo.
+
+<BrandAssets />
+
+## Anatomy
+
+The logo has two parts: the **wordmark**, PREDICT in custom letterforms, and the **mark**, two strokes above the T. The mark also works alone as the icon. Never separate the wordmark from the mark, or change their size or position relative to each other.
+
+<LogoAnatomy />
+
+## Clear space
+
+Keep space around the logo free of text, images, and edges. The minimum clear space is **x**, the height of the P, on every side. More space is always better.
+
+<ClearSpace />
+
+## Minimum size
+
+Below these sizes the mark becomes hard to see. Use the icon instead of the full logo when space is tight.
+
+<MinimumSize />
+
+## Colour versions
+
+The logo comes in one colour at a time. Use black on light backgrounds and white on dark ones. White on Predict Purple and purple on white are for brand moments, such as campaigns and covers.
+
+<LogoColorVersions />
+
+The standalone icon is always Predict Purple. On a purple background, use the white logo instead.
+
+## Don'ts
+
+Keep the logo as it is supplied.
+
+<LogoMisuse />
+
+## Colours
+
+The palette is mostly black and white, with Predict Purple as the one brand colour. Click a swatch to copy its hex value.
+
+<BrandColors />
+
+### Proportions
+
+Purple works because it is rare. Use it for the main action and brand moments, not for large areas or body text.
+
+<ColorProportions />
+
+### Status colours
+
+Green, yellow, blue, orange, and red are kept for biomarker status, from normal to extreme. Don't use them for decoration or for the brand. See [Colors](/docs/design/colors) for the full list.
+
+## Typography
+
+**Neue Montreal** is the brand typeface, for everything from headlines to buttons. **Geist Mono** is for codes, IDs, and numbers that need to line up.
+
+<BrandTypography />
+
+- Use Medium (500) for headings and Regular (400) for body text. Keep Light and Bold for rare emphasis.
+- Use sentence case for headings and buttons: "Book a test", not "Book A Test".
+- Use tabular numbers (`tabular-nums`) for results, so columns line up.
+- See [Typography](/docs/design/typography) for the type scale.
+
+## Mascot
+
+The mascot is the friendly face of PREDICT. It comes animated for the web and still for everything else.
+
+<MascotShowcase />
+
+<MascotUsage />
+
+- Show one mascot per screen.
+- Keep its shape, colour, and proportions as supplied.
+- Don't give it speech bubbles that give health advice.
+- See [Mascot](/docs/ui/mascot) for the component.
+
+## Voice and tone
+
+Write the way a good clinician talks: plainly, kindly, and exactly.
+
+| Do | Don't |
+| --- | --- |
+| Your LDL-C is above the healthy range. | DANGER! Your cholesterol is critical! |
+| Fast for 10 to 12 hours before your test. | Please ensure adequate fasting prior to phlebotomy. |
+| 3 results need attention. | You failed 3 tests. |
+| Discuss these results with your clinician. | You have heart disease. |
+| Book a test | Click here to book now!!! |
+
+- Use plain words. Explain a term the first time, such as "hs-CRP, a marker of inflammation".
+- Lead with what the result means, then the number.
+- Never diagnose. Results are information, not medical advice.
+- Use "you" and "your". Avoid jargon, exclamation marks, and all caps.
+
+## In code
+
+The logo, icon, and mascot are React components in `@workspace/ui`. Use them instead of image files so they follow the theme.
+
+```tsx
+import { Logo, LogoIcon } from "@workspace/ui/predict/logo"
+import { PredictMascot } from "@workspace/ui/predict/predict-mascot"
+
+<Logo role="img" aria-label="PREDICT" className="h-6 w-auto" />
+```
+
+The brand colours are theme tokens: `bg-primary` for Predict Purple, `bg-secondary` for lilac, and `bg-chart-1` to `bg-chart-5` for the purple scale. See [Logo](/docs/ui/logo) for the full component reference.

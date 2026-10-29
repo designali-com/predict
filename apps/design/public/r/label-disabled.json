@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "label-disabled",
+  "type": "registry:block",
+  "description": "Disabled",
+  "files": [
+    {
+      "path": "registry/predict/components/label/label-disabled.tsx",
+      "content": "\"use client\"\n\nimport { Input } from \"@workspace/ui/components/input\"\nimport { Label } from \"@workspace/ui/components/label\"\n\nexport function LabelDisabled() {\n  return (\n    <div className=\"flex w-full max-w-xs flex-col-reverse gap-2\">\n      <Input\n        id=\"label-disabled-id\"\n        className=\"peer\"\n        defaultValue=\"PRD-20481\"\n        disabled\n      />\n      <Label htmlFor=\"label-disabled-id\">Patient ID</Label>\n    </div>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

@@ -16,7 +16,29 @@ import { CodeTabs } from "@/src/components/docs/code-tabs";
 import { ComponentPreview } from "@/src/components/docs/component-preview";
 import { ComponentSource } from "@/src/components/docs/component-source";
 import { BiomarkerRange } from "@/src/components/docs/biomarker-range";
-import { PredictLogos } from "./src/components/design/logo-section"
+import {
+  BrandAssets,
+  BrandColors,
+  BrandTypography,
+  ClearSpace,
+  ColorProportions,
+  LogoAnatomy,
+  LogoColorVersions,
+  LogoMisuse,
+  MascotShowcase,
+  MascotUsage,
+  MinimumSize,
+} from "./src/components/design/logo-section"
+import {
+  ChartColors,
+  ColorTokens,
+  ContrastTable,
+  FontFamilies,
+  NumberStyles,
+  StatusColors,
+  TypeHierarchy,
+  TypeScale,
+} from "./src/components/design/foundations"
  
 
 export const mdxComponents = {
@@ -289,7 +311,25 @@ export const mdxComponents = {
   AccordionItem,
   AccordionTrigger,  
   CodeCollapsibleWrapper,
-  PredictLogos,
+  BrandAssets,
+  BrandColors,
+  BrandTypography,
+  ClearSpace,
+  ColorProportions,
+  LogoAnatomy,
+  LogoColorVersions,
+  LogoMisuse,
+  MascotShowcase,
+  MascotUsage,
+  MinimumSize,
+  ChartColors,
+  ColorTokens,
+  ContrastTable,
+  FontFamilies,
+  NumberStyles,
+  StatusColors,
+  TypeHierarchy,
+  TypeScale,
   CodeTabs,
   ComponentPreview,
   ComponentSource,

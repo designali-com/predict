@@ -3,11 +3,11 @@
 import { BioClock, type DomainSegment } from "@workspace/ui/predict/bio-clock"
 
 const domains: DomainSegment[] = [
-  { label: "HRT", color: "var(--color-status-normal)", value: 80 },
-  { label: "MET", color: "var(--color-status-mild)", value: 60 },
-  { label: "INF", color: "var(--color-status-moderate)", value: 45 },
-  { label: "HRM", color: "var(--color-status-normal)", value: 70 },
-  { label: "KID", color: "var(--color-status-severe)", value: 30 },
+  { label: "HRT", fullName: "Heart health", color: "var(--color-status-normal)", value: 80 },
+  { label: "MET", fullName: "Metabolic health", color: "var(--color-status-mild)", value: 60 },
+  { label: "INF", fullName: "Inflammation", color: "var(--color-status-moderate)", value: 45 },
+  { label: "HRM", fullName: "Hormones", color: "var(--color-status-normal)", value: 70 },
+  { label: "KID", fullName: "Kidney function", color: "var(--color-status-severe)", value: 30 },
 ]
 
 export function BioClockDomains() {

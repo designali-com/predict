@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "number-field-disabled",
+  "type": "registry:block",
+  "description": "Disabled",
+  "files": [
+    {
+      "path": "registry/predict/components/number-field/number-field-disabled.tsx",
+      "content": "\"use client\"\n\nimport {\n  NumberField,\n  NumberFieldDecrement,\n  NumberFieldGroup,\n  NumberFieldIncrement,\n  NumberFieldInput,\n  NumberFieldScrubArea,\n} from \"@workspace/ui/components/number-field\"\n\nexport function NumberFieldDisabled() {\n  return (\n    <NumberField defaultValue={172} disabled className=\"max-w-48\">\n      <NumberFieldScrubArea label=\"Height (cm)\" />\n      <NumberFieldGroup>\n        <NumberFieldDecrement />\n        <NumberFieldInput />\n        <NumberFieldIncrement />\n      </NumberFieldGroup>\n    </NumberField>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

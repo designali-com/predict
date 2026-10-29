@@ -15,7 +15,6 @@ import {
     CardHeader,
     CardTitle,
 } from "@workspace/ui/components/card"
-import { Input } from "@workspace/ui/components/input"
 import {
     Popover,
     PopoverContent,

@@ -1,0 +1,66 @@
+---
+title: Loader
+description: "An animated PREDICT mark that shows something is loading."
+---
+
+## Demos
+
+The two strokes of the mark fade and grow in turn.
+
+<ComponentPreview name="loader-demo" />
+
+## Usage
+
+Use the loader while a page, a panel, or a result is loading and you can't show its layout yet. If you know the layout, use a [Skeleton](/docs/components/skeleton). If you know how far along it is, use a [Progress](/docs/components/progress) bar.
+
+Import it from `@workspace/ui/predict/loader`.
+
+```tsx
+import { PredictLoader } from "@workspace/ui/predict/loader"
+```
+
+```tsx
+<PredictLoader size={32} />
+```
+
+### Anatomy
+
+- **Strokes** — The two strokes of the PREDICT mark, in brand purple (`#8504FE`). The second starts a little after the first.
+
+### Notes
+
+- It has `role="status"` and the label "Loading", so screen readers announce it. Change the label with `aria-label`, such as "Loading results".
+- Inside a control that already has text, such as a button, pass `aria-hidden` and `role={undefined}` so it isn't announced twice.
+- The colour is fixed to brand purple and doesn't follow the text colour.
+
+## Examples
+
+### Sizes
+
+16, 24, and 40 pixels. The default is 24.
+
+<ComponentPreview name="loader-sizes" />
+
+### Speed
+
+`duration` is the length of one loop in seconds. The default is 1.4.
+
+<ComponentPreview name="loader-speed" />
+
+### In a button
+
+Show the loader at the start of a disabled button while an action runs.
+
+<ComponentPreview name="loader-button" />
+
+## Props
+
+Unlisted props pass through to the `svg` element.
+
+### PredictLoader
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `size` | `number` | `24` | Width and height in pixels. |
+| `duration` | `number` | `1.4` | Length of one loop in seconds. |
+| `aria-label` | `string` | `Loading` | What is loading. |

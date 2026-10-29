@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "calendar-in-popover",
+  "type": "registry:block",
+  "description": "In a popover",
+  "files": [
+    {
+      "path": "registry/predict/components/calendar/calendar-in-popover.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { CalendarIcon } from \"lucide-react\"\n\nimport { Button } from \"@workspace/ui/components/button\"\nimport { Calendar } from \"@workspace/ui/components/calendar\"\nimport {\n  Popover,\n  PopoverContent,\n  PopoverTrigger,\n} from \"@workspace/ui/components/popover\"\n\nexport function CalendarInPopover() {\n  const [open, setOpen] = React.useState(false)\n  const [date, setDate] = React.useState<Date | undefined>()\n\n  return (\n    <Popover open={open} onOpenChange={setOpen}>\n      <PopoverTrigger\n        render={<Button variant=\"outline\" className=\"w-56 justify-between font-normal\" />}\n      >\n        {date ? date.toLocaleDateString(undefined, { dateStyle: \"medium\" }) : \"Pick a test date\"}\n        <CalendarIcon data-icon=\"inline-end\" />\n      </PopoverTrigger>\n      <PopoverContent className=\"w-auto p-0\" align=\"start\">\n        <Calendar\n          mode=\"single\"\n          selected={date}\n          onSelect={(next) => {\n            setDate(next)\n            setOpen(false)\n          }}\n        />\n      </PopoverContent>\n    </Popover>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

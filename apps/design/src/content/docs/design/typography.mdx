@@ -1,140 +1,138 @@
 ---
 title: Typography
-description: Typography scale and semantic text styles used across the design system.
+description: "Typefaces, the type scale, semantic defaults, and the text styles used across PREDICT."
 ---
 
-Typography establishes a consistent visual hierarchy across pages, sections, dashboards, and UI components.
+PREDICT uses two typefaces and one size scale. Good type does most of the work in a health interface: it makes the result, the range, and what to do next easy to find.
 
-Our typography system uses semantic HTML elements and reusable Tailwind CSS utility classes. Default styles are defined globally in `typo.css`.
+## Typefaces
 
-## Heading Scale
+**Neue Montreal** is the brand typeface, used for everything from headlines to buttons. **Geist Mono** is for codes, IDs, tokens, and numbers that need to line up.
 
-The heading scale defines the font sizes available throughout the design system.
+<FontFamilies />
 
-| Token | Font Size | Rem |
-| --- | ---: | ---: |
-| `text-heading-72` | 72px | `4.5rem` |
-| `text-heading-64` | 64px | `4rem` |
-| `text-heading-56` | 56px | `3.5rem` |
-| `text-heading-48` | 48px | `3rem` |
-| `text-heading-40` | 40px | `2.5rem` |
-| `text-heading-32` | 32px | `2rem` |
-| `text-heading-24` | 24px | `1.5rem` |
-| `text-heading-20` | 20px | `1.25rem` |
-| `text-heading-16` | 16px | `1rem` |
-| `text-heading-14` | 14px | `0.875rem` |
+| Font | Class | Weights | Loaded in |
+| --- | --- | --- | --- |
+| Neue Montreal | `font-sans` (the default) | 300, 400, 500, 700 | `apps/design/src/lib/fonts.ts`, as `--font-montreal` |
+| Geist Mono | `font-mono` | Variable | `app/layout.tsx`, from Google Fonts, as `--font-mono` |
 
-## Semantic HTML Defaults
+- Neue Montreal is loaded in four weights only. `font-semibold` (600) has no file, so it renders as Bold. Use `font-medium` or `font-bold` so you get what you see in code.
+- `font-sans` is set on `html`, so you rarely need to write it.
 
-Global styles automatically apply typography tokens to standard HTML elements.
+## Type scale
 
-### Examples
+Ten sizes, from 72px down to 14px. Type in the box to try your own text.
 
-| Example | Element | Applied Style |
+<TypeScale />
+
+The tokens are defined in `packages/ui/src/styles/typo.css` and work like any Tailwind size: `text-heading-32`, `md:text-heading-48`.
+
+| Token | Size | Rem | Default for |
+| --- | ---: | ---: | --- |
+| `text-heading-72` | 72px | `4.5rem` | — |
+| `text-heading-64` | 64px | `4rem` | — |
+| `text-heading-56` | 56px | `3.5rem` | — |
+| `text-heading-48` | 48px | `3rem` | — |
+| `text-heading-40` | 40px | `2.5rem` | — |
+| `text-heading-32` | 32px | `2rem` | `h1` |
+| `text-heading-24` | 24px | `1.5rem` | `h2` |
+| `text-heading-20` | 20px | `1.25rem` | `h3` |
+| `text-heading-16` | 16px | `1rem` | `h4`, `p` |
+| `text-heading-14` | 14px | `0.875rem` | `small` |
+
+The tokens set the **font size only**. Line height is inherited (1.5 by default), which is too loose for large headings. Add `leading-tight` (1.25) or `leading-none` to headings of 32px and up.
+
+For interface text below 14px, use Tailwind's sizes: `text-xs` (12px) for captions and labels, and `text-sm` (14px) for compact body text in cards and tables.
+
+## Semantic defaults
+
+`typo.css` styles plain HTML elements, so content looks right without classes.
+
+| Example | Element | Style |
 | --- | --- | --- |
-| <h1>The Future of Muscle Intelligence</h1> | `h1` | `text-heading-32` |
-| <h2>The Future of Muscle Intelligence</h2> | `h2` | `text-heading-24` |
-| <h3>The Future of Muscle Intelligence</h3> | `h3` | `text-heading-20 font-medium` |
-| <h4>The Future of Muscle Intelligence</h4> | `h4` | `text-heading-16` |
-| <p>The Future of Muscle Intelligence</p> | `p` | `text-heading-16 text-muted-foreground` |
-| <small>The Future of Muscle Intelligence</small> | `small` | `text-heading-14 text-muted-foreground` |
+| <h1>Your October results</h1> | `h1` | `text-heading-32` |
+| <h2>Your October results</h2> | `h2` | `text-heading-24` |
+| <h3>Your October results</h3> | `h3` | `text-heading-20 font-medium` |
+| <h4>Your October results</h4> | `h4` | `text-heading-16` |
+| <p>Your October results</p> | `p` | `text-heading-16 text-muted-foreground` |
+| <small>Your October results</small> | `small` | `text-heading-14 text-muted-foreground` |
 
-## Heading Styles
+- **Every `p` is 16px and muted.** Inside components, set the size and colour you need, such as `text-sm text-foreground`. Classes win over the defaults.
+- These defaults are in `@layer base`, so any utility class overrides them.
+- In docs pages, the MDX components add spacing on top, such as a top margin on headings.
 
-### H1 — Primary Heading
+## Hierarchy
 
-Uses `text-heading-32`, equivalent to `2rem` or `32px`.
+A report header built from the scale. One clear title, a muted line of context, and the result as the largest thing in its section.
 
-```tsx
-<h1>The Future of Muscle Intelligence</h1>
-```
+<TypeHierarchy />
 
-### H2 — Secondary Heading
+### Text styles
 
-Uses `text-heading-24`, equivalent to `1.5rem` or `24px`.
+The combinations used across PREDICT. Reuse them instead of inventing new ones.
 
-```tsx
-<h2>The Future of Muscle Intelligence</h2>
-```
-
-### H3 — Tertiary Heading
-
-Uses `text-heading-20` with `font-medium`, equivalent to `1.25rem` or `20px`.
-
-```tsx
-<h3>The Future of Muscle Intelligence</h3>
-```
-
-### H4 — Compact Heading
-
-Uses `text-heading-16`, equivalent to `1rem` or `16px`.
-
-```tsx
-<h4>The Future of Muscle Intelligence</h4>
-```
-
-## Body Text
-
-Paragraphs and small text use muted foreground colors to establish a clear visual hierarchy.
-
-| Element | Font Size | Text Color |
+| Role | Classes | Example |
 | --- | --- | --- |
-| `p` | 16px | `text-muted-foreground` |
-| `small` | 14px | `text-muted-foreground` |
+| Hero title | `text-4xl md:text-6xl font-medium tracking-tight` | The home page headline |
+| Page title | `text-heading-32 leading-tight font-medium tracking-tight` | "Your October results" |
+| Section title | `text-heading-20 font-medium` | "Inflammation" |
+| Card title | `text-sm font-medium` | "Bio clock" |
+| Overline | `text-xs font-medium tracking-[0.18em] uppercase text-muted-foreground` | "DESIGN SYSTEM" |
+| Body | `text-sm` or `text-base`, `text-muted-foreground` for descriptions | Card descriptions |
+| Caption | `text-xs text-muted-foreground` | "Healthy range 0.2–3.0" |
+| Result | `font-mono tabular-nums` with a large size | "3.5" |
+| Code and tokens | `font-mono text-xs` | `--primary` |
 
-### Paragraph
+## Details
 
-```tsx
-<p>
-  Understand your biomarkers and discover insights into your muscle health.
-</p>
-```
+### Weight
 
-### Small Text
+- **Medium (500)** for headings, labels, and buttons.
+- **Regular (400)** for body text.
+- **Light (300)** only for very large display text.
+- **Bold (700)** for rare emphasis, such as one key number. Never for whole paragraphs.
 
-```tsx
-<small>
-  Reference ranges may vary based on individual characteristics.
-</small>
-```
+### Letter spacing
 
-## Custom Heading Sizes
+- Add `tracking-tight` to headings of 24px and up. Large type looks loose at the default spacing.
+- Leave body text at the default.
+- Uppercase overlines need extra space: `tracking-[0.18em]`.
 
-Use the available typography utilities when a heading requires a different size from the semantic defaults.
+### Line length
 
-```tsx
-<h1 className="text-heading-48">
-  Predict Your Future
-</h1>
+Keep paragraphs to about 65 characters a line with `max-w-2xl`. Long lines are hard to follow, especially in dense medical text.
 
-<h2 className="text-heading-32">
-  Your Biomarker Profile
-</h2>
+### Numbers
 
-<h3 className="text-heading-20">
-  Muscle Health
-</h3>
-```
+Use `tabular-nums` wherever numbers sit in columns or update live, so digits line up and don't shift.
 
-## Guidelines
+<NumberStyles />
 
-- Use semantic HTML elements to maintain a consistent content hierarchy.
-- Use `h1` for the main page heading.
-- Use `h2`, `h3`, and `h4` for nested sections.
-- Use `p` for paragraphs and descriptions.
-- Use `small` for secondary information and metadata.
-- Use `text-muted-foreground` for supporting text.
-- Apply larger heading tokens when a custom visual hierarchy is required.
+- Write units with a middle dot and superscript minus: `mg·dL⁻¹`, `mL·min⁻¹·1.73 m⁻²`. Put a space between the number and the unit.
+- Use an en dash for ranges, with no spaces: `0.2–3.0`.
+- Use a real minus sign (−) for negative Z-scores in display text.
+
+### Case and punctuation
+
+- Use sentence case for headings, buttons, and labels: "Book a test", not "Book A Test".
+- Use uppercase only for short overlines.
+- Avoid exclamation marks. Results can be worrying; keep the tone calm.
 
 ## Implementation
 
-Typography styles are maintained in:
+| File | What it holds |
+| --- | --- |
+| `packages/ui/src/styles/typo.css` | The `text-heading-*` scale and the semantic HTML defaults. |
+| `packages/ui/src/styles/globals.css` | Imports `typo.css` and maps `font-sans` to Neue Montreal. |
+| `apps/design/src/lib/fonts.ts` | Loads Neue Montreal from local files. |
+| `apps/design/src/app/layout.tsx` | Loads Geist Mono and adds both font variables to `html`. |
 
-- `packages/ui/src/styles/typo.css` — heading tokens and semantic HTML defaults.
-- `packages/ui/src/styles/globals.css` — global stylesheet and typography imports.
-
-Import the typography stylesheet into your global CSS:
+To add a size, add it to the `@theme` block in `typo.css`:
 
 ```css
-@import "./typo.css";
+@theme {
+  --text-heading-28: 1.75rem;
+}
 ```
+
+Then use it as `text-heading-28`. Each app that uses `@workspace/ui` must load Neue Montreal and set `--font-montreal` itself, as `apps/design` does.

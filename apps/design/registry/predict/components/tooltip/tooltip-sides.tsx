@@ -16,7 +16,7 @@ export function TooltipSides() {
       <div className="flex flex-wrap items-center justify-center gap-3">
         {sides.map((side) => (
           <Tooltip key={side}>
-            <TooltipTrigger render={<Button variant="ghost" className="capitalize" />}>
+            <TooltipTrigger render={<Button variant="outline" className="capitalize" />}>
               {side}
             </TooltipTrigger>
             <TooltipContent side={side}>Opens on the {side}</TooltipContent>

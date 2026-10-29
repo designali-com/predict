@@ -5,7 +5,7 @@ description: "Works out body mass index and body surface area from weight and he
 
 ## Demos
 
-Change weight or height. Every result updates as you type.
+Change weight or height by typing or with the − and + buttons. Every result updates as you go.
 
 <ComponentPreview name="body-measurements-demo" />
 
@@ -26,13 +26,26 @@ import { BodyMeasurements } from "@workspace/ui/tools/body-measurements"
 <BodyMeasurements defaultWeight={70} defaultHeight={175} />
 ```
 
+### BMI categories
+
+| BMI | Category |
+| --- | --- |
+| Under 18.5 | Underweight |
+| 18.5 to under 25 | Normal weight |
+| 25 to under 30 | Overweight |
+| 30 to under 35 | Obesity class I |
+| 35 to under 40 | Obesity class II |
+| 40 or more | Obesity class III |
+
 ### BSA formulas
 
-| Formula | When to use it |
-| --- | --- |
-| Mosteller | The common default. |
-| Du Bois | The historical reference. |
-| Haycock | Often used in children. |
+W is weight in kilograms and H is height in centimetres.
+
+| Formula | BSA (m²) | When to use it |
+| --- | --- | --- |
+| Mosteller | √(W × H / 3600) | The common default. |
+| Du Bois | 0.007184 × W^0.425 × H^0.725 | The historical reference. |
+| Haycock | 0.024265 × W^0.5378 × H^0.3964 | Often used in children. |
 
 ### Notes
 
@@ -58,7 +71,7 @@ bodySurfaceArea(70, 175) // 1.84 m², Mosteller
 bodySurfaceArea(20, 110, "haycock") // 0.78 m²
 ```
 
-`bmiCategoryLabels` turns a category into text, such as `Obesity class I`. `calculateBodyMeasurements(weight, height)` from the component file returns the BMI, its category, and all three BSA values at once, or `null` when either value is not above zero.
+`bodySurfaceArea` uses Mosteller unless you pass `"du-bois"` or `"haycock"`. `bmiCategoryLabels` turns a category into text, such as `Obesity class I`. `calculateBodyMeasurements(weight, height)` from the component file returns the BMI, its category, and all three BSA values at once, or `null` when either value is not above zero.
 
 ## Examples
 

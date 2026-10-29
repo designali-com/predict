@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "mascot-static",
+  "type": "registry:block",
+  "description": "Static",
+  "files": [
+    {
+      "path": "registry/predict/ui/mascot/mascot-static.tsx",
+      "content": "\"use client\"\n\nimport { PredictMascut } from \"@workspace/ui/predict/logo\"\n\nexport function MascotStatic() {\n  return <PredictMascut role=\"img\" aria-label=\"PREDICT mascot\" className=\"size-30\" />\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

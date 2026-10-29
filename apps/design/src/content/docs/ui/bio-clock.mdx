@@ -1,6 +1,6 @@
 ---
 title: Bio Clock
-description: "A stack of headings that each expand to show a section of content."
+description: "A dial that shows biological age, a severity score, and the domain that stands out most."
 ---
 
 ## Demos
@@ -11,40 +11,39 @@ The bio clock with its default domains and severity scale.
 
 ## Usage
 
-Use an accordion to shorten a long page of related sections, such as FAQs or grouped biomarkers. Do not hide content the reader needs to compare side by side. If every section matters on first read, show them all.
+Use the bio clock to sum up a person's results on one dial. It has three hands:
 
-Import it from `@workspace/ui/components/accordion`.
+- **Domain hand** — The dashed hand on the outer arc. It points at the domain with the highest `value`.
+- **Severity hand** — The solid hand on the inner arc, with a bubble showing the score as given, such as `1.1`.
+- **Age hand** — The thick hand on the lower scale, from 0 to 100. The badge shows `yearsValue` and the biological age, such as `+4 Years (51)`.
+
+Hover or focus a domain on the outer arc to see a tooltip with its full name and value.
+
+Import it from `@workspace/ui/predict/bio-clock`.
 
 ```tsx
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@workspace/ui/components/accordion"
+import { BioClock } from "@workspace/ui/predict/bio-clock"
 ```
 
 ```tsx
-<Accordion defaultValue={["fasting"]}>
-  <AccordionItem value="fasting">
-    <AccordionTrigger>Do I need to fast?</AccordionTrigger>
-    <AccordionContent>Yes. Fast for 10 to 12 hours.</AccordionContent>
-  </AccordionItem>
-</Accordion>
+<BioClock bioAge={42} yearsValue="-3 Years" currentValue={0.6} />
 ```
 
-### Anatomy
+### Defaults
 
-- **Accordion** — The bordered container. Holds the open state.
-- **AccordionItem** — One section. Needs a unique `value`.
-- **AccordionTrigger** — The heading button. The chevron is added for you.
-- **AccordionContent** — The panel that opens and closes.
+- **Domains** — Seven segments: IFR, VAF, MHF, BMF, PNF, CMF, and RFF, each with a full name for its tooltip. PNF has the highest value, so the domain hand points at it.
+- **Severity** — A 0 to 5 scale in five steps, coloured `--status-normal`, `--status-mild`, `--status-moderate`, `--status-severe`, and `--status-extreme`. The score is 1.1.
+- **Age** — `bioAge` is 60, and the badge shows `+7 YEARS (60)`. Always pass `yearsValue` with real data, or the badge shows the placeholder.
 
 ### Notes
 
-- `defaultValue` and `value` are arrays, even when only one item can be open.
-- Keep trigger text short and specific. It is read aloud as a button.
-- A disabled item stays visible but cannot be opened.
+- The clock fills its container's width. Set the size on the parent or with `className`.
+- `currentValue` replaces `severity.current`, so you can keep one scale and change only the score.
+- The age hand stops at 0 and 100. The severity hand does not, so keep `currentValue` inside the scale.
+- When two domains share the highest value, the hand points at the first.
+- Colours are any CSS colour. Use the `--color-status-*` variables to follow the theme.
+- The bubble and badge show numbers as you pass them. Round them first, such as `Math.round(age * 10) / 10`.
+- Each domain can be reached with Tab, which opens its tooltip.
 
 ## Examples
 
@@ -56,28 +55,57 @@ Pass `bioAge`, `yearsValue`, and `currentValue` to show a person's own result.
 
 ### Custom domains
 
-Pass `domains` to set each segment's label, colour, and value.
+Pass `domains` to set each segment's label, full name, colour, and value. HRT has the highest value, so the domain hand points at it.
 
 <ComponentPreview name="bio-clock-domains" />
 
+### Custom severity scale
+
+Pass `severity` to change the inner arc. This one runs from 0 to 10 in three steps, with a score of 6.5.
+
+<ComponentPreview name="bio-clock-severity" />
+
 ## Props
 
-These are the props you set most often. Unlisted props pass through to the underlying element.
+Unlisted props pass through to the wrapping `div`, which also takes a `ref`.
 
-### Accordion
-
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| `defaultValue` | `any[]` | — | Items open on first render. |
-| `value` | `any[]` | — | Open items when controlled. |
-| `onValueChange` | `(value) => void` | — | Called when an item opens or closes. |
-| `multiple` | `boolean` | `false` | Allow more than one item open at once. |
-| `disabled` | `boolean` | `false` | Disables every item. |
-| `className` | `string` | — | Classes merged onto the element. |
-
-### AccordionItem
+### BioClock
 
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `value` | `any` | — | Identifies the item in the open state. |
-| `disabled` | `boolean` | `false` | Stops this item from opening. |
+| `bioAge` | `number` | `60` | Biological age, placed on the 0 to 100 scale. |
+| `yearsValue` | `string` | `+7 YEARS` | The gap from real age, such as `+4 Years`. Shown in the badge. |
+| `yearsDiff` | `string` | — | Same as `yearsValue`. `yearsValue` wins when both are set. |
+| `currentValue` | `number` | `1.1` | The severity score. Replaces `severity.current`. |
+| `severity` | `SeverityScale` | 0 to 5, five steps | The scale on the inner arc. |
+| `domains` | `DomainSegment[]` | seven domains | The segments on the outer arc. |
+| `segments` | `Segment[]` | — | Older form of `domains`. A missing `value` becomes 10, 20, 30, and so on. Ignored when `domains` is set. |
+| `className` | `string` | — | Classes merged onto the wrapper. |
+
+### DomainSegment
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `label` | `string` | Short name shown outside the arc, such as `HRT`. |
+| `fullName` | `string` | Full name shown in the tooltip, such as `Heart health`. |
+| `color` | `string` | Segment colour. |
+| `value` | `number` | Shown in the tooltip. The domain hand points at the highest. |
+
+`Segment` has `label`, `color`, and an optional `value`. Its tooltip shows the `label` as the name.
+
+### SeverityScale
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `ranges` | `SeverityRange[]` | Steps from low to high. The arc runs from the first `min` to the last `max`. |
+| `current` | `number` | The score. Overridden by `currentValue`. |
+
+### SeverityRange
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `min` | `number` | Start of the step. |
+| `max` | `number` | End of the step. |
+| `color` | `string` | Colour at the middle of the step. The arc blends between steps. |
+
+`ClockGaugeProps` is the type of the props.

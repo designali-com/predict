@@ -47,6 +47,7 @@ import {
 - Arrow keys move between tabs. Tab moves into the active panel.
 - Keep labels to one or two words.
 - Line tabs are quieter. Use them when tabs sit inside a busy page.
+- `tabsListVariants` is exported to style other elements like a tab list.
 
 ## Examples
 
@@ -68,6 +69,12 @@ Disable a tab that has nothing to show yet.
 
 <ComponentPreview name="tabs-disabled" />
 
+### Controlled
+
+Hold the active tab with `value` and `onValueChange`.
+
+<ComponentPreview name="tabs-controlled" />
+
 ## Props
 
 These are the props you set most often. Unlisted props pass through to the underlying element.
@@ -76,7 +83,7 @@ These are the props you set most often. Unlisted props pass through to the under
 
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `defaultValue` | `any` | — | Active tab on first render. |
+| `defaultValue` | `any` | `0` | Active tab on first render. |
 | `value` | `any` | — | Active tab when controlled. |
 | `onValueChange` | `(value) => void` | — | Called when the active tab changes. |
 | `orientation` | `"horizontal" or "vertical"` | `horizontal` | Direction of the list. |

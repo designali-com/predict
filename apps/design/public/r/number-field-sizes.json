@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "number-field-sizes",
+  "type": "registry:block",
+  "description": "Sizes",
+  "files": [
+    {
+      "path": "registry/predict/components/number-field/number-field-sizes.tsx",
+      "content": "\"use client\"\n\nimport {\n  NumberField,\n  NumberFieldDecrement,\n  NumberFieldGroup,\n  NumberFieldIncrement,\n  NumberFieldInput,\n} from \"@workspace/ui/components/number-field\"\n\nconst sizes = [\"sm\", \"default\", \"lg\"] as const\n\nexport function NumberFieldSizes() {\n  return (\n    <div className=\"flex w-full max-w-48 flex-col gap-4\">\n      {sizes.map((size) => (\n        <NumberField key={size} size={size} defaultValue={5}>\n          <NumberFieldGroup>\n            <NumberFieldDecrement />\n            <NumberFieldInput aria-label={`Quantity, ${size}`} />\n            <NumberFieldIncrement />\n          </NumberFieldGroup>\n        </NumberField>\n      ))}\n    </div>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

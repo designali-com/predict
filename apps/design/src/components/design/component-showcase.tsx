@@ -48,6 +48,15 @@ import {
   DialogTrigger,
 } from "@workspace/ui/components/dialog"
 import { Input } from "@workspace/ui/components/input"
+import { Label } from "@workspace/ui/components/label"
+import {
+  NumberField,
+  NumberFieldDecrement,
+  NumberFieldGroup,
+  NumberFieldIncrement,
+  NumberFieldInput,
+  NumberFieldScrubArea,
+} from "@workspace/ui/components/number-field"
 import {
   Popover,
   PopoverContent,
@@ -97,6 +106,16 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@workspace/ui/components/tooltip"
+import { biomarkerRange, getBiomarker } from "@workspace/ui/lib/biomarkers"
+import { cn } from "@workspace/ui/lib/utils"
+import { AgeBar } from "@workspace/ui/predict/age-bar"
+import { BioClock } from "@workspace/ui/predict/bio-clock"
+import { PredictLoader } from "@workspace/ui/predict/loader"
+import { Logo, LogoIcon } from "@workspace/ui/predict/logo"
+import { PredictMascot } from "@workspace/ui/predict/predict-mascot"
+import { AgeCalculator } from "@workspace/ui/tools/age-calculator"
+import { BodyMeasurements } from "@workspace/ui/tools/body-measurements"
+import { ReferenceRange } from "@workspace/ui/tools/reference-range"
 
 const markers = [
   "ApoB",
@@ -128,15 +147,16 @@ function CalendarPreview() {
 
 function SliderPreview() {
   const [sleep, setSleep] = React.useState(7)
+  const labelId = React.useId()
 
   return (
     <div className="grid w-full max-w-56 gap-3">
       <div className="flex justify-between text-xs">
-        <span className="font-medium">Average sleep</span>
+        <span id={labelId} className="font-medium">Average sleep</span>
         <span className="text-muted-foreground tabular-nums">{sleep} h</span>
       </div>
       <Slider
-        aria-label="Average sleep"
+        aria-labelledby={labelId}
         value={[sleep]}
         onValueChange={(value) => setSleep(Array.isArray(value) ? value[0]! : value)}
         min={3}
@@ -149,14 +169,18 @@ function SliderPreview() {
 
 type ShowcaseItem = {
   name: string
-  slug: string
+  href: string
   preview: React.ReactNode
+  /** Grid span classes for tiles that need more room. */
+  className?: string
 }
 
-const items: ShowcaseItem[] = [
+const crp = getBiomarker("hs-crp")!
+
+const components: ShowcaseItem[] = [
   {
     name: "Accordion",
-    slug: "accordion",
+    href: "/docs/components/accordion",
     preview: (
       <Accordion defaultValue={["fasting"]} className="max-w-60">
         <AccordionItem value="fasting">
@@ -172,7 +196,7 @@ const items: ShowcaseItem[] = [
   },
   {
     name: "Button",
-    slug: "button",
+    href: "/docs/components/button",
     preview: (
       <div className="flex max-w-60 flex-wrap items-center justify-center gap-2">
         <Button size="sm">Book test</Button>
@@ -190,12 +214,12 @@ const items: ShowcaseItem[] = [
   },
   {
     name: "Calendar",
-    slug: "calendar",
+    href: "/docs/components/calendar",
     preview: <CalendarPreview />,
   },
   {
     name: "Card",
-    slug: "card",
+    href: "/docs/components/card",
     preview: (
       <Card size="sm" className="w-full max-w-60">
         <CardHeader>
@@ -215,7 +239,7 @@ const items: ShowcaseItem[] = [
   },
   {
     name: "Collapsible",
-    slug: "collapsible",
+    href: "/docs/components/collapsible",
     preview: (
       <Collapsible className="flex w-full max-w-60 flex-col gap-2">
         <div className="flex items-center justify-between gap-4 ps-3">
@@ -236,7 +260,7 @@ const items: ShowcaseItem[] = [
   },
   {
     name: "Dialog",
-    slug: "dialog",
+    href: "/docs/components/dialog",
     preview: (
       <Dialog>
         <DialogTrigger render={<Button variant="outline" size="sm" />}>
@@ -263,7 +287,7 @@ const items: ShowcaseItem[] = [
   },
   {
     name: "Input",
-    slug: "input",
+    href: "/docs/components/input",
     preview: (
       <label className="grid w-full max-w-56 gap-1.5 text-xs font-medium">
         Email
@@ -272,8 +296,32 @@ const items: ShowcaseItem[] = [
     ),
   },
   {
+    name: "Label",
+    href: "/docs/components/label",
+    preview: (
+      <div className="grid w-full max-w-56 gap-1.5">
+        <Label htmlFor="showcase-full-name">Full name</Label>
+        <Input id="showcase-full-name" placeholder="Priya Sharma" />
+      </div>
+    ),
+  },
+  {
+    name: "Number Field",
+    href: "/docs/components/number-field",
+    preview: (
+      <NumberField defaultValue={70} min={20} max={300} className="max-w-44">
+        <NumberFieldScrubArea label="Weight (kg)" />
+        <NumberFieldGroup>
+          <NumberFieldDecrement />
+          <NumberFieldInput />
+          <NumberFieldIncrement />
+        </NumberFieldGroup>
+      </NumberField>
+    ),
+  },
+  {
     name: "Popover",
-    slug: "popover",
+    href: "/docs/components/popover",
     preview: (
       <Popover>
         <PopoverTrigger render={<Button variant="outline" size="sm" />}>
@@ -292,7 +340,7 @@ const items: ShowcaseItem[] = [
   },
   {
     name: "Progress",
-    slug: "progress",
+    href: "/docs/components/progress",
     preview: (
       <div className="grid w-full max-w-56 gap-6">
         <Progress value={66}>
@@ -308,7 +356,7 @@ const items: ShowcaseItem[] = [
   },
   {
     name: "Radio Group",
-    slug: "radio-group",
+    href: "/docs/components/radio-group",
     preview: (
       <RadioGroup defaultValue="weekly" aria-label="Exercise frequency" className="w-fit">
         <label className="flex items-center gap-2 text-xs">
@@ -327,7 +375,7 @@ const items: ShowcaseItem[] = [
   },
   {
     name: "Scroll Area",
-    slug: "scroll-area",
+    href: "/docs/components/scroll-area",
     preview: (
       <ScrollArea className="h-44 w-48 rounded-md border">
         <div className="p-3">
@@ -343,7 +391,7 @@ const items: ShowcaseItem[] = [
   },
   {
     name: "Separator",
-    slug: "separator",
+    href: "/docs/components/separator",
     preview: (
       <div className="w-full max-w-56">
         <p className="text-sm font-medium">Heart health</p>
@@ -361,7 +409,7 @@ const items: ShowcaseItem[] = [
   },
   {
     name: "Sheet",
-    slug: "sheet",
+    href: "/docs/components/sheet",
     preview: (
       <Sheet>
         <SheetTrigger render={<Button variant="outline" size="sm" />}>Add a note</SheetTrigger>
@@ -387,7 +435,7 @@ const items: ShowcaseItem[] = [
   },
   {
     name: "Sidebar",
-    slug: "sidebar",
+    href: "/docs/components/sidebar",
     preview: (
       <SidebarProvider className="min-h-0 w-auto">
         <Sidebar collapsible="none" className="h-52 w-48 rounded-lg border">
@@ -425,7 +473,7 @@ const items: ShowcaseItem[] = [
   },
   {
     name: "Skeleton",
-    slug: "skeleton",
+    href: "/docs/components/skeleton",
     preview: (
       <div className="flex w-full max-w-56 items-center gap-3">
         <Skeleton className="size-10 rounded-full" />
@@ -438,12 +486,12 @@ const items: ShowcaseItem[] = [
   },
   {
     name: "Slider",
-    slug: "slider",
+    href: "/docs/components/slider",
     preview: <SliderPreview />,
   },
   {
     name: "Switch",
-    slug: "switch",
+    href: "/docs/components/switch",
     preview: (
       <div className="grid w-full max-w-56 gap-4">
         <label className="flex items-center justify-between gap-4 text-xs">
@@ -459,7 +507,7 @@ const items: ShowcaseItem[] = [
   },
   {
     name: "Tabs",
-    slug: "tabs",
+    href: "/docs/components/tabs",
     preview: (
       <Tabs defaultValue="overview" className="items-center">
         <TabsList>
@@ -477,7 +525,7 @@ const items: ShowcaseItem[] = [
   },
   {
     name: "Toggle",
-    slug: "toggle",
+    href: "/docs/components/toggle",
     preview: (
       <div className="flex items-center gap-2">
         <Toggle aria-label="Bookmark" defaultPressed>
@@ -491,7 +539,7 @@ const items: ShowcaseItem[] = [
   },
   {
     name: "Tooltip",
-    slug: "tooltip",
+    href: "/docs/components/tooltip",
     preview: (
       <div className="flex items-center gap-2">
         <Tooltip>
@@ -515,19 +563,111 @@ const items: ShowcaseItem[] = [
   },
 ]
 
+const predictUi: ShowcaseItem[] = [
+  {
+    name: "Bio Clock",
+    href: "/docs/ui/bio-clock",
+    className: "md:col-span-2",
+    preview: (
+      <BioClock
+        bioAge={51}
+        yearsValue="+4 Years"
+        currentValue={2.4}
+        className="max-w-md"
+      />
+    ),
+  },
+  {
+    name: "Mascot",
+    href: "/docs/ui/mascot",
+    preview: <PredictMascot className="size-30" />,
+  },
+  {
+    name: "Age Bar",
+    href: "/docs/ui/age-bar",
+    className: "md:col-span-2",
+    preview: (
+      <div className="w-full max-w-lg">
+        <AgeBar biologicalAge={48} chronologicalAge={38} />
+      </div>
+    ),
+  },
+  {
+    name: "Loader",
+    href: "/docs/ui/loader",
+    preview: <PredictLoader size={48} />,
+  },
+  {
+    name: "Logo",
+    href: "/docs/ui/logo",
+    className: "md:col-span-2 lg:col-span-3",
+    preview: (
+      <div className="flex flex-wrap items-center justify-center gap-10">
+        <Logo role="img" aria-label="PREDICT" className="h-8 w-auto" />
+        <LogoIcon aria-hidden className="size-12" />
+      </div>
+    ),
+  },
+]
+
+const tools: ShowcaseItem[] = [
+  {
+    name: "Body Measurements",
+    href: "/docs/tools/body-measurements",
+    className: "md:col-span-2",
+    preview: <BodyMeasurements />,
+  },
+  {
+    name: "Reference Range",
+    href: "/docs/tools/reference-range",
+    className: "md:col-span-2 lg:col-span-1",
+    preview: (
+      <ReferenceRange
+        name={crp.abbreviation}
+        description={crp.name}
+        value={3.5}
+        unit={crp.unit}
+        range={biomarkerRange(crp)}
+        className="max-w-xs"
+      />
+    ),
+  },
+  {
+    name: "Age Calculator",
+    href: "/docs/tools/age-calculator",
+    className: "md:col-span-2 lg:col-span-3",
+    preview: <AgeCalculator />,
+  },
+]
+
 function ShowcaseTile({ item }: { item: ShowcaseItem }) {
   return (
-    <div className="flex flex-col bg-white dark:bg-black">
+    <div className={cn("flex flex-col bg-white dark:bg-black", item.className)}>
       <div className="flex min-h-72 flex-1 items-center justify-center p-6">
         {item.preview}
       </div>
       <Link
-        href={`/docs/components/${item.slug}`}
+        href={item.href}
         className="group flex items-center justify-between border-t px-4 py-3 text-xs text-muted-foreground transition hover:text-foreground"
       >
         {item.name}
         <ArrowUpRightIcon className="size-3.5 transition group-hover:-translate-y-px group-hover:translate-x-px" />
       </Link>
+    </div>
+  )
+}
+
+function SectionHeading({
+  title,
+  description,
+}: {
+  title: string
+  description: string
+}) {
+  return (
+    <div className="flex flex-col gap-1 border-b px-6 py-8 md:px-10">
+      <h2 className="text-xl font-medium tracking-tight">{title}</h2>
+      <p className="text-sm text-muted-foreground">{description}</p>
     </div>
   )
 }
@@ -558,22 +698,46 @@ export function ComponentShowcase() {
         </div>
       </section>
 
-      <section className="grid gap-px bg-border md:grid-cols-2 lg:grid-cols-3">
-        {items.map((item) => (
-          <ShowcaseTile key={item.slug} item={item} />
+      <SectionHeading
+        title="Components"
+        description="Inputs, overlays, and layout pieces, built on Base UI."
+      />
+      <section className="grid gap-px border-b bg-border md:grid-cols-2 lg:grid-cols-3">
+        {components.map((item) => (
+          <ShowcaseTile key={item.href} item={item} />
         ))}
         <Link
           href="/docs/components"
-          className="group flex min-h-40 flex-col justify-between bg-white p-6 transition hover:bg-muted/40 md:col-span-2 lg:col-span-1 dark:bg-black"
+          className="group flex min-h-40 flex-col justify-between bg-white p-6 transition hover:bg-muted/40 md:col-span-2 dark:bg-black"
         >
           <span className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
-            {items.length} components
+            {components.length} components
           </span>
           <span className="flex items-center justify-between text-2xl font-medium tracking-tight">
             View all in the docs
             <ArrowRightIcon className="size-5 transition group-hover:translate-x-1" />
           </span>
         </Link>
+      </section>
+
+      <SectionHeading
+        title="PREDICT UI"
+        description="The brand and the pieces that sum up a person's results."
+      />
+      <section className="grid grid-flow-row-dense gap-px border-b bg-border md:grid-cols-2 lg:grid-cols-3">
+        {predictUi.map((item) => (
+          <ShowcaseTile key={item.href} item={item} />
+        ))}
+      </section>
+
+      <SectionHeading
+        title="Tools"
+        description="Calculators and result cards for health data."
+      />
+      <section className="grid gap-px bg-border md:grid-cols-2 lg:grid-cols-3">
+        {tools.map((item) => (
+          <ShowcaseTile key={item.href} item={item} />
+        ))}
       </section>
     </TooltipProvider>
   )

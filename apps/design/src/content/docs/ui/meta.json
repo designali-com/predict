@@ -1,0 +1,10 @@
+{
+  "title": "UI",
+  "pages": [
+    "bio-clock",
+    "age-bar",
+    "logo",
+    "mascot",
+    "loader"
+  ]
+}

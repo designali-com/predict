@@ -51,6 +51,7 @@ import {
 - **DialogDescription** — Supporting text.
 - **DialogFooter** — Actions. Stacks on small screens.
 - **DialogClose** — Closes the dialog. Pass a button through `render`.
+- **DialogPortal** and **DialogOverlay** — The portal and backdrop. **DialogContent** already renders both, so you rarely need them.
 
 ### Notes
 
@@ -83,7 +84,7 @@ These are the props you set most often. Unlisted props pass through to the under
 | `defaultOpen` | `boolean` | `false` | Open on first render. |
 | `open` | `boolean` | — | Open state when controlled. |
 | `onOpenChange` | `(open) => void` | — | Called when the dialog opens or closes. |
-| `modal` | `boolean` | `true` | Block interaction with the page behind. |
+| `modal` | `boolean or "trap-focus"` | `true` | Block interaction with the page behind. `"trap-focus"` traps focus but leaves page scroll and clicks alone. |
 
 ### DialogContent
 

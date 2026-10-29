@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "logo-wordmark",
+  "type": "registry:block",
+  "description": "Wordmark",
+  "files": [
+    {
+      "path": "registry/predict/ui/logo/logo-wordmark.tsx",
+      "content": "\"use client\"\n\nimport { PredictLogo } from \"@workspace/ui/predict/logo\"\n\nexport function LogoWordmark() {\n  return (\n    <PredictLogo aria-label=\"PREDICT\" role=\"img\" className=\"h-auto w-full max-w-sm\" />\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

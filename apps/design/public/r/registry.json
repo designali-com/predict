@@ -35,6 +35,171 @@
       ]
     },
     {
+      "name": "bio-clock-severity",
+      "description": "Custom severity scale",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/ui/bio-clock/bio-clock-severity.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "age-bar-demo",
+      "description": "Basic",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/ui/age-bar/age-bar-demo.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "age-bar-slower",
+      "description": "Aging slower",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/ui/age-bar/age-bar-slower.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "age-bar-on-pace",
+      "description": "On pace",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/ui/age-bar/age-bar-on-pace.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "logo-demo",
+      "description": "Basic",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/ui/logo/logo-demo.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "logo-icon",
+      "description": "Icon",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/ui/logo/logo-icon.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "logo-color",
+      "description": "Colour",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/ui/logo/logo-color.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "logo-wordmark",
+      "description": "Wordmark",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/ui/logo/logo-wordmark.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "mascot-demo",
+      "description": "Basic",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/ui/mascot/mascot-demo.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "mascot-sizes",
+      "description": "Sizes",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/ui/mascot/mascot-sizes.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "mascot-static",
+      "description": "Static",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/ui/mascot/mascot-static.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "loader-demo",
+      "description": "Basic",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/ui/loader/loader-demo.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "loader-sizes",
+      "description": "Sizes",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/ui/loader/loader-sizes.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "loader-speed",
+      "description": "Speed",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/ui/loader/loader-speed.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "loader-button",
+      "description": "In a button",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/ui/loader/loader-button.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
       "name": "accordion-demo",
       "description": "Basic",
       "type": "registry:block",
@@ -189,6 +354,17 @@
       ]
     },
     {
+      "name": "button-as-link",
+      "description": "As a link",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/components/button/button-as-link.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
       "name": "calendar-demo",
       "description": "Basic",
       "type": "registry:block",
@@ -228,6 +404,17 @@
       "files": [
         {
           "path": "registry/predict/components/calendar/calendar-disabled-dates.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "calendar-in-popover",
+      "description": "In a popover",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/components/calendar/calendar-in-popover.tsx",
           "type": "registry:block"
         }
       ]
@@ -332,17 +519,6 @@
       ]
     },
     {
-      "name": "input-number",
-      "description": "Number",
-      "type": "registry:block",
-      "files": [
-        {
-          "path": "registry/predict/components/input/input-number.tsx",
-          "type": "registry:block"
-        }
-      ]
-    },
-    {
       "name": "input-file",
       "description": "File",
       "type": "registry:block",
@@ -387,6 +563,105 @@
       ]
     },
     {
+      "name": "input-sizes",
+      "description": "Sizes",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/components/input/input-sizes.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "label-demo",
+      "description": "Basic",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/components/label/label-demo.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "label-with-control",
+      "description": "With a control",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/components/label/label-with-control.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "label-disabled",
+      "description": "Disabled",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/components/label/label-disabled.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "number-field-demo",
+      "description": "Basic",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/components/number-field/number-field-demo.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "number-field-sizes",
+      "description": "Sizes",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/components/number-field/number-field-sizes.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "number-field-format",
+      "description": "Decimal format",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/components/number-field/number-field-format.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "number-field-controlled",
+      "description": "Controlled",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/components/number-field/number-field-controlled.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "number-field-disabled",
+      "description": "Disabled",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/components/number-field/number-field-disabled.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
       "name": "popover-demo",
       "description": "Basic",
       "type": "registry:block",
@@ -415,6 +690,17 @@
       "files": [
         {
           "path": "registry/predict/components/popover/popover-form.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "popover-align",
+      "description": "Alignment",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/components/popover/popover-align.tsx",
           "type": "registry:block"
         }
       ]
@@ -761,6 +1047,17 @@
       ]
     },
     {
+      "name": "tabs-controlled",
+      "description": "Controlled",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/components/tabs/tabs-controlled.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
       "name": "toggle-demo",
       "description": "Basic",
       "type": "registry:block",
@@ -811,6 +1108,17 @@
       "files": [
         {
           "path": "registry/predict/components/toggle/toggle-disabled.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "toggle-controlled",
+      "description": "Controlled",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/components/toggle/toggle-controlled.tsx",
           "type": "registry:block"
         }
       ]
@@ -955,6 +1263,124 @@
         {
           "path": "registry/predict/tools/reference-range/reference-range-panel.tsx",
           "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "dashboard-01",
+      "description": "A health dashboard with a sidebar, bio clock, pace of ageing, and flagged biomarkers.",
+      "type": "registry:block",
+      "categories": [
+        "dashboard"
+      ],
+      "meta": {
+        "iframeHeight": "1000px"
+      },
+      "files": [
+        {
+          "path": "registry/predict/blocks/dashboard-01/page.tsx",
+          "target": "app/dashboard/page.tsx",
+          "type": "registry:page"
+        },
+        {
+          "path": "registry/predict/blocks/dashboard-01/components/app-sidebar.tsx",
+          "target": "app/dashboard/components/app-sidebar.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/predict/blocks/dashboard-01/components/biomarker-grid.tsx",
+          "target": "app/dashboard/components/biomarker-grid.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "report-01",
+      "description": "A biomarker report with a summary and results grouped by body system.",
+      "type": "registry:block",
+      "categories": [
+        "reports"
+      ],
+      "meta": {
+        "iframeHeight": "900px"
+      },
+      "files": [
+        {
+          "path": "registry/predict/blocks/report-01/page.tsx",
+          "target": "app/report/page.tsx",
+          "type": "registry:page"
+        }
+      ]
+    },
+    {
+      "name": "index-01",
+      "description": "A composite index score with each domain's share and its biomarker Z-scores.",
+      "type": "registry:block",
+      "categories": [
+        "reports"
+      ],
+      "meta": {
+        "iframeHeight": "960px"
+      },
+      "files": [
+        {
+          "path": "registry/predict/blocks/index-01/page.tsx",
+          "target": "app/index/page.tsx",
+          "type": "registry:page"
+        }
+      ]
+    },
+    {
+      "name": "onboarding-01",
+      "description": "A three-step health profile with body measurements, activity, and sharing settings.",
+      "type": "registry:block",
+      "categories": [
+        "onboarding"
+      ],
+      "meta": {
+        "iframeHeight": "720px"
+      },
+      "files": [
+        {
+          "path": "registry/predict/blocks/onboarding-01/page.tsx",
+          "target": "app/onboarding/page.tsx",
+          "type": "registry:page"
+        }
+      ]
+    },
+    {
+      "name": "booking-01",
+      "description": "Book a blood test: pick a date, a morning slot, and a clinic, then confirm.",
+      "type": "registry:block",
+      "categories": [
+        "booking"
+      ],
+      "meta": {
+        "iframeHeight": "820px"
+      },
+      "files": [
+        {
+          "path": "registry/predict/blocks/booking-01/page.tsx",
+          "target": "app/book/page.tsx",
+          "type": "registry:page"
+        }
+      ]
+    },
+    {
+      "name": "login-01",
+      "description": "A sign-in page with the logo and a mascot panel.",
+      "type": "registry:block",
+      "categories": [
+        "authentication"
+      ],
+      "meta": {
+        "iframeHeight": "760px"
+      },
+      "files": [
+        {
+          "path": "registry/predict/blocks/login-01/page.tsx",
+          "target": "app/login/page.tsx",
+          "type": "registry:page"
         }
       ]
     }

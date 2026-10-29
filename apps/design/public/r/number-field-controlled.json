@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "number-field-controlled",
+  "type": "registry:block",
+  "description": "Controlled",
+  "files": [
+    {
+      "path": "registry/predict/components/number-field/number-field-controlled.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport {\n  NumberField,\n  NumberFieldDecrement,\n  NumberFieldGroup,\n  NumberFieldIncrement,\n  NumberFieldInput,\n  NumberFieldScrubArea,\n} from \"@workspace/ui/components/number-field\"\n\nexport function NumberFieldControlled() {\n  const [value, setValue] = React.useState<number | null>(8)\n\n  return (\n    <div className=\"flex w-full max-w-48 flex-col gap-3\">\n      <NumberField value={value} onValueChange={setValue} min={0} max={24}>\n        <NumberFieldScrubArea label=\"Sleep (hours)\" />\n        <NumberFieldGroup>\n          <NumberFieldDecrement />\n          <NumberFieldInput />\n          <NumberFieldIncrement />\n        </NumberFieldGroup>\n      </NumberField>\n      <p className=\"text-muted-foreground text-xs\">\n        Value: {value ?? \"empty\"}\n      </p>\n    </div>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

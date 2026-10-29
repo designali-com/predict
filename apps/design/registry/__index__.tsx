@@ -61,6 +61,276 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: undefined,
   },
+  "bio-clock-severity": {
+    name: "bio-clock-severity",
+    description: "Custom severity scale",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/ui/bio-clock/bio-clock-severity.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/ui/bio-clock/bio-clock-severity.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "age-bar-demo": {
+    name: "age-bar-demo",
+    description: "Basic",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/ui/age-bar/age-bar-demo.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/ui/age-bar/age-bar-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "age-bar-slower": {
+    name: "age-bar-slower",
+    description: "Aging slower",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/ui/age-bar/age-bar-slower.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/ui/age-bar/age-bar-slower.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "age-bar-on-pace": {
+    name: "age-bar-on-pace",
+    description: "On pace",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/ui/age-bar/age-bar-on-pace.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/ui/age-bar/age-bar-on-pace.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "logo-demo": {
+    name: "logo-demo",
+    description: "Basic",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/ui/logo/logo-demo.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/ui/logo/logo-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "logo-icon": {
+    name: "logo-icon",
+    description: "Icon",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/ui/logo/logo-icon.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/ui/logo/logo-icon.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "logo-color": {
+    name: "logo-color",
+    description: "Colour",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/ui/logo/logo-color.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/ui/logo/logo-color.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "logo-wordmark": {
+    name: "logo-wordmark",
+    description: "Wordmark",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/ui/logo/logo-wordmark.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/ui/logo/logo-wordmark.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "mascot-demo": {
+    name: "mascot-demo",
+    description: "Basic",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/ui/mascot/mascot-demo.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/ui/mascot/mascot-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "mascot-sizes": {
+    name: "mascot-sizes",
+    description: "Sizes",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/ui/mascot/mascot-sizes.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/ui/mascot/mascot-sizes.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "mascot-static": {
+    name: "mascot-static",
+    description: "Static",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/ui/mascot/mascot-static.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/ui/mascot/mascot-static.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "loader-demo": {
+    name: "loader-demo",
+    description: "Basic",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/ui/loader/loader-demo.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/ui/loader/loader-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "loader-sizes": {
+    name: "loader-sizes",
+    description: "Sizes",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/ui/loader/loader-sizes.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/ui/loader/loader-sizes.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "loader-speed": {
+    name: "loader-speed",
+    description: "Speed",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/ui/loader/loader-speed.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/ui/loader/loader-speed.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "loader-button": {
+    name: "loader-button",
+    description: "In a button",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/ui/loader/loader-button.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/ui/loader/loader-button.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
   "accordion-demo": {
     name: "accordion-demo",
     description: "Basic",
@@ -313,6 +583,24 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: undefined,
   },
+  "button-as-link": {
+    name: "button-as-link",
+    description: "As a link",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/button/button-as-link.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/button/button-as-link.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
   "calendar-demo": {
     name: "calendar-demo",
     description: "Basic",
@@ -379,6 +667,24 @@ export const Index: Record<string, any> = {
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/predict/components/calendar/calendar-disabled-dates.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "calendar-in-popover": {
+    name: "calendar-in-popover",
+    description: "In a popover",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/calendar/calendar-in-popover.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/calendar/calendar-in-popover.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),
@@ -547,24 +853,6 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: undefined,
   },
-  "input-number": {
-    name: "input-number",
-    description: "Number",
-    type: "registry:block",
-    registryDependencies: undefined,
-    files: [{
-      path: "registry/predict/components/input/input-number.tsx",
-      type: "registry:block",
-      target: ""
-    }],
-    component: React.lazy(async () => {
-      const mod = await import("@/registry/predict/components/input/input-number.tsx")
-      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
-      return { default: mod.default || mod[exportName] }
-    }),
-    categories: undefined,
-    meta: undefined,
-  },
   "input-file": {
     name: "input-file",
     description: "File",
@@ -637,6 +925,168 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: undefined,
   },
+  "input-sizes": {
+    name: "input-sizes",
+    description: "Sizes",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/input/input-sizes.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/input/input-sizes.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "label-demo": {
+    name: "label-demo",
+    description: "Basic",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/label/label-demo.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/label/label-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "label-with-control": {
+    name: "label-with-control",
+    description: "With a control",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/label/label-with-control.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/label/label-with-control.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "label-disabled": {
+    name: "label-disabled",
+    description: "Disabled",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/label/label-disabled.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/label/label-disabled.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "number-field-demo": {
+    name: "number-field-demo",
+    description: "Basic",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/number-field/number-field-demo.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/number-field/number-field-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "number-field-sizes": {
+    name: "number-field-sizes",
+    description: "Sizes",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/number-field/number-field-sizes.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/number-field/number-field-sizes.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "number-field-format": {
+    name: "number-field-format",
+    description: "Decimal format",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/number-field/number-field-format.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/number-field/number-field-format.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "number-field-controlled": {
+    name: "number-field-controlled",
+    description: "Controlled",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/number-field/number-field-controlled.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/number-field/number-field-controlled.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "number-field-disabled": {
+    name: "number-field-disabled",
+    description: "Disabled",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/number-field/number-field-disabled.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/number-field/number-field-disabled.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
   "popover-demo": {
     name: "popover-demo",
     description: "Basic",
@@ -685,6 +1135,24 @@ export const Index: Record<string, any> = {
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/predict/components/popover/popover-form.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "popover-align": {
+    name: "popover-align",
+    description: "Alignment",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/popover/popover-align.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/popover/popover-align.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),
@@ -1249,6 +1717,24 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: undefined,
   },
+  "tabs-controlled": {
+    name: "tabs-controlled",
+    description: "Controlled",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/tabs/tabs-controlled.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/tabs/tabs-controlled.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
   "toggle-demo": {
     name: "toggle-demo",
     description: "Basic",
@@ -1333,6 +1819,24 @@ export const Index: Record<string, any> = {
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/predict/components/toggle/toggle-disabled.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "toggle-controlled": {
+    name: "toggle-controlled",
+    description: "Controlled",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/toggle/toggle-controlled.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/toggle/toggle-controlled.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),
@@ -1572,5 +2076,121 @@ export const Index: Record<string, any> = {
     }),
     categories: undefined,
     meta: undefined,
+  },
+  "dashboard-01": {
+    name: "dashboard-01",
+    description: "A health dashboard with a sidebar, bio clock, pace of ageing, and flagged biomarkers.",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/blocks/dashboard-01/page.tsx",
+      type: "registry:page",
+      target: "app/dashboard/page.tsx"
+    },{
+      path: "registry/predict/blocks/dashboard-01/components/app-sidebar.tsx",
+      type: "registry:component",
+      target: "app/dashboard/components/app-sidebar.tsx"
+    },{
+      path: "registry/predict/blocks/dashboard-01/components/biomarker-grid.tsx",
+      type: "registry:component",
+      target: "app/dashboard/components/biomarker-grid.tsx"
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/blocks/dashboard-01/page.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["dashboard"],
+    meta: {"iframeHeight":"1000px"},
+  },
+  "report-01": {
+    name: "report-01",
+    description: "A biomarker report with a summary and results grouped by body system.",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/blocks/report-01/page.tsx",
+      type: "registry:page",
+      target: "app/report/page.tsx"
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/blocks/report-01/page.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["reports"],
+    meta: {"iframeHeight":"900px"},
+  },
+  "index-01": {
+    name: "index-01",
+    description: "A composite index score with each domain's share and its biomarker Z-scores.",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/blocks/index-01/page.tsx",
+      type: "registry:page",
+      target: "app/index/page.tsx"
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/blocks/index-01/page.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["reports"],
+    meta: {"iframeHeight":"960px"},
+  },
+  "onboarding-01": {
+    name: "onboarding-01",
+    description: "A three-step health profile with body measurements, activity, and sharing settings.",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/blocks/onboarding-01/page.tsx",
+      type: "registry:page",
+      target: "app/onboarding/page.tsx"
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/blocks/onboarding-01/page.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["onboarding"],
+    meta: {"iframeHeight":"720px"},
+  },
+  "booking-01": {
+    name: "booking-01",
+    description: "Book a blood test: pick a date, a morning slot, and a clinic, then confirm.",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/blocks/booking-01/page.tsx",
+      type: "registry:page",
+      target: "app/book/page.tsx"
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/blocks/booking-01/page.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["booking"],
+    meta: {"iframeHeight":"820px"},
+  },
+  "login-01": {
+    name: "login-01",
+    description: "A sign-in page with the logo and a mascot panel.",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/blocks/login-01/page.tsx",
+      type: "registry:page",
+      target: "app/login/page.tsx"
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/blocks/login-01/page.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["authentication"],
+    meta: {"iframeHeight":"760px"},
   },
   }

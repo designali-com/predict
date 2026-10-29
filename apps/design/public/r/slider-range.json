@@ -6,7 +6,7 @@
   "files": [
     {
       "path": "registry/predict/components/slider/slider-range.tsx",
-      "content": "\"use client\"\n\nimport { Slider } from \"@workspace/ui/components/slider\"\n\nexport function SliderRange() {\n  return (\n    <div className=\"grid w-full max-w-sm gap-3\">\n      <span className=\"text-xs font-medium\">Target glucose range</span>\n      <Slider aria-label=\"Target glucose range\" defaultValue={[70, 100]} min={40} max={200} />\n    </div>\n  )\n}\n",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { Slider } from \"@workspace/ui/components/slider\"\n\nexport function SliderRange() {\n  const labelId = React.useId()\n\n  return (\n    <div className=\"grid w-full max-w-sm gap-3\">\n      <span id={labelId} className=\"text-xs font-medium\">\n        Target glucose range\n      </span>\n      <Slider aria-labelledby={labelId} defaultValue={[70, 100]} min={40} max={200} />\n    </div>\n  )\n}\n",
       "type": "registry:block"
     }
   ]

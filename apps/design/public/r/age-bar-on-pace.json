@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "age-bar-on-pace",
+  "type": "registry:block",
+  "description": "On pace",
+  "files": [
+    {
+      "path": "registry/predict/ui/age-bar/age-bar-on-pace.tsx",
+      "content": "\"use client\"\n\nimport { AgeBar } from \"@workspace/ui/predict/age-bar\"\n\nexport function AgeBarOnPace() {\n  return (\n    <div className=\"w-full max-w-xl\">\n      <AgeBar biologicalAge={45} chronologicalAge={45} />\n    </div>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

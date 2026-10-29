@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "label-demo",
+  "type": "registry:block",
+  "description": "Basic",
+  "files": [
+    {
+      "path": "registry/predict/components/label/label-demo.tsx",
+      "content": "\"use client\"\n\nimport { Input } from \"@workspace/ui/components/input\"\nimport { Label } from \"@workspace/ui/components/label\"\n\nexport function LabelDemo() {\n  return (\n    <div className=\"flex w-full max-w-xs flex-col gap-2\">\n      <Label htmlFor=\"label-demo-email\">Email</Label>\n      <Input id=\"label-demo-email\" type=\"email\" placeholder=\"you@example.com\" />\n    </div>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

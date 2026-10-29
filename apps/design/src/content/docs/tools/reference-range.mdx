@@ -33,7 +33,7 @@ import { ReferenceRange } from "@workspace/ui/tools/reference-range"
 - **Header** — The test name, an optional longer name, and a flag badge.
 - **Value** — The result and its unit, in the status colour.
 - **Range** — The reference range as printed on a report, such as `Ref 70–99 mg/dL`.
-- **Bar** — Coloured zones for the range with a marker at the value. Only shown for numbers with a low or high limit. The harmless side of a directional range is grey.
+- **Bar** — Coloured zones with a marker at the value: normal inside the range, mild outside it, and extreme past a critical limit. Only shown for numbers with a low or high limit. The harmless side of a directional range is grey.
 - **Footer** — The Z-score and the direction, when there are any.
 
 ### Flags
@@ -58,6 +58,8 @@ With both limits, the range is read as the middle 95% of healthy values. The mea
 | `low` | ↓ Bad | A lowered value is a concern, such as HDL or vitamin D. |
 | `both` | Normal best | Either side is a concern. The default. |
 | `context` | Context | Either side may matter, depending on the person. |
+
+`rangeDirectionLabels` maps each direction to its label.
 
 ### Colours
 
@@ -107,7 +109,7 @@ zScore(3.5, crp) // 2.71
 isConcern("low", crp.direction) // false
 ```
 
-`rangeTone(flag, z, direction)` from the component file returns the status colour the card uses.
+`rangeTone(flag, z, direction)` from the component file returns the status colour the card uses, as a `RangeTone`: `normal`, `mild`, `moderate`, `severe`, `extreme`, or `none`.
 
 ## Examples
 

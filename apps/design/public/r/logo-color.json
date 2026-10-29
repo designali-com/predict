@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "logo-color",
+  "type": "registry:block",
+  "description": "Colour",
+  "files": [
+    {
+      "path": "registry/predict/ui/logo/logo-color.tsx",
+      "content": "\"use client\"\n\nimport { Logo } from \"@workspace/ui/predict/logo\"\n\nexport function LogoColor() {\n  return (\n    <div className=\"flex flex-col items-center gap-6\">\n      <Logo aria-label=\"PREDICT\" role=\"img\" className=\"text-foreground h-50 w-auto\" />\n      <Logo aria-label=\"PREDICT\" role=\"img\" className=\"text-primary h-50 w-auto\" />\n      <Logo aria-label=\"PREDICT\" role=\"img\" className=\"text-secondary h-50 w-auto\" />\n    </div>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

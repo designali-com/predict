@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "mascot-sizes",
+  "type": "registry:block",
+  "description": "Sizes",
+  "files": [
+    {
+      "path": "registry/predict/ui/mascot/mascot-sizes.tsx",
+      "content": "\"use client\"\n\nimport { PredictMascot } from \"@workspace/ui/predict/predict-mascot\"\n\nexport function MascotSizes() {\n  return (\n    <div className=\"flex items-end gap-8\">\n      <PredictMascot className=\"size-12\" />\n      <PredictMascot className=\"size-20\" />\n      <PredictMascot className=\"size-30\" />\n    </div>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

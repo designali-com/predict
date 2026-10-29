@@ -1,0 +1,68 @@
+---
+title: Logo
+description: "The PREDICT wordmark and mark as React components."
+---
+
+## Demos
+
+The wordmark at header size.
+
+<ComponentPreview name="logo-demo" />
+
+## Usage
+
+Use the logo components to place the brand in an app, such as the header or a report cover. To download the files instead, see [Logos](/docs/design/logos).
+
+Import them from `@workspace/ui/predict/logo`.
+
+```tsx
+import { Logo, LogoIcon, PredictLogo } from "@workspace/ui/predict/logo"
+```
+
+```tsx
+<Logo role="img" aria-label="PREDICT" className="h-6 w-auto" />
+```
+
+### Anatomy
+
+- **Logo** — The wordmark with the mark after it. Drawn in `currentColor`.
+- **LogoIcon** — The mark on its own. Always brand purple (`#8504FE`).
+- **PredictLogo** — A larger, more detailed wordmark for covers and hero sections. Drawn in `currentColor`.
+- **PredictMascut** — The mascot without animation. See [Mascot](/docs/ui/mascot).
+
+### Notes
+
+- Always set a size. `Logo` has `width` and `height` of 100 by default, which gives a square box with the wordmark in the middle. Set a height and `w-auto` to keep the shape.
+- Colour `Logo` and `PredictLogo` with a text class such as `text-foreground` or `text-primary`. `LogoIcon` ignores the text colour.
+- The SVGs have no text of their own. When the logo stands alone, give it `role="img"` and `aria-label="PREDICT"`. When it sits next to the word "PREDICT", give it `aria-hidden`.
+
+## Examples
+
+### Icon
+
+The mark on its own, at 16, 32, and 48 pixels.
+
+<ComponentPreview name="logo-icon" />
+
+### Colour
+
+The wordmark takes the current text colour.
+
+<ComponentPreview name="logo-color" />
+
+### Wordmark
+
+`PredictLogo` for large sizes. It fills its width, so cap it with `max-w-*`.
+
+<ComponentPreview name="logo-wordmark" />
+
+## Props
+
+All four components take the props of an `svg` element, such as `className`, `role`, and `aria-label`.
+
+| Component | viewBox | Colour |
+| --- | --- | --- |
+| `Logo` | `0 0 145 23` | `currentColor` |
+| `LogoIcon` | `0 0 12 12` | `#8504FE` |
+| `PredictLogo` | `0 0 7872.5 1230.04` | `currentColor` |
+| `PredictMascut` | `0 0 351 339` | `#8504FE`, eyes in `--background` |

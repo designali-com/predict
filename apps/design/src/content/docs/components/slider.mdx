@@ -20,7 +20,8 @@ import { Slider } from "@workspace/ui/components/slider"
 ```
 
 ```tsx
-<Slider aria-label="Target range" defaultValue={[70, 100]} min={40} max={200} />
+<span id="glucose-label">Target glucose range</span>
+<Slider aria-labelledby="glucose-label" defaultValue={[70, 100]} min={40} max={200} />
 ```
 
 ### Anatomy
@@ -29,8 +30,8 @@ import { Slider } from "@workspace/ui/components/slider"
 
 ### Notes
 
-- Pass `defaultValue` or `value` as an array. One item gives one thumb, two items give a range.
-- Every slider needs a name. Use `aria-label` or a visible label.
+- Always pass `defaultValue` or `value` as an array. One item gives one thumb, two items give a range.
+- Every slider needs a name. Point `aria-labelledby` at a visible label. `aria-label` on the slider only names the outer group, not the thumbs.
 - Arrow keys move by `step`. Page Up and Page Down move by larger steps.
 
 ## Examples
@@ -57,9 +58,11 @@ These are the props you set most often. Unlisted props pass through to the under
 | --- | --- | --- | --- |
 | `defaultValue` | `number[]` | — | Value on first render. |
 | `value` | `number[]` | — | Value when controlled. |
-| `onValueChange` | `(value) => void` | — | Called while the value changes. |
+| `onValueChange` | `(value) => void` | — | Called while the value changes. `value` is a number or an array. |
+| `onValueCommitted` | `(value) => void` | — | Called once when the reader lets go. |
 | `min` | `number` | `0` | Lowest value. |
 | `max` | `number` | `100` | Highest value. |
 | `step` | `number` | `1` | Amount each step moves. |
+| `largeStep` | `number` | `10` | Amount Page Up and Page Down move. |
 | `orientation` | `"horizontal" or "vertical"` | `horizontal` | Direction of the track. |
 | `disabled` | `boolean` | `false` | Blocks input and dims the slider. |

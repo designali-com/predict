@@ -7,7 +7,7 @@ export function InputWithButton() {
   return (
     <form className="flex w-full max-w-sm items-center gap-2">
       <Input type="text" placeholder="Promo code" aria-label="Promo code" />
-      <Button type="submit" size={"lg"}>
+      <Button type="submit">
         Apply
       </Button>
     </form>

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "bio-clock-severity",
+  "type": "registry:block",
+  "description": "Custom severity scale",
+  "files": [
+    {
+      "path": "registry/predict/ui/bio-clock/bio-clock-severity.tsx",
+      "content": "\"use client\"\n\nimport { BioClock, type SeverityScale } from \"@workspace/ui/predict/bio-clock\"\n\nconst severity: SeverityScale = {\n  ranges: [\n    { min: 0, max: 4, color: \"var(--color-status-normal)\" },\n    { min: 4, max: 7, color: \"var(--color-status-mild)\" },\n    { min: 7, max: 10, color: \"var(--color-status-extreme)\" },\n  ],\n  current: 6.5,\n}\n\nexport function BioClockSeverity() {\n  return (\n    <div className=\"mx-auto flex flex-wrap items-center justify-center gap-3\">\n      <BioClock severity={severity} bioAge={47} yearsValue=\"+2 Years\" />\n    </div>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

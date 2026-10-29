@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-as-link",
+  "type": "registry:block",
+  "description": "As a link",
+  "files": [
+    {
+      "path": "registry/predict/components/button/button-as-link.tsx",
+      "content": "\"use client\"\n\nimport { ArrowUpRightIcon } from \"lucide-react\"\n\nimport { Button } from \"@workspace/ui/components/button\"\n\nexport function ButtonAsLink() {\n  return (\n    <Button\n      nativeButton={false}\n      render={<a href=\"https://predict.fit\" target=\"_blank\" rel=\"noreferrer\" />}\n    >\n      Book a test\n      <ArrowUpRightIcon data-icon=\"inline-end\" />\n    </Button>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

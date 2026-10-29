@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "label-with-control",
+  "type": "registry:block",
+  "description": "With a control",
+  "files": [
+    {
+      "path": "registry/predict/components/label/label-with-control.tsx",
+      "content": "\"use client\"\n\nimport { Label } from \"@workspace/ui/components/label\"\nimport { Switch } from \"@workspace/ui/components/switch\"\n\nexport function LabelWithControl() {\n  return (\n    <Label>\n      <Switch defaultChecked />\n      Share results with my clinician\n    </Label>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

@@ -35,12 +35,12 @@ import {
 - **Progress** — The root. Renders the track and indicator for you.
 - **ProgressLabel** — Names the task. Read by screen readers.
 - **ProgressValue** — Shows the current value. Defaults to a percentage.
-- **ProgressTrack** and **ProgressIndicator** — Exported for custom layouts.
+- **ProgressTrack** and **ProgressIndicator** — The bar and its fill. **Progress** renders them for you, so do not add them as children.
 
 ### Notes
 
 - Without a **ProgressLabel**, give the root an `aria-label`.
-- Pass a function as the child of **ProgressValue** to format the text, for example "4 of 6 steps".
+- Pass a function as the child of **ProgressValue** to format the text. It gets the formatted value and the raw value, so you can show "4 of 6 steps".
 - Do not use a progress bar to show a health score. It reads as a task, not a measurement.
 
 ## Examples
@@ -59,7 +59,7 @@ A bar on its own. Give it an `aria-label`.
 
 ### Indeterminate
 
-Set `value={null}` when the duration is unknown.
+Set `value={null}` when the duration is unknown. The fill shrinks to a third of the track and pulses.
 
 <ComponentPreview name="progress-indeterminate" />
 
@@ -71,7 +71,8 @@ These are the props you set most often. Unlisted props pass through to the under
 
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `value` | `number or null` | — | Current value. `null` is indeterminate. |
+| `value` | `number or null` | — | Required. Current value. `null` is indeterminate. |
 | `min` | `number` | `0` | Lowest value. |
 | `max` | `number` | `100` | Highest value. |
+| `format` | `Intl.NumberFormatOptions` | — | Formats the text in **ProgressValue**. |
 | `className` | `string` | — | Classes merged onto the root. |

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "age-bar-demo",
+  "type": "registry:block",
+  "description": "Basic",
+  "files": [
+    {
+      "path": "registry/predict/ui/age-bar/age-bar-demo.tsx",
+      "content": "\"use client\"\n\nimport { AgeBar } from \"@workspace/ui/predict/age-bar\"\n\nexport function AgeBarDemo() {\n  return (\n    <div className=\"w-full max-w-xl\">\n      <AgeBar biologicalAge={48} chronologicalAge={38} />\n    </div>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

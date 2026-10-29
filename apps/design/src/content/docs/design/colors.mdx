@@ -1,144 +1,101 @@
 ---
 title: Colors
-description: PREDICT design system color palette, semantic tokens, and severity indicators.
+description: "The colour tokens behind every PREDICT screen: surfaces, text, brand, status, charts, and their contrast."
 ---
 
-## Color Palette
+PREDICT uses a small set of colour tokens. Components never use raw colours; they use tokens like `bg-primary` or `text-muted-foreground`, which switch automatically between light and dark mode.
 
-The PREDICT color system provides a consistent visual language for dashboards, biomarker reports, clinical interfaces, and health data visualizations.
+## How colour works
 
-### Severity Colors
+- **Tokens are CSS variables.** Each token, such as `--primary`, is defined twice in `packages/ui/src/styles/globals.css`: once in `:root` for light mode and once in `.dark` for dark mode.
+- **Values are OKLCH.** OKLCH keeps lightness even across hues, so the purple scale and the status colours step evenly. Hex values on this page are worked out from the OKLCH source for reference.
+- **Tailwind classes map to tokens.** `@theme inline` turns `--primary` into `bg-primary`, `text-primary`, `border-primary`, `fill-primary`, and so on. Add an opacity with a slash, such as `bg-primary/10`.
 
-Use these semantic colors to represent biomarker status and severity.
-
-<div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
-
-  <div className="overflow-hidden rounded-xl border">
-    <div className="h-24 bg-[#00C950]" />
-    <div className="space-y-1 p-3">
-      <p className="font-medium">Normal</p>
-      <code className="text-xs">#00C950</code>
-      <p className="text-xs text-muted-foreground">status-normal</p>
-    </div>
-  </div>
-
-  <div className="overflow-hidden rounded-xl border">
-    <div className="h-24 bg-[#F0B100]" />
-    <div className="space-y-1 p-3">
-      <p className="font-medium">Mild</p>
-      <code className="text-xs">#F0B100</code>
-      <p className="text-xs text-muted-foreground">status-mild</p>
-    </div>
-  </div>
-
-  <div className="overflow-hidden rounded-xl border">
-    <div className="h-24 bg-[#2B7FFF]" />
-    <div className="space-y-1 p-3">
-      <p className="font-medium">Moderate</p>
-      <code className="text-xs">#2B7FFF</code>
-      <p className="text-xs text-muted-foreground">status-moderate</p>
-    </div>
-  </div>
-
-  <div className="overflow-hidden rounded-xl border">
-    <div className="h-24 bg-[#FF6900]" />
-    <div className="space-y-1 p-3">
-      <p className="font-medium">Severe</p>
-      <code className="text-xs">#FF6900</code>
-      <p className="text-xs text-muted-foreground">status-severe</p>
-    </div>
-  </div>
-
-  <div className="overflow-hidden rounded-xl border">
-    <div className="h-24 bg-[#FB2C36]" />
-    <div className="space-y-1 p-3">
-      <p className="font-medium">Extreme</p>
-      <code className="text-xs">#FB2C36</code>
-      <p className="text-xs text-muted-foreground">status-extreme</p>
-    </div>
-  </div>
-
+```tsx
+<div className="bg-card text-card-foreground border">
+  <p className="text-muted-foreground">Collected 12 Oct</p>
+  <Button>Book a test</Button> {/* bg-primary text-primary-foreground */}
 </div>
+```
 
-### Primary Colors
+## Brand palette
 
-<div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
+Mostly black and white, with **Predict Purple** (`#8504FE`) as the one brand colour and lilac as its soft partner. Use purple for the main action and brand moments, not large areas. See [Brand Guidelines](/docs/design/logos) for proportions and logo colours.
 
-  <div className="overflow-hidden rounded-xl border">
-    <div className="h-24 bg-[oklch(0.536_0.2917_295.68)]" />
-    <div className="p-3">
-      <p className="font-medium">Primary</p>
-      <code className="text-xs">oklch(0.536 0.2917 295.68)</code>
-    </div>
-  </div>
+## Tokens
 
-  <div className="overflow-hidden rounded-xl border">
-    <div className="h-24 bg-white" />
-    <div className="p-3">
-      <p className="font-medium">White</p>
-      <code className="text-xs">#FFFFFF</code>
-    </div>
-  </div>
+Every token, in light and dark mode. Click a token name to copy it.
 
-  <div className="overflow-hidden rounded-xl border">
-    <div className="h-24 bg-black" />
-    <div className="p-3">
-      <p className="font-medium">Black</p>
-      <code className="text-xs">#000000</code>
-    </div>
-  </div>
+<ColorTokens />
 
-</div>
+### Pairs
 
-### Chart Colors
+Most surface tokens come with a `-foreground` partner for the text on top of it. Always use them together:
 
-<div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+| Surface | Text on it |
+| --- | --- |
+| `bg-background` | `text-foreground`, `text-muted-foreground` |
+| `bg-card` | `text-card-foreground` |
+| `bg-popover` | `text-popover-foreground` |
+| `bg-primary` | `text-primary-foreground` |
+| `bg-secondary` | `text-secondary-foreground` |
+| `bg-accent` | `text-accent-foreground` |
+| `bg-sidebar` | `text-sidebar-foreground` |
 
-  <div className="overflow-hidden rounded-xl border">
-    <div className="h-20 bg-[oklch(99.2%_0.0052_295.7)]" />
-    <div className="p-3">
-      <p className="font-medium">Chart 1</p>
-      <code className="text-xs">--chart-1</code>
-    </div>
-  </div>
+`destructive` has no foreground token. Use white text on it, or use it as text and borders on a light tint, such as `bg-destructive/10 text-destructive`.
 
-  <div className="overflow-hidden rounded-xl border">
-    <div className="h-20 bg-[oklch(96.1%_0.0343_295.7)]" />
-    <div className="p-3">
-      <p className="font-medium">Chart 2</p>
-      <code className="text-xs">--chart-2</code>
-    </div>
-  </div>
+## Status colours
 
-  <div className="overflow-hidden rounded-xl border">
-    <div className="h-20 bg-[oklch(90.2%_0.0897_295.7)]" />
-    <div className="p-3">
-      <p className="font-medium">Chart 3</p>
-      <code className="text-xs">--chart-3</code>
-    </div>
-  </div>
+Five colours show how far a biomarker result is from healthy. They follow the Z-score (how many SDs from the healthy mean), and they are the same in light and dark mode.
 
-  <div className="overflow-hidden rounded-xl border">
-    <div className="h-20 bg-[oklch(80.5%_0.1475_295.7)]" />
-    <div className="p-3">
-      <p className="font-medium">Chart 4</p>
-      <code className="text-xs">--chart-4</code>
-    </div>
-  </div>
+<StatusColors />
 
-  <div className="overflow-hidden rounded-xl border">
-    <div className="h-20 bg-[oklch(53.6%_0.2917_295.7)]" />
-    <div className="p-3">
-      <p className="font-medium">Chart 5</p>
-      <code className="text-xs">--chart-5</code>
-    </div>
-  </div>
+These are the thresholds used by [Reference Range](/docs/tools/reference-range) and the [Bio Clock](/docs/ui/bio-clock) severity scale. A low value on the harmless side of a directional range, such as a low hs-CRP, is not a concern and shows in neutral grey.
 
-</div>
+- **Always pair colour with a word or icon.** About one in twelve men has some colour blindness, and green and orange are easy to confuse. Show "High" or "Normal" next to the colour.
+- **Use the tint pattern for text.** On white, the status colours are too light for body text (see the contrast table). Use a tinted badge, `bg-status-mild/15 text-status-mild`, or a solid fill with a label beside it.
+- **Keep them for results.** Don't use status colours for decoration, brand, or general success and error messages. Use `destructive` for errors.
 
-### Usage Guidelines
+## Chart colours
 
-- Use severity colors consistently across biomarker cards, reports, and health indicators.
-- Use semantic Tailwind tokens instead of hardcoding colors in application components.
-- Maintain accessible text contrast on every color surface.
-- Keep light and dark themes consistent with the global CSS variables.
+A sequential purple scale for charts, from `chart-1` (lowest) to `chart-5` (highest). In dark mode the scale gets darker so the light end doesn't glare.
+
+<ChartColors />
+
+- Use `chart-5` for the main or only series, and lighter steps for comparisons and backgrounds.
+- The scale shows amount, not category. For results by status, use the status colours.
+- `chart-1` is almost the page colour, so give it a border or use it only for backgrounds.
+
+## Contrast
+
+WCAG asks for a contrast of **4.5:1** for body text and **3:1** for large text (24px, or 19px bold) and icons. Ratios below are worked out from the token values.
+
+<ContrastTable />
+
+What this means in practice:
+
+- `foreground`, `muted-foreground`, `secondary-foreground`, and `accent-foreground` pass for any text size, in both modes.
+- White on `primary` passes for body text (6.1:1). `primary` as text on white also passes; on black it only passes for large text (3.5:1).
+- `destructive` as text passes on white (4.8:1) but only for large text on black (4.4:1). In dark mode, pair it with an icon or use it as a fill.
+- On white, **no status colour passes for body text**, and `normal`, `mild`, and `severe` are below 3:1 even for icons. Use them as fills and tints with a label, as above. On black, all five pass.
+
+## Using colours in code
+
+Use token classes in components. Don't hard-code hex values or Tailwind palette colours like `text-green-500`, which won't follow the theme.
+
+```tsx
+// Do
+<span className="bg-status-normal/15 text-status-normal">Normal</span>
+<div className="border bg-card text-card-foreground" />
+
+// Don't
+<span className="bg-green-100 text-green-600">Normal</span>
+<div style={{ background: "#ffffff" }} />
+```
+
+### Adding a token
+
+1. Add the variable to `:root` and `.dark` in `globals.css`, in OKLCH.
+2. Map it in `@theme inline`, such as `--color-warning: var(--warning);`.
+3. Use it as `bg-warning`, `text-warning`, and so on.
+4. Check its contrast against the surfaces it will sit on, in both modes.

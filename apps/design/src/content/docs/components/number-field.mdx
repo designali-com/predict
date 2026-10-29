@@ -1,0 +1,107 @@
+---
+title: Number Field
+description: "A field for entering a number, with buttons to step it up and down."
+---
+
+## Demos
+
+A number field with a scrub label and step buttons.
+
+<ComponentPreview name="number-field-demo" />
+
+## Usage
+
+Use a number field whenever someone types a number, like weight, a dose, or a count. Use it instead of an [Input](/docs/components/input) with `type="number"`.
+
+Import it from `@workspace/ui/components/number-field`.
+
+```tsx
+import {
+  NumberField,
+  NumberFieldDecrement,
+  NumberFieldGroup,
+  NumberFieldIncrement,
+  NumberFieldInput,
+  NumberFieldScrubArea,
+} from "@workspace/ui/components/number-field"
+```
+
+```tsx
+<NumberField defaultValue={70} min={20} max={300}>
+  <NumberFieldScrubArea label="Weight (kg)" />
+  <NumberFieldGroup>
+    <NumberFieldDecrement />
+    <NumberFieldInput />
+    <NumberFieldIncrement />
+  </NumberFieldGroup>
+</NumberField>
+```
+
+### Anatomy
+
+- **NumberField** — The root. Holds the value, limits, and size.
+- **NumberFieldScrubArea** — The label. Drag it left or right to change the value.
+- **NumberFieldGroup** — The pill-shaped frame around the buttons and input.
+- **NumberFieldDecrement** — The minus button.
+- **NumberFieldInput** — The text input, centred.
+- **NumberFieldIncrement** — The plus button.
+
+### Notes
+
+- Arrow Up and Arrow Down step by `step`. Hold Shift for `largeStep` and Alt for `smallStep`.
+- Values are clamped to `min` and `max` when the field loses focus.
+- Without `NumberFieldScrubArea`, give `NumberFieldInput` an `aria-label`.
+- `NumberFieldScrubArea` must be inside a `NumberField`. It throws an error otherwise.
+
+## Examples
+
+### Sizes
+
+`sm`, `default`, and `lg`. They match the heights of [Input](/docs/components/input).
+
+<ComponentPreview name="number-field-sizes" />
+
+### Decimal format
+
+Set `step` and `format` to step by tenths and always show one decimal place.
+
+<ComponentPreview name="number-field-format" />
+
+### Controlled
+
+Hold the value with `value` and `onValueChange`. The value is `null` when the input is empty.
+
+<ComponentPreview name="number-field-controlled" />
+
+### Disabled
+
+A number field that cannot be changed.
+
+<ComponentPreview name="number-field-disabled" />
+
+## Props
+
+These are the props you set most often. Unlisted props pass through to the underlying element.
+
+### NumberField
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `defaultValue` | `number` | — | Starting value. |
+| `value` | `number or null` | — | Value when controlled. |
+| `onValueChange` | `(value) => void` | — | Called when the value changes. |
+| `min` | `number` | — | Lowest allowed value. |
+| `max` | `number` | — | Highest allowed value. |
+| `step` | `number or "any"` | `1` | Amount the buttons and arrow keys change the value by. |
+| `smallStep` | `number` | `0.1` | Step with Alt held. |
+| `largeStep` | `number` | `10` | Step with Shift held. |
+| `format` | `Intl.NumberFormatOptions` | — | How the value is shown, such as decimal places or units. |
+| `size` | `"sm", "default", or "lg"` | `default` | Height of the field. |
+| `disabled` | `boolean` | `false` | Blocks input and dims the field. |
+| `name` | `string` | — | Field name for form submission. |
+
+### NumberFieldScrubArea
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `label` | `string` | — | Required. The label text, linked to the input. |

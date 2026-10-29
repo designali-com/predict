@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input-sizes",
+  "type": "registry:block",
+  "description": "Sizes",
+  "files": [
+    {
+      "path": "registry/predict/components/input/input-sizes.tsx",
+      "content": "\"use client\"\n\nimport { Input } from \"@workspace/ui/components/input\"\n\nconst sizes = [\"sm\", \"default\", \"lg\"] as const\n\nexport function InputSizes() {\n  return (\n    <div className=\"flex w-full max-w-sm flex-col gap-3\">\n      {sizes.map((size) => (\n        <Input key={size} size={size} placeholder={size} aria-label={`Input, ${size}`} />\n      ))}\n    </div>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

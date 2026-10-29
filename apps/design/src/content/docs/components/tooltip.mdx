@@ -37,7 +37,7 @@ import {
 
 ### Anatomy
 
-- **TooltipProvider** — Shares the delay between tooltips. Wrap your app once.
+- **TooltipProvider** — Sets the delay and groups tooltips. Wrap your app once. Without it, a tooltip waits 600 ms before it opens.
 - **Tooltip** — Holds the open state.
 - **TooltipTrigger** — The element that shows the tooltip. Pass a button through `render`.
 - **TooltipContent** — The label and its arrow.
@@ -57,7 +57,7 @@ Set `side` on `TooltipContent` to open on any side of the trigger.
 
 ### Toolbar
 
-One `TooltipProvider` around a group shares the delay, so moving between buttons feels instant.
+One `TooltipProvider` around a group shares the delay. Once one tooltip is open, the next opens right away.
 
 <ComponentPreview name="tooltip-toolbar" />
 
@@ -70,6 +70,7 @@ These are the props you set most often. Unlisted props pass through to the under
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `delay` | `number` | `0` | Milliseconds before a tooltip opens. |
+| `closeDelay` | `number` | `0` | Milliseconds before a tooltip closes. |
 
 ### TooltipContent
 
@@ -78,4 +79,5 @@ These are the props you set most often. Unlisted props pass through to the under
 | `side` | `"top", "right", "bottom", "left", "inline-start", or "inline-end"` | `top` | Side of the trigger to open on. |
 | `align` | `"start", "center", or "end"` | `center` | Alignment along that side. |
 | `sideOffset` | `number` | `4` | Gap from the trigger in pixels. |
+| `alignOffset` | `number` | `0` | Shift along the side in pixels. |
 | `className` | `string` | — | Classes merged onto the label. |

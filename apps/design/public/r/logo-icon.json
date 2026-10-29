@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "logo-icon",
+  "type": "registry:block",
+  "description": "Icon",
+  "files": [
+    {
+      "path": "registry/predict/ui/logo/logo-icon.tsx",
+      "content": "\"use client\"\n\nimport { LogoIcon } from \"@workspace/ui/predict/logo\"\n\nexport function LogoIconDemo() {\n  return (\n    <div className=\"flex items-end gap-6\">\n      <LogoIcon aria-hidden className=\"size-4\" />\n      <LogoIcon aria-hidden className=\"size-8\" />\n      <LogoIcon aria-label=\"PREDICT\" role=\"img\" className=\"size-12\" />\n    </div>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

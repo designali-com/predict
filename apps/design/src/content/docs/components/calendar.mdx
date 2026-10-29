@@ -34,13 +34,13 @@ const [date, setDate] = React.useState<Date | undefined>(new Date())
 
 - Set `mode` to `single`, `multiple`, or `range`. The shape of `selected` follows the mode.
 - Use `disabled` to block dates, for example days before today or days with no slots.
-- `captionLayout="dropdown"` adds month and year dropdowns for dates far from today.
+- `captionLayout="dropdown"` adds month and year dropdowns for dates far from today. The years run from 100 years ago to this year unless you set `startMonth` and `endMonth`.
 
 ## Examples
 
 ### Range
 
-Set `mode="range"` to pick a start and end date.
+Set `mode="range"` to pick a start and end date. `numberOfMonths={2}` shows two months side by side.
 
 <ComponentPreview name="calendar-range" />
 
@@ -56,6 +56,12 @@ Pass a matcher to `disabled`. Here, past days and Sundays cannot be booked.
 
 <ComponentPreview name="calendar-disabled-dates" />
 
+### In a popover
+
+A date picker: a button opens the calendar, and picking a day closes it.
+
+<ComponentPreview name="calendar-in-popover" />
+
 ## Props
 
 These are the props you set most often. Unlisted props pass through to DayPicker.
@@ -70,5 +76,5 @@ These are the props you set most often. Unlisted props pass through to DayPicker
 | `captionLayout` | `"label", "dropdown", "dropdown-months", or "dropdown-years"` | `label` | How the month caption is shown. |
 | `showOutsideDays` | `boolean` | `true` | Show days from the next and previous month. |
 | `disabled` | `Matcher or Matcher[]` | — | Dates that cannot be picked. |
-| `buttonVariant` | `Button variant` | `ghost` | Variant of the previous and next buttons. |
+| `buttonVariant` | [Button](/docs/components/button) `variant` | `ghost` | Variant of the previous and next buttons. |
 | `className` | `string` | — | Classes merged onto the root. |

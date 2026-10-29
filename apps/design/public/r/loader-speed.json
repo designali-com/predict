@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "loader-speed",
+  "type": "registry:block",
+  "description": "Speed",
+  "files": [
+    {
+      "path": "registry/predict/ui/loader/loader-speed.tsx",
+      "content": "\"use client\"\n\nimport { PredictLoader } from \"@workspace/ui/predict/loader\"\n\nconst durations = [0.8, 1.4, 2.4]\n\nexport function LoaderSpeed() {\n  return (\n    <div className=\"flex items-end gap-10\">\n      {durations.map((duration) => (\n        <div key={duration} className=\"flex flex-col items-center gap-2\">\n          <PredictLoader size={32} duration={duration} />\n          <span className=\"text-muted-foreground font-mono text-xs\">{duration}s</span>\n        </div>\n      ))}\n    </div>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

@@ -13,7 +13,13 @@ import {
   CardHeader,
   CardTitle,
 } from "@workspace/ui/components/card"
-import { Input } from "@workspace/ui/components/input"
+import {
+  NumberField,
+  NumberFieldDecrement,
+  NumberFieldGroup,
+  NumberFieldIncrement,
+  NumberFieldInput,
+} from "@workspace/ui/components/number-field"
 import {
   bmiCategory,
   bmiCategoryLabels,
@@ -128,24 +134,32 @@ function BodyMeasurements({
       <CardContent className="flex flex-col gap-6">
         <div className="grid gap-4 sm:grid-cols-2">
           <Field id={`${id}-weight`} label="Weight (kg)">
-            <Input
+            <NumberField
               id={`${id}-weight`}
-              type="number"
               min={1}
-              step="any"
-              value={weight || ""}
-              onChange={(event) => setWeight(event.target.valueAsNumber || 0)}
-            />
+              value={weight || null}
+              onValueChange={(value) => setWeight(value ?? 0)}
+            >
+              <NumberFieldGroup>
+                <NumberFieldDecrement />
+                <NumberFieldInput />
+                <NumberFieldIncrement />
+              </NumberFieldGroup>
+            </NumberField>
           </Field>
           <Field id={`${id}-height`} label="Height (cm)">
-            <Input
+            <NumberField
               id={`${id}-height`}
-              type="number"
               min={1}
-              step="any"
-              value={height || ""}
-              onChange={(event) => setHeight(event.target.valueAsNumber || 0)}
-            />
+              value={height || null}
+              onValueChange={(value) => setHeight(value ?? 0)}
+            >
+              <NumberFieldGroup>
+                <NumberFieldDecrement />
+                <NumberFieldInput />
+                <NumberFieldIncrement />
+              </NumberFieldGroup>
+            </NumberField>
           </Field>
         </div>
 
@@ -165,7 +179,7 @@ function BodyMeasurements({
                 BSA, {formula.replace("-", " ")}
               </dt>
               <dd className="text-lg font-semibold tabular-nums">
-                {result ? result.bsa[formula].toFixed(2) : "—"} m²
+                {result ? `${result.bsa[formula].toFixed(2)} m²` : "—"}
               </dd>
             </div>
           ))}

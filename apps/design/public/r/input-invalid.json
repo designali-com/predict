@@ -6,7 +6,7 @@
   "files": [
     {
       "path": "registry/predict/components/input/input-invalid.tsx",
-      "content": "\"use client\"\n\nimport { Input } from \"@workspace/ui/components/input\"\n\nexport function InputInvalid() {\n  return (\n    <label className=\"grid w-full max-w-sm gap-1.5 text-xs font-medium\">\n      Phone\n      <Input type=\"tel\" defaultValue=\"12345\" aria-invalid aria-describedby=\"phone-error\" />\n      <span id=\"phone-error\" className=\"font-normal text-destructive\">\n        Enter a 10 digit number.\n      </span>\n    </label>\n  )\n}\n",
+      "content": "\"use client\"\n\nimport { Input } from \"@workspace/ui/components/input\"\n\nexport function InputInvalid() {\n  return (\n    <div className=\"grid w-full max-w-sm gap-1.5 text-xs font-medium\">\n      <label className=\"grid gap-1.5\">\n        Phone\n        <Input\n          type=\"tel\"\n          defaultValue=\"12345\"\n          aria-invalid\n          aria-describedby=\"phone-error\"\n        />\n      </label>\n      <span id=\"phone-error\" className=\"font-normal text-destructive\">\n        Enter a 10 digit number.\n      </span>\n    </div>\n  )\n}\n",
       "type": "registry:block"
     }
   ]

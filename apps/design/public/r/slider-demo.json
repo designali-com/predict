@@ -6,7 +6,7 @@
   "files": [
     {
       "path": "registry/predict/components/slider/slider-demo.tsx",
-      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { Slider } from \"@workspace/ui/components/slider\"\n\nexport function SliderDemo() {\n  const [sleep, setSleep] = React.useState(7)\n\n  return (\n    <div className=\"grid w-full max-w-sm gap-3\">\n      <div className=\"flex justify-between text-xs\">\n        <span className=\"font-medium\">Average sleep</span>\n        <span className=\"text-muted-foreground tabular-nums\">{sleep} h</span>\n      </div>\n      <Slider\n        aria-label=\"Average sleep\"\n        value={[sleep]}\n        onValueChange={(value) => setSleep(Array.isArray(value) ? value[0]! : value)}\n        min={3}\n        max={12}\n        step={0.5}\n      />\n    </div>\n  )\n}\n",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { Slider } from \"@workspace/ui/components/slider\"\n\nexport function SliderDemo() {\n  const labelId = React.useId()\n  const [sleep, setSleep] = React.useState(7)\n\n  return (\n    <div className=\"grid w-full max-w-sm gap-3\">\n      <div className=\"flex justify-between text-xs\">\n        <span id={labelId} className=\"font-medium\">\n          Average sleep\n        </span>\n        <span className=\"text-muted-foreground tabular-nums\">{sleep} h</span>\n      </div>\n      <Slider\n        aria-labelledby={labelId}\n        value={[sleep]}\n        onValueChange={(value) => setSleep(Array.isArray(value) ? value[0]! : value)}\n        min={3}\n        max={12}\n        step={0.5}\n      />\n    </div>\n  )\n}\n",
       "type": "registry:block"
     }
   ]
