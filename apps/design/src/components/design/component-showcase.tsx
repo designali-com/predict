@@ -603,7 +603,7 @@ const predictUi: ShowcaseItem[] = [
     className: "md:col-span-2 lg:col-span-3",
     preview: (
       <div className="flex flex-wrap items-center justify-center gap-10">
-        <Logo role="img" aria-label="PREDICT" className="h-8 w-auto" />
+        <Logo role="img" aria-label="PREDICT" className="h-10 size-80" />
         <LogoIcon aria-hidden className="size-12" />
       </div>
     ),
