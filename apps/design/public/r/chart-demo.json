@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-demo",
+  "type": "registry:block",
+  "description": "Bar",
+  "files": [
+    {
+      "path": "registry/predict/components/chart/chart-demo.tsx",
+      "content": "\"use client\"\n\nimport { Bar, BarChart, CartesianGrid, XAxis } from \"recharts\"\n\nimport {\n  type ChartConfig,\n  ChartContainer,\n  ChartTooltip,\n  ChartTooltipContent,\n} from \"@workspace/ui/components/chart\"\n\nconst data = [\n  { month: \"May\", steps: 7400 },\n  { month: \"Jun\", steps: 8100 },\n  { month: \"Jul\", steps: 9200 },\n  { month: \"Aug\", steps: 8700 },\n  { month: \"Sep\", steps: 10300 },\n  { month: \"Oct\", steps: 11000 },\n]\n\nconst chartConfig = {\n  steps: {\n    label: \"Daily steps\",\n    color: \"var(--chart-5)\",\n  },\n} satisfies ChartConfig\n\nexport function ChartDemo() {\n  return (\n    <ChartContainer config={chartConfig} className=\"h-56 w-full max-w-md\">\n      <BarChart accessibilityLayer data={data}>\n        <CartesianGrid vertical={false} />\n        <XAxis dataKey=\"month\" tickLine={false} axisLine={false} tickMargin={8} />\n        <ChartTooltip cursor={false} content={<ChartTooltipContent />} />\n        <Bar dataKey=\"steps\" fill=\"var(--color-steps)\" radius={4} />\n      </BarChart>\n    </ChartContainer>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

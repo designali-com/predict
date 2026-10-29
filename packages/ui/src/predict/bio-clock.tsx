@@ -1,5 +1,4 @@
 // @ts-nocheck
-
 "use client"
 
 import React from "react"
@@ -47,6 +46,9 @@ export interface ClockGaugeProps
   severity?: SeverityScale
   bioAge?: number
   yearsDiff?: string
+
+  // Size
+  size?: "sm" | "default" | "lg" | "xl" | number
 }
 
 /* =========================================================
@@ -147,13 +149,37 @@ export const BioClock = React.forwardRef<
       severity: explicitSeverity,
       bioAge = 60,
       yearsDiff: explicitYearsDiff,
+      size = "default",
       ...props
     },
     ref
   ) => {
-    // Unique per clock, so two clocks on a page don't share SVG ids.
-    const uid = React.useId().replace(/[^a-zA-Z0-9_-]/g, "")
+    /* =====================================================
+       UNIQUE IDS
+    ===================================================== */
+
+    const uid = React.useId().replace(
+      /[^a-zA-Z0-9_-]/g,
+      ""
+    )
+
     const gradientId = `bio-clock-gradient-${uid}`
+
+    /* =====================================================
+       SIZE
+    ===================================================== */
+
+    const sizeMap = {
+      sm: 320,
+      default: 450,
+      lg: 600,
+      xl: 720,
+    } as const
+
+    const resolvedSize =
+      typeof size === "number"
+        ? size
+        : sizeMap[size]
 
     /* =====================================================
        DOMAINS
@@ -169,7 +195,9 @@ export const BioClock = React.forwardRef<
           label: seg.label,
           fullName: seg.label,
           color: seg.color,
-          value: seg.value ?? (index + 1) * 10,
+          value:
+            seg.value ??
+            (index + 1) * 10,
         }))
       }
 
@@ -184,21 +212,27 @@ export const BioClock = React.forwardRef<
       if (explicitSeverity) {
         return currentValue !== undefined
           ? {
-              ...explicitSeverity,
-              current: currentValue,
-            }
+            ...explicitSeverity,
+            current: currentValue,
+          }
           : explicitSeverity
       }
 
       return {
         ...DEFAULT_SEVERITY,
         current:
-          currentValue ?? DEFAULT_SEVERITY.current,
+          currentValue ??
+          DEFAULT_SEVERITY.current,
       }
-    }, [explicitSeverity, currentValue])
+    }, [
+      explicitSeverity,
+      currentValue,
+    ])
 
     const displayYearsDiff =
-      yearsValue ?? explicitYearsDiff ?? "+7 YEARS"
+      yearsValue ??
+      explicitYearsDiff ??
+      "+7 YEARS"
 
     /* =====================================================
        DIMENSIONS
@@ -229,12 +263,20 @@ export const BioClock = React.forwardRef<
     ===================================================== */
 
     const getCoordinates = React.useCallback(
-      (angle: number, radius: number) => {
-        const rad = (angle * Math.PI) / 180
+      (
+        angle: number,
+        radius: number
+      ) => {
+        const rad =
+          (angle * Math.PI) / 180
 
         return {
-          x: center + radius * Math.cos(rad),
-          y: center + radius * Math.sin(rad),
+          x:
+            center +
+            radius * Math.cos(rad),
+          y:
+            center +
+            radius * Math.sin(rad),
         }
       },
       [center]
@@ -245,14 +287,24 @@ export const BioClock = React.forwardRef<
     ===================================================== */
 
     const radialRays = React.useMemo(() => {
-      return Array.from({ length: 40 }, (_, i) => {
-        const angle = (i * 360) / 40
+      return Array.from(
+        { length: 40 },
+        (_, i) => {
+          const angle =
+            (i * 360) / 40
 
-        return {
-          p1: getCoordinates(angle, 84),
-          p2: getCoordinates(angle, 111),
+          return {
+            p1: getCoordinates(
+              angle,
+              84
+            ),
+            p2: getCoordinates(
+              angle,
+              111
+            ),
+          }
         }
-      })
+      )
     }, [getCoordinates])
 
     /* =====================================================
@@ -260,99 +312,145 @@ export const BioClock = React.forwardRef<
     ===================================================== */
 
     const ageDots = React.useMemo(() => {
-      return Array.from({ length: 40 }, (_, i) => {
-        const pct = i / 40
+      return Array.from(
+        { length: 40 },
+        (_, i) => {
+          const pct = i / 40
 
-        const angle =
-          ageStartAngle +
-          pct * (ageEndAngle - ageStartAngle)
+          const angle =
+            ageStartAngle +
+            pct *
+            (ageEndAngle -
+              ageStartAngle)
 
-        const pos = getCoordinates(
-          angle,
-          ageScaleRadius
-        )
+          const pos =
+            getCoordinates(
+              angle,
+              ageScaleRadius
+            )
 
-        const centerDist =
-          1 - Math.abs(0.5 - pct) * 2
+          const centerDist =
+            1 -
+            Math.abs(
+              0.5 - pct
+            ) *
+            2
 
-        return {
-          x: pos.x,
-          y: pos.y,
-          radius: 1.5 + centerDist * 1,
-          opacity: centerDist,
+          return {
+            x: pos.x,
+            y: pos.y,
+            radius:
+              1.5 +
+              centerDist * 1,
+            opacity: centerDist,
+          }
         }
-      })
-    }, [getCoordinates, ageScaleRadius])
+      )
+    }, [
+      getCoordinates,
+      ageScaleRadius,
+    ])
 
     /* =====================================================
        DOMAIN ARC GEOMETRY
     ===================================================== */
 
-    const domainArcData = React.useMemo(() => {
-      const arc =
-        (outerEndAngle - outerStartAngle) /
-        Math.max(domains.length, 1)
+    const domainArcData =
+      React.useMemo(() => {
+        const arc =
+          (outerEndAngle -
+            outerStartAngle) /
+          Math.max(
+            domains.length,
+            1
+          )
 
-      return domains.map((segment, index) => {
-        const startAngle =
-          outerStartAngle + index * arc + 4
+        return domains.map(
+          (segment, index) => {
+            const startAngle =
+              outerStartAngle +
+              index * arc +
+              4
 
-        const endAngle =
-          outerStartAngle +
-          (index + 1) * arc -
-          4
+            const endAngle =
+              outerStartAngle +
+              (index + 1) * arc -
+              4
 
-        const start = getCoordinates(
-          startAngle,
-          outerRadius
+            const start =
+              getCoordinates(
+                startAngle,
+                outerRadius
+              )
+
+            const end =
+              getCoordinates(
+                endAngle,
+                outerRadius
+              )
+
+            const labelPos =
+              getCoordinates(
+                (startAngle +
+                  endAngle) /
+                2,
+                outerRadius + 35
+              )
+
+            return {
+              segment,
+              index,
+              startAngle,
+              endAngle,
+              start,
+              end,
+              labelPos,
+            }
+          }
         )
-
-        const end = getCoordinates(
-          endAngle,
-          outerRadius
-        )
-
-        const labelPos = getCoordinates(
-          (startAngle + endAngle) / 2,
-          outerRadius + 35
-        )
-
-        return {
-          segment,
-          index,
-          startAngle,
-          endAngle,
-          start,
-          end,
-          labelPos,
-        }
-      })
-    }, [domains, getCoordinates, outerRadius])
+      }, [
+        domains,
+        getCoordinates,
+        outerRadius,
+      ])
 
     /* =====================================================
        INDICATORS
     ===================================================== */
 
-    const maxValIndex = React.useMemo(() => {
-      if (!domains.length) return 0
+    const maxValIndex =
+      React.useMemo(() => {
+        if (!domains.length)
+          return 0
 
-      return domains.reduce(
-        (max, current, index, array) =>
-          current.value > array[max].value
-            ? index
-            : max,
-        0
-      )
-    }, [domains])
+        return domains.reduce(
+          (
+            max,
+            current,
+            index,
+            array
+          ) =>
+            current.value >
+              array[max].value
+              ? index
+              : max,
+          0
+        )
+      }, [domains])
 
     const domainAngle =
       outerStartAngle +
       (maxValIndex + 0.5) *
-        ((outerEndAngle - outerStartAngle) /
-          Math.max(domains.length, 1))
+      ((outerEndAngle -
+        outerStartAngle) /
+        Math.max(
+          domains.length,
+          1
+        ))
 
     const totalMin =
-      severity.ranges[0]?.min ?? 0
+      severity.ranges[0]?.min ??
+      0
 
     const totalMax =
       severity.ranges[
@@ -360,55 +458,67 @@ export const BioClock = React.forwardRef<
       ]?.max ?? 5
 
     const severityProgress =
-      (severity.current - totalMin) /
+      (severity.current -
+        totalMin) /
       (totalMax - totalMin)
 
     const severityAngle =
       innerStartAngle +
       severityProgress *
-        (innerEndAngle - innerStartAngle)
+      (innerEndAngle -
+        innerStartAngle)
 
     const agePct =
-      Math.min(Math.max(bioAge, 0), 100) / 100
+      Math.min(
+        Math.max(bioAge, 0),
+        100
+      ) / 100
 
     const currentAgeAngle =
       ageStartAngle +
       agePct *
-        (ageEndAngle - ageStartAngle)
+      (ageEndAngle -
+        ageStartAngle)
 
     /* =====================================================
        NEEDLE TARGETS
     ===================================================== */
 
-    const domainTarget = getCoordinates(
-      domainAngle,
-      outerRadius - 10
-    )
+    const domainTarget =
+      getCoordinates(
+        domainAngle,
+        outerRadius - 10
+      )
 
-    const domainStart = getCoordinates(
-      outerStartAngle,
-      outerRadius - 10
-    )
+    const domainStart =
+      getCoordinates(
+        outerStartAngle,
+        outerRadius - 10
+      )
 
-    const severityTarget = getCoordinates(
-      severityAngle,
-      innerRadius
-    )
+    const severityTarget =
+      getCoordinates(
+        severityAngle,
+        innerRadius
+      )
 
-    const severityStart = getCoordinates(
-      innerStartAngle,
-      innerRadius
-    )
+    const severityStart =
+      getCoordinates(
+        innerStartAngle,
+        innerRadius
+      )
 
-    const ageTarget = getCoordinates(
-      currentAgeAngle,
-      ageScaleRadius - 32
-    )
+    const ageTarget =
+      getCoordinates(
+        currentAgeAngle,
+        ageScaleRadius - 32
+      )
 
-    const ageStart = getCoordinates(
-      ageStartAngle,
-      ageScaleRadius - 32
-    )
+    const ageStart =
+      getCoordinates(
+        ageStartAngle,
+        ageScaleRadius - 32
+      )
 
     /* =====================================================
        SEVERITY GRADIENT
@@ -419,17 +529,22 @@ export const BioClock = React.forwardRef<
         return severity.ranges.map(
           (range, index) => {
             const minPct =
-              ((range.min - totalMin) /
-                (totalMax - totalMin)) *
+              ((range.min -
+                totalMin) /
+                (totalMax -
+                  totalMin)) *
               100
 
             const maxPct =
-              ((range.max - totalMin) /
-                (totalMax - totalMin)) *
+              ((range.max -
+                totalMin) /
+                (totalMax -
+                  totalMin)) *
               100
 
             const midPct =
-              (minPct + maxPct) / 2
+              (minPct + maxPct) /
+              2
 
             return {
               index,
@@ -448,74 +563,81 @@ export const BioClock = React.forwardRef<
        AGE BADGE
     ===================================================== */
 
-    const ageBadge = React.useMemo(() => {
-      const badgeRadius = ageScaleRadius
-      const badgeWidthAngle = 26
+    const ageBadge =
+      React.useMemo(() => {
+        const badgeRadius =
+          ageScaleRadius
 
-      const isFlipped =
-        currentAgeAngle > 90 ||
-        currentAgeAngle < -90
+        const badgeWidthAngle = 26
 
-      const startA =
-        currentAgeAngle -
-        badgeWidthAngle / 2
+        const isFlipped =
+          currentAgeAngle > 180 ||
+          currentAgeAngle < -90
 
-      const endA =
-        currentAgeAngle +
-        badgeWidthAngle / 2
+        const startA =
+          currentAgeAngle -
+          badgeWidthAngle / 2
 
-      const pStart = getCoordinates(
-        startA,
-        badgeRadius
-      )
+        const endA =
+          currentAgeAngle +
+          badgeWidthAngle / 2
 
-      const pEnd = getCoordinates(
-        endA,
-        badgeRadius
-      )
+        const pStart =
+          getCoordinates(
+            startA,
+            badgeRadius
+          )
 
-      const shapeSweepFlag =
-        isFlipped ? 0 : 1
+        const pEnd =
+          getCoordinates(
+            endA,
+            badgeRadius
+          )
 
-      const textSweepFlag =
-        shapeSweepFlag === 1 ? 0 : 1
+        const shapeSweepFlag =
+          isFlipped ? 0 : 1
 
-      const shapePathId =
-        `bio-clock-shape-${uid}-${Math.round(
-          currentAgeAngle
-        )}`
+        const textSweepFlag =
+          shapeSweepFlag === 1
+            ? 0
+            : 1
 
-      const textPathId =
-        `bio-clock-text-${uid}-${Math.round(
-          currentAgeAngle
-        )}`
+        const shapePathId =
+          `bio-clock-shape-${uid}-${Math.round(
+            currentAgeAngle
+          )}`
 
-      const shapePath = `
-        M ${pStart.x} ${pStart.y}
-        A ${badgeRadius} ${badgeRadius}
-        0 0 ${shapeSweepFlag}
-        ${pEnd.x} ${pEnd.y}
-      `
+        const textPathId =
+          `bio-clock-text-${uid}-${Math.round(
+            currentAgeAngle
+          )}`
 
-      const textPath = `
-        M ${pEnd.x} ${pEnd.y}
-        A ${badgeRadius} ${badgeRadius}
-        0 0 ${textSweepFlag}
-        ${pStart.x} ${pStart.y}
-      `
+        const shapePath = `
+          M ${pStart.x} ${pStart.y}
+          A ${badgeRadius} ${badgeRadius}
+          0 0 ${shapeSweepFlag}
+          ${pEnd.x} ${pEnd.y}
+        `
 
-      return {
-        shapePath,
-        textPath,
-        shapePathId,
-        textPathId,
-      }
-    }, [
-      currentAgeAngle,
-      getCoordinates,
-      ageScaleRadius,
-      uid,
-    ])
+        const textPath = `
+          M ${pEnd.x} ${pEnd.y}
+          A ${badgeRadius} ${badgeRadius}
+          0 0 ${textSweepFlag}
+          ${pStart.x} ${pStart.y}
+        `
+
+        return {
+          shapePath,
+          textPath,
+          shapePathId,
+          textPathId,
+        }
+      }, [
+        currentAgeAngle,
+        getCoordinates,
+        ageScaleRadius,
+        uid,
+      ])
 
     /* =====================================================
        RENDER
@@ -526,14 +648,20 @@ export const BioClock = React.forwardRef<
         <div
           ref={ref}
           className={cn(
-            "relative flex w-full items-center justify-center overflow-hidden select-none",
+            "relative flex shrink-0 items-center justify-center select-none",
             className
           )}
+          style={{
+            width: resolvedSize,
+            height: resolvedSize,
+          }}
           {...props}
         >
           <svg
-            viewBox="0 30 600 460"
-            className="h-auto w-full"
+            viewBox="0 30 600 500"
+            width={resolvedSize}
+            height={resolvedSize}
+            className="block h-full w-full"
             preserveAspectRatio="xMidYMid meet"
           >
             <defs>
@@ -548,8 +676,12 @@ export const BioClock = React.forwardRef<
                   (stop) => (
                     <stop
                       key={stop.index}
-                      offset={stop.offset}
-                      stopColor={stop.color}
+                      offset={
+                        stop.offset
+                      }
+                      stopColor={
+                        stop.color
+                      }
                     />
                   )
                 )}
@@ -561,7 +693,10 @@ export const BioClock = React.forwardRef<
             ================================================= */}
 
             {radialRays.map(
-              ({ p1, p2 }, index) => (
+              (
+                { p1, p2 },
+                index
+              ) => (
                 <line
                   key={index}
                   x1={p1.x}
@@ -600,6 +735,7 @@ export const BioClock = React.forwardRef<
                     ${end.x} ${end.y}
                   `}
                   fill="none"
+                  filter={`url(#pathInsetShadow-${uid})`}
                   stroke={`url(#${gradientId})`}
                   strokeWidth="26"
                   strokeLinecap="round"
@@ -653,23 +789,78 @@ export const BioClock = React.forwardRef<
                     />
 
                     {/* Visible arc */}
+                    <defs>
+                      <linearGradient
+                        id={gradientId}
+                        x1="0%"
+                        y1="0%"
+                        x2="100%"
+                        y2="0%"
+                      >
+                        {severityGradientStops.map((stop) => (
+                          <stop
+                            key={stop.index}
+                            offset={stop.offset}
+                            stopColor={stop.color}
+                          />
+                        ))}
+                      </linearGradient>
+
+                      <filter
+                        id={`pathInsetShadow-${uid}`}
+                        x="-250"
+                        y="-250"
+                        width="1100"
+                        height="1100"
+                        filterUnits="userSpaceOnUse"
+                        primitiveUnits="userSpaceOnUse"
+                      >
+                        <feGaussianBlur
+                          in="SourceAlpha"
+                          stdDeviation="3"
+                          result="blur"
+                        />
+                        <feOffset
+                          in="blur"
+                          dx="0"
+                          dy="1"
+                          result="offset"
+                        />
+                        <feComposite
+                          in="SourceAlpha"
+                          in2="offset"
+                          operator="out"
+                          result="shadow"
+                        />
+                        <feFlood
+                          floodColor="#ffffff"
+                          floodOpacity="0.3"
+                          result="color"
+                        />
+                        <feComposite
+                          in="color"
+                          in2="shadow"
+                          operator="in"
+                          result="highlight"
+                        />
+                        <feMerge>
+                          <feMergeNode in="SourceGraphic" />
+                          <feMergeNode in="highlight" />
+                        </feMerge>
+                      </filter>
+                    </defs>
                     <motion.path
                       d={`
-                        M ${start.x} ${start.y}
-                        A ${outerRadius} ${outerRadius}
-                        0 0 1
-                        ${end.x} ${end.y}
-                      `}
+                         M ${start.x} ${start.y}
+                         A ${outerRadius} ${outerRadius}
+                         0 0 1 ${end.x} ${end.y} `}
                       fill="none"
+                      filter={`url(#pathInsetShadow-${uid})`}
                       stroke={segment.color}
                       strokeWidth="24"
                       strokeLinecap="round"
-                      initial={{
-                        pathLength: 0,
-                      }}
-                      animate={{
-                        pathLength: 1,
-                      }}
+                      initial={{ pathLength: 0 }}
+                      animate={{ pathLength: 1 }}
                       transition={{
                         duration: 0.25,
                         delay: index * 0.02,
@@ -677,23 +868,30 @@ export const BioClock = React.forwardRef<
                       }}
                     />
 
+
                     <text
                       x={labelPos.x}
                       y={labelPos.y}
                       className="fill-foreground text-sm font-medium"
                       textAnchor="middle"
                     >
-                      {segment.label}
+                      {
+                        segment.label
+                      }
                     </text>
                   </TooltipTrigger>
 
                   <TooltipContent>
                     <span>
-                      {segment.fullName}
+                      {
+                        segment.fullName
+                      }
                     </span>
 
                     <span className="ml-2 font-bold">
-                      {segment.value}
+                      {
+                        segment.value
+                      }
                     </span>
                   </TooltipContent>
                 </Tooltip>
@@ -705,28 +903,38 @@ export const BioClock = React.forwardRef<
             ================================================= */}
 
             <g>
-              {ageDots.map((dot, index) => (
-                <circle
-                  key={index}
-                  cx={dot.x}
-                  cy={dot.y}
-                  r={dot.radius}
-                  className="fill-foreground"
-                  fillOpacity={dot.opacity}
-                />
-              ))}
+              {ageDots.map(
+                (
+                  dot,
+                  index
+                ) => (
+                  <circle
+                    key={index}
+                    cx={dot.x}
+                    cy={dot.y}
+                    r={dot.radius}
+                    className="fill-foreground"
+                    fillOpacity={
+                      dot.opacity
+                    }
+                  />
+                )
+              )}
 
               <text
                 x={
                   getCoordinates(
-                    ageStartAngle + 5,
+                    ageStartAngle +
+                    5,
                     ageScaleRadius
                   ).x
                 }
                 y={
                   getCoordinates(
-                    ageStartAngle + 5,
-                    ageScaleRadius + 10
+                    ageStartAngle +
+                    5,
+                    ageScaleRadius +
+                    10
                   ).y
                 }
                 className="fill-muted-foreground text-[11px]"
@@ -738,14 +946,18 @@ export const BioClock = React.forwardRef<
               <text
                 x={
                   getCoordinates(
-                    ageEndAngle + 5,
-                    ageScaleRadius + 10
+                    ageEndAngle +
+                    5,
+                    ageScaleRadius +
+                    10
                   ).x
                 }
                 y={
                   getCoordinates(
-                    ageEndAngle - 5,
-                    ageScaleRadius + 10
+                    ageEndAngle -
+                    5,
+                    ageScaleRadius +
+                    10
                   ).y
                 }
                 className="fill-muted-foreground text-[11px]"
@@ -767,8 +979,10 @@ export const BioClock = React.forwardRef<
                 y2: domainStart.y,
               }}
               animate={{
-                x2: domainTarget.x - 5,
-                y2: domainTarget.y + 10,
+                x2:
+                  domainTarget.x - 5,
+                y2:
+                  domainTarget.y + 10,
               }}
               transition={{
                 type: "spring",
@@ -792,11 +1006,11 @@ export const BioClock = React.forwardRef<
                 y1={center}
                 initial={{
                   x2: severityStart.x,
-                  y2: severityStart.y ,
+                  y2: severityStart.y,
                 }}
                 animate={{
-                  x2: severityTarget.x + 22,
-                  y2: severityTarget.y + 22,
+                  x2: severityTarget.x,
+                  y2: severityTarget.y,
                 }}
                 transition={{
                   type: "spring",
@@ -821,20 +1035,32 @@ export const BioClock = React.forwardRef<
                 }}
               >
                 <circle
-                  cx={severityTarget.x}
-                  cy={severityTarget.y}
+                  filter={`url(#pathInsetShadow-${uid})`}
+                  cx={
+                    severityTarget.x
+                  }
+                  cy={
+                    severityTarget.y
+                  }
                   r="24"
-                  fill="var(--background)" 
+                  fill="var(--background)"
                   className="stroke-foreground/20"
                 />
 
                 <text
-                  x={severityTarget.x}
-                  y={severityTarget.y + 5}
+                  x={
+                    severityTarget.x
+                  }
+                  y={
+                    severityTarget.y +
+                    5
+                  }
                   className="fill-foreground text-md font-semibold"
                   textAnchor="middle"
                 >
-                  {severity.current}
+                  {
+                    severity.current
+                  }
                 </text>
               </motion.g>
             </g>
@@ -852,8 +1078,12 @@ export const BioClock = React.forwardRef<
                   y2: ageStart.y,
                 }}
                 animate={{
-                  x2: ageTarget.x + 10,
-                  y2: ageTarget.y + 10,
+                  x2:
+                    ageTarget.x +
+                    10,
+                  y2:
+                    ageTarget.y +
+                    10,
                 }}
                 transition={{
                   type: "spring",
@@ -882,7 +1112,9 @@ export const BioClock = React.forwardRef<
                 }}
               >
                 <path
-                  d={ageBadge.shapePath}
+                  d={
+                    ageBadge.shapePath
+                  }
                   fill="none"
                   stroke="var(--background)"
                   strokeWidth="28"
@@ -890,7 +1122,9 @@ export const BioClock = React.forwardRef<
                 />
 
                 <path
-                  d={ageBadge.shapePath}
+                  d={
+                    ageBadge.shapePath
+                  }
                   fill="none"
                   stroke="var(--border)"
                   strokeWidth="22"
@@ -898,8 +1132,12 @@ export const BioClock = React.forwardRef<
                 />
 
                 <path
-                  id={ageBadge.textPathId}
-                  d={ageBadge.textPath}
+                  id={
+                    ageBadge.textPathId
+                  }
+                  d={
+                    ageBadge.textPath
+                  }
                   fill="none"
                   stroke="none"
                 />
@@ -913,7 +1151,8 @@ export const BioClock = React.forwardRef<
                     startOffset="50%"
                     textAnchor="middle"
                   >
-                    {displayYearsDiff} ({bioAge})
+                    {displayYearsDiff}{" "}
+                    ({bioAge})
                   </textPath>
                 </text>
               </motion.g>

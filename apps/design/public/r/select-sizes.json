@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "select-sizes",
+  "type": "registry:block",
+  "description": "Sizes",
+  "files": [
+    {
+      "path": "registry/predict/components/select/select-sizes.tsx",
+      "content": "\"use client\"\n\nimport {\n  Select,\n  SelectContent,\n  SelectItem,\n  SelectTrigger,\n  SelectValue,\n} from \"@workspace/ui/components/select\"\n\nconst ranges = [\n  { label: \"Last 30 days\", value: \"30d\" },\n  { label: \"Last 6 months\", value: \"6m\" },\n  { label: \"All time\", value: \"all\" },\n]\n\nexport function SelectSizes() {\n  return (\n    <div className=\"flex flex-wrap items-center justify-center gap-3\">\n      <Select items={ranges} defaultValue=\"6m\">\n        <SelectTrigger size=\"sm\" className=\"w-36\">\n          <SelectValue />\n        </SelectTrigger>\n        <SelectContent>\n          {ranges.map((item) => (\n            <SelectItem key={item.value} value={item.value}>\n              {item.label}\n            </SelectItem>\n          ))}\n        </SelectContent>\n      </Select>\n      <Select items={ranges} defaultValue=\"6m\">\n        <SelectTrigger className=\"w-36\">\n          <SelectValue />\n        </SelectTrigger>\n        <SelectContent>\n          {ranges.map((item) => (\n            <SelectItem key={item.value} value={item.value}>\n              {item.label}\n            </SelectItem>\n          ))}\n        </SelectContent>\n      </Select>\n    </div>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "badge-as-link",
+  "type": "registry:block",
+  "description": "As link",
+  "files": [
+    {
+      "path": "registry/predict/components/badge/badge-as-link.tsx",
+      "content": "\"use client\"\n\nimport { ArrowRightIcon } from \"lucide-react\"\n\nimport { Badge } from \"@workspace/ui/components/badge\"\n\nexport function BadgeAsLink() {\n  return (\n    <Badge render={<a href=\"#\" />} variant=\"outline\">\n      View report\n      <ArrowRightIcon data-icon=\"inline-end\" />\n    </Badge>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

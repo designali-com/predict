@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "checkbox-disabled",
+  "type": "registry:block",
+  "description": "Disabled",
+  "files": [
+    {
+      "path": "registry/predict/components/checkbox/checkbox-disabled.tsx",
+      "content": "\"use client\"\n\nimport { Checkbox } from \"@workspace/ui/components/checkbox\"\n\nexport function CheckboxDisabled() {\n  return (\n    <div className=\"grid gap-3 text-xs text-muted-foreground\">\n      <label className=\"flex items-center gap-2\">\n        <Checkbox disabled />\n        Genetic panel (not available in your region)\n      </label>\n      <label className=\"flex items-center gap-2\">\n        <Checkbox disabled defaultChecked />\n        Core panel (always included)\n      </label>\n    </div>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

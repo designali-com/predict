@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "table-footer",
+  "type": "registry:block",
+  "description": "With footer",
+  "files": [
+    {
+      "path": "registry/predict/components/table/table-footer.tsx",
+      "content": "\"use client\"\n\nimport {\n  Table,\n  TableBody,\n  TableCell,\n  TableFooter,\n  TableHead,\n  TableHeader,\n  TableRow,\n} from \"@workspace/ui/components/table\"\n\nconst orders = [\n  { id: \"INV-1042\", item: \"Core panel\", amount: 149 },\n  { id: \"INV-1043\", item: \"Clinician review\", amount: 49 },\n  { id: \"INV-1044\", item: \"Home collection\", amount: 25 },\n]\n\nconst formatter = new Intl.NumberFormat(\"en-GB\", {\n  style: \"currency\",\n  currency: \"GBP\",\n})\n\nexport function TableWithFooter() {\n  const total = orders.reduce((sum, order) => sum + order.amount, 0)\n\n  return (\n    <Table className=\"max-w-md\">\n      <TableHeader>\n        <TableRow>\n          <TableHead>Invoice</TableHead>\n          <TableHead>Item</TableHead>\n          <TableHead className=\"text-end\">Amount</TableHead>\n        </TableRow>\n      </TableHeader>\n      <TableBody>\n        {orders.map((order) => (\n          <TableRow key={order.id}>\n            <TableCell className=\"font-medium\">{order.id}</TableCell>\n            <TableCell>{order.item}</TableCell>\n            <TableCell className=\"text-end tabular-nums\">\n              {formatter.format(order.amount)}\n            </TableCell>\n          </TableRow>\n        ))}\n      </TableBody>\n      <TableFooter>\n        <TableRow>\n          <TableCell colSpan={2}>Total</TableCell>\n          <TableCell className=\"text-end tabular-nums\">\n            {formatter.format(total)}\n          </TableCell>\n        </TableRow>\n      </TableFooter>\n    </Table>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

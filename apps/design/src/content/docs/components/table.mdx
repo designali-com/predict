@@ -1,0 +1,74 @@
+---
+title: Table
+description: "Rows and columns for comparing values, such as a list of results."
+---
+
+## Demos
+
+Biomarker results with reference ranges and a status.
+
+<ComponentPreview name="table-demo" />
+
+## Usage
+
+Use a table when the reader needs to compare values across rows, such as results, invoices, or appointments. The parts are styled HTML table elements, so you write the rows yourself.
+
+Import it from `@workspace/ui/components/table`.
+
+```tsx
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableFooter,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@workspace/ui/components/table"
+```
+
+```tsx
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Biomarker</TableHead>
+      <TableHead className="text-end">Result</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>LDL-C</TableCell>
+      <TableCell className="text-end">96 mg/dL</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+```
+
+### Anatomy
+
+- **Table** — The `table`, inside a wrapper that scrolls sideways on narrow screens.
+- **TableHeader**, **TableBody**, and **TableFooter** — `thead`, `tbody`, and `tfoot`.
+- **TableRow** — A row with a hover style.
+- **TableHead** — A header cell.
+- **TableCell** — A data cell.
+- **TableCaption** — A caption below the table.
+
+### Notes
+
+- Right-align numbers with `text-end` and add `tabular-nums` so digits line up.
+- Put the unit in the cell or the header, never only in a tooltip.
+- Add `data-state="selected"` to a row to highlight it.
+- Add a `TableCaption` so screen readers know what the table holds.
+
+## Examples
+
+### With footer
+
+A footer row for totals.
+
+<ComponentPreview name="table-footer" />
+
+## Props
+
+Each part takes the props of its HTML element, plus `className`.

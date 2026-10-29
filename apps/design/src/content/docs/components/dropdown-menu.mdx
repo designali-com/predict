@@ -1,0 +1,127 @@
+---
+title: Dropdown Menu
+description: "A list of actions or options that opens from a button."
+---
+
+## Demos
+
+An account menu with icons, shortcuts, and a destructive item.
+
+<ComponentPreview name="dropdown-menu-demo" />
+
+## Usage
+
+Use a dropdown menu to group actions that do not need to be on screen all the time, such as account options or the actions on a report. To pick a value for a form field, use a [Select](/docs/components/select).
+
+Import it from `@workspace/ui/components/dropdown-menu`.
+
+```tsx
+import {
+  DropdownMenu,
+  DropdownMenuCheckboxItem,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
+} from "@workspace/ui/components/dropdown-menu"
+```
+
+```tsx
+<DropdownMenu>
+  <DropdownMenuTrigger render={<Button variant="outline" />}>Open</DropdownMenuTrigger>
+  <DropdownMenuContent>
+    <DropdownMenuItem>Profile</DropdownMenuItem>
+    <DropdownMenuItem>Settings</DropdownMenuItem>
+  </DropdownMenuContent>
+</DropdownMenu>
+```
+
+### Anatomy
+
+- **DropdownMenu** — Holds the open state.
+- **DropdownMenuTrigger** — Opens the menu. Pass a button through `render`.
+- **DropdownMenuContent** — The floating panel.
+- **DropdownMenuItem** — An action. Runs `onClick` and closes the menu.
+- **DropdownMenuGroup** and **DropdownMenuLabel** — A labelled set of items. A label must sit inside a group.
+- **DropdownMenuSeparator** — A line between sets of items.
+- **DropdownMenuShortcut** — A keyboard hint at the end of an item. It is only a hint; bind the key yourself.
+- **DropdownMenuCheckboxItem** — An item that toggles on and off.
+- **DropdownMenuRadioGroup** and **DropdownMenuRadioItem** — Items where one is chosen.
+- **DropdownMenuSub**, **DropdownMenuSubTrigger**, and **DropdownMenuSubContent** — A nested menu.
+
+### Notes
+
+- Arrow keys move between items, and typing a letter jumps to the matching item.
+- Put destructive items last, after a separator.
+- Keep menus short. Nest at most one level deep.
+
+## Examples
+
+### Checkboxes
+
+Items that toggle filters on and off. The menu stays open while you click them.
+
+<ComponentPreview name="dropdown-menu-checkboxes" />
+
+### Radio group
+
+Choose one option. The trigger shows the current choice.
+
+<ComponentPreview name="dropdown-menu-radio" />
+
+### Submenu
+
+A nested menu that opens to the side. Add a chevron to the trigger yourself.
+
+<ComponentPreview name="dropdown-menu-submenu" />
+
+## Props
+
+These are the props you set most often. Unlisted props pass through to the underlying element.
+
+### DropdownMenu
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `open` | `boolean` | — | Open state when controlled. |
+| `onOpenChange` | `(open) => void` | — | Called when the menu opens or closes. |
+
+### DropdownMenuContent
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `side` | `"top", "bottom", "left", "right", "inline-start", or "inline-end"` | `bottom` | Side of the trigger to open on. |
+| `align` | `"start", "center", or "end"` | `start` | Alignment along that side. |
+| `sideOffset` | `number` | `4` | Gap from the trigger, in pixels. |
+| `alignOffset` | `number` | `0` | Shift along the side, in pixels. |
+
+### DropdownMenuItem
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `variant` | `"default" or "destructive"` | `default` | `destructive` colours the item red. |
+| `inset` | `boolean` | `false` | Indents the item to line up with items that have icons. |
+| `disabled` | `boolean` | `false` | Blocks the item. |
+| `onClick` | `(event) => void` | — | Runs the action. |
+
+### DropdownMenuCheckboxItem
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `checked` | `boolean` | — | State when controlled. |
+| `onCheckedChange` | `(checked) => void` | — | Called when the item toggles. |
+
+### DropdownMenuRadioGroup
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `value` | `string` | — | The chosen item when controlled. |
+| `onValueChange` | `(value) => void` | — | Called when the choice changes. |

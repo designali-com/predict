@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dropdown-menu-radio",
+  "type": "registry:block",
+  "description": "Radio group",
+  "files": [
+    {
+      "path": "registry/predict/components/dropdown-menu/dropdown-menu-radio.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { Button } from \"@workspace/ui/components/button\"\nimport {\n  DropdownMenu,\n  DropdownMenuContent,\n  DropdownMenuGroup,\n  DropdownMenuLabel,\n  DropdownMenuRadioGroup,\n  DropdownMenuRadioItem,\n  DropdownMenuTrigger,\n} from \"@workspace/ui/components/dropdown-menu\"\n\nconst units = {\n  conventional: \"mg/dL\",\n  si: \"mmol/L\",\n}\n\nexport function DropdownMenuRadio() {\n  const [unit, setUnit] = React.useState<keyof typeof units>(\"conventional\")\n\n  return (\n    <DropdownMenu>\n      <DropdownMenuTrigger render={<Button variant=\"outline\" />}>\n        Units: {units[unit]}\n      </DropdownMenuTrigger>\n      <DropdownMenuContent className=\"w-44\">\n        <DropdownMenuGroup>\n          <DropdownMenuLabel>Units</DropdownMenuLabel>\n          <DropdownMenuRadioGroup\n            value={unit}\n            onValueChange={(value) => setUnit(value as keyof typeof units)}\n          >\n            <DropdownMenuRadioItem value=\"conventional\">\n              Conventional (mg/dL)\n            </DropdownMenuRadioItem>\n            <DropdownMenuRadioItem value=\"si\">SI (mmol/L)</DropdownMenuRadioItem>\n          </DropdownMenuRadioGroup>\n        </DropdownMenuGroup>\n      </DropdownMenuContent>\n    </DropdownMenu>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

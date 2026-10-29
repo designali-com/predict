@@ -1,0 +1,69 @@
+---
+title: Textarea
+description: "A field for text that runs over more than one line."
+---
+
+## Demos
+
+A textarea with a label and placeholder.
+
+<ComponentPreview name="textarea-demo" />
+
+## Usage
+
+Use a textarea for free text, such as notes for a clinician or a list of symptoms. For a single line, use an [Input](/docs/components/input).
+
+Import it from `@workspace/ui/components/textarea`.
+
+```tsx
+import { Textarea } from "@workspace/ui/components/textarea"
+```
+
+```tsx
+<label className="grid gap-1.5">
+  Notes
+  <Textarea placeholder="Anything we should know?" />
+</label>
+```
+
+### Notes
+
+- The textarea grows with its content. Set `max-h-*` in `className` to cap it, and add `resize-y` if the reader should resize it.
+- Wrap it in a `label`, or link a label with `id` and `htmlFor`.
+- Use the placeholder for an example, not instructions the reader needs once they start typing.
+
+## Examples
+
+### Disabled
+
+Text the reader can see but not change.
+
+<ComponentPreview name="textarea-disabled" />
+
+### Invalid
+
+Set `aria-invalid` to show an error, and put the message below.
+
+<ComponentPreview name="textarea-invalid" />
+
+### Character count
+
+Hold the value in state to show a count against `maxLength`.
+
+<ComponentPreview name="textarea-with-count" />
+
+## Props
+
+Takes every `textarea` prop. These are the ones you set most often.
+
+### Textarea
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `placeholder` | `string` | — | Hint shown when empty. |
+| `defaultValue` | `string` | — | Text on first render. |
+| `value` | `string` | — | Text when controlled. |
+| `onChange` | `(event) => void` | — | Called on every change. |
+| `maxLength` | `number` | — | Most characters allowed. |
+| `disabled` | `boolean` | `false` | Blocks input and dims the field. |
+| `aria-invalid` | `boolean` | — | Shows the error style. |

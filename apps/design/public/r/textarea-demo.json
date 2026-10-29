@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "textarea-demo",
+  "type": "registry:block",
+  "description": "Basic",
+  "files": [
+    {
+      "path": "registry/predict/components/textarea/textarea-demo.tsx",
+      "content": "\"use client\"\n\nimport { Textarea } from \"@workspace/ui/components/textarea\"\n\nexport function TextareaDemo() {\n  return (\n    <label className=\"grid w-full max-w-sm gap-1.5 text-xs font-medium\">\n      Notes for your clinician\n      <Textarea placeholder=\"Medications, symptoms, or anything we should know before your review.\" />\n    </label>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

@@ -46,6 +46,17 @@
       ]
     },
     {
+      "name": "bio-clock-sizes",
+      "description": "Sizes",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/ui/bio-clock/bio-clock-sizes.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
       "name": "age-bar-demo",
       "description": "Basic",
       "type": "registry:block",
@@ -1152,6 +1163,435 @@
       "files": [
         {
           "path": "registry/predict/components/tooltip/tooltip-toolbar.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "alert-demo",
+      "description": "Basic",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/components/alert/alert-demo.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "alert-destructive",
+      "description": "Destructive",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/components/alert/alert-destructive.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "alert-with-action",
+      "description": "With action",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/components/alert/alert-with-action.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "alert-title-only",
+      "description": "Title only",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/components/alert/alert-title-only.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "alert-dialog-demo",
+      "description": "Basic",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/components/alert-dialog/alert-dialog-demo.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "alert-dialog-destructive",
+      "description": "Destructive",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/components/alert-dialog/alert-dialog-destructive.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "alert-dialog-small",
+      "description": "Small",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/components/alert-dialog/alert-dialog-small.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "avatar-demo",
+      "description": "Basic",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/components/avatar/avatar-demo.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "avatar-sizes",
+      "description": "Sizes",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/components/avatar/avatar-sizes.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "avatar-badge",
+      "description": "With badge",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/components/avatar/avatar-badge.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "avatar-group",
+      "description": "Group",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/components/avatar/avatar-group.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "badge-demo",
+      "description": "Basic",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/components/badge/badge-demo.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "badge-variants",
+      "description": "Variants",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/components/badge/badge-variants.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "badge-with-icon",
+      "description": "With icon",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/components/badge/badge-with-icon.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "badge-as-link",
+      "description": "As link",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/components/badge/badge-as-link.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "chart-demo",
+      "description": "Bar",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/components/chart/chart-demo.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "chart-line",
+      "description": "Line",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/components/chart/chart-line.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "chart-legend",
+      "description": "Legend",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/components/chart/chart-legend.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "checkbox-demo",
+      "description": "Basic",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/components/checkbox/checkbox-demo.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "checkbox-description",
+      "description": "With description",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/components/checkbox/checkbox-description.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "checkbox-disabled",
+      "description": "Disabled",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/components/checkbox/checkbox-disabled.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "checkbox-group",
+      "description": "Group",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/components/checkbox/checkbox-group.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "dropdown-menu-demo",
+      "description": "Basic",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/components/dropdown-menu/dropdown-menu-demo.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "dropdown-menu-checkboxes",
+      "description": "Checkboxes",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/components/dropdown-menu/dropdown-menu-checkboxes.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "dropdown-menu-radio",
+      "description": "Radio group",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/components/dropdown-menu/dropdown-menu-radio.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "dropdown-menu-submenu",
+      "description": "Submenu",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/components/dropdown-menu/dropdown-menu-submenu.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "pagination-demo",
+      "description": "Basic",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/components/pagination/pagination-demo.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "pagination-controlled",
+      "description": "Controlled",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/components/pagination/pagination-controlled.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "select-demo",
+      "description": "Basic",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/components/select/select-demo.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "select-placeholder",
+      "description": "Placeholder",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/components/select/select-placeholder.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "select-groups",
+      "description": "Groups",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/components/select/select-groups.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "select-sizes",
+      "description": "Sizes",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/components/select/select-sizes.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "select-disabled",
+      "description": "Disabled",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/components/select/select-disabled.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "table-demo",
+      "description": "Basic",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/components/table/table-demo.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "table-footer",
+      "description": "With footer",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/components/table/table-footer.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "textarea-demo",
+      "description": "Basic",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/components/textarea/textarea-demo.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "textarea-disabled",
+      "description": "Disabled",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/components/textarea/textarea-disabled.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "textarea-invalid",
+      "description": "Invalid",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/components/textarea/textarea-invalid.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "textarea-with-count",
+      "description": "Character count",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/predict/components/textarea/textarea-with-count.tsx",
           "type": "registry:block"
         }
       ]

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "checkbox-group",
+  "type": "registry:block",
+  "description": "Group",
+  "files": [
+    {
+      "path": "registry/predict/components/checkbox/checkbox-group.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { Checkbox } from \"@workspace/ui/components/checkbox\"\n\nconst panels = [\n  { id: \"lipids\", label: \"Lipids\" },\n  { id: \"metabolic\", label: \"Metabolic\" },\n  { id: \"kidney\", label: \"Kidney\" },\n  { id: \"inflammation\", label: \"Inflammation\" },\n]\n\nexport function CheckboxGroup() {\n  const [selected, setSelected] = React.useState<string[]>([\"lipids\"])\n\n  const allChecked = selected.length === panels.length\n  const someChecked = selected.length > 0 && !allChecked\n\n  return (\n    <div className=\"grid w-full max-w-xs gap-3 text-xs\">\n      <label className=\"flex items-center gap-2 font-medium\">\n        <Checkbox\n          checked={allChecked}\n          indeterminate={someChecked}\n          onCheckedChange={(checked) =>\n            setSelected(checked ? panels.map((panel) => panel.id) : [])\n          }\n        />\n        All panels\n      </label>\n      <div className=\"grid gap-3 ps-6\">\n        {panels.map((panel) => (\n          <label key={panel.id} className=\"flex items-center gap-2\">\n            <Checkbox\n              checked={selected.includes(panel.id)}\n              onCheckedChange={(checked) =>\n                setSelected((current) =>\n                  checked\n                    ? [...current, panel.id]\n                    : current.filter((id) => id !== panel.id)\n                )\n              }\n            />\n            {panel.label}\n          </label>\n        ))}\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

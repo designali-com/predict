@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "select-disabled",
+  "type": "registry:block",
+  "description": "Disabled",
+  "files": [
+    {
+      "path": "registry/predict/components/select/select-disabled.tsx",
+      "content": "\"use client\"\n\nimport {\n  Select,\n  SelectContent,\n  SelectItem,\n  SelectTrigger,\n  SelectValue,\n} from \"@workspace/ui/components/select\"\n\nconst panels = [\n  { label: \"Core panel\", value: \"core\" },\n  { label: \"Advanced panel\", value: \"advanced\" },\n  { label: \"Genetic panel\", value: \"genetic\" },\n]\n\nexport function SelectDisabled() {\n  return (\n    <div className=\"flex flex-wrap items-center justify-center gap-3\">\n      <Select items={panels} defaultValue=\"core\" disabled>\n        <SelectTrigger className=\"w-40\">\n          <SelectValue />\n        </SelectTrigger>\n        <SelectContent>\n          {panels.map((item) => (\n            <SelectItem key={item.value} value={item.value}>\n              {item.label}\n            </SelectItem>\n          ))}\n        </SelectContent>\n      </Select>\n      <Select items={panels} defaultValue=\"core\">\n        <SelectTrigger className=\"w-40\">\n          <SelectValue />\n        </SelectTrigger>\n        <SelectContent>\n          {panels.map((item) => (\n            <SelectItem\n              key={item.value}\n              value={item.value}\n              disabled={item.value === \"genetic\"}\n            >\n              {item.label}\n            </SelectItem>\n          ))}\n        </SelectContent>\n      </Select>\n    </div>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

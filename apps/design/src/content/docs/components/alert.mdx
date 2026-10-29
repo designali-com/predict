@@ -1,0 +1,77 @@
+---
+title: Alert
+description: "A message box for something the reader should know before they continue."
+---
+
+## Demos
+
+An alert with an icon, a title, and a description.
+
+<ComponentPreview name="alert-demo" />
+
+## Usage
+
+Use an alert for information that sits in the page and stays there: a preparation step, a failed sample, a retest that is due. If the reader must respond before they continue, use an [Alert Dialog](/docs/components/alert-dialog) instead.
+
+Import it from `@workspace/ui/components/alert`.
+
+```tsx
+import {
+  Alert,
+  AlertAction,
+  AlertDescription,
+  AlertTitle,
+} from "@workspace/ui/components/alert"
+```
+
+```tsx
+<Alert>
+  <InfoIcon />
+  <AlertTitle>Title</AlertTitle>
+  <AlertDescription>Description</AlertDescription>
+</Alert>
+```
+
+### Anatomy
+
+- **Alert** — The box. An `svg` placed first becomes the icon column.
+- **AlertTitle** — One line that says what happened.
+- **AlertDescription** — Supporting text. Links inside it are underlined.
+- **AlertAction** — A slot in the top corner for one small button.
+
+### Notes
+
+- The alert has `role="alert"`, so screen readers announce it when it appears. Do not use it for content that is always on the page and not urgent.
+- Keep the title short. Put the detail and the next step in the description.
+- Use `destructive` only for errors the reader needs to fix.
+
+## Examples
+
+### Destructive
+
+For errors, such as a sample the lab could not use.
+
+<ComponentPreview name="alert-destructive" />
+
+### With action
+
+`AlertAction` places a button in the corner and leaves room for it.
+
+<ComponentPreview name="alert-with-action" />
+
+### Title only
+
+Leave out the description for a one-line message.
+
+<ComponentPreview name="alert-title-only" />
+
+## Props
+
+Unlisted props pass through to the underlying `div`.
+
+### Alert
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `variant` | `"default" or "destructive"` | `default` | Colour of the text and icon. |
+| `className` | `string` | — | Classes merged onto the box. |

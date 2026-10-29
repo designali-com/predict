@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "badge-variants",
+  "type": "registry:block",
+  "description": "Variants",
+  "files": [
+    {
+      "path": "registry/predict/components/badge/badge-variants.tsx",
+      "content": "\"use client\"\n\nimport { Badge } from \"@workspace/ui/components/badge\"\n\nexport function BadgeVariants() {\n  return (\n    <div className=\"flex flex-wrap items-center justify-center gap-2\">\n      <Badge>Default</Badge>\n      <Badge variant=\"secondary\">Secondary</Badge>\n      <Badge variant=\"outline\">Outline</Badge>\n      <Badge variant=\"destructive\">Destructive</Badge>\n      <Badge variant=\"ghost\">Ghost</Badge>\n      <Badge variant=\"link\">Link</Badge>\n    </div>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

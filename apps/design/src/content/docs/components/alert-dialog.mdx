@@ -1,0 +1,102 @@
+---
+title: Alert Dialog
+description: "A dialog that asks the reader to confirm an action before it happens."
+---
+
+## Demos
+
+A confirmation before an appointment is cancelled.
+
+<ComponentPreview name="alert-dialog-demo" />
+
+## Usage
+
+Use an alert dialog before an action that is hard to undo, such as deleting a report or cancelling an appointment. Unlike a [Dialog](/docs/components/dialog), it does not close when the reader clicks the backdrop. They must choose an action.
+
+Import it from `@workspace/ui/components/alert-dialog`.
+
+```tsx
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogMedia,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@workspace/ui/components/alert-dialog"
+```
+
+```tsx
+<AlertDialog>
+  <AlertDialogTrigger render={<Button variant="outline" />}>Open</AlertDialogTrigger>
+  <AlertDialogContent>
+    <AlertDialogHeader>
+      <AlertDialogTitle>Title</AlertDialogTitle>
+      <AlertDialogDescription>Description</AlertDialogDescription>
+    </AlertDialogHeader>
+    <AlertDialogFooter>
+      <AlertDialogCancel>Cancel</AlertDialogCancel>
+      <AlertDialogAction>Continue</AlertDialogAction>
+    </AlertDialogFooter>
+  </AlertDialogContent>
+</AlertDialog>
+```
+
+### Anatomy
+
+- **AlertDialog** — Holds the open state.
+- **AlertDialogTrigger** — Opens the dialog. Pass a button through `render`.
+- **AlertDialogContent** — The window and its backdrop.
+- **AlertDialogHeader** — Stacks the media, title, and description.
+- **AlertDialogMedia** — An optional icon tile beside the title.
+- **AlertDialogTitle** — The question. Always include it.
+- **AlertDialogDescription** — What will happen if the reader goes ahead.
+- **AlertDialogFooter** — The actions. Stacks on small screens.
+- **AlertDialogCancel** — Closes the dialog. An outline button by default.
+- **AlertDialogAction** — The action. A plain [Button](/docs/components/button), so close the dialog yourself after it runs, or wrap the work in a controlled `open` state.
+
+### Notes
+
+- Write the title as a question and name the thing: "Delete this report?", not "Are you sure?".
+- Name the action button with a verb, such as "Delete". Avoid "OK" and "Yes".
+- Focus starts on the first button, which is the cancel button, so Enter does not run the action by accident.
+
+## Examples
+
+### Destructive
+
+Add `AlertDialogMedia` for an icon and pass `variant="destructive"` to the action.
+
+<ComponentPreview name="alert-dialog-destructive" />
+
+### Small
+
+`size="sm"` narrows the dialog and places the two buttons side by side.
+
+<ComponentPreview name="alert-dialog-small" />
+
+## Props
+
+These are the props you set most often. Unlisted props pass through to the underlying element.
+
+### AlertDialog
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `defaultOpen` | `boolean` | `false` | Open on first render. |
+| `open` | `boolean` | — | Open state when controlled. |
+| `onOpenChange` | `(open) => void` | — | Called when the dialog opens or closes. |
+
+### AlertDialogContent
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `size` | `"default" or "sm"` | `default` | Width of the dialog. `sm` also puts the footer in two columns. |
+
+### AlertDialogAction and AlertDialogCancel
+
+Both take the [Button](/docs/components/button) `variant` and `size` props. `AlertDialogCancel` defaults to `variant="outline"`.

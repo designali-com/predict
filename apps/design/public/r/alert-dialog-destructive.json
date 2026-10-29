@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "alert-dialog-destructive",
+  "type": "registry:block",
+  "description": "Destructive",
+  "files": [
+    {
+      "path": "registry/predict/components/alert-dialog/alert-dialog-destructive.tsx",
+      "content": "\"use client\"\n\nimport { Trash2Icon } from \"lucide-react\"\n\nimport {\n  AlertDialog,\n  AlertDialogAction,\n  AlertDialogCancel,\n  AlertDialogContent,\n  AlertDialogDescription,\n  AlertDialogFooter,\n  AlertDialogHeader,\n  AlertDialogMedia,\n  AlertDialogTitle,\n  AlertDialogTrigger,\n} from \"@workspace/ui/components/alert-dialog\"\nimport { Button } from \"@workspace/ui/components/button\"\n\nexport function AlertDialogDestructive() {\n  return (\n    <AlertDialog>\n      <AlertDialogTrigger render={<Button variant=\"destructive\" />}>\n        Delete report\n      </AlertDialogTrigger>\n      <AlertDialogContent>\n        <AlertDialogHeader>\n          <AlertDialogMedia className=\"bg-destructive/10 text-destructive\">\n            <Trash2Icon />\n          </AlertDialogMedia>\n          <AlertDialogTitle>Delete this report?</AlertDialogTitle>\n          <AlertDialogDescription>\n            The October report and its 42 results will be removed for good.\n            Your doctor will lose access too.\n          </AlertDialogDescription>\n        </AlertDialogHeader>\n        <AlertDialogFooter>\n          <AlertDialogCancel>Cancel</AlertDialogCancel>\n          <AlertDialogAction variant=\"destructive\">Delete</AlertDialogAction>\n        </AlertDialogFooter>\n      </AlertDialogContent>\n    </AlertDialog>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

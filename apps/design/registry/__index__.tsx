@@ -79,6 +79,24 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: undefined,
   },
+  "bio-clock-sizes": {
+    name: "bio-clock-sizes",
+    description: "Sizes",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/ui/bio-clock/bio-clock-sizes.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/ui/bio-clock/bio-clock-sizes.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
   "age-bar-demo": {
     name: "age-bar-demo",
     description: "Basic",
@@ -1891,6 +1909,708 @@ export const Index: Record<string, any> = {
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/predict/components/tooltip/tooltip-toolbar.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "alert-demo": {
+    name: "alert-demo",
+    description: "Basic",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/alert/alert-demo.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/alert/alert-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "alert-destructive": {
+    name: "alert-destructive",
+    description: "Destructive",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/alert/alert-destructive.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/alert/alert-destructive.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "alert-with-action": {
+    name: "alert-with-action",
+    description: "With action",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/alert/alert-with-action.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/alert/alert-with-action.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "alert-title-only": {
+    name: "alert-title-only",
+    description: "Title only",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/alert/alert-title-only.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/alert/alert-title-only.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "alert-dialog-demo": {
+    name: "alert-dialog-demo",
+    description: "Basic",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/alert-dialog/alert-dialog-demo.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/alert-dialog/alert-dialog-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "alert-dialog-destructive": {
+    name: "alert-dialog-destructive",
+    description: "Destructive",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/alert-dialog/alert-dialog-destructive.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/alert-dialog/alert-dialog-destructive.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "alert-dialog-small": {
+    name: "alert-dialog-small",
+    description: "Small",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/alert-dialog/alert-dialog-small.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/alert-dialog/alert-dialog-small.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "avatar-demo": {
+    name: "avatar-demo",
+    description: "Basic",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/avatar/avatar-demo.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/avatar/avatar-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "avatar-sizes": {
+    name: "avatar-sizes",
+    description: "Sizes",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/avatar/avatar-sizes.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/avatar/avatar-sizes.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "avatar-badge": {
+    name: "avatar-badge",
+    description: "With badge",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/avatar/avatar-badge.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/avatar/avatar-badge.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "avatar-group": {
+    name: "avatar-group",
+    description: "Group",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/avatar/avatar-group.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/avatar/avatar-group.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "badge-demo": {
+    name: "badge-demo",
+    description: "Basic",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/badge/badge-demo.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/badge/badge-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "badge-variants": {
+    name: "badge-variants",
+    description: "Variants",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/badge/badge-variants.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/badge/badge-variants.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "badge-with-icon": {
+    name: "badge-with-icon",
+    description: "With icon",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/badge/badge-with-icon.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/badge/badge-with-icon.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "badge-as-link": {
+    name: "badge-as-link",
+    description: "As link",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/badge/badge-as-link.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/badge/badge-as-link.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "chart-demo": {
+    name: "chart-demo",
+    description: "Bar",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/chart/chart-demo.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/chart/chart-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "chart-line": {
+    name: "chart-line",
+    description: "Line",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/chart/chart-line.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/chart/chart-line.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "chart-legend": {
+    name: "chart-legend",
+    description: "Legend",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/chart/chart-legend.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/chart/chart-legend.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "checkbox-demo": {
+    name: "checkbox-demo",
+    description: "Basic",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/checkbox/checkbox-demo.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/checkbox/checkbox-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "checkbox-description": {
+    name: "checkbox-description",
+    description: "With description",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/checkbox/checkbox-description.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/checkbox/checkbox-description.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "checkbox-disabled": {
+    name: "checkbox-disabled",
+    description: "Disabled",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/checkbox/checkbox-disabled.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/checkbox/checkbox-disabled.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "checkbox-group": {
+    name: "checkbox-group",
+    description: "Group",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/checkbox/checkbox-group.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/checkbox/checkbox-group.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "dropdown-menu-demo": {
+    name: "dropdown-menu-demo",
+    description: "Basic",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/dropdown-menu/dropdown-menu-demo.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/dropdown-menu/dropdown-menu-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "dropdown-menu-checkboxes": {
+    name: "dropdown-menu-checkboxes",
+    description: "Checkboxes",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/dropdown-menu/dropdown-menu-checkboxes.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/dropdown-menu/dropdown-menu-checkboxes.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "dropdown-menu-radio": {
+    name: "dropdown-menu-radio",
+    description: "Radio group",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/dropdown-menu/dropdown-menu-radio.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/dropdown-menu/dropdown-menu-radio.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "dropdown-menu-submenu": {
+    name: "dropdown-menu-submenu",
+    description: "Submenu",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/dropdown-menu/dropdown-menu-submenu.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/dropdown-menu/dropdown-menu-submenu.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "pagination-demo": {
+    name: "pagination-demo",
+    description: "Basic",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/pagination/pagination-demo.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/pagination/pagination-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "pagination-controlled": {
+    name: "pagination-controlled",
+    description: "Controlled",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/pagination/pagination-controlled.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/pagination/pagination-controlled.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "select-demo": {
+    name: "select-demo",
+    description: "Basic",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/select/select-demo.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/select/select-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "select-placeholder": {
+    name: "select-placeholder",
+    description: "Placeholder",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/select/select-placeholder.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/select/select-placeholder.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "select-groups": {
+    name: "select-groups",
+    description: "Groups",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/select/select-groups.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/select/select-groups.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "select-sizes": {
+    name: "select-sizes",
+    description: "Sizes",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/select/select-sizes.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/select/select-sizes.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "select-disabled": {
+    name: "select-disabled",
+    description: "Disabled",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/select/select-disabled.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/select/select-disabled.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "table-demo": {
+    name: "table-demo",
+    description: "Basic",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/table/table-demo.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/table/table-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "table-footer": {
+    name: "table-footer",
+    description: "With footer",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/table/table-footer.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/table/table-footer.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "textarea-demo": {
+    name: "textarea-demo",
+    description: "Basic",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/textarea/textarea-demo.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/textarea/textarea-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "textarea-disabled": {
+    name: "textarea-disabled",
+    description: "Disabled",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/textarea/textarea-disabled.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/textarea/textarea-disabled.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "textarea-invalid": {
+    name: "textarea-invalid",
+    description: "Invalid",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/textarea/textarea-invalid.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/textarea/textarea-invalid.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "textarea-with-count": {
+    name: "textarea-with-count",
+    description: "Character count",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/textarea/textarea-with-count.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/textarea/textarea-with-count.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),

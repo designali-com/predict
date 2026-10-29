@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "select-groups",
+  "type": "registry:block",
+  "description": "Groups",
+  "files": [
+    {
+      "path": "registry/predict/components/select/select-groups.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport {\n  Select,\n  SelectContent,\n  SelectGroup,\n  SelectItem,\n  SelectLabel,\n  SelectSeparator,\n  SelectTrigger,\n  SelectValue,\n} from \"@workspace/ui/components/select\"\n\nconst groups = [\n  {\n    label: \"Lipids\",\n    items: [\n      { label: \"LDL-C\", value: \"ldl-c\" },\n      { label: \"HDL-C\", value: \"hdl-c\" },\n      { label: \"Triglycerides\", value: \"triglycerides\" },\n    ],\n  },\n  {\n    label: \"Metabolic\",\n    items: [\n      { label: \"HbA1c\", value: \"hba1c\" },\n      { label: \"Fasting glucose\", value: \"fbs\" },\n    ],\n  },\n]\n\nconst items = groups.flatMap((group) => group.items)\n\nexport function SelectGroups() {\n  return (\n    <Select items={items} defaultValue=\"ldl-c\">\n      <SelectTrigger className=\"w-48\">\n        <SelectValue />\n      </SelectTrigger>\n      <SelectContent>\n        {groups.map((group, index) => (\n          <React.Fragment key={group.label}>\n            {index > 0 && <SelectSeparator />}\n            <SelectGroup>\n              <SelectLabel>{group.label}</SelectLabel>\n              {group.items.map((item) => (\n                <SelectItem key={item.value} value={item.value}>\n                  {item.label}\n                </SelectItem>\n              ))}\n            </SelectGroup>\n          </React.Fragment>\n        ))}\n      </SelectContent>\n    </Select>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

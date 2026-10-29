@@ -1,0 +1,70 @@
+---
+title: Checkbox
+description: "A box the reader ticks to choose an option or agree to something."
+---
+
+## Demos
+
+A checkbox with its label.
+
+<ComponentPreview name="checkbox-demo" />
+
+## Usage
+
+Use a checkbox to pick any number of options from a list, or for one choice that applies when a form is submitted. For a setting that takes effect right away, use a [Switch](/docs/components/switch). To pick exactly one option, use a [Radio Group](/docs/components/radio-group).
+
+Import it from `@workspace/ui/components/checkbox`.
+
+```tsx
+import { Checkbox } from "@workspace/ui/components/checkbox"
+```
+
+```tsx
+<label className="flex items-center gap-2">
+  <Checkbox />
+  Label
+</label>
+```
+
+### Notes
+
+- Wrap the checkbox in a `label` so the text toggles it too.
+- The hit area is larger than the box, so it is easy to tap.
+- Write the label as a statement the reader agrees with, such as "I have fasted for 8 hours".
+- Space toggles the checkbox when it has focus.
+
+## Examples
+
+### With description
+
+A title and a line of help text, with the box aligned to the first line.
+
+<ComponentPreview name="checkbox-description" />
+
+### Disabled
+
+Disabled checkboxes, unchecked and checked.
+
+<ComponentPreview name="checkbox-disabled" />
+
+### Group
+
+A parent checkbox that selects all children. It shows a dash with `indeterminate` when only some are selected.
+
+<ComponentPreview name="checkbox-group" />
+
+## Props
+
+These are the props you set most often. Unlisted props pass through to the underlying element.
+
+### Checkbox
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `defaultChecked` | `boolean` | `false` | Checked on first render. |
+| `checked` | `boolean` | — | State when controlled. |
+| `onCheckedChange` | `(checked) => void` | — | Called when the state changes. |
+| `indeterminate` | `boolean` | `false` | Shows the mixed state, for a parent of a partly selected list. |
+| `disabled` | `boolean` | `false` | Blocks input and dims the checkbox. |
+| `name` | `string` | — | Field name for form submission. |
+| `value` | `string` | — | Value submitted when checked. |

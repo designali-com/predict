@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dropdown-menu-checkboxes",
+  "type": "registry:block",
+  "description": "Checkboxes",
+  "files": [
+    {
+      "path": "registry/predict/components/dropdown-menu/dropdown-menu-checkboxes.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { Button } from \"@workspace/ui/components/button\"\nimport {\n  DropdownMenu,\n  DropdownMenuCheckboxItem,\n  DropdownMenuContent,\n  DropdownMenuGroup,\n  DropdownMenuLabel,\n  DropdownMenuTrigger,\n} from \"@workspace/ui/components/dropdown-menu\"\n\nexport function DropdownMenuCheckboxes() {\n  const [inRange, setInRange] = React.useState(true)\n  const [borderline, setBorderline] = React.useState(true)\n  const [outOfRange, setOutOfRange] = React.useState(true)\n\n  return (\n    <DropdownMenu>\n      <DropdownMenuTrigger render={<Button variant=\"outline\" />}>\n        Filter results\n      </DropdownMenuTrigger>\n      <DropdownMenuContent className=\"w-44\">\n        <DropdownMenuGroup>\n          <DropdownMenuLabel>Show</DropdownMenuLabel>\n          <DropdownMenuCheckboxItem checked={inRange} onCheckedChange={setInRange}>\n            In range\n          </DropdownMenuCheckboxItem>\n          <DropdownMenuCheckboxItem\n            checked={borderline}\n            onCheckedChange={setBorderline}\n          >\n            Borderline\n          </DropdownMenuCheckboxItem>\n          <DropdownMenuCheckboxItem\n            checked={outOfRange}\n            onCheckedChange={setOutOfRange}\n          >\n            Out of range\n          </DropdownMenuCheckboxItem>\n        </DropdownMenuGroup>\n      </DropdownMenuContent>\n    </DropdownMenu>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

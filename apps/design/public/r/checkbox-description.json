@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "checkbox-description",
+  "type": "registry:block",
+  "description": "With description",
+  "files": [
+    {
+      "path": "registry/predict/components/checkbox/checkbox-description.tsx",
+      "content": "\"use client\"\n\nimport { Checkbox } from \"@workspace/ui/components/checkbox\"\n\nexport function CheckboxDescription() {\n  return (\n    <label className=\"flex max-w-xs items-start gap-2 text-xs\">\n      <Checkbox className=\"mt-0.5\" />\n      <span className=\"grid gap-1\">\n        <span className=\"font-medium\">Share results with my GP</span>\n        <span className=\"text-muted-foreground\">\n          Your GP receives a copy of every new report. You can stop this at any\n          time.\n        </span>\n      </span>\n    </label>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

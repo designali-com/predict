@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "pagination-controlled",
+  "type": "registry:block",
+  "description": "Controlled",
+  "files": [
+    {
+      "path": "registry/predict/components/pagination/pagination-controlled.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport {\n  Pagination,\n  PaginationContent,\n  PaginationItem,\n  PaginationLink,\n  PaginationNext,\n  PaginationPrevious,\n} from \"@workspace/ui/components/pagination\"\n\nconst totalPages = 5\n\nexport function PaginationControlled() {\n  const [page, setPage] = React.useState(1)\n\n  const goTo = (next: number) => (event: React.MouseEvent) => {\n    event.preventDefault()\n    setPage(Math.min(Math.max(next, 1), totalPages))\n  }\n\n  return (\n    <div className=\"grid w-full gap-3\">\n      <p className=\"text-center text-xs text-muted-foreground\">\n        Reports {page * 10 - 9}–{page * 10} of {totalPages * 10}\n      </p>\n      <Pagination>\n        <PaginationContent>\n          <PaginationItem>\n            <PaginationPrevious\n              href=\"#\"\n              onClick={goTo(page - 1)}\n              aria-disabled={page === 1}\n              className=\"aria-disabled:pointer-events-none aria-disabled:opacity-50\"\n            />\n          </PaginationItem>\n          {Array.from({ length: totalPages }, (_, i) => i + 1).map((n) => (\n            <PaginationItem key={n}>\n              <PaginationLink href=\"#\" isActive={n === page} onClick={goTo(n)}>\n                {n}\n              </PaginationLink>\n            </PaginationItem>\n          ))}\n          <PaginationItem>\n            <PaginationNext\n              href=\"#\"\n              onClick={goTo(page + 1)}\n              aria-disabled={page === totalPages}\n              className=\"aria-disabled:pointer-events-none aria-disabled:opacity-50\"\n            />\n          </PaginationItem>\n        </PaginationContent>\n      </Pagination>\n    </div>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "textarea-disabled",
+  "type": "registry:block",
+  "description": "Disabled",
+  "files": [
+    {
+      "path": "registry/predict/components/textarea/textarea-disabled.tsx",
+      "content": "\"use client\"\n\nimport { Textarea } from \"@workspace/ui/components/textarea\"\n\nexport function TextareaDisabled() {\n  return (\n    <label className=\"grid w-full max-w-sm gap-1.5 text-xs font-medium text-muted-foreground\">\n      Clinician summary\n      <Textarea\n        disabled\n        defaultValue=\"Lipids have improved since March. Keep the current plan and retest in 6 months.\"\n      />\n    </label>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

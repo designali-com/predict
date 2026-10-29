@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-legend",
+  "type": "registry:block",
+  "description": "Legend",
+  "files": [
+    {
+      "path": "registry/predict/components/chart/chart-legend.tsx",
+      "content": "\"use client\"\n\nimport { Area, AreaChart, CartesianGrid, XAxis } from \"recharts\"\n\nimport {\n  type ChartConfig,\n  ChartContainer,\n  ChartLegend,\n  ChartLegendContent,\n  ChartTooltip,\n  ChartTooltipContent,\n} from \"@workspace/ui/components/chart\"\n\nconst data = [\n  { month: \"May\", deep: 1.2, rem: 1.6 },\n  { month: \"Jun\", deep: 1.3, rem: 1.7 },\n  { month: \"Jul\", deep: 1.1, rem: 1.5 },\n  { month: \"Aug\", deep: 1.4, rem: 1.8 },\n  { month: \"Sep\", deep: 1.5, rem: 1.9 },\n  { month: \"Oct\", deep: 1.6, rem: 2.0 },\n]\n\nconst chartConfig = {\n  deep: {\n    label: \"Deep sleep (h)\",\n    color: \"var(--chart-5)\",\n  },\n  rem: {\n    label: \"REM sleep (h)\",\n    color: \"var(--chart-4)\",\n  },\n} satisfies ChartConfig\n\nexport function ChartLegendDemo() {\n  return (\n    <ChartContainer config={chartConfig} className=\"h-60 w-full max-w-md\">\n      <AreaChart accessibilityLayer data={data}>\n        <CartesianGrid vertical={false} />\n        <XAxis dataKey=\"month\" tickLine={false} axisLine={false} tickMargin={8} />\n        <ChartTooltip content={<ChartTooltipContent indicator=\"dot\" />} />\n        <ChartLegend content={<ChartLegendContent />} />\n        <Area\n          dataKey=\"rem\"\n          type=\"natural\"\n          stackId=\"sleep\"\n          fill=\"var(--color-rem)\"\n          fillOpacity={0.4}\n          stroke=\"var(--color-rem)\"\n        />\n        <Area\n          dataKey=\"deep\"\n          type=\"natural\"\n          stackId=\"sleep\"\n          fill=\"var(--color-deep)\"\n          fillOpacity={0.4}\n          stroke=\"var(--color-deep)\"\n        />\n      </AreaChart>\n    </ChartContainer>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

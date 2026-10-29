@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "avatar-demo",
+  "type": "registry:block",
+  "description": "Basic",
+  "files": [
+    {
+      "path": "registry/predict/components/avatar/avatar-demo.tsx",
+      "content": "\"use client\"\n\nimport { Avatar, AvatarFallback, AvatarImage } from \"@workspace/ui/components/avatar\"\n\nexport function AvatarDemo() {\n  return (\n    <div className=\"flex items-center gap-3\">\n      <Avatar>\n        <AvatarImage src=\"/apple-touch-icon.png\" alt=\"PREDICT\" />\n        <AvatarFallback>PR</AvatarFallback>\n      </Avatar>\n      <Avatar>\n        <AvatarFallback>AM</AvatarFallback>\n      </Avatar>\n    </div>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

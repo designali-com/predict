@@ -37,7 +37,7 @@ import { BioClock } from "@workspace/ui/predict/bio-clock"
 
 ### Notes
 
-- The clock fills its container's width. Set the size on the parent or with `className`.
+- The clock is a fixed square, 450 pixels by default. Set `size` to change it. On narrow screens, pick a size that fits or pass a number from your own layout.
 - `currentValue` replaces `severity.current`, so you can keep one scale and change only the score.
 - The age hand stops at 0 and 100. The severity hand does not, so keep `currentValue` inside the scale.
 - When two domains share the highest value, the hand points at the first.
@@ -65,6 +65,12 @@ Pass `severity` to change the inner arc. This one runs from 0 to 10 in three ste
 
 <ComponentPreview name="bio-clock-severity" />
 
+### Sizes
+
+`size` takes `sm` (320), `default` (450), `lg` (600), `xl` (720), or any number of pixels. This shows `240` and `sm`.
+
+<ComponentPreview name="bio-clock-sizes" />
+
 ## Props
 
 Unlisted props pass through to the wrapping `div`, which also takes a `ref`.
@@ -80,6 +86,7 @@ Unlisted props pass through to the wrapping `div`, which also takes a `ref`.
 | `severity` | `SeverityScale` | 0 to 5, five steps | The scale on the inner arc. |
 | `domains` | `DomainSegment[]` | seven domains | The segments on the outer arc. |
 | `segments` | `Segment[]` | — | Older form of `domains`. A missing `value` becomes 10, 20, 30, and so on. Ignored when `domains` is set. |
+| `size` | `"sm", "default", "lg", "xl", or number` | `default` | Width and height in pixels. The named sizes are 320, 450, 600, and 720. |
 | `className` | `string` | — | Classes merged onto the wrapper. |
 
 ### DomainSegment

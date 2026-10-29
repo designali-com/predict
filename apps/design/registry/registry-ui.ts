@@ -46,6 +46,17 @@ export const ui: Registry["items"] = [
     ],
   },
   {
+    name: "bio-clock-sizes",
+    description: "Sizes",
+    type: "registry:block",
+    files: [
+      {
+        path: "ui/bio-clock/bio-clock-sizes.tsx",
+        type: "registry:block",
+      },
+    ],
+  },
+  {
     name: "age-bar-demo",
     description: "Basic",
     type: "registry:block",

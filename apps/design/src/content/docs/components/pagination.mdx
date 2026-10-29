@@ -1,0 +1,86 @@
+---
+title: Pagination
+description: "Links for moving between pages of a long list."
+---
+
+## Demos
+
+Pagination with previous and next links and an ellipsis.
+
+<ComponentPreview name="pagination-demo" />
+
+## Usage
+
+Use pagination for long lists split across pages, such as past reports or invoices. It renders links, so each page can have its own URL.
+
+Import it from `@workspace/ui/components/pagination`.
+
+```tsx
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@workspace/ui/components/pagination"
+```
+
+```tsx
+<Pagination>
+  <PaginationContent>
+    <PaginationItem>
+      <PaginationPrevious href="?page=1" />
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationLink href="?page=2" isActive>2</PaginationLink>
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationNext href="?page=3" />
+    </PaginationItem>
+  </PaginationContent>
+</Pagination>
+```
+
+### Anatomy
+
+- **Pagination** — The `nav` landmark, centred.
+- **PaginationContent** — The list of items.
+- **PaginationItem** — One list item.
+- **PaginationLink** — A page number. The active page gets an outline.
+- **PaginationPrevious** and **PaginationNext** — Arrow links. Their text hides on small screens.
+- **PaginationEllipsis** — Marks skipped pages.
+
+### Notes
+
+- The active link has `aria-current="page"`.
+- Show the first and last pages and the ones around the current page. Replace the rest with an ellipsis.
+- The links have no disabled state. On the first or last page, hide the arrow or style it with `aria-disabled`, as in the controlled example.
+
+## Examples
+
+### Controlled
+
+Keep the page in state and stop the links from navigating.
+
+<ComponentPreview name="pagination-controlled" />
+
+## Props
+
+Unlisted props pass through to the underlying element.
+
+### PaginationLink
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `href` | `string` | — | Page URL. |
+| `isActive` | `boolean` | `false` | Marks the current page. |
+| `size` | Button `size` | `icon` | Size of the link. |
+
+### PaginationPrevious and PaginationNext
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `href` | `string` | — | URL of the previous or next page. |
+| `text` | `string` | `Previous` or `Next` | Visible text. |

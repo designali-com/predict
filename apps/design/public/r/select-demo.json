@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "select-demo",
+  "type": "registry:block",
+  "description": "Basic",
+  "files": [
+    {
+      "path": "registry/predict/components/select/select-demo.tsx",
+      "content": "\"use client\"\n\nimport {\n  Select,\n  SelectContent,\n  SelectItem,\n  SelectTrigger,\n  SelectValue,\n} from \"@workspace/ui/components/select\"\n\nconst sexes = [\n  { label: \"Female\", value: \"female\" },\n  { label: \"Male\", value: \"male\" },\n  { label: \"Intersex\", value: \"intersex\" },\n]\n\nexport function SelectDemo() {\n  return (\n    <Select items={sexes} defaultValue=\"female\">\n      <SelectTrigger className=\"w-40\">\n        <SelectValue />\n      </SelectTrigger>\n      <SelectContent>\n        {sexes.map((item) => (\n          <SelectItem key={item.value} value={item.value}>\n            {item.label}\n          </SelectItem>\n        ))}\n      </SelectContent>\n    </Select>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

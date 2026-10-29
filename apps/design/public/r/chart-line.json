@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-line",
+  "type": "registry:block",
+  "description": "Line",
+  "files": [
+    {
+      "path": "registry/predict/components/chart/chart-line.tsx",
+      "content": "\"use client\"\n\nimport { CartesianGrid, Line, LineChart, XAxis, YAxis } from \"recharts\"\n\nimport {\n  type ChartConfig,\n  ChartContainer,\n  ChartTooltip,\n  ChartTooltipContent,\n} from \"@workspace/ui/components/chart\"\n\nconst data = [\n  { date: \"Jan\", ldl: 142 },\n  { date: \"Mar\", ldl: 131 },\n  { date: \"May\", ldl: 118 },\n  { date: \"Jul\", ldl: 109 },\n  { date: \"Sep\", ldl: 101 },\n  { date: \"Oct\", ldl: 96 },\n]\n\nconst chartConfig = {\n  ldl: {\n    label: \"LDL-C (mg/dL)\",\n    color: \"var(--chart-5)\",\n  },\n} satisfies ChartConfig\n\nexport function ChartLine() {\n  return (\n    <ChartContainer config={chartConfig} className=\"h-56 w-full max-w-md\">\n      <LineChart accessibilityLayer data={data} margin={{ left: 0, right: 12 }}>\n        <CartesianGrid vertical={false} />\n        <XAxis dataKey=\"date\" tickLine={false} axisLine={false} tickMargin={8} />\n        <YAxis\n          width={32}\n          tickLine={false}\n          axisLine={false}\n          domain={[80, 150]}\n        />\n        <ChartTooltip\n          cursor={false}\n          content={<ChartTooltipContent indicator=\"line\" />}\n        />\n        <Line\n          dataKey=\"ldl\"\n          type=\"monotone\"\n          stroke=\"var(--color-ldl)\"\n          strokeWidth={2}\n          dot={false}\n        />\n      </LineChart>\n    </ChartContainer>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

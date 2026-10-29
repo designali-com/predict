@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "textarea-invalid",
+  "type": "registry:block",
+  "description": "Invalid",
+  "files": [
+    {
+      "path": "registry/predict/components/textarea/textarea-invalid.tsx",
+      "content": "\"use client\"\n\nimport { Textarea } from \"@workspace/ui/components/textarea\"\n\nexport function TextareaInvalid() {\n  return (\n    <label className=\"grid w-full max-w-sm gap-1.5 text-xs font-medium\">\n      Reason for cancelling\n      <Textarea aria-invalid placeholder=\"Tell us why you are cancelling.\" />\n      <span className=\"font-normal text-destructive\">Please add a reason.</span>\n    </label>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

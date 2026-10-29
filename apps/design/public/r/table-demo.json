@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "table-demo",
+  "type": "registry:block",
+  "description": "Basic",
+  "files": [
+    {
+      "path": "registry/predict/components/table/table-demo.tsx",
+      "content": "\"use client\"\n\nimport { Badge } from \"@workspace/ui/components/badge\"\nimport {\n  Table,\n  TableBody,\n  TableCaption,\n  TableCell,\n  TableHead,\n  TableHeader,\n  TableRow,\n} from \"@workspace/ui/components/table\"\n\nconst results = [\n  { name: \"LDL-C\", value: \"96\", unit: \"mg/dL\", range: \"< 100\", inRange: true },\n  { name: \"HDL-C\", value: \"58\", unit: \"mg/dL\", range: \"> 40\", inRange: true },\n  { name: \"Triglycerides\", value: \"182\", unit: \"mg/dL\", range: \"< 150\", inRange: false },\n  { name: \"HbA1c\", value: \"5.4\", unit: \"%\", range: \"< 5.7\", inRange: true },\n  { name: \"hs-CRP\", value: \"3.4\", unit: \"mg/L\", range: \"< 1.0\", inRange: false },\n]\n\nexport function TableDemo() {\n  return (\n    <Table className=\"max-w-lg\">\n      <TableCaption>Results from your October panel.</TableCaption>\n      <TableHeader>\n        <TableRow>\n          <TableHead>Biomarker</TableHead>\n          <TableHead className=\"text-end\">Result</TableHead>\n          <TableHead>Reference</TableHead>\n          <TableHead className=\"text-end\">Status</TableHead>\n        </TableRow>\n      </TableHeader>\n      <TableBody>\n        {results.map((result) => (\n          <TableRow key={result.name}>\n            <TableCell className=\"font-medium\">{result.name}</TableCell>\n            <TableCell className=\"text-end tabular-nums\">\n              {result.value} {result.unit}\n            </TableCell>\n            <TableCell className=\"text-muted-foreground\">{result.range}</TableCell>\n            <TableCell className=\"text-end\">\n              <Badge variant={result.inRange ? \"outline\" : \"destructive\"}>\n                {result.inRange ? \"In range\" : \"Out of range\"}\n              </Badge>\n            </TableCell>\n          </TableRow>\n        ))}\n      </TableBody>\n    </Table>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

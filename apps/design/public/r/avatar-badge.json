@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "avatar-badge",
+  "type": "registry:block",
+  "description": "With badge",
+  "files": [
+    {
+      "path": "registry/predict/components/avatar/avatar-badge.tsx",
+      "content": "\"use client\"\n\nimport { CheckIcon } from \"lucide-react\"\n\nimport { Avatar, AvatarBadge, AvatarFallback } from \"@workspace/ui/components/avatar\"\n\nexport function AvatarWithBadge() {\n  return (\n    <div className=\"flex items-center gap-3\">\n      <Avatar>\n        <AvatarFallback>SP</AvatarFallback>\n        <AvatarBadge className=\"bg-status-normal\" />\n      </Avatar>\n      <Avatar size=\"lg\">\n        <AvatarFallback>SP</AvatarFallback>\n        <AvatarBadge>\n          <CheckIcon />\n        </AvatarBadge>\n      </Avatar>\n    </div>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

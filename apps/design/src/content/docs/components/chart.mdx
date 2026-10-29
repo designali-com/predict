@@ -1,0 +1,133 @@
+---
+title: Chart
+description: "Themed wrappers around Recharts for bar, line, and area charts."
+---
+
+## Demos
+
+A bar chart with a tooltip.
+
+<ComponentPreview name="chart-demo" />
+
+## Usage
+
+Use a chart to show how a value changes over time or compares across groups. The chart components do not draw anything themselves. They add theme colours, a tooltip, and a legend to [Recharts](https://recharts.org), which you use for the chart.
+
+Install `recharts` in the app that renders the chart.
+
+```bash
+pnpm add recharts
+```
+
+Import the wrappers from `@workspace/ui/components/chart`.
+
+```tsx
+import { Bar, BarChart, XAxis } from "recharts"
+
+import {
+  type ChartConfig,
+  ChartContainer,
+  ChartLegend,
+  ChartLegendContent,
+  ChartTooltip,
+  ChartTooltipContent,
+} from "@workspace/ui/components/chart"
+```
+
+```tsx
+const chartConfig = {
+  steps: { label: "Daily steps", color: "var(--chart-5)" },
+} satisfies ChartConfig
+
+<ChartContainer config={chartConfig} className="h-56 w-full">
+  <BarChart data={data}>
+    <XAxis dataKey="month" />
+    <ChartTooltip content={<ChartTooltipContent />} />
+    <Bar dataKey="steps" fill="var(--color-steps)" />
+  </BarChart>
+</ChartContainer>
+```
+
+### Anatomy
+
+- **ChartContainer** — Sizes the chart, applies theme styles, and holds the config. Takes one Recharts chart as its child.
+- **ChartTooltip** and **ChartTooltipContent** — The Recharts tooltip and a themed body for it.
+- **ChartLegend** and **ChartLegendContent** — The Recharts legend and a themed body for it.
+- **ChartStyle** — Writes the colour variables. `ChartContainer` already renders it.
+
+### Config
+
+`config` maps each data key to a label and a colour. Each colour becomes a CSS variable named after the key, so `steps` is `var(--color-steps)`. Use these variables for `fill` and `stroke`.
+
+```tsx
+const chartConfig = {
+  deep: { label: "Deep sleep (h)", color: "var(--chart-5)" },
+  rem: {
+    label: "REM sleep (h)",
+    theme: { light: "var(--chart-4)", dark: "var(--chart-3)" },
+  },
+} satisfies ChartConfig
+```
+
+Use `theme` instead of `color` to set a different colour for light and dark mode.
+
+### Notes
+
+- Give `ChartContainer` a height. It is `aspect-video` by default.
+- `--chart-5` matches the primary colour. `--chart-1` and `--chart-2` are almost white in light mode, so do not use them for marks.
+- Add `accessibilityLayer` to the Recharts chart so the reader can move through the data with the arrow keys.
+- Put units in the label, such as `LDL-C (mg/dL)`. The tooltip shows labels from `config`.
+
+## Examples
+
+### Line
+
+A trend for one biomarker. The tooltip uses the `line` indicator.
+
+<ComponentPreview name="chart-line" />
+
+### Legend
+
+A stacked area chart with two series and a legend.
+
+<ComponentPreview name="chart-legend" />
+
+## Props
+
+### ChartContainer
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `config` | `ChartConfig` | — | Labels and colours for each data key. Required. |
+| `id` | `string` | generated | Scopes the colour variables. |
+| `initialDimension` | `{ width, height }` | `320 × 200` | Size used before the container is measured. |
+| `className` | `string` | — | Classes merged onto the wrapper. Set the height here. |
+
+### ChartTooltipContent
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `indicator` | `"dot", "line", or "dashed"` | `dot` | Shape of the colour mark beside each value. |
+| `hideLabel` | `boolean` | `false` | Hides the heading. |
+| `hideIndicator` | `boolean` | `false` | Hides the colour marks. |
+| `nameKey` | `string` | — | Data field to use for each row's name. |
+| `labelKey` | `string` | — | Data field to use for the heading. |
+| `labelFormatter` | `(label, payload) => ReactNode` | — | Formats the heading. |
+| `formatter` | `(value, name, item, index, payload) => ReactNode` | — | Replaces each row. |
+
+### ChartLegendContent
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `hideIcon` | `boolean` | `false` | Shows a colour square even when the config has an `icon`. |
+| `nameKey` | `string` | — | Data field to use for each item's label. |
+| `verticalAlign` | `"top" or "bottom"` | `bottom` | Which side the spacing goes on. |
+
+### ChartConfig
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `label` | `ReactNode` | Shown in the tooltip and legend. |
+| `color` | `string` | Any CSS colour. |
+| `theme` | `{ light, dark }` | Colours per theme. Use instead of `color`. |
+| `icon` | `ComponentType` | Shown instead of the colour mark. |

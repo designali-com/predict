@@ -1,0 +1,128 @@
+---
+title: Select
+description: "A field for choosing one option from a list."
+---
+
+## Demos
+
+A select with a default value.
+
+<ComponentPreview name="select-demo" />
+
+## Usage
+
+Use a select to pick one option from a list of five or more. For fewer options, a [Radio Group](/docs/components/radio-group) shows them all at once. For actions rather than values, use a [Dropdown Menu](/docs/components/dropdown-menu).
+
+Import it from `@workspace/ui/components/select`.
+
+```tsx
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectSeparator,
+  SelectTrigger,
+  SelectValue,
+} from "@workspace/ui/components/select"
+```
+
+```tsx
+const items = [
+  { label: "Female", value: "female" },
+  { label: "Male", value: "male" },
+]
+
+<Select items={items} defaultValue="female">
+  <SelectTrigger>
+    <SelectValue />
+  </SelectTrigger>
+  <SelectContent>
+    {items.map((item) => (
+      <SelectItem key={item.value} value={item.value}>
+        {item.label}
+      </SelectItem>
+    ))}
+  </SelectContent>
+</Select>
+```
+
+### Anatomy
+
+- **Select** — Holds the value. Pass `items` so the trigger can show the label.
+- **SelectTrigger** — The field. Shows a chevron.
+- **SelectValue** — The chosen label inside the trigger.
+- **SelectContent** — The list. By default it opens over the trigger, with the chosen item lined up on it.
+- **SelectItem** — One option. Shows a tick when chosen.
+- **SelectGroup** and **SelectLabel** — A labelled set of options. A label must sit inside a group.
+- **SelectSeparator** — A line between groups.
+
+### Notes
+
+- Without `items`, the trigger shows the raw `value`, such as `female` instead of `Female`.
+- For a placeholder, add an item with `value: null` to `items` and leave it out of the list.
+- Typing a letter jumps to the matching option.
+
+## Examples
+
+### Placeholder
+
+Shows "Select a clinic" until the reader picks one.
+
+<ComponentPreview name="select-placeholder" />
+
+### Groups
+
+Options under labels, with separators between groups.
+
+<ComponentPreview name="select-groups" />
+
+### Sizes
+
+`sm` and `default`.
+
+<ComponentPreview name="select-sizes" />
+
+### Disabled
+
+A disabled select, and a select with one disabled option.
+
+<ComponentPreview name="select-disabled" />
+
+## Props
+
+These are the props you set most often. Unlisted props pass through to the underlying element.
+
+### Select
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `items` | `{ label, value }[]` | — | Labels for each value, shown in the trigger. |
+| `defaultValue` | `string` | — | Chosen on first render. |
+| `value` | `string` | — | The value when controlled. |
+| `onValueChange` | `(value) => void` | — | Called when the choice changes. |
+| `disabled` | `boolean` | `false` | Blocks the whole field. |
+| `name` | `string` | — | Field name for form submission. |
+
+### SelectTrigger
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `size` | `"default" or "sm"` | `default` | 28 or 24 pixels tall. |
+
+### SelectContent
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `alignItemWithTrigger` | `boolean` | `true` | Opens over the trigger with the chosen item lined up. Set to `false` to open below. |
+| `side` | `"top", "bottom", "left", or "right"` | `bottom` | Side to open on when not aligned with the trigger. |
+| `align` | `"start", "center", or "end"` | `center` | Alignment along that side. |
+| `sideOffset` | `number` | `4` | Gap from the trigger, in pixels. |
+
+### SelectItem
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `value` | `string` | — | Value of the option. |
+| `disabled` | `boolean` | `false` | Blocks the option. |

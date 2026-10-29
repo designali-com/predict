@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "alert-title-only",
+  "type": "registry:block",
+  "description": "Title only",
+  "files": [
+    {
+      "path": "registry/predict/components/alert/alert-title-only.tsx",
+      "content": "\"use client\"\n\nimport { CircleCheckIcon } from \"lucide-react\"\n\nimport { Alert, AlertTitle } from \"@workspace/ui/components/alert\"\n\nexport function AlertTitleOnly() {\n  return (\n    <Alert className=\"max-w-md\">\n      <CircleCheckIcon className=\"text-status-normal\" />\n      <AlertTitle>All 42 biomarkers are back.</AlertTitle>\n    </Alert>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

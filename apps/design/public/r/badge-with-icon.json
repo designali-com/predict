@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "badge-with-icon",
+  "type": "registry:block",
+  "description": "With icon",
+  "files": [
+    {
+      "path": "registry/predict/components/badge/badge-with-icon.tsx",
+      "content": "\"use client\"\n\nimport { ArrowDownIcon, ArrowUpIcon, CircleCheckIcon } from \"lucide-react\"\n\nimport { Badge } from \"@workspace/ui/components/badge\"\n\nexport function BadgeWithIcon() {\n  return (\n    <div className=\"flex flex-wrap items-center justify-center gap-2\">\n      <Badge variant=\"outline\">\n        <CircleCheckIcon data-icon=\"inline-start\" className=\"text-status-normal\" />\n        In range\n      </Badge>\n      <Badge variant=\"destructive\">\n        <ArrowUpIcon data-icon=\"inline-start\" />\n        High\n      </Badge>\n      <Badge variant=\"secondary\">\n        Low\n        <ArrowDownIcon data-icon=\"inline-end\" />\n      </Badge>\n    </div>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

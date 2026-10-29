@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "bio-clock-sizes",
+  "type": "registry:block",
+  "description": "Sizes",
+  "files": [
+    {
+      "path": "registry/predict/ui/bio-clock/bio-clock-sizes.tsx",
+      "content": "\"use client\"\n\nimport { BioClock } from \"@workspace/ui/predict/bio-clock\"\n\nexport function BioClockSizes() {\n  return (\n    <div className=\"mx-auto flex flex-wrap items-end justify-center gap-6\">\n      <BioClock size={240} />\n      <BioClock size=\"sm\" />\n    </div>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

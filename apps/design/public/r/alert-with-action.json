@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "alert-with-action",
+  "type": "registry:block",
+  "description": "With action",
+  "files": [
+    {
+      "path": "registry/predict/components/alert/alert-with-action.tsx",
+      "content": "\"use client\"\n\nimport { CalendarIcon } from \"lucide-react\"\n\nimport {\n  Alert,\n  AlertAction,\n  AlertDescription,\n  AlertTitle,\n} from \"@workspace/ui/components/alert\"\nimport { Button } from \"@workspace/ui/components/button\"\n\nexport function AlertWithAction() {\n  return (\n    <Alert className=\"max-w-md\">\n      <CalendarIcon />\n      <AlertTitle>Retest due</AlertTitle>\n      <AlertDescription>Your last panel was 6 months ago.</AlertDescription>\n      <AlertAction>\n        <Button size=\"sm\" variant=\"outline\">\n          Book\n        </Button>\n      </AlertAction>\n    </Alert>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

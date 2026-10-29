@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "avatar-group",
+  "type": "registry:block",
+  "description": "Group",
+  "files": [
+    {
+      "path": "registry/predict/components/avatar/avatar-group.tsx",
+      "content": "\"use client\"\n\nimport {\n  Avatar,\n  AvatarFallback,\n  AvatarGroup,\n  AvatarGroupCount,\n} from \"@workspace/ui/components/avatar\"\n\nconst careTeam = [\"SP\", \"JL\", \"MK\"]\n\nexport function AvatarGroupDemo() {\n  return (\n    <AvatarGroup>\n      {careTeam.map((initials) => (\n        <Avatar key={initials}>\n          <AvatarFallback>{initials}</AvatarFallback>\n        </Avatar>\n      ))}\n      <AvatarGroupCount>+4</AvatarGroupCount>\n    </AvatarGroup>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

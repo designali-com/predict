@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "textarea-with-count",
+  "type": "registry:block",
+  "description": "Character count",
+  "files": [
+    {
+      "path": "registry/predict/components/textarea/textarea-with-count.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { Textarea } from \"@workspace/ui/components/textarea\"\n\nconst maxLength = 200\n\nexport function TextareaWithCount() {\n  const [value, setValue] = React.useState(\"\")\n\n  return (\n    <label className=\"grid w-full max-w-sm gap-1.5 text-xs font-medium\">\n      Symptoms\n      <Textarea\n        value={value}\n        maxLength={maxLength}\n        onChange={(event) => setValue(event.target.value)}\n        placeholder=\"Describe how you have been feeling.\"\n      />\n      <span className=\"text-end font-normal text-muted-foreground tabular-nums\">\n        {value.length}/{maxLength}\n      </span>\n    </label>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

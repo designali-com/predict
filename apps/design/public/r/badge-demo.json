@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "badge-demo",
+  "type": "registry:block",
+  "description": "Basic",
+  "files": [
+    {
+      "path": "registry/predict/components/badge/badge-demo.tsx",
+      "content": "\"use client\"\n\nimport { Badge } from \"@workspace/ui/components/badge\"\n\nexport function BadgeDemo() {\n  return <Badge>New results</Badge>\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

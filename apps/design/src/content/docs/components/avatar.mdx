@@ -1,0 +1,86 @@
+---
+title: Avatar
+description: "A round image or initials that stand for a person."
+---
+
+## Demos
+
+An avatar with an image, and one with initials.
+
+<ComponentPreview name="avatar-demo" />
+
+## Usage
+
+Use an avatar to show who a report, message, or appointment belongs to. Always include a fallback: it shows while the image loads and stays if the image fails.
+
+Import it from `@workspace/ui/components/avatar`.
+
+```tsx
+import {
+  Avatar,
+  AvatarBadge,
+  AvatarFallback,
+  AvatarGroup,
+  AvatarGroupCount,
+  AvatarImage,
+} from "@workspace/ui/components/avatar"
+```
+
+```tsx
+<Avatar>
+  <AvatarImage src="/photo.jpg" alt="Alex Morgan" />
+  <AvatarFallback>AM</AvatarFallback>
+</Avatar>
+```
+
+### Anatomy
+
+- **Avatar** — The circle. Sets the size.
+- **AvatarImage** — The photo. Hidden until it loads.
+- **AvatarFallback** — Initials or an icon, shown when there is no image.
+- **AvatarBadge** — A dot in the bottom corner, such as an online status.
+- **AvatarGroup** — Overlaps several avatars.
+- **AvatarGroupCount** — The "+4" circle at the end of a group.
+
+### Notes
+
+- Give `AvatarImage` an `alt` with the person's name.
+- Use two initials at most.
+- The badge hides its icon at the `sm` size, where only the dot fits.
+
+## Examples
+
+### Sizes
+
+`sm`, `default`, and `lg`.
+
+<ComponentPreview name="avatar-sizes" />
+
+### With badge
+
+A coloured dot, or a badge with an icon.
+
+<ComponentPreview name="avatar-badge" />
+
+### Group
+
+A care team with a count of the rest. The count matches the size of the avatars in the group.
+
+<ComponentPreview name="avatar-group" />
+
+## Props
+
+Unlisted props pass through to the underlying element.
+
+### Avatar
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `size` | `"sm", "default", or "lg"` | `default` | 24, 32, or 40 pixels. |
+
+### AvatarImage
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `src` | `string` | — | Image URL. |
+| `alt` | `string` | — | The person's name. |

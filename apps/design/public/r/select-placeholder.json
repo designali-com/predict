@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "select-placeholder",
+  "type": "registry:block",
+  "description": "Placeholder",
+  "files": [
+    {
+      "path": "registry/predict/components/select/select-placeholder.tsx",
+      "content": "\"use client\"\n\nimport {\n  Select,\n  SelectContent,\n  SelectItem,\n  SelectTrigger,\n  SelectValue,\n} from \"@workspace/ui/components/select\"\n\nconst clinics = [\n  { label: \"Select a clinic\", value: null },\n  { label: \"London Bridge\", value: \"london-bridge\" },\n  { label: \"Manchester\", value: \"manchester\" },\n  { label: \"Edinburgh\", value: \"edinburgh\" },\n]\n\nexport function SelectPlaceholder() {\n  return (\n    <Select items={clinics}>\n      <SelectTrigger className=\"w-48\">\n        <SelectValue />\n      </SelectTrigger>\n      <SelectContent>\n        {clinics\n          .filter((item) => item.value !== null)\n          .map((item) => (\n            <SelectItem key={item.value} value={item.value}>\n              {item.label}\n            </SelectItem>\n          ))}\n      </SelectContent>\n    </Select>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

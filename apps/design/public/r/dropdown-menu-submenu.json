@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dropdown-menu-submenu",
+  "type": "registry:block",
+  "description": "Submenu",
+  "files": [
+    {
+      "path": "registry/predict/components/dropdown-menu/dropdown-menu-submenu.tsx",
+      "content": "\"use client\"\n\nimport { ChevronRightIcon, FileTextIcon, MailIcon, ShareIcon } from \"lucide-react\"\n\nimport { Button } from \"@workspace/ui/components/button\"\nimport {\n  DropdownMenu,\n  DropdownMenuContent,\n  DropdownMenuItem,\n  DropdownMenuSub,\n  DropdownMenuSubContent,\n  DropdownMenuSubTrigger,\n  DropdownMenuTrigger,\n} from \"@workspace/ui/components/dropdown-menu\"\n\nexport function DropdownMenuSubmenu() {\n  return (\n    <DropdownMenu>\n      <DropdownMenuTrigger render={<Button variant=\"outline\" />}>\n        Report\n      </DropdownMenuTrigger>\n      <DropdownMenuContent className=\"w-44\">\n        <DropdownMenuItem>\n          <FileTextIcon />\n          Open\n        </DropdownMenuItem>\n        <DropdownMenuSub>\n          <DropdownMenuSubTrigger>\n            <ShareIcon />\n            Share\n            <ChevronRightIcon className=\"ms-auto rtl:rotate-180\" />\n          </DropdownMenuSubTrigger>\n          <DropdownMenuSubContent>\n            <DropdownMenuItem>\n              <MailIcon />\n              Email\n            </DropdownMenuItem>\n            <DropdownMenuItem>Copy link</DropdownMenuItem>\n            <DropdownMenuItem>Send to GP</DropdownMenuItem>\n          </DropdownMenuSubContent>\n        </DropdownMenuSub>\n      </DropdownMenuContent>\n    </DropdownMenu>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}
