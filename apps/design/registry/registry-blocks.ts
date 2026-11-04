@@ -84,4 +84,11 @@ export const blocks: Registry["items"] = [
     route: "login",
     iframeHeight: 760,
   }),
+  block({
+    name: "header-01",
+    description: "A site header with a tests menu, links, and a mobile sheet.",
+    category: "navigation",
+    route: "header",
+    iframeHeight: 480,
+  }),
 ]

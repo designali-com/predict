@@ -1,0 +1,121 @@
+---
+title: Gauge
+description: "A segmented ring that shows a value within a known range."
+---
+
+## Demos
+
+A full ring with the value as a percentage.
+
+<ComponentPreview name="gauge-demo" />
+
+## Usage
+
+Use a gauge to show a single measurement against a fixed range: a health score, sleep quality, recovery. It reads as a reading, not a task, so use a [progress bar](/docs/components/progress) for uploads and other work in flight.
+
+Import it from `@workspace/ui/components/gauge`.
+
+```tsx
+import {
+  Gauge,
+  GaugeIndicator,
+  GaugeLabel,
+  GaugeRange,
+  GaugeTrack,
+  GaugeValueText,
+} from "@workspace/ui/components/gauge"
+```
+
+```tsx
+<Gauge value={72}>
+  <GaugeIndicator>
+    <GaugeTrack />
+    <GaugeRange />
+  </GaugeIndicator>
+  <GaugeValueText />
+  <GaugeLabel>Health score</GaugeLabel>
+</Gauge>
+```
+
+For the common case, **GaugeCombined** renders the indicator, track, range and value text for you.
+
+```tsx
+import { GaugeCombined } from "@workspace/ui/components/gauge"
+
+<GaugeCombined value={72} aria-label="Health score" />
+```
+
+### Anatomy
+
+- **Gauge** — The root. Holds the value and geometry, and has the `meter` role.
+- **GaugeIndicator** — The SVG that draws the ring. Put **GaugeTrack** and **GaugeRange** inside it.
+- **GaugeTrack** — Every segment, in a muted colour.
+- **GaugeRange** — The filled segments, up to the current value.
+- **GaugeValueText** — The text centred over the ring. Defaults to a percentage.
+- **GaugeLabel** — Names the measurement. Read by screen readers.
+
+### Notes
+
+- Without a **GaugeLabel**, give the root an `aria-label`.
+- **GaugeValueText** is centred over its nearest positioned parent. If you place a **GaugeLabel** below the ring, wrap the indicator and value text in a `relative` element so the text stays centred on the ring.
+- Pass `getValueText` to change the text read by screen readers and shown by default. Pass children to **GaugeValueText** to change only what is shown.
+- Colour the fill with a text colour class on **GaugeRange**, for example `text-chart-2`. Segments use `currentColor`.
+- The gauge lowers `segments` when they would not fit around the ring at the given `thickness` and `gap`.
+
+## Examples
+
+### With label
+
+A **GaugeLabel** below the ring.
+
+<ComponentPreview name="gauge-with-label" />
+
+### Arc
+
+Set `startAngle` and `endAngle` to draw part of a ring. Angles are in degrees, with `0` at the top, increasing clockwise.
+
+<ComponentPreview name="gauge-arc" />
+
+### Custom value
+
+Set `min` and `max` for a range that is not 0–100, and pass children to **GaugeValueText** to show a unit and caption.
+
+<ComponentPreview name="gauge-custom-value" />
+
+### Sizes
+
+Change `size`, and lower `segments` and `tickInnerRadius` on small gauges so the ticks stay readable.
+
+<ComponentPreview name="gauge-sizes" />
+
+### Indeterminate
+
+Set `value={null}` when there is no reading yet. Only the track is drawn.
+
+<ComponentPreview name="gauge-indeterminate" />
+
+## Props
+
+These are the props you set most often. Unlisted props pass through to the underlying element.
+
+### Gauge
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `value` | `number or null` | `null` | Current value. `null` is indeterminate. Clamped to `min`–`max`. |
+| `min` | `number` | `0` | Lowest value. |
+| `max` | `number` | `100` | Highest value. |
+| `getValueText` | `(value, min, max) => string` | Percentage | Text for screen readers and the default **GaugeValueText**. |
+| `size` | `number` | `200` | Width and height in pixels. |
+| `thickness` | `number` | `2` | Stroke width of each segment. |
+| `gap` | `number` | `4` | Minimum space between segments. |
+| `segments` | `number` | `60` | Number of segments. |
+| `startAngle` | `number` | `0` | Where the ring starts, in degrees. |
+| `endAngle` | `number` | `360` | Where the ring ends, in degrees. |
+| `tickInnerRadius` | `number` | Radius − 24 | Inner end of each segment. |
+| `tickOuterRadius` | `number` | Radius | Outer end of each segment. |
+| `className` | `string` | — | Classes merged onto the root. |
+
+### Data attributes
+
+The root, **GaugeIndicator** and **GaugeRange** set `data-state` to `indeterminate`, `loading` or `complete`, so you can style each state, for example `data-[state=complete]:text-chart-2`.

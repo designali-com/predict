@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gauge-sizes",
+  "type": "registry:block",
+  "description": "Sizes",
+  "files": [
+    {
+      "path": "registry/predict/components/gauge/gauge-sizes.tsx",
+      "content": "\"use client\"\n\nimport { GaugeCombined } from \"@workspace/ui/components/gauge\"\n\nexport function GaugeSizes() {\n  return (\n    <div className=\"flex flex-wrap items-center justify-center gap-6\">\n      <GaugeCombined\n        value={45}\n        size={96}\n        segments={30}\n        tickInnerRadius={30}\n        className=\"[&>div]:text-base\"\n        aria-label=\"Small gauge\"\n      />\n      <GaugeCombined\n        value={45}\n        size={140}\n        segments={45}\n        className=\"[&>div]:text-xl\"\n        aria-label=\"Medium gauge\"\n      />\n      <GaugeCombined value={45} aria-label=\"Large gauge\" />\n    </div>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

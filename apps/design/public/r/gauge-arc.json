@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gauge-arc",
+  "type": "registry:block",
+  "description": "Arc",
+  "files": [
+    {
+      "path": "registry/predict/components/gauge/gauge-arc.tsx",
+      "content": "\"use client\"\n\nimport {\n  Gauge,\n  GaugeIndicator,\n  GaugeRange,\n  GaugeTrack,\n  GaugeValueText,\n} from \"@workspace/ui/components/gauge\"\n\nexport function GaugeArc() {\n  return (\n    <Gauge\n      value={58}\n      startAngle={-120}\n      endAngle={120}\n      segments={40}\n      aria-label=\"Recovery\"\n    >\n      <GaugeIndicator>\n        <GaugeTrack />\n        <GaugeRange />\n      </GaugeIndicator>\n      <GaugeValueText />\n    </Gauge>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

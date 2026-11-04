@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gauge-indeterminate",
+  "type": "registry:block",
+  "description": "Indeterminate",
+  "files": [
+    {
+      "path": "registry/predict/components/gauge/gauge-indeterminate.tsx",
+      "content": "\"use client\"\n\nimport { GaugeCombined } from \"@workspace/ui/components/gauge\"\n\nexport function GaugeIndeterminate() {\n  return <GaugeCombined value={null} aria-label=\"Waiting for results\" />\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

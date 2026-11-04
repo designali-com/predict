@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "navigation-menu-with-icon",
+  "type": "registry:block",
+  "description": "With icon",
+  "files": [
+    {
+      "path": "registry/predict/components/navigation-menu/navigation-menu-with-icon.tsx",
+      "content": "\"use client\"\n\nimport { CalendarIcon, FileTextIcon, HeartPulseIcon, SettingsIcon } from \"lucide-react\"\n\nimport {\n  NavigationMenu,\n  NavigationMenuContent,\n  NavigationMenuItem,\n  NavigationMenuLink,\n  NavigationMenuList,\n  NavigationMenuTrigger,\n} from \"@workspace/ui/components/navigation-menu\"\n\nexport function NavigationMenuWithIcon() {\n  return (\n    <NavigationMenu>\n      <NavigationMenuList>\n        <NavigationMenuItem>\n          <NavigationMenuTrigger>Account</NavigationMenuTrigger>\n          <NavigationMenuContent>\n            <ul className=\"grid w-48\">\n              <li>\n                <NavigationMenuLink href=\"#\">\n                  <HeartPulseIcon />\n                  Biomarkers\n                </NavigationMenuLink>\n              </li>\n              <li>\n                <NavigationMenuLink href=\"#\">\n                  <FileTextIcon />\n                  Reports\n                </NavigationMenuLink>\n              </li>\n              <li>\n                <NavigationMenuLink href=\"#\">\n                  <CalendarIcon />\n                  Bookings\n                </NavigationMenuLink>\n              </li>\n              <li>\n                <NavigationMenuLink href=\"#\">\n                  <SettingsIcon />\n                  Settings\n                </NavigationMenuLink>\n              </li>\n            </ul>\n          </NavigationMenuContent>\n        </NavigationMenuItem>\n      </NavigationMenuList>\n    </NavigationMenu>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

@@ -6,6 +6,7 @@ export const blockCategoryLabels: Record<string, string> = {
   onboarding: "Onboarding",
   booking: "Booking",
   authentication: "Authentication",
+  navigation: "Navigation",
 }
 
 export const blockCategories = Object.keys(blockCategoryLabels)

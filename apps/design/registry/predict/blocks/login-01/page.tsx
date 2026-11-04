@@ -61,7 +61,7 @@ export default function Page() {
         </div>
       </div>
 
-      <div className="relative hidden flex-col items-center justify-center gap-8 overflow-hidden bg-muted p-10 lg:flex">
+      <div className="relative hidden flex-col items-center justify-center gap-8 overflow-hidden bg-secondary p-10 lg:flex">
         <PredictMascot className="size-40" aria-hidden />
         <div className="flex max-w-sm flex-col gap-2 text-center">
           <p className="text-lg font-medium tracking-tight">Understand your biology</p>

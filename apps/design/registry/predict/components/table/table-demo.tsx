@@ -21,7 +21,7 @@ const results = [
 
 export function TableDemo() {
   return (
-    <Table className="max-w-lg">
+    <Table>
       <TableCaption>Results from your October panel.</TableCaption>
       <TableHeader>
         <TableRow>

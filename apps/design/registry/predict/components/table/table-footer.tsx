@@ -25,7 +25,7 @@ export function TableWithFooter() {
   const total = orders.reduce((sum, order) => sum + order.amount, 0)
 
   return (
-    <Table className="max-w-md">
+    <Table>
       <TableHeader>
         <TableRow>
           <TableHead>Invoice</TableHead>

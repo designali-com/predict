@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "navigation-menu-links",
+  "type": "registry:block",
+  "description": "Links",
+  "files": [
+    {
+      "path": "registry/predict/components/navigation-menu/navigation-menu-links.tsx",
+      "content": "\"use client\"\n\nimport {\n  NavigationMenu,\n  NavigationMenuItem,\n  NavigationMenuLink,\n  NavigationMenuList,\n  navigationMenuTriggerStyle,\n} from \"@workspace/ui/components/navigation-menu\"\n\nconst links = [\"How it works\", \"Pricing\", \"Clinics\"]\n\nexport function NavigationMenuLinks() {\n  return (\n    <NavigationMenu>\n      <NavigationMenuList>\n        {links.map((link, index) => (\n          <NavigationMenuItem key={link}>\n            <NavigationMenuLink\n              href=\"#\"\n              active={index === 0}\n              className={navigationMenuTriggerStyle()}\n            >\n              {link}\n            </NavigationMenuLink>\n          </NavigationMenuItem>\n        ))}\n      </NavigationMenuList>\n    </NavigationMenu>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

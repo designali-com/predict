@@ -2383,6 +2383,168 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: undefined,
   },
+  "gauge-demo": {
+    name: "gauge-demo",
+    description: "Basic",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/gauge/gauge-demo.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/gauge/gauge-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "gauge-with-label": {
+    name: "gauge-with-label",
+    description: "With label",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/gauge/gauge-with-label.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/gauge/gauge-with-label.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "gauge-arc": {
+    name: "gauge-arc",
+    description: "Arc",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/gauge/gauge-arc.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/gauge/gauge-arc.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "gauge-custom-value": {
+    name: "gauge-custom-value",
+    description: "Custom value",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/gauge/gauge-custom-value.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/gauge/gauge-custom-value.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "gauge-sizes": {
+    name: "gauge-sizes",
+    description: "Sizes",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/gauge/gauge-sizes.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/gauge/gauge-sizes.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "gauge-indeterminate": {
+    name: "gauge-indeterminate",
+    description: "Indeterminate",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/gauge/gauge-indeterminate.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/gauge/gauge-indeterminate.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "navigation-menu-demo": {
+    name: "navigation-menu-demo",
+    description: "Basic",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/navigation-menu/navigation-menu-demo.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/navigation-menu/navigation-menu-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "navigation-menu-with-icon": {
+    name: "navigation-menu-with-icon",
+    description: "With icon",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/navigation-menu/navigation-menu-with-icon.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/navigation-menu/navigation-menu-with-icon.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "navigation-menu-links": {
+    name: "navigation-menu-links",
+    description: "Links",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/navigation-menu/navigation-menu-links.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/navigation-menu/navigation-menu-links.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
   "pagination-demo": {
     name: "pagination-demo",
     description: "Basic",
@@ -2912,5 +3074,23 @@ export const Index: Record<string, any> = {
     }),
     categories: ["authentication"],
     meta: {"iframeHeight":"760px"},
+  },
+  "header-01": {
+    name: "header-01",
+    description: "A site header with a tests menu, links, and a mobile sheet.",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/blocks/header-01/page.tsx",
+      type: "registry:page",
+      target: "app/header/page.tsx"
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/blocks/header-01/page.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["navigation"],
+    meta: {"iframeHeight":"480px"},
   },
   }

@@ -37,8 +37,8 @@ export function BlocksPage({ category }: { category?: string }) {
               href={value ? `/blocks/${value}` : "/blocks"}
               aria-current={value === category ? "page" : undefined}
               className={cn(
-                "shrink-0 rounded-full px-3 py-1.5 text-xs text-muted-foreground transition hover:text-foreground",
-                value === category && "bg-muted text-foreground"
+                "shrink-0 rounded-full px-3 h-7 flex items-center text-xs text-muted-foreground transition hover:text-foreground",
+                value === category && "bg-border text-foreground"
               )}
             >
               {value ? blockCategoryLabels[value] : "All"}

@@ -1245,6 +1245,105 @@ export const components: Registry["items"] = [
     ],
   },
   {
+    name: "gauge-demo",
+    description: "Basic",
+    type: "registry:block",
+    files: [
+      {
+        path: "components/gauge/gauge-demo.tsx",
+        type: "registry:block",
+      },
+    ],
+  },
+  {
+    name: "gauge-with-label",
+    description: "With label",
+    type: "registry:block",
+    files: [
+      {
+        path: "components/gauge/gauge-with-label.tsx",
+        type: "registry:block",
+      },
+    ],
+  },
+  {
+    name: "gauge-arc",
+    description: "Arc",
+    type: "registry:block",
+    files: [
+      {
+        path: "components/gauge/gauge-arc.tsx",
+        type: "registry:block",
+      },
+    ],
+  },
+  {
+    name: "gauge-custom-value",
+    description: "Custom value",
+    type: "registry:block",
+    files: [
+      {
+        path: "components/gauge/gauge-custom-value.tsx",
+        type: "registry:block",
+      },
+    ],
+  },
+  {
+    name: "gauge-sizes",
+    description: "Sizes",
+    type: "registry:block",
+    files: [
+      {
+        path: "components/gauge/gauge-sizes.tsx",
+        type: "registry:block",
+      },
+    ],
+  },
+  {
+    name: "gauge-indeterminate",
+    description: "Indeterminate",
+    type: "registry:block",
+    files: [
+      {
+        path: "components/gauge/gauge-indeterminate.tsx",
+        type: "registry:block",
+      },
+    ],
+  },
+  {
+    name: "navigation-menu-demo",
+    description: "Basic",
+    type: "registry:block",
+    files: [
+      {
+        path: "components/navigation-menu/navigation-menu-demo.tsx",
+        type: "registry:block",
+      },
+    ],
+  },
+  {
+    name: "navigation-menu-with-icon",
+    description: "With icon",
+    type: "registry:block",
+    files: [
+      {
+        path: "components/navigation-menu/navigation-menu-with-icon.tsx",
+        type: "registry:block",
+      },
+    ],
+  },
+  {
+    name: "navigation-menu-links",
+    description: "Links",
+    type: "registry:block",
+    files: [
+      {
+        path: "components/navigation-menu/navigation-menu-links.tsx",
+        type: "registry:block",
+      },
+    ],
+  },
+  {
     name: "pagination-demo",
     description: "Basic",
     type: "registry:block",
