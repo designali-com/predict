@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "marquee-pause",
+  "type": "registry:block",
+  "description": "Pause on hover",
+  "files": [
+    {
+      "path": "registry/predict/components/marquee/marquee-pause.tsx",
+      "content": "\"use client\"\n\nimport {\n  Marquee,\n  MarqueeContent,\n  MarqueeEdge,\n  MarqueeItem,\n} from \"@workspace/ui/components/marquee\"\n\nconst reviews = [\n  { name: \"Amira\", quote: \"Finally understood my results.\" },\n  { name: \"Jonas\", quote: \"The retest reminders keep me on track.\" },\n  { name: \"Priya\", quote: \"Clear, calm and quick.\" },\n  { name: \"Leo\", quote: \"My doctor loved the report.\" },\n]\n\nexport function MarqueePause() {\n  return (\n    <Marquee\n      pauseOnHover\n      pauseOnKeyboard\n      speed={40}\n      className=\"w-full max-w-lg\"\n      aria-label=\"Member reviews\"\n    >\n      <MarqueeContent>\n        {reviews.map((review) => (\n          <MarqueeItem\n            key={review.name}\n            className=\"flex w-64 flex-col gap-1 rounded-lg border p-4\"\n          >\n            <span className=\"text-sm\">“{review.quote}”</span>\n            <span className=\"text-xs text-muted-foreground\">\n              {review.name}\n            </span>\n          </MarqueeItem>\n        ))}\n      </MarqueeContent>\n      <MarqueeEdge side=\"left\" size=\"sm\" />\n      <MarqueeEdge side=\"right\" size=\"sm\" />\n    </Marquee>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

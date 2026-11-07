@@ -15,6 +15,7 @@ const DEFAULT_END_ANGLE = 360
 const DEFAULT_SEGMENTS = 60
 const DEFAULT_GAP = 4
 const DEFAULT_THICKNESS = 2
+const DEFAULT_DURATION = 700
 
 type GaugeState = "indeterminate" | "complete" | "loading"
 
@@ -23,6 +24,7 @@ type DivProps = React.ComponentProps<"div">
 interface GaugeContextValue {
   value: number | null
   valueText: string | undefined
+  animatedValueText: string | undefined
   max: number
   min: number
   state: GaugeState
@@ -31,6 +33,7 @@ interface GaugeContextValue {
   size: number
   center: number
   percentage: number | null
+  animatedPercentage: number | null
   startAngle: number
   endAngle: number
   segments: number
@@ -96,6 +99,51 @@ function polarToCartesian(
   }
 }
 
+function useAnimatedNumber(target: number | null, duration: number) {
+  const [current, setCurrent] = React.useState<number | null>(
+    target === null ? null : 0
+  )
+  const currentRef = React.useRef(0)
+
+  React.useEffect(() => {
+    if (target === null) {
+      currentRef.current = 0
+      setCurrent(null)
+      return
+    }
+
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches
+
+    if (reduceMotion || duration <= 0) {
+      currentRef.current = target
+      setCurrent(target)
+      return
+    }
+
+    const from = currentRef.current
+    const start = performance.now()
+    let raf = 0
+
+    const tick = (now: number) => {
+      const t = Math.min(1, (now - start) / duration)
+      const eased = 1 - Math.pow(1 - t, 3) // ease-out cubic
+      const next = t === 1 ? target : from + (target - from) * eased
+
+      currentRef.current = next
+      setCurrent(next)
+
+      if (t < 1) raf = requestAnimationFrame(tick)
+    }
+
+    raf = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(raf)
+  }, [target, duration])
+
+  return current
+}
+
 interface GaugeProps extends DivProps {
   value?: number | null
   getValueText?: (value: number, min: number, max: number) => string
@@ -109,6 +157,7 @@ interface GaugeProps extends DivProps {
   segments?: number
   tickInnerRadius?: number
   tickOuterRadius?: number
+  duration?: number
 }
 
 function Gauge({
@@ -124,6 +173,7 @@ function Gauge({
   segments = DEFAULT_SEGMENTS,
   tickInnerRadius,
   tickOuterRadius,
+  duration = DEFAULT_DURATION,
   className,
   children,
   ...rootProps
@@ -169,10 +219,19 @@ function Gauge({
       ? null
       : Math.max(0, Math.min(1, (validValue - min) / (max - min)))
 
+  const animatedPercentage = useAnimatedNumber(percentage, duration)
+
   const valueText =
     validValue === null
       ? undefined
       : getValueText(validValue, min, max)
+
+  // Text shown in the center while the ticks sweep (respects custom getValueText).
+  // aria-valuetext still uses the real value.
+  const animatedValueText =
+    validValue === null || animatedPercentage === null
+      ? valueText
+      : getValueText(min + animatedPercentage * (max - min), min, max)
 
   const state: GaugeState =
     validValue === null
@@ -188,6 +247,7 @@ function Gauge({
     () => ({
       value: validValue,
       valueText,
+      animatedValueText,
       min,
       max,
       state,
@@ -196,6 +256,7 @@ function Gauge({
       size: safeSize,
       center,
       percentage,
+      animatedPercentage,
       startAngle,
       endAngle,
       segments: effectiveSegments,
@@ -208,6 +269,7 @@ function Gauge({
     [
       validValue,
       valueText,
+      animatedValueText,
       min,
       max,
       state,
@@ -216,6 +278,7 @@ function Gauge({
       safeSize,
       center,
       percentage,
+      animatedPercentage,
       startAngle,
       endAngle,
       effectiveSegments,
@@ -356,20 +419,19 @@ function GaugeRange(props: React.ComponentProps<"line">) {
     tickInnerRadius,
     tickOuterRadius,
     percentage,
+    animatedPercentage,
     state,
     value,
     max,
     min,
   } = useGaugeContext(RANGE_NAME)
 
-  if (percentage === null) return null
+  if (percentage === null || animatedPercentage === null) return null
 
   return (
     <>
       {getTickAngles(startAngle, endAngle, segments).map((tick, index) => {
-        const isActive =
-          state === "complete" ||
-          percentage >= (index + 1) / segments
+        const isActive = animatedPercentage >= (index + 1) / segments
 
         if (!isActive) return null
 
@@ -404,10 +466,7 @@ function GaugeRange(props: React.ComponentProps<"line">) {
             data-min={min}
             data-percentage={percentage}
             {...rangeProps}
-            className={cn(
-              "text-primary transition-all duration-300",
-              className
-            )}
+            className={cn("text-primary", className)}
           />
         )
       })}
@@ -420,7 +479,7 @@ function GaugeValueText({
   children,
   ...props
 }: DivProps) {
-  const { valueTextId, state, valueText } =
+  const { valueTextId, state, animatedValueText } =
     useGaugeContext(VALUE_TEXT_NAME)
 
   return (
@@ -433,7 +492,7 @@ function GaugeValueText({
         className
       )}
     >
-      {children ?? valueText}
+      {children ?? animatedValueText}
     </div>
   )
 }

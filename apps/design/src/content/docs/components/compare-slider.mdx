@@ -1,0 +1,102 @@
+---
+title: Compare Slider
+description: "Drag a divider to compare two views side by side."
+---
+
+## Demos
+
+Drag the handle, or focus the slider and use the arrow keys, to reveal more of either side.
+
+<ComponentPreview name="compare-slider-demo" />
+
+## Usage
+
+Use a compare slider when the difference between two states is the point: results before and after a change, a light and dark theme, an old and new design. Both views share the same frame, so they should be the same size and line up. For more than two views, use [tabs](/docs/components/tabs) or a [carousel](/docs/components/carousel).
+
+Import it from `@workspace/ui/components/compare-slider`.
+
+```tsx
+import {
+  CompareSlider,
+  CompareSliderAfter,
+  CompareSliderBefore,
+  CompareSliderHandle,
+} from "@workspace/ui/components/compare-slider"
+```
+
+```tsx
+<CompareSlider className="h-64 rounded-lg border" aria-label="Compare results">
+  <CompareSliderBefore label="Before">
+    <img src="/before.jpg" alt="" className="size-full object-cover" />
+  </CompareSliderBefore>
+  <CompareSliderAfter label="After">
+    <img src="/after.jpg" alt="" className="size-full object-cover" />
+  </CompareSliderAfter>
+  <CompareSliderHandle />
+</CompareSlider>
+```
+
+### Anatomy
+
+- **CompareSlider** — The root. Holds the position and has the `slider` role.
+- **CompareSliderBefore** — The first view, shown on the left (or top when vertical).
+- **CompareSliderAfter** — The second view, shown on the right (or bottom when vertical).
+- **CompareSliderHandle** — The divider and grip. Pass children to replace the default grip.
+- **CompareSliderLabel** — A badge pinned to a corner. **CompareSliderBefore** and **CompareSliderAfter** render one for you when you pass `label`.
+
+### Notes
+
+- Give the root a height, or a parent with a height for the vertical orientation. The views fill it absolutely.
+- Give the root an `aria-label` so screen readers know what is being compared. Passing `label` to a view also names it for assistive technology.
+- The arrow keys move the handle by `step`. Page Up, Page Down and Shift with an arrow move it by ten steps, and Home and End jump to either edge.
+- `value` is a percentage from `0` to `100`: `0` shows all of the after view, `100` shows all of the before view.
+
+## Examples
+
+### Vertical
+
+Set `orientation="vertical"` to stack the views and drag up and down.
+
+<ComponentPreview name="compare-slider-vertical" />
+
+### Follow pointer
+
+Set `interaction="hover"` to move the divider with the pointer, without dragging. The grip is hidden in this mode.
+
+<ComponentPreview name="compare-slider-hover" />
+
+### Controlled
+
+Pass `value` and `onValueChange` to drive the position from your own state.
+
+<ComponentPreview name="compare-slider-controlled" />
+
+## Props
+
+These are the props you set most often. Unlisted props pass through to the underlying element.
+
+### CompareSlider
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `value` | `number` | — | Controlled position, from `0` to `100`. |
+| `defaultValue` | `number` | `50` | Starting position when uncontrolled. |
+| `onValueChange` | `(value: number) => void` | — | Called when the position changes. |
+| `step` | `number` | `1` | How far the arrow keys move the handle. |
+| `interaction` | `"drag" or "hover"` | `"drag"` | Drag the handle, or follow the pointer. |
+| `orientation` | `"horizontal" or "vertical"` | `"horizontal"` | Direction the divider moves. |
+| `render` | `ReactElement or function` | — | Replaces the root `div` with your own element. |
+| `className` | `string` | — | Classes merged onto the root. |
+
+### CompareSliderBefore and CompareSliderAfter
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `label` | `string` | — | Shows a corner label and names the view for screen readers. |
+| `className` | `string` | — | Classes merged onto the view. |
+
+### CompareSliderLabel
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `side` | `"before" or "after"` | — | Which corner to pin the label to. |

@@ -11,7 +11,7 @@ import {
 
 export function GaugeWithLabel() {
   return (
-    <Gauge value={84} size={160} className="gap-3">
+    <Gauge value={84} size={160} thickness={10} gap={14} className="gap-3">
       <div className="relative">
         <GaugeIndicator>
           <GaugeTrack />

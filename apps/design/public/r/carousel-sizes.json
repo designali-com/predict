@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "carousel-sizes",
+  "type": "registry:block",
+  "description": "Multiple per view",
+  "files": [
+    {
+      "path": "registry/predict/components/carousel/carousel-sizes.tsx",
+      "content": "\"use client\"\n\nimport { Card, CardContent } from \"@workspace/ui/components/card\"\nimport {\n  Carousel,\n  CarouselContent,\n  CarouselItem,\n  CarouselNext,\n  CarouselPrevious,\n} from \"@workspace/ui/components/carousel\"\n\nconst panels = [\n  \"Heart\",\n  \"Metabolic\",\n  \"Thyroid\",\n  \"Liver\",\n  \"Kidney\",\n  \"Hormones\",\n  \"Nutrients\",\n]\n\nexport function CarouselSizes() {\n  return (\n    <Carousel opts={{ align: \"start\" }} className=\"w-full max-w-sm\">\n      <CarouselContent>\n        {panels.map((panel) => (\n          <CarouselItem key={panel} className=\"basis-1/2 md:basis-1/3\">\n            <Card>\n              <CardContent className=\"flex aspect-square items-center justify-center p-4\">\n                <span className=\"text-sm font-medium\">{panel}</span>\n              </CardContent>\n            </Card>\n          </CarouselItem>\n        ))}\n      </CarouselContent>\n      <CarouselPrevious />\n      <CarouselNext />\n    </Carousel>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

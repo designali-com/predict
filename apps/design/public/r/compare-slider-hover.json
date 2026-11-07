@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "compare-slider-hover",
+  "type": "registry:block",
+  "description": "Follow pointer",
+  "files": [
+    {
+      "path": "registry/predict/components/compare-slider/compare-slider-hover.tsx",
+      "content": "\"use client\"\n\nimport {\n  CompareSlider,\n  CompareSliderAfter,\n  CompareSliderBefore,\n  CompareSliderHandle,\n} from \"@workspace/ui/components/compare-slider\"\n\nexport function CompareSliderHover() {\n  return (\n    <CompareSlider\n      interaction=\"hover\"\n      className=\"h-56 w-full max-w-md rounded-lg border\"\n      aria-label=\"Compare light and dark theme\"\n    >\n      <CompareSliderBefore label=\"Light\">\n        <div className=\"flex size-full items-center justify-center bg-white text-2xl font-semibold text-black\">\n          Predict\n        </div>\n      </CompareSliderBefore>\n      <CompareSliderAfter label=\"Dark\">\n        <div className=\"flex size-full items-center justify-center bg-black text-2xl font-semibold text-white\">\n          Predict\n        </div>\n      </CompareSliderAfter>\n      <CompareSliderHandle />\n    </CompareSlider>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

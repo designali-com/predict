@@ -763,6 +763,78 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: undefined,
   },
+  "circular-progress-demo": {
+    name: "circular-progress-demo",
+    description: "Basic",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/circular-progress/circular-progress-demo.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/circular-progress/circular-progress-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "circular-progress-sizes": {
+    name: "circular-progress-sizes",
+    description: "Sizes",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/circular-progress/circular-progress-sizes.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/circular-progress/circular-progress-sizes.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "circular-progress-custom-value": {
+    name: "circular-progress-custom-value",
+    description: "Custom value",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/circular-progress/circular-progress-custom-value.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/circular-progress/circular-progress-custom-value.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "circular-progress-indeterminate": {
+    name: "circular-progress-indeterminate",
+    description: "Indeterminate",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/circular-progress/circular-progress-indeterminate.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/circular-progress/circular-progress-indeterminate.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
   "collapsible-demo": {
     name: "collapsible-demo",
     description: "Basic",
@@ -2185,6 +2257,78 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: undefined,
   },
+  "carousel-demo": {
+    name: "carousel-demo",
+    description: "Basic",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/carousel/carousel-demo.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/carousel/carousel-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "carousel-sizes": {
+    name: "carousel-sizes",
+    description: "Multiple per view",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/carousel/carousel-sizes.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/carousel/carousel-sizes.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "carousel-api": {
+    name: "carousel-api",
+    description: "With slide counter",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/carousel/carousel-api.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/carousel/carousel-api.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "carousel-vertical": {
+    name: "carousel-vertical",
+    description: "Vertical",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/carousel/carousel-vertical.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/carousel/carousel-vertical.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
   "chart-demo": {
     name: "chart-demo",
     description: "Bar",
@@ -2773,6 +2917,150 @@ export const Index: Record<string, any> = {
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/predict/components/textarea/textarea-with-count.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "compare-slider-demo": {
+    name: "compare-slider-demo",
+    description: "Basic",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/compare-slider/compare-slider-demo.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/compare-slider/compare-slider-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "compare-slider-vertical": {
+    name: "compare-slider-vertical",
+    description: "Vertical",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/compare-slider/compare-slider-vertical.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/compare-slider/compare-slider-vertical.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "compare-slider-hover": {
+    name: "compare-slider-hover",
+    description: "Follow pointer",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/compare-slider/compare-slider-hover.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/compare-slider/compare-slider-hover.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "compare-slider-controlled": {
+    name: "compare-slider-controlled",
+    description: "Controlled",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/compare-slider/compare-slider-controlled.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/compare-slider/compare-slider-controlled.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "marquee-demo": {
+    name: "marquee-demo",
+    description: "Basic",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/marquee/marquee-demo.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/marquee/marquee-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "marquee-vertical": {
+    name: "marquee-vertical",
+    description: "Vertical",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/marquee/marquee-vertical.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/marquee/marquee-vertical.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "marquee-pause": {
+    name: "marquee-pause",
+    description: "Pause on hover",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/marquee/marquee-pause.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/marquee/marquee-pause.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "marquee-reverse": {
+    name: "marquee-reverse",
+    description: "Reverse",
+    type: "registry:block",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/predict/components/marquee/marquee-reverse.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/predict/components/marquee/marquee-reverse.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),

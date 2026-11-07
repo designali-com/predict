@@ -55,6 +55,15 @@
   --color-status-moderate: var(--status-moderate);
   --color-status-severe: var(--status-severe);
   --color-status-extreme: var(--status-extreme);
+
+  /* Animations */
+  --animate-spin-around: spin-around 0.8s linear infinite;
+  --animate-marquee-left: marquee-left var(--marquee-duration) linear var(--marquee-loop-count);
+  --animate-marquee-right: marquee-right var(--marquee-duration) linear var(--marquee-loop-count);
+  --animate-marquee-left-rtl: marquee-left-rtl var(--marquee-duration) linear var(--marquee-loop-count);
+  --animate-marquee-right-rtl: marquee-right-rtl var(--marquee-duration) linear var(--marquee-loop-count);
+  --animate-marquee-up: marquee-up var(--marquee-duration) linear var(--marquee-loop-count);
+  --animate-marquee-down: marquee-down var(--marquee-duration) linear var(--marquee-loop-count);
 }
 
 :root {
@@ -102,6 +111,7 @@
   /* #FF6900 */
   --status-extreme: oklch(63.7% 0.237 25.331);
   /* #FB2C36 */
+
 }
 
 .dark {
@@ -174,5 +184,66 @@
 .lucide { 
   stroke-width: 1.5px;
 }
+  
+@keyframes spin-around {
+  0% {
+     transform: rotate(-90deg);
+   }
+  100% {
+    transform: rotate(270deg);
+  }
+}
+
+@keyframes marquee-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(calc(-100% - var(--marquee-gap)));
+  }
+}
  
+@keyframes marquee-right {
+  0% {
+    transform: translateX(calc(-100% - var(--marquee-gap)));
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
  
+@keyframes marquee-up {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(calc(-100% - var(--marquee-gap)));
+  }
+}
+ 
+@keyframes marquee-down {
+  0% {
+    transform: translateY(calc(-100% - var(--marquee-gap)));
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+ 
+@keyframes marquee-left-rtl {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(calc(100% + var(--marquee-gap)));
+  }
+}
+ 
+@keyframes marquee-right-rtl {
+  0% {
+    transform: translateX(calc(100% + var(--marquee-gap)));
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}

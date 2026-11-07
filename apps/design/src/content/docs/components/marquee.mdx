@@ -1,0 +1,101 @@
+---
+title: Marquee
+description: "A strip of content that scrolls on a continuous loop."
+---
+
+## Demos
+
+A row of items scrolling left, with faded edges.
+
+<ComponentPreview name="marquee-demo" />
+
+## Usage
+
+Use a marquee for content that is nice to glance at but not needed to complete a task: partner logos, member reviews, the list of biomarkers we test. Never put the only copy of important information or controls in a marquee, because it moves on its own and is hard to read and click.
+
+Import it from `@workspace/ui/components/marquee`.
+
+```tsx
+import {
+  Marquee,
+  MarqueeContent,
+  MarqueeEdge,
+  MarqueeItem,
+} from "@workspace/ui/components/marquee"
+```
+
+```tsx
+<Marquee aria-label="Biomarkers we test">
+  <MarqueeContent>
+    <MarqueeItem>Vitamin D</MarqueeItem>
+    <MarqueeItem>Ferritin</MarqueeItem>
+    <MarqueeItem>HbA1c</MarqueeItem>
+  </MarqueeContent>
+  <MarqueeEdge side="left" />
+  <MarqueeEdge side="right" />
+</Marquee>
+```
+
+### Anatomy
+
+- **Marquee** — The root. Sets the direction, speed and gap, and clips the moving content.
+- **MarqueeContent** — The moving track. It is duplicated so the loop has no gap.
+- **MarqueeItem** — One item in the track.
+- **MarqueeEdge** — A gradient that fades the content into the background at one side.
+
+### Notes
+
+- Give the root an `aria-label`. The duplicate copies of the content are hidden from screen readers.
+- `speed` is in pixels per second, so the pace stays the same whatever the content length.
+- Set `autoFill` when the content is shorter than the marquee, so it repeats enough times to fill it.
+- For a vertical marquee (`side="top"` or `side="bottom"`), give the root or its parent a height.
+- The animation stops when the reader prefers reduced motion.
+- Turn on `pauseOnHover` or `pauseOnKeyboard` whenever items are worth reading, so people can stop the motion.
+
+## Examples
+
+### Vertical
+
+Set `side="top"` or `side="bottom"` to scroll up or down.
+
+<ComponentPreview name="marquee-vertical" />
+
+### Pause on hover
+
+Set `pauseOnHover` to stop while the pointer is over the marquee, and `pauseOnKeyboard` to let people focus it and press Space to pause and resume.
+
+<ComponentPreview name="marquee-pause" />
+
+### Reverse
+
+Set `reverse` to run the other way. Rows moving in opposite directions work well together.
+
+<ComponentPreview name="marquee-reverse" />
+
+## Props
+
+These are the props you set most often. Unlisted props pass through to the underlying element.
+
+### Marquee
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `side` | `"left", "right", "top" or "bottom"` | `"left"` | The direction the content moves toward. |
+| `speed` | `number` | `50` | Speed in pixels per second. |
+| `gap` | `string` | `"1rem"` | Space between items and between copies, as a CSS length. |
+| `delay` | `number` | `0` | Seconds to wait before starting. |
+| `loopCount` | `number` | `0` | Number of loops. `0` loops forever. |
+| `autoFill` | `boolean` | `false` | Repeat the content to fill the marquee. |
+| `pauseOnHover` | `boolean` | `false` | Pause while the pointer is over it. |
+| `pauseOnKeyboard` | `boolean` | `false` | Make it focusable and toggle pause with Space. |
+| `reverse` | `boolean` | `false` | Run the animation the other way. |
+| `dir` | `"ltr" or "rtl"` | Inherited | Text direction. Defaults to the nearest direction provider. |
+| `render` | `ReactElement or function` | — | Replaces the root `div` with your own element. |
+| `className` | `string` | — | Classes merged onto the root. |
+
+### MarqueeEdge
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `side` | `"left", "right", "top" or "bottom"` | — | The side to fade. |
+| `size` | `"sm", "default" or "lg"` | `"default"` | Width (or height) of the fade: a sixth, a quarter or a third. |

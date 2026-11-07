@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "circular-progress-custom-value",
+  "type": "registry:block",
+  "description": "Custom value",
+  "files": [
+    {
+      "path": "registry/predict/components/circular-progress/circular-progress-custom-value.tsx",
+      "content": "\"use client\"\n\nimport {\n  CircularProgress,\n  CircularProgressIndicator,\n  CircularProgressRange,\n  CircularProgressTrack,\n  CircularProgressValueText,\n} from \"@workspace/ui/components/circular-progress\"\n\nexport function CircularProgressCustomValue() {\n  return (\n    <CircularProgress\n      value={7}\n      max={12}\n      size={96}\n      thickness={6}\n      getValueText={(value, _min, max) => `${value} of ${max} markers`}\n      aria-label=\"Markers processed\"\n    >\n      <CircularProgressIndicator>\n        <CircularProgressTrack />\n        <CircularProgressRange className=\"text-chart-2\" />\n      </CircularProgressIndicator>\n      <CircularProgressValueText className=\"flex-col gap-0.5\">\n        <span className=\"text-lg font-semibold tabular-nums\">7/12</span>\n        <span className=\"text-[10px] text-muted-foreground\">markers</span>\n      </CircularProgressValueText>\n    </CircularProgress>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

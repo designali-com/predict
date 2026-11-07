@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "carousel-vertical",
+  "type": "registry:block",
+  "description": "Vertical",
+  "files": [
+    {
+      "path": "registry/predict/components/carousel/carousel-vertical.tsx",
+      "content": "\"use client\"\n\nimport { Card, CardContent } from \"@workspace/ui/components/card\"\nimport {\n  Carousel,\n  CarouselContent,\n  CarouselItem,\n  CarouselNext,\n  CarouselPrevious,\n} from \"@workspace/ui/components/carousel\"\n\nconst tips = [\n  \"Drink water before your draw.\",\n  \"Skip intense exercise the day before.\",\n  \"Bring a list of your supplements.\",\n  \"Wear a top with loose sleeves.\",\n]\n\nexport function CarouselVertical() {\n  return (\n    <Carousel\n      orientation=\"vertical\"\n      opts={{ align: \"start\" }}\n      className=\"my-12 w-full max-w-xs\"\n    >\n      <CarouselContent className=\"h-[220px]\">\n        {tips.map((tip) => (\n          <CarouselItem key={tip} className=\"basis-1/2\">\n            <Card>\n              <CardContent className=\"flex items-center justify-center p-6 text-center\">\n                <span className=\"text-sm font-medium\">{tip}</span>\n              </CardContent>\n            </Card>\n          </CarouselItem>\n        ))}\n      </CarouselContent>\n      <CarouselPrevious />\n      <CarouselNext />\n    </Carousel>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

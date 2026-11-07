@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "compare-slider-demo",
+  "type": "registry:block",
+  "description": "Basic",
+  "files": [
+    {
+      "path": "registry/predict/components/compare-slider/compare-slider-demo.tsx",
+      "content": "\"use client\"\n\nimport {\n  CompareSlider,\n  CompareSliderAfter,\n  CompareSliderBefore,\n  CompareSliderHandle,\n} from \"@workspace/ui/components/compare-slider\"\n\nfunction Panel({\n  title,\n  value,\n  className,\n}: {\n  title: string\n  value: string\n  className?: string\n}) {\n  return (\n    <div\n      className={`flex size-full flex-col items-center justify-center gap-2 ${className ?? \"\"}`}\n    >\n      <span className=\"text-sm opacity-80\">{title}</span>\n      <span className=\"text-5xl font-semibold tabular-nums\">{value}</span>\n      <span className=\"text-sm opacity-80\">Vitamin D, ng/mL</span>\n    </div>\n  )\n}\n\nexport function CompareSliderDemo() {\n  return (\n    <CompareSlider\n      defaultValue={50}\n      className=\"h-64 w-full max-w-md rounded-lg border\"\n      aria-label=\"Compare results before and after supplements\"\n    >\n      <CompareSliderBefore label=\"Before\">\n        <Panel title=\"January\" value=\"18\" className=\"bg-muted\" />\n      </CompareSliderBefore>\n      <CompareSliderAfter label=\"After\">\n        <Panel\n          title=\"June\"\n          value=\"42\"\n          className=\"bg-primary text-primary-foreground\"\n        />\n      </CompareSliderAfter>\n      <CompareSliderHandle />\n    </CompareSlider>\n  )\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

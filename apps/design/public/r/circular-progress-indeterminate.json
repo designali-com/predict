@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "circular-progress-indeterminate",
+  "type": "registry:block",
+  "description": "Indeterminate",
+  "files": [
+    {
+      "path": "registry/predict/components/circular-progress/circular-progress-indeterminate.tsx",
+      "content": "\"use client\"\n\nimport { CircularProgressCombined } from \"@workspace/ui/components/circular-progress\"\n\nexport function CircularProgressIndeterminate() {\n  return <CircularProgressCombined value={null} aria-label=\"Loading\" />\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}
