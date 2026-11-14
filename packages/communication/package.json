@@ -1,0 +1,29 @@
+{
+  "name": "@workspace/communication",
+  "version": "0.0.1",
+  "type": "module",
+  "private": true,
+  "exports": {
+    ".": "./src/index.ts",
+    "./adapters/whatsapp": "./src/adapters/whatsapp.ts",
+    "./mailer": "./src/mailer.ts",
+    "./visit-meet": "./src/visit-meet.ts",
+    "./otp": "./src/otp-delivery.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "mail:test": "tsx scripts/mail-test.ts"
+  },
+  "dependencies": {
+    "@workspace/db": "workspace:*",
+    "nodemailer": "^10.0.10",
+    "resend": "^6.12.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/nodemailer": "^8.0.2",
+    "@workspace/typescript-config": "workspace:*",
+    "tsx": "^4.23.15",
+    "typescript": "^6.0.3"
+  }
+}

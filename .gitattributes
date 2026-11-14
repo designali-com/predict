@@ -1,0 +1,2 @@
+# Shell scripts run on the Linux server — never CRLF, whatever the laptop does.
+*.sh text eol=lf

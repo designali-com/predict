@@ -1,0 +1,2087 @@
+{
+  "protocols": [
+    {
+      "name": "Quiet sitting",
+      "montage": "Knee extensors",
+      "posture": "Seated upright, feet flat, knees about 90 degrees, hands on lap, no talking",
+      "rationale": "Establishes a seated rest baseline for the three quadriceps channels so later contraction and gait trials can be compared against true quiet EMG.",
+      "interpretation": "All three channels (VL, VM, RF) should stay near the noise floor with no rhythmic bursts; spikes that track posture shifts or phone handling are motion artifact, not muscle drive.",
+      "placements": [
+        {
+          "channel": 1,
+          "muscle": "Vastus lateralis",
+          "side": "tested",
+          "siteNotes": "SENIAM: 2/3 on the line from ASIS to the lateral border of the patella; electrodes parallel to muscle fibers"
+        },
+        {
+          "channel": 2,
+          "muscle": "Vastus medialis",
+          "side": "tested",
+          "siteNotes": "SENIAM: 80% on the line from ASIS to the joint space in front of the anterior border of the medial ligament; nearly perpendicular to that line"
+        },
+        {
+          "channel": 3,
+          "muscle": "Rectus femoris",
+          "side": "tested",
+          "siteNotes": "SENIAM: 50% on the line from ASIS to the superior border of the patella; electrodes along that line"
+        }
+      ],
+      "trialCount": 1,
+      "restDurationSec": 10,
+      "contractionDurationSec": 10,
+      "cueText": "Sit still for a quiet quadriceps baseline",
+      "phases": [
+        {
+          "marker": "baseline",
+          "durationSec": 10,
+          "cue": "Sit still, relax both thighs, breathe normally",
+          "side": "",
+          "repeats": 1
+        }
+      ]
+    },
+    {
+      "name": "Quiet standing",
+      "montage": "Thigh and calf",
+      "posture": "Comfortable quiet stance, feet roughly hip-width, arms at sides, eyes open, gaze fixed ahead",
+      "rationale": "Captures postural background on VL, biceps femoris, and medial gastrocnemius before dynamic tasks that add push-off or co-contraction.",
+      "interpretation": "Expect low, fairly steady activity; brief rises on medial gastrocnemius or VL with sway are normal. Large transient spikes that match foot shifts or cable tug are artifact.",
+      "placements": [
+        {
+          "channel": 1,
+          "muscle": "Vastus lateralis",
+          "side": "tested",
+          "siteNotes": "SENIAM: 2/3 on the line from ASIS to the lateral border of the patella; electrodes parallel to muscle fibers",
+          "band": "proximal",
+          "segment": "thigh"
+        },
+        {
+          "channel": 2,
+          "muscle": "Biceps femoris",
+          "side": "tested",
+          "siteNotes": "SENIAM: 50% on the line from ischial tuberosity to the lateral epicondyle of the tibia; electrodes along that line (long head)",
+          "band": "proximal",
+          "segment": "thigh"
+        },
+        {
+          "channel": 1,
+          "muscle": "Medial gastrocnemius",
+          "side": "tested",
+          "siteNotes": "SENIAM: most prominent bulge of the medial gastrocnemius belly; electrodes oriented along the leg",
+          "band": "distal",
+          "segment": "shank"
+        }
+      ],
+      "trialCount": 1,
+      "restDurationSec": 10,
+      "contractionDurationSec": 20,
+      "cueText": "Stand quietly for postural EMG baseline",
+      "phases": [
+        {
+          "marker": "baseline",
+          "durationSec": 8,
+          "cue": "Stand still, soft knees, look ahead",
+          "side": "both",
+          "repeats": 1
+        },
+        {
+          "marker": "stand",
+          "durationSec": 20,
+          "cue": "Continue quiet standing, minimize sway",
+          "side": "both",
+          "repeats": 1
+        }
+      ],
+      "bandCount": 2
+    },
+    {
+      "name": "Seated leg extension",
+      "montage": "Knee extensors",
+      "posture": "Seated, knee about 90 degrees, arms crossed, back supported if needed; extend one knee at a time",
+      "rationale": "Isolates knee-extensor drive on VL, VM, and RF with clear left and right effort markers for side-to-side comparison.",
+      "interpretation": "During each extend phase, VL, VM, and RF on the tested side should rise together; relax phases should fall toward baseline. Cross-talk or delayed fall may indicate incomplete relaxation or cable motion.",
+      "placements": [
+        {
+          "channel": 1,
+          "muscle": "Vastus lateralis",
+          "side": "tested",
+          "siteNotes": "SENIAM: 2/3 on the line from ASIS to the lateral border of the patella; electrodes parallel to muscle fibers"
+        },
+        {
+          "channel": 2,
+          "muscle": "Vastus medialis",
+          "side": "tested",
+          "siteNotes": "SENIAM: 80% on the line from ASIS to the joint space in front of the anterior border of the medial ligament; nearly perpendicular to that line"
+        },
+        {
+          "channel": 3,
+          "muscle": "Rectus femoris",
+          "side": "tested",
+          "siteNotes": "SENIAM: 50% on the line from ASIS to the superior border of the patella; electrodes along that line"
+        }
+      ],
+      "trialCount": 6,
+      "restDurationSec": 5,
+      "contractionDurationSec": 4,
+      "cueText": "Three left then three right seated knee extensions with rests",
+      "phases": [
+        {
+          "marker": "baseline",
+          "durationSec": 8,
+          "cue": "Sit still, relax both thighs",
+          "side": "",
+          "repeats": 1
+        },
+        {
+          "marker": "extend",
+          "durationSec": 4,
+          "cue": "Straighten the left knee and hold",
+          "side": "left",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Lower the left leg and rest",
+          "side": "left",
+          "repeats": 1
+        },
+        {
+          "marker": "extend",
+          "durationSec": 4,
+          "cue": "Straighten the left knee and hold",
+          "side": "left",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Lower the left leg and rest",
+          "side": "left",
+          "repeats": 1
+        },
+        {
+          "marker": "extend",
+          "durationSec": 4,
+          "cue": "Straighten the left knee and hold",
+          "side": "left",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Lower the left leg and rest",
+          "side": "left",
+          "repeats": 1
+        },
+        {
+          "marker": "extend",
+          "durationSec": 4,
+          "cue": "Straighten the right knee and hold",
+          "side": "right",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Lower the right leg and rest",
+          "side": "right",
+          "repeats": 1
+        },
+        {
+          "marker": "extend",
+          "durationSec": 4,
+          "cue": "Straighten the right knee and hold",
+          "side": "right",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Lower the right leg and rest",
+          "side": "right",
+          "repeats": 1
+        },
+        {
+          "marker": "extend",
+          "durationSec": 4,
+          "cue": "Straighten the right knee and hold",
+          "side": "right",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Lower the right leg and rest",
+          "side": "right",
+          "repeats": 1
+        }
+      ]
+    },
+    {
+      "name": "Walking",
+      "montage": "Thigh and calf",
+      "posture": "Overground level walking at a comfortable self-selected pace; phone secured; clear straight path",
+      "rationale": "Records cyclic VL, biceps femoris, and medial gastrocnemius timing across stance and swing for a short, phone-friendly bout.",
+      "interpretation": "Expect VL rise around loading/stance, biceps femoris activity into late swing or early stance, and medial gastrocnemius rise in late stance push-off. Flat lines during walking suggest electrode loss; huge broadband spikes suggest foot strike artifact.",
+      "placements": [
+        {
+          "channel": 1,
+          "muscle": "Vastus lateralis",
+          "side": "tested",
+          "siteNotes": "SENIAM: 2/3 on the line from ASIS to the lateral border of the patella; electrodes parallel to muscle fibers",
+          "band": "proximal",
+          "segment": "thigh"
+        },
+        {
+          "channel": 2,
+          "muscle": "Biceps femoris",
+          "side": "tested",
+          "siteNotes": "SENIAM: 50% on the line from ischial tuberosity to the lateral epicondyle of the tibia; electrodes along that line (long head)",
+          "band": "proximal",
+          "segment": "thigh"
+        },
+        {
+          "channel": 1,
+          "muscle": "Medial gastrocnemius",
+          "side": "tested",
+          "siteNotes": "SENIAM: most prominent bulge of the medial gastrocnemius belly; electrodes oriented along the leg",
+          "band": "distal",
+          "segment": "shank"
+        }
+      ],
+      "trialCount": 1,
+      "restDurationSec": 8,
+      "contractionDurationSec": 25,
+      "cueText": "Quiet stand, then walk about 25 seconds, then stop",
+      "phases": [
+        {
+          "marker": "baseline",
+          "durationSec": 8,
+          "cue": "Stand still at the start line",
+          "side": "both",
+          "repeats": 1
+        },
+        {
+          "marker": "walk",
+          "durationSec": 25,
+          "cue": "Walk at a comfortable steady pace",
+          "side": "both",
+          "repeats": 1
+        },
+        {
+          "marker": "stop",
+          "durationSec": 5,
+          "cue": "Stop and stand still",
+          "side": "both",
+          "repeats": 1
+        }
+      ],
+      "bandCount": 2
+    },
+    {
+      "name": "Running",
+      "montage": "Thigh and calf",
+      "posture": "Short overground jog on a clear path; self-selected easy pace; soft landings if possible",
+      "rationale": "A brief running bout stresses push-off and swing-related activity on the thigh-and-calf montage without needing a long continuous run.",
+      "interpretation": "Compared with walking, expect higher amplitude and shorter bursts on VL and medial gastrocnemius, with biceps femoris contributing in swing. Check that channels return toward quieter levels after stop; prolonged high noise may be electrode bounce.",
+      "placements": [
+        {
+          "channel": 1,
+          "muscle": "Vastus lateralis",
+          "side": "tested",
+          "siteNotes": "SENIAM: 2/3 on the line from ASIS to the lateral border of the patella; electrodes parallel to muscle fibers",
+          "band": "proximal",
+          "segment": "thigh"
+        },
+        {
+          "channel": 2,
+          "muscle": "Biceps femoris",
+          "side": "tested",
+          "siteNotes": "SENIAM: 50% on the line from ischial tuberosity to the lateral epicondyle of the tibia; electrodes along that line (long head)",
+          "band": "proximal",
+          "segment": "thigh"
+        },
+        {
+          "channel": 1,
+          "muscle": "Medial gastrocnemius",
+          "side": "tested",
+          "siteNotes": "SENIAM: most prominent bulge of the medial gastrocnemius belly; electrodes oriented along the leg",
+          "band": "distal",
+          "segment": "shank"
+        }
+      ],
+      "trialCount": 1,
+      "restDurationSec": 8,
+      "contractionDurationSec": 20,
+      "cueText": "Quiet stand, jog about 20 seconds, then stop",
+      "phases": [
+        {
+          "marker": "baseline",
+          "durationSec": 8,
+          "cue": "Stand still ready to jog",
+          "side": "both",
+          "repeats": 1
+        },
+        {
+          "marker": "run",
+          "durationSec": 20,
+          "cue": "Begin easy jog and keep a steady pace",
+          "side": "both",
+          "repeats": 1
+        },
+        {
+          "marker": "stop",
+          "durationSec": 5,
+          "cue": "Decelerate and stand still",
+          "side": "both",
+          "repeats": 1
+        }
+      ],
+      "bandCount": 2
+    },
+    {
+      "name": "Bilateral jump",
+      "montage": "Thigh and calf",
+      "posture": "Standing, feet hip-width; countermovement jump with both legs; soft landing; arms free for balance",
+      "rationale": "Marks countermovement, flight, and landing so VL, hamstring, and calf co-activity can be aligned to propulsion and impact.",
+      "interpretation": "Prep/crouch often shows rising VL (and sometimes biceps femoris); push and flight show brief high activity then a quieter flight window; land should show a sharp multi-channel burst. Spikes only on impact without preceding prep may be artifact-dominated.",
+      "placements": [
+        {
+          "channel": 1,
+          "muscle": "Vastus lateralis",
+          "side": "tested",
+          "siteNotes": "SENIAM: 2/3 on the line from ASIS to the lateral border of the patella; electrodes parallel to muscle fibers",
+          "band": "proximal",
+          "segment": "thigh"
+        },
+        {
+          "channel": 2,
+          "muscle": "Biceps femoris",
+          "side": "tested",
+          "siteNotes": "SENIAM: 50% on the line from ischial tuberosity to the lateral epicondyle of the tibia; electrodes along that line (long head)",
+          "band": "proximal",
+          "segment": "thigh"
+        },
+        {
+          "channel": 1,
+          "muscle": "Medial gastrocnemius",
+          "side": "tested",
+          "siteNotes": "SENIAM: most prominent bulge of the medial gastrocnemius belly; electrodes oriented along the leg",
+          "band": "distal",
+          "segment": "shank"
+        }
+      ],
+      "trialCount": 3,
+      "restDurationSec": 8,
+      "contractionDurationSec": 2,
+      "cueText": "Three countermovement jumps with rest between",
+      "phases": [
+        {
+          "marker": "baseline",
+          "durationSec": 8,
+          "cue": "Stand still, ready for a jump",
+          "side": "both",
+          "repeats": 1
+        },
+        {
+          "marker": "prep",
+          "durationSec": 2,
+          "cue": "Bend both knees for the countermovement",
+          "side": "both",
+          "repeats": 1
+        },
+        {
+          "marker": "flight",
+          "durationSec": 2,
+          "cue": "Jump up with both legs",
+          "side": "both",
+          "repeats": 1
+        },
+        {
+          "marker": "land",
+          "durationSec": 2,
+          "cue": "Land softly and hold briefly",
+          "side": "both",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 8,
+          "cue": "Stand and rest",
+          "side": "both",
+          "repeats": 1
+        },
+        {
+          "marker": "prep",
+          "durationSec": 2,
+          "cue": "Bend both knees for the countermovement",
+          "side": "both",
+          "repeats": 1
+        },
+        {
+          "marker": "flight",
+          "durationSec": 2,
+          "cue": "Jump up with both legs",
+          "side": "both",
+          "repeats": 1
+        },
+        {
+          "marker": "land",
+          "durationSec": 2,
+          "cue": "Land softly and hold briefly",
+          "side": "both",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 8,
+          "cue": "Stand and rest",
+          "side": "both",
+          "repeats": 1
+        },
+        {
+          "marker": "prep",
+          "durationSec": 2,
+          "cue": "Bend both knees for the countermovement",
+          "side": "both",
+          "repeats": 1
+        },
+        {
+          "marker": "flight",
+          "durationSec": 2,
+          "cue": "Jump up with both legs",
+          "side": "both",
+          "repeats": 1
+        },
+        {
+          "marker": "land",
+          "durationSec": 2,
+          "cue": "Land softly and hold briefly",
+          "side": "both",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Stand and rest",
+          "side": "both",
+          "repeats": 1
+        }
+      ],
+      "bandCount": 2
+    },
+    {
+      "name": "Single-leg jump",
+      "montage": "Thigh and calf",
+      "posture": "Standing on the tested leg; small single-leg hop with soft landing; non-tested foot off the ground; spotter if needed",
+      "rationale": "Emphasizes unilateral push-off and landing co-contraction on VL, biceps femoris, and medial gastrocnemius with explicit left and right trials.",
+      "interpretation": "On the hopped side, expect a clear prep rise, a short high push burst, then a landing co-burst across channels. The resting side is not instrumented here; compare left vs right trials for amplitude and landing settle time.",
+      "placements": [
+        {
+          "channel": 1,
+          "muscle": "Vastus lateralis",
+          "side": "tested",
+          "siteNotes": "SENIAM: 2/3 on the line from ASIS to the lateral border of the patella; electrodes parallel to muscle fibers",
+          "band": "proximal",
+          "segment": "thigh"
+        },
+        {
+          "channel": 2,
+          "muscle": "Biceps femoris",
+          "side": "tested",
+          "siteNotes": "SENIAM: 50% on the line from ischial tuberosity to the lateral epicondyle of the tibia; electrodes along that line (long head)",
+          "band": "proximal",
+          "segment": "thigh"
+        },
+        {
+          "channel": 1,
+          "muscle": "Medial gastrocnemius",
+          "side": "tested",
+          "siteNotes": "SENIAM: most prominent bulge of the medial gastrocnemius belly; electrodes oriented along the leg",
+          "band": "distal",
+          "segment": "shank"
+        }
+      ],
+      "trialCount": 4,
+      "restDurationSec": 8,
+      "contractionDurationSec": 2,
+      "cueText": "Two left and two right single-leg hops with rests",
+      "phases": [
+        {
+          "marker": "baseline",
+          "durationSec": 8,
+          "cue": "Stand on both feet, relax",
+          "side": "",
+          "repeats": 1
+        },
+        {
+          "marker": "balance",
+          "durationSec": 3,
+          "cue": "Stand on the left leg only",
+          "side": "left",
+          "repeats": 1
+        },
+        {
+          "marker": "flight",
+          "durationSec": 2,
+          "cue": "Hop on the left leg",
+          "side": "left",
+          "repeats": 1
+        },
+        {
+          "marker": "land",
+          "durationSec": 2,
+          "cue": "Land on the left leg and hold",
+          "side": "left",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 8,
+          "cue": "Both feet down and rest",
+          "side": "",
+          "repeats": 1
+        },
+        {
+          "marker": "balance",
+          "durationSec": 3,
+          "cue": "Stand on the left leg only",
+          "side": "left",
+          "repeats": 1
+        },
+        {
+          "marker": "flight",
+          "durationSec": 2,
+          "cue": "Hop on the left leg",
+          "side": "left",
+          "repeats": 1
+        },
+        {
+          "marker": "land",
+          "durationSec": 2,
+          "cue": "Land on the left leg and hold",
+          "side": "left",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 8,
+          "cue": "Both feet down and rest",
+          "side": "",
+          "repeats": 1
+        },
+        {
+          "marker": "balance",
+          "durationSec": 3,
+          "cue": "Stand on the right leg only",
+          "side": "right",
+          "repeats": 1
+        },
+        {
+          "marker": "flight",
+          "durationSec": 2,
+          "cue": "Hop on the right leg",
+          "side": "right",
+          "repeats": 1
+        },
+        {
+          "marker": "land",
+          "durationSec": 2,
+          "cue": "Land on the right leg and hold",
+          "side": "right",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 8,
+          "cue": "Both feet down and rest",
+          "side": "",
+          "repeats": 1
+        },
+        {
+          "marker": "balance",
+          "durationSec": 3,
+          "cue": "Stand on the right leg only",
+          "side": "right",
+          "repeats": 1
+        },
+        {
+          "marker": "flight",
+          "durationSec": 2,
+          "cue": "Hop on the right leg",
+          "side": "right",
+          "repeats": 1
+        },
+        {
+          "marker": "land",
+          "durationSec": 2,
+          "cue": "Land on the right leg and hold",
+          "side": "right",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Both feet down and rest",
+          "side": "",
+          "repeats": 1
+        }
+      ],
+      "bandCount": 2
+    },
+    {
+      "name": "Single-leg balance",
+      "montage": "Thigh and calf",
+      "posture": "Single-leg stance, non-stance foot lightly lifted, arms free, eyes open; near a wall for safety",
+      "rationale": "Probes sustained postural co-activity and corrective bursts on VL, biceps femoris, and medial gastrocnemius during timed left and right holds.",
+      "interpretation": "Expect a step-up in baseline when the single-leg hold starts, then intermittent corrective bursts especially on medial gastrocnemius and VL. A sudden channel dropout or huge DC-like spike often means electrode peel or foot stamp.",
+      "placements": [
+        {
+          "channel": 1,
+          "muscle": "Vastus lateralis",
+          "side": "tested",
+          "siteNotes": "SENIAM: 2/3 on the line from ASIS to the lateral border of the patella; electrodes parallel to muscle fibers",
+          "band": "proximal",
+          "segment": "thigh"
+        },
+        {
+          "channel": 2,
+          "muscle": "Biceps femoris",
+          "side": "tested",
+          "siteNotes": "SENIAM: 50% on the line from ischial tuberosity to the lateral epicondyle of the tibia; electrodes along that line (long head)",
+          "band": "proximal",
+          "segment": "thigh"
+        },
+        {
+          "channel": 1,
+          "muscle": "Medial gastrocnemius",
+          "side": "tested",
+          "siteNotes": "SENIAM: most prominent bulge of the medial gastrocnemius belly; electrodes oriented along the leg",
+          "band": "distal",
+          "segment": "shank"
+        }
+      ],
+      "trialCount": 2,
+      "restDurationSec": 8,
+      "contractionDurationSec": 20,
+      "cueText": "Quiet stand, then 20 s left and 20 s right single-leg balance",
+      "phases": [
+        {
+          "marker": "baseline",
+          "durationSec": 8,
+          "cue": "Stand on both feet quietly",
+          "side": "both",
+          "repeats": 1
+        },
+        {
+          "marker": "balance",
+          "durationSec": 20,
+          "cue": "Balance on the left leg only",
+          "side": "left",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 8,
+          "cue": "Both feet down and rest",
+          "side": "",
+          "repeats": 1
+        },
+        {
+          "marker": "balance",
+          "durationSec": 20,
+          "cue": "Balance on the right leg only",
+          "side": "right",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Both feet down and rest",
+          "side": "",
+          "repeats": 1
+        }
+      ],
+      "bandCount": 2
+    },
+    {
+      "name": "Sit-to-stand",
+      "montage": "Knee extensors",
+      "posture": "Seated on a firm chair, feet flat about hip-width, arms crossed; stand fully then sit with control",
+      "rationale": "Sit-to-stand is a short functional quad-loading task that links seated rest EMG to upright weight acceptance on the knee-extensor montage.",
+      "interpretation": "VL, VM, and RF should rise together through the stand phase and ease during controlled sit; channels remaining high while seated again suggest incomplete relaxation or leaning on the thighs.",
+      "placements": [
+        {
+          "channel": 1,
+          "muscle": "Vastus lateralis",
+          "side": "tested",
+          "siteNotes": "SENIAM: 2/3 on the line from ASIS to the lateral border of the patella; electrodes parallel to muscle fibers"
+        },
+        {
+          "channel": 2,
+          "muscle": "Vastus medialis",
+          "side": "tested",
+          "siteNotes": "SENIAM: 80% on the line from ASIS to the joint space in front of the anterior border of the medial ligament; nearly perpendicular to that line"
+        },
+        {
+          "channel": 3,
+          "muscle": "Rectus femoris",
+          "side": "tested",
+          "siteNotes": "SENIAM: 50% on the line from ASIS to the superior border of the patella; electrodes along that line"
+        }
+      ],
+      "trialCount": 3,
+      "restDurationSec": 5,
+      "contractionDurationSec": 3,
+      "cueText": "Three sit-to-stand cycles with seated rests",
+      "phases": [
+        {
+          "marker": "baseline",
+          "durationSec": 8,
+          "cue": "Sit still, arms crossed, thighs relaxed",
+          "side": "both",
+          "repeats": 1
+        },
+        {
+          "marker": "stand",
+          "durationSec": 3,
+          "cue": "Stand up fully without using the hands",
+          "side": "both",
+          "repeats": 1
+        },
+        {
+          "marker": "hold",
+          "durationSec": 3,
+          "cue": "Stand quietly upright",
+          "side": "both",
+          "repeats": 1
+        },
+        {
+          "marker": "sit",
+          "durationSec": 3,
+          "cue": "Sit down with control",
+          "side": "both",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Remain seated and rest",
+          "side": "both",
+          "repeats": 1
+        },
+        {
+          "marker": "stand",
+          "durationSec": 3,
+          "cue": "Stand up fully without using the hands",
+          "side": "both",
+          "repeats": 1
+        },
+        {
+          "marker": "hold",
+          "durationSec": 3,
+          "cue": "Stand quietly upright",
+          "side": "both",
+          "repeats": 1
+        },
+        {
+          "marker": "sit",
+          "durationSec": 3,
+          "cue": "Sit down with control",
+          "side": "both",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Remain seated and rest",
+          "side": "both",
+          "repeats": 1
+        },
+        {
+          "marker": "stand",
+          "durationSec": 3,
+          "cue": "Stand up fully without using the hands",
+          "side": "both",
+          "repeats": 1
+        },
+        {
+          "marker": "hold",
+          "durationSec": 3,
+          "cue": "Stand quietly upright",
+          "side": "both",
+          "repeats": 1
+        },
+        {
+          "marker": "sit",
+          "durationSec": 3,
+          "cue": "Sit down with control",
+          "side": "both",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Remain seated and rest",
+          "side": "both",
+          "repeats": 1
+        }
+      ]
+    },
+    {
+      "name": "Squat",
+      "montage": "Knee extensors",
+      "posture": "Standing, feet hip-width; bodyweight squat to a comfortable depth (about thigh parallel if able); heels down; arms forward for balance",
+      "rationale": "Provides repeated concentric–eccentric quadriceps loading under closed-chain conditions that seated extension does not capture.",
+      "interpretation": "All three channels should increase through descent and ascent and fall during stand rests. A single channel staying loud while the others rest often flags poor contact or a stuck cable rather than selective muscle work.",
+      "placements": [
+        {
+          "channel": 1,
+          "muscle": "Vastus lateralis",
+          "side": "tested",
+          "siteNotes": "SENIAM: 2/3 on the line from ASIS to the lateral border of the patella; electrodes parallel to muscle fibers"
+        },
+        {
+          "channel": 2,
+          "muscle": "Vastus medialis",
+          "side": "tested",
+          "siteNotes": "SENIAM: 80% on the line from ASIS to the joint space in front of the anterior border of the medial ligament; nearly perpendicular to that line"
+        },
+        {
+          "channel": 3,
+          "muscle": "Rectus femoris",
+          "side": "tested",
+          "siteNotes": "SENIAM: 50% on the line from ASIS to the superior border of the patella; electrodes along that line"
+        }
+      ],
+      "trialCount": 3,
+      "restDurationSec": 5,
+      "contractionDurationSec": 4,
+      "cueText": "Three bodyweight squats with upright rests",
+      "phases": [
+        {
+          "marker": "baseline",
+          "durationSec": 8,
+          "cue": "Stand tall, thighs relaxed",
+          "side": "both",
+          "repeats": 1
+        },
+        {
+          "marker": "squat",
+          "durationSec": 4,
+          "cue": "Squat down and stand back up once",
+          "side": "both",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Stand and rest",
+          "side": "both",
+          "repeats": 1
+        },
+        {
+          "marker": "squat",
+          "durationSec": 4,
+          "cue": "Squat down and stand back up once",
+          "side": "both",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Stand and rest",
+          "side": "both",
+          "repeats": 1
+        },
+        {
+          "marker": "squat",
+          "durationSec": 4,
+          "cue": "Squat down and stand back up once",
+          "side": "both",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Stand and rest",
+          "side": "both",
+          "repeats": 1
+        }
+      ]
+    },
+    {
+      "name": "Heel raise",
+      "montage": "Thigh and calf",
+      "posture": "Standing, feet hip-width, hands lightly on a wall or chair for balance; rise onto both forefeet then lower",
+      "rationale": "Isolates plantar-flexion drive on medial gastrocnemius while documenting how little VL and biceps femoris should contribute in a quiet bilateral heel raise.",
+      "interpretation": "Medial gastrocnemius should dominate each raise phase; VL and biceps femoris should stay comparatively quiet unless the subject leans or bends the knees. If all three channels explode together, suspect balance recovery or cable motion.",
+      "placements": [
+        {
+          "channel": 1,
+          "muscle": "Vastus lateralis",
+          "side": "tested",
+          "siteNotes": "SENIAM: 2/3 on the line from ASIS to the lateral border of the patella; electrodes parallel to muscle fibers",
+          "band": "proximal",
+          "segment": "thigh"
+        },
+        {
+          "channel": 2,
+          "muscle": "Biceps femoris",
+          "side": "tested",
+          "siteNotes": "SENIAM: 50% on the line from ischial tuberosity to the lateral epicondyle of the tibia; electrodes along that line (long head)",
+          "band": "proximal",
+          "segment": "thigh"
+        },
+        {
+          "channel": 1,
+          "muscle": "Medial gastrocnemius",
+          "side": "tested",
+          "siteNotes": "SENIAM: most prominent bulge of the medial gastrocnemius belly; electrodes oriented along the leg",
+          "band": "distal",
+          "segment": "shank"
+        }
+      ],
+      "trialCount": 3,
+      "restDurationSec": 5,
+      "contractionDurationSec": 3,
+      "cueText": "Three bilateral heel raises with rests",
+      "phases": [
+        {
+          "marker": "baseline",
+          "durationSec": 8,
+          "cue": "Stand flat-footed and still",
+          "side": "both",
+          "repeats": 1
+        },
+        {
+          "marker": "raise",
+          "durationSec": 3,
+          "cue": "Rise onto both toes and hold",
+          "side": "both",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Lower heels and rest",
+          "side": "both",
+          "repeats": 1
+        },
+        {
+          "marker": "raise",
+          "durationSec": 3,
+          "cue": "Rise onto both toes and hold",
+          "side": "both",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Lower heels and rest",
+          "side": "both",
+          "repeats": 1
+        },
+        {
+          "marker": "raise",
+          "durationSec": 3,
+          "cue": "Rise onto both toes and hold",
+          "side": "both",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Lower heels and rest",
+          "side": "both",
+          "repeats": 1
+        }
+      ],
+      "bandCount": 2
+    },
+    {
+      "name": "Gait initiation",
+      "montage": "Thigh and calf",
+      "posture": "Quiet standing, then first step forward with a nominated lead foot into a few walking steps; clear path ahead",
+      "rationale": "Captures the quiet-to-first-step transition where anticipatory postural activity and early push-off appear before steady walking.",
+      "interpretation": "After baseline, look for a brief preparatory change then a clear medial gastrocnemius and VL rise on the first push/step; biceps femoris may rise into swing of the stepping limb. Compare left-lead and right-lead trials for timing, not pathology labels.",
+      "placements": [
+        {
+          "channel": 1,
+          "muscle": "Vastus lateralis",
+          "side": "tested",
+          "siteNotes": "SENIAM: 2/3 on the line from ASIS to the lateral border of the patella; electrodes parallel to muscle fibers",
+          "band": "proximal",
+          "segment": "thigh"
+        },
+        {
+          "channel": 2,
+          "muscle": "Biceps femoris",
+          "side": "tested",
+          "siteNotes": "SENIAM: 50% on the line from ischial tuberosity to the lateral epicondyle of the tibia; electrodes along that line (long head)",
+          "band": "proximal",
+          "segment": "thigh"
+        },
+        {
+          "channel": 1,
+          "muscle": "Medial gastrocnemius",
+          "side": "tested",
+          "siteNotes": "SENIAM: most prominent bulge of the medial gastrocnemius belly; electrodes oriented along the leg",
+          "band": "distal",
+          "segment": "shank"
+        }
+      ],
+      "trialCount": 4,
+      "restDurationSec": 5,
+      "contractionDurationSec": 4,
+      "cueText": "Two left-lead and two right-lead gait initiations",
+      "phases": [
+        {
+          "marker": "baseline",
+          "durationSec": 8,
+          "cue": "Stand still, weight even",
+          "side": "both",
+          "repeats": 1
+        },
+        {
+          "marker": "step",
+          "durationSec": 4,
+          "cue": "First step with the left foot, then a few steps",
+          "side": "left",
+          "repeats": 1,
+          "sideMeans": "lead_foot"
+        },
+        {
+          "marker": "stop",
+          "durationSec": 5,
+          "cue": "Stop and stand still",
+          "side": "both",
+          "repeats": 1
+        },
+        {
+          "marker": "step",
+          "durationSec": 4,
+          "cue": "First step with the left foot, then a few steps",
+          "side": "left",
+          "repeats": 1,
+          "sideMeans": "lead_foot"
+        },
+        {
+          "marker": "stop",
+          "durationSec": 5,
+          "cue": "Stop and stand still",
+          "side": "both",
+          "repeats": 1
+        },
+        {
+          "marker": "step",
+          "durationSec": 4,
+          "cue": "First step with the right foot, then a few steps",
+          "side": "right",
+          "repeats": 1,
+          "sideMeans": "lead_foot"
+        },
+        {
+          "marker": "stop",
+          "durationSec": 5,
+          "cue": "Stop and stand still",
+          "side": "both",
+          "repeats": 1
+        },
+        {
+          "marker": "step",
+          "durationSec": 4,
+          "cue": "First step with the right foot, then a few steps",
+          "side": "right",
+          "repeats": 1,
+          "sideMeans": "lead_foot"
+        },
+        {
+          "marker": "stop",
+          "durationSec": 5,
+          "cue": "Stop and stand still",
+          "side": "both",
+          "repeats": 1
+        }
+      ],
+      "bandCount": 2
+    },
+    {
+      "name": "Step-up",
+      "montage": "Knee extensors",
+      "posture": "Facing a stable step or box about mid-shin height; step up with the nominated lead leg, bring the trail foot up, then step down with control",
+      "rationale": "Step-up loads the lead-limb quadriceps in a functional closed-chain pattern useful when gait space is limited.",
+      "interpretation": "Lead-leg extend phases should show coordinated VL, VM, and RF elevation; descend should show a second rise then return toward quiet standing. Asymmetry between left-lead and right-lead trials is for recording QA, not clinical labeling.",
+      "placements": [
+        {
+          "channel": 1,
+          "muscle": "Vastus lateralis",
+          "side": "tested",
+          "siteNotes": "SENIAM: 2/3 on the line from ASIS to the lateral border of the patella; electrodes parallel to muscle fibers"
+        },
+        {
+          "channel": 2,
+          "muscle": "Vastus medialis",
+          "side": "tested",
+          "siteNotes": "SENIAM: 80% on the line from ASIS to the joint space in front of the anterior border of the medial ligament; nearly perpendicular to that line"
+        },
+        {
+          "channel": 3,
+          "muscle": "Rectus femoris",
+          "side": "tested",
+          "siteNotes": "SENIAM: 50% on the line from ASIS to the superior border of the patella; electrodes along that line"
+        }
+      ],
+      "trialCount": 4,
+      "restDurationSec": 5,
+      "contractionDurationSec": 4,
+      "cueText": "Two left-lead and two right-lead step-ups",
+      "phases": [
+        {
+          "marker": "baseline",
+          "durationSec": 8,
+          "cue": "Stand facing the step, thighs relaxed",
+          "side": "both",
+          "repeats": 1
+        },
+        {
+          "marker": "stepup",
+          "durationSec": 4,
+          "cue": "Step up leading with the left foot, then trail foot",
+          "side": "left",
+          "repeats": 1
+        },
+        {
+          "marker": "hold",
+          "durationSec": 2,
+          "cue": "Stand on the step",
+          "side": "both",
+          "repeats": 1
+        },
+        {
+          "marker": "stepdown",
+          "durationSec": 4,
+          "cue": "Step down with control",
+          "side": "left",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Stand on the floor and rest",
+          "side": "both",
+          "repeats": 1
+        },
+        {
+          "marker": "stepup",
+          "durationSec": 4,
+          "cue": "Step up leading with the left foot, then trail foot",
+          "side": "left",
+          "repeats": 1
+        },
+        {
+          "marker": "hold",
+          "durationSec": 2,
+          "cue": "Stand on the step",
+          "side": "both",
+          "repeats": 1
+        },
+        {
+          "marker": "stepdown",
+          "durationSec": 4,
+          "cue": "Step down with control",
+          "side": "left",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Stand on the floor and rest",
+          "side": "both",
+          "repeats": 1
+        },
+        {
+          "marker": "stepup",
+          "durationSec": 4,
+          "cue": "Step up leading with the right foot, then trail foot",
+          "side": "right",
+          "repeats": 1
+        },
+        {
+          "marker": "hold",
+          "durationSec": 2,
+          "cue": "Stand on the step",
+          "side": "both",
+          "repeats": 1
+        },
+        {
+          "marker": "stepdown",
+          "durationSec": 4,
+          "cue": "Step down with control",
+          "side": "right",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Stand on the floor and rest",
+          "side": "both",
+          "repeats": 1
+        },
+        {
+          "marker": "stepup",
+          "durationSec": 4,
+          "cue": "Step up leading with the right foot, then trail foot",
+          "side": "right",
+          "repeats": 1
+        },
+        {
+          "marker": "hold",
+          "durationSec": 2,
+          "cue": "Stand on the step",
+          "side": "both",
+          "repeats": 1
+        },
+        {
+          "marker": "stepdown",
+          "durationSec": 4,
+          "cue": "Step down with control",
+          "side": "right",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Stand on the floor and rest",
+          "side": "both",
+          "repeats": 1
+        }
+      ]
+    },
+    {
+      "name": "Quiet hand",
+      "montage": "Hand",
+      "posture": "Seated, both forearms on a table, palms down, fingers slightly flexed, no talking",
+      "rationale": "Establishes a quiet baseline for abductor pollicis brevis, first dorsal interosseous, and abductor digiti minimi before grip and finger-abduction trials.",
+      "interpretation": "All three channels should stay near the noise floor with no rhythmic bursts. Spikes that track a finger twitch or a cable tug are motion artifact, not resting muscle drive.",
+      "placements": [
+        {
+          "channel": 1,
+          "muscle": "Abductor pollicis brevis",
+          "side": "tested",
+          "siteNotes": "SENIAM: slightly medial of the distal 1/4 of the first metacarpal; electrodes parallel to the first metacarpal"
+        },
+        {
+          "channel": 2,
+          "muscle": "First dorsal interosseous",
+          "side": "tested",
+          "siteNotes": "Cram: dorsal web between thumb and index, over the muscle belly; electrodes parallel to the second metacarpal"
+        },
+        {
+          "channel": 3,
+          "muscle": "Abductor digiti minimi",
+          "side": "tested",
+          "siteNotes": "Cram: most prominent bulge of the hypothenar eminence; electrodes parallel to the fifth metacarpal"
+        }
+      ],
+      "trialCount": 1,
+      "restDurationSec": 10,
+      "contractionDurationSec": 10,
+      "cueText": "Rest both hands for a quiet intrinsic baseline",
+      "phases": [
+        {
+          "marker": "baseline",
+          "durationSec": 10,
+          "cue": "Hands on the table, fingers soft, breathe normally",
+          "side": "",
+          "repeats": 1
+        }
+      ]
+    },
+    {
+      "name": "Power grip",
+      "montage": "Hand",
+      "posture": "Seated, forearm supported on a table; make a firm fist without lifting the forearm",
+      "rationale": "Records a co-contraction grasp on the thenar, first dorsal interosseous, and hypothenar channels with separate left and right efforts.",
+      "interpretation": "During each grip phase all three channels should rise together and fall when the hand opens. A channel that stays flat through a firm fist often means poor contact. A channel that stays loud through relax means the hand did not open.",
+      "placements": [
+        {
+          "channel": 1,
+          "muscle": "Abductor pollicis brevis",
+          "side": "tested",
+          "siteNotes": "SENIAM: slightly medial of the distal 1/4 of the first metacarpal; electrodes parallel to the first metacarpal"
+        },
+        {
+          "channel": 2,
+          "muscle": "First dorsal interosseous",
+          "side": "tested",
+          "siteNotes": "Cram: dorsal web between thumb and index, over the muscle belly; electrodes parallel to the second metacarpal"
+        },
+        {
+          "channel": 3,
+          "muscle": "Abductor digiti minimi",
+          "side": "tested",
+          "siteNotes": "Cram: most prominent bulge of the hypothenar eminence; electrodes parallel to the fifth metacarpal"
+        }
+      ],
+      "trialCount": 6,
+      "restDurationSec": 5,
+      "contractionDurationSec": 4,
+      "cueText": "Three left then three right fist squeezes with rests",
+      "phases": [
+        {
+          "marker": "baseline",
+          "durationSec": 8,
+          "cue": "Forearms on the table, hands open and relaxed",
+          "side": "",
+          "repeats": 1
+        },
+        {
+          "marker": "grip",
+          "durationSec": 4,
+          "cue": "Make a left fist and squeeze",
+          "side": "left",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Open the left hand and rest",
+          "side": "left",
+          "repeats": 1
+        },
+        {
+          "marker": "grip",
+          "durationSec": 4,
+          "cue": "Make a left fist and squeeze",
+          "side": "left",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Open the left hand and rest",
+          "side": "left",
+          "repeats": 1
+        },
+        {
+          "marker": "grip",
+          "durationSec": 4,
+          "cue": "Make a left fist and squeeze",
+          "side": "left",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Open the left hand and rest",
+          "side": "left",
+          "repeats": 1
+        },
+        {
+          "marker": "grip",
+          "durationSec": 4,
+          "cue": "Make a right fist and squeeze",
+          "side": "right",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Open the right hand and rest",
+          "side": "right",
+          "repeats": 1
+        },
+        {
+          "marker": "grip",
+          "durationSec": 4,
+          "cue": "Make a right fist and squeeze",
+          "side": "right",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Open the right hand and rest",
+          "side": "right",
+          "repeats": 1
+        },
+        {
+          "marker": "grip",
+          "durationSec": 4,
+          "cue": "Make a right fist and squeeze",
+          "side": "right",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Open the right hand and rest",
+          "side": "right",
+          "repeats": 1
+        }
+      ]
+    },
+    {
+      "name": "Thumb abduction",
+      "montage": "Hand",
+      "posture": "Seated, back of the hand on the table, fingers relaxed; lift the thumb away from the palm",
+      "rationale": "Targets abductor pollicis brevis with the SENIAM clinical test, using first dorsal interosseous and abductor digiti minimi as quieter neighbors.",
+      "interpretation": "Abductor pollicis brevis should dominate each abduct phase. First dorsal interosseous may show some cross-talk; abductor digiti minimi should stay comparatively quiet. If all three channels match exactly, suspect a shared cable artifact.",
+      "placements": [
+        {
+          "channel": 1,
+          "muscle": "Abductor pollicis brevis",
+          "side": "tested",
+          "siteNotes": "SENIAM: slightly medial of the distal 1/4 of the first metacarpal; electrodes parallel to the first metacarpal"
+        },
+        {
+          "channel": 2,
+          "muscle": "First dorsal interosseous",
+          "side": "tested",
+          "siteNotes": "Cram: dorsal web between thumb and index, over the muscle belly; electrodes parallel to the second metacarpal"
+        },
+        {
+          "channel": 3,
+          "muscle": "Abductor digiti minimi",
+          "side": "tested",
+          "siteNotes": "Cram: most prominent bulge of the hypothenar eminence; electrodes parallel to the fifth metacarpal"
+        }
+      ],
+      "trialCount": 6,
+      "restDurationSec": 5,
+      "contractionDurationSec": 4,
+      "cueText": "Three left then three right thumb abductions with rests",
+      "phases": [
+        {
+          "marker": "baseline",
+          "durationSec": 8,
+          "cue": "Backs of the hands on the table, thumbs relaxed",
+          "side": "",
+          "repeats": 1
+        },
+        {
+          "marker": "abduct",
+          "durationSec": 4,
+          "cue": "Lift the left thumb away from the palm and hold",
+          "side": "left",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Rest the left thumb against the hand",
+          "side": "left",
+          "repeats": 1
+        },
+        {
+          "marker": "abduct",
+          "durationSec": 4,
+          "cue": "Lift the left thumb away from the palm and hold",
+          "side": "left",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Rest the left thumb against the hand",
+          "side": "left",
+          "repeats": 1
+        },
+        {
+          "marker": "abduct",
+          "durationSec": 4,
+          "cue": "Lift the left thumb away from the palm and hold",
+          "side": "left",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Rest the left thumb against the hand",
+          "side": "left",
+          "repeats": 1
+        },
+        {
+          "marker": "abduct",
+          "durationSec": 4,
+          "cue": "Lift the right thumb away from the palm and hold",
+          "side": "right",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Rest the right thumb against the hand",
+          "side": "right",
+          "repeats": 1
+        },
+        {
+          "marker": "abduct",
+          "durationSec": 4,
+          "cue": "Lift the right thumb away from the palm and hold",
+          "side": "right",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Rest the right thumb against the hand",
+          "side": "right",
+          "repeats": 1
+        },
+        {
+          "marker": "abduct",
+          "durationSec": 4,
+          "cue": "Lift the right thumb away from the palm and hold",
+          "side": "right",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Rest the right thumb against the hand",
+          "side": "right",
+          "repeats": 1
+        }
+      ]
+    },
+    {
+      "name": "Index abduction",
+      "montage": "Hand",
+      "posture": "Seated, palm down on the table, fingers together; slide the index finger away from the middle finger",
+      "rationale": "Targets first dorsal interosseous while abductor pollicis brevis and abductor digiti minimi show how selective the effort is.",
+      "interpretation": "First dorsal interosseous should rise on each abduct phase and fall on relax. The thenar and hypothenar channels should stay lower unless the whole hand spreads. Equal bursts on every channel suggest a global fist rather than index abduction.",
+      "placements": [
+        {
+          "channel": 1,
+          "muscle": "Abductor pollicis brevis",
+          "side": "tested",
+          "siteNotes": "SENIAM: slightly medial of the distal 1/4 of the first metacarpal; electrodes parallel to the first metacarpal"
+        },
+        {
+          "channel": 2,
+          "muscle": "First dorsal interosseous",
+          "side": "tested",
+          "siteNotes": "Cram: dorsal web between thumb and index, over the muscle belly; electrodes parallel to the second metacarpal"
+        },
+        {
+          "channel": 3,
+          "muscle": "Abductor digiti minimi",
+          "side": "tested",
+          "siteNotes": "Cram: most prominent bulge of the hypothenar eminence; electrodes parallel to the fifth metacarpal"
+        }
+      ],
+      "trialCount": 6,
+      "restDurationSec": 5,
+      "contractionDurationSec": 4,
+      "cueText": "Three left then three right index-finger abductions with rests",
+      "phases": [
+        {
+          "marker": "baseline",
+          "durationSec": 8,
+          "cue": "Palms down, fingers together and relaxed",
+          "side": "",
+          "repeats": 1
+        },
+        {
+          "marker": "abduct",
+          "durationSec": 4,
+          "cue": "Move the left index finger away from the middle finger and hold",
+          "side": "left",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Bring the left index finger back and rest",
+          "side": "left",
+          "repeats": 1
+        },
+        {
+          "marker": "abduct",
+          "durationSec": 4,
+          "cue": "Move the left index finger away from the middle finger and hold",
+          "side": "left",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Bring the left index finger back and rest",
+          "side": "left",
+          "repeats": 1
+        },
+        {
+          "marker": "abduct",
+          "durationSec": 4,
+          "cue": "Move the left index finger away from the middle finger and hold",
+          "side": "left",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Bring the left index finger back and rest",
+          "side": "left",
+          "repeats": 1
+        },
+        {
+          "marker": "abduct",
+          "durationSec": 4,
+          "cue": "Move the right index finger away from the middle finger and hold",
+          "side": "right",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Bring the right index finger back and rest",
+          "side": "right",
+          "repeats": 1
+        },
+        {
+          "marker": "abduct",
+          "durationSec": 4,
+          "cue": "Move the right index finger away from the middle finger and hold",
+          "side": "right",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Bring the right index finger back and rest",
+          "side": "right",
+          "repeats": 1
+        },
+        {
+          "marker": "abduct",
+          "durationSec": 4,
+          "cue": "Move the right index finger away from the middle finger and hold",
+          "side": "right",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Bring the right index finger back and rest",
+          "side": "right",
+          "repeats": 1
+        }
+      ]
+    },
+    {
+      "name": "Little-finger abduction",
+      "montage": "Hand",
+      "posture": "Seated, palm down on the table, fingers together; move the little finger away from the ring finger",
+      "rationale": "Targets abductor digiti minimi, with abductor pollicis brevis and first dorsal interosseous as comparison channels.",
+      "interpretation": "Abductor digiti minimi should rise on each abduct phase and fall on relax. Thenar and first dorsal interosseous should stay quieter unless the hand spreads or grips. A loud thenar channel during little-finger movement often means the thumb is helping.",
+      "placements": [
+        {
+          "channel": 1,
+          "muscle": "Abductor pollicis brevis",
+          "side": "tested",
+          "siteNotes": "SENIAM: slightly medial of the distal 1/4 of the first metacarpal; electrodes parallel to the first metacarpal"
+        },
+        {
+          "channel": 2,
+          "muscle": "First dorsal interosseous",
+          "side": "tested",
+          "siteNotes": "Cram: dorsal web between thumb and index, over the muscle belly; electrodes parallel to the second metacarpal"
+        },
+        {
+          "channel": 3,
+          "muscle": "Abductor digiti minimi",
+          "side": "tested",
+          "siteNotes": "Cram: most prominent bulge of the hypothenar eminence; electrodes parallel to the fifth metacarpal"
+        }
+      ],
+      "trialCount": 6,
+      "restDurationSec": 5,
+      "contractionDurationSec": 4,
+      "cueText": "Three left then three right little-finger abductions with rests",
+      "phases": [
+        {
+          "marker": "baseline",
+          "durationSec": 8,
+          "cue": "Palms down, fingers together and relaxed",
+          "side": "",
+          "repeats": 1
+        },
+        {
+          "marker": "abduct",
+          "durationSec": 4,
+          "cue": "Move the left little finger away from the ring finger and hold",
+          "side": "left",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Bring the left little finger back and rest",
+          "side": "left",
+          "repeats": 1
+        },
+        {
+          "marker": "abduct",
+          "durationSec": 4,
+          "cue": "Move the left little finger away from the ring finger and hold",
+          "side": "left",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Bring the left little finger back and rest",
+          "side": "left",
+          "repeats": 1
+        },
+        {
+          "marker": "abduct",
+          "durationSec": 4,
+          "cue": "Move the left little finger away from the ring finger and hold",
+          "side": "left",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Bring the left little finger back and rest",
+          "side": "left",
+          "repeats": 1
+        },
+        {
+          "marker": "abduct",
+          "durationSec": 4,
+          "cue": "Move the right little finger away from the ring finger and hold",
+          "side": "right",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Bring the right little finger back and rest",
+          "side": "right",
+          "repeats": 1
+        },
+        {
+          "marker": "abduct",
+          "durationSec": 4,
+          "cue": "Move the right little finger away from the ring finger and hold",
+          "side": "right",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Bring the right little finger back and rest",
+          "side": "right",
+          "repeats": 1
+        },
+        {
+          "marker": "abduct",
+          "durationSec": 4,
+          "cue": "Move the right little finger away from the ring finger and hold",
+          "side": "right",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Bring the right little finger back and rest",
+          "side": "right",
+          "repeats": 1
+        }
+      ]
+    },
+    {
+      "name": "Quiet arm",
+      "montage": "Elbow",
+      "posture": "Seated, arm supported so the elbow rests near 90 degrees, forearm supinated, hand relaxed",
+      "rationale": "Quiet baseline for biceps brachii and the long and lateral heads of triceps before flexion and extension trials.",
+      "interpretation": "All three channels should stay near the noise floor. A steady low biceps hum can be resting tone or poor contact; compare it with the effort trials before calling it muscle drive.",
+      "placements": [
+        {
+          "channel": 1,
+          "muscle": "Biceps brachii",
+          "side": "tested",
+          "siteNotes": "SENIAM: on the line from the medial acromion to the fossa cubit, at 1/3 from the fossa cubit; electrodes along that line"
+        },
+        {
+          "channel": 2,
+          "muscle": "Triceps brachii long head",
+          "side": "tested",
+          "siteNotes": "SENIAM: 50% on the line from the posterior crista of the acromion to the olecranon, 2 finger widths medial to that line"
+        },
+        {
+          "channel": 3,
+          "muscle": "Triceps brachii lateral head",
+          "side": "tested",
+          "siteNotes": "SENIAM: 50% on the line from the posterior crista of the acromion to the olecranon, 2 finger widths lateral to that line"
+        }
+      ],
+      "trialCount": 1,
+      "restDurationSec": 10,
+      "contractionDurationSec": 10,
+      "cueText": "Rest the arm for a quiet biceps and triceps baseline",
+      "phases": [
+        {
+          "marker": "baseline",
+          "durationSec": 10,
+          "cue": "Elbow near 90 degrees, forearm supinated, arm relaxed",
+          "side": "",
+          "repeats": 1
+        }
+      ]
+    },
+    {
+      "name": "Elbow flexion",
+      "montage": "Elbow",
+      "posture": "Seated, elbow near 90 degrees, forearm supinated; bend the elbow to lift the hand toward the shoulder",
+      "rationale": "Isolates elbow-flexor drive on biceps brachii against the long and lateral triceps heads, with left and right trials.",
+      "interpretation": "Biceps should rise on each flex phase; both triceps heads should stay quieter unless the subject co-contracts. Relax should return biceps toward baseline. If the triceps channels match the biceps burst, suspect an extension effort or cable motion.",
+      "placements": [
+        {
+          "channel": 1,
+          "muscle": "Biceps brachii",
+          "side": "tested",
+          "siteNotes": "SENIAM: on the line from the medial acromion to the fossa cubit, at 1/3 from the fossa cubit; electrodes along that line"
+        },
+        {
+          "channel": 2,
+          "muscle": "Triceps brachii long head",
+          "side": "tested",
+          "siteNotes": "SENIAM: 50% on the line from the posterior crista of the acromion to the olecranon, 2 finger widths medial to that line"
+        },
+        {
+          "channel": 3,
+          "muscle": "Triceps brachii lateral head",
+          "side": "tested",
+          "siteNotes": "SENIAM: 50% on the line from the posterior crista of the acromion to the olecranon, 2 finger widths lateral to that line"
+        }
+      ],
+      "trialCount": 6,
+      "restDurationSec": 5,
+      "contractionDurationSec": 4,
+      "cueText": "Three left then three right elbow bends with rests",
+      "phases": [
+        {
+          "marker": "baseline",
+          "durationSec": 8,
+          "cue": "Elbows near 90 degrees, forearms supinated, arms relaxed",
+          "side": "",
+          "repeats": 1
+        },
+        {
+          "marker": "flex",
+          "durationSec": 4,
+          "cue": "Bend the left elbow and hold",
+          "side": "left",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Lower the left forearm and rest",
+          "side": "left",
+          "repeats": 1
+        },
+        {
+          "marker": "flex",
+          "durationSec": 4,
+          "cue": "Bend the left elbow and hold",
+          "side": "left",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Lower the left forearm and rest",
+          "side": "left",
+          "repeats": 1
+        },
+        {
+          "marker": "flex",
+          "durationSec": 4,
+          "cue": "Bend the left elbow and hold",
+          "side": "left",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Lower the left forearm and rest",
+          "side": "left",
+          "repeats": 1
+        },
+        {
+          "marker": "flex",
+          "durationSec": 4,
+          "cue": "Bend the right elbow and hold",
+          "side": "right",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Lower the right forearm and rest",
+          "side": "right",
+          "repeats": 1
+        },
+        {
+          "marker": "flex",
+          "durationSec": 4,
+          "cue": "Bend the right elbow and hold",
+          "side": "right",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Lower the right forearm and rest",
+          "side": "right",
+          "repeats": 1
+        },
+        {
+          "marker": "flex",
+          "durationSec": 4,
+          "cue": "Bend the right elbow and hold",
+          "side": "right",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Lower the right forearm and rest",
+          "side": "right",
+          "repeats": 1
+        }
+      ]
+    },
+    {
+      "name": "Elbow extension",
+      "montage": "Elbow",
+      "posture": "Seated, elbow near 90 degrees, forearm supported; straighten the elbow",
+      "rationale": "Isolates elbow-extensor drive on the long and lateral triceps heads, with biceps brachii as the antagonist channel.",
+      "interpretation": "Both triceps channels should rise together on extend and fall on relax. Biceps should stay comparatively quiet. One triceps channel loud and the other flat often means the quiet electrode has left the muscle belly.",
+      "placements": [
+        {
+          "channel": 1,
+          "muscle": "Biceps brachii",
+          "side": "tested",
+          "siteNotes": "SENIAM: on the line from the medial acromion to the fossa cubit, at 1/3 from the fossa cubit; electrodes along that line"
+        },
+        {
+          "channel": 2,
+          "muscle": "Triceps brachii long head",
+          "side": "tested",
+          "siteNotes": "SENIAM: 50% on the line from the posterior crista of the acromion to the olecranon, 2 finger widths medial to that line"
+        },
+        {
+          "channel": 3,
+          "muscle": "Triceps brachii lateral head",
+          "side": "tested",
+          "siteNotes": "SENIAM: 50% on the line from the posterior crista of the acromion to the olecranon, 2 finger widths lateral to that line"
+        }
+      ],
+      "trialCount": 6,
+      "restDurationSec": 5,
+      "contractionDurationSec": 4,
+      "cueText": "Three left then three right elbow straightens with rests",
+      "phases": [
+        {
+          "marker": "baseline",
+          "durationSec": 8,
+          "cue": "Elbows near 90 degrees, forearms supported, arms relaxed",
+          "side": "",
+          "repeats": 1
+        },
+        {
+          "marker": "extend",
+          "durationSec": 4,
+          "cue": "Straighten the left elbow and hold",
+          "side": "left",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Bend the left elbow back and rest",
+          "side": "left",
+          "repeats": 1
+        },
+        {
+          "marker": "extend",
+          "durationSec": 4,
+          "cue": "Straighten the left elbow and hold",
+          "side": "left",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Bend the left elbow back and rest",
+          "side": "left",
+          "repeats": 1
+        },
+        {
+          "marker": "extend",
+          "durationSec": 4,
+          "cue": "Straighten the left elbow and hold",
+          "side": "left",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Bend the left elbow back and rest",
+          "side": "left",
+          "repeats": 1
+        },
+        {
+          "marker": "extend",
+          "durationSec": 4,
+          "cue": "Straighten the right elbow and hold",
+          "side": "right",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Bend the right elbow back and rest",
+          "side": "right",
+          "repeats": 1
+        },
+        {
+          "marker": "extend",
+          "durationSec": 4,
+          "cue": "Straighten the right elbow and hold",
+          "side": "right",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Bend the right elbow back and rest",
+          "side": "right",
+          "repeats": 1
+        },
+        {
+          "marker": "extend",
+          "durationSec": 4,
+          "cue": "Straighten the right elbow and hold",
+          "side": "right",
+          "repeats": 1
+        },
+        {
+          "marker": "relax",
+          "durationSec": 5,
+          "cue": "Bend the right elbow back and rest",
+          "side": "right",
+          "repeats": 1
+        }
+      ]
+    }
+  ]
+}
