@@ -6,5 +6,5 @@ allowBuilds:
   sharp: true
   unrs-resolver: true
   msw: false
-  esbuild: set this to true or false
-  msgpackr-extract: set this to true or false
+  esbuild: false
+  msgpackr-extract: false
