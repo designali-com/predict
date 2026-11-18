@@ -552,7 +552,7 @@ export function BrandTypography() {
     <div className="not-prose mt-6 grid gap-4 lg:grid-cols-2">
       <Card>
         <CardHeader>
-          <CardTitle className="text-sm">Neue Montreal</CardTitle>
+          <CardTitle className="text-sm">Inter</CardTitle>
           <CardDescription>Headings, body text, and the interface. `font-sans`</CardDescription>
         </CardHeader>
         <CardContent className="flex flex-col gap-4 font-sans">

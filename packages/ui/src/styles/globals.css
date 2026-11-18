@@ -2,14 +2,36 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
-@custom-variant dark (&:is(.dark *));
+/* `.app-light` / `.app-dark` force a theme on one subtree (e.g. a phone frame)
+   regardless of the site theme, so `dark:` must respect them too. */
+@custom-variant dark (&:is(.dark *, .app-dark *):not(:where(.app-light *)));
 @source "../../../apps/**/*.{ts,tsx}";
 @source "../../../components/**/*.{ts,tsx}";
 @source "../**/*.{ts,tsx}";
 @import "./typo.css";
 
 @theme inline {
-  --font-sans: var(--font-montreal); 
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  /* Display face: Inter as well, so the whole project uses one typeface. */
+  --font-display: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  /* Mobile app theme (see the --app-* tokens below) */
+  --color-app-background: var(--app-background);
+  --color-app-foreground: var(--app-foreground);
+  --color-app-surface: var(--app-surface);
+  --color-app-field: var(--app-field);
+  --color-app-border: var(--app-border);
+  --color-app-track: var(--app-track);
+  --color-app-pill: var(--app-pill);
+  --color-app-pill-foreground: var(--app-pill-foreground);
+  --color-app-brand: var(--app-brand);
+  --color-app-brand-foreground: var(--app-brand-foreground);
+  --color-app-accent: var(--app-accent);
+  --color-app-glow: var(--app-glow);
+
+  /* Brand violet used across the mobile app designs */
+  --color-violet-dark: var(--violet-dark);
+  --color-lavender: var(--lavender);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -112,6 +134,9 @@
   --status-extreme: oklch(63.7% 0.237 25.331);
   /* #FB2C36 */
 
+  /* Mobile app brand */
+  --violet-dark: #420080;
+  --lavender: #ebe6fe;
 }
 
 .dark {
@@ -158,6 +183,64 @@
   /* #FF6900 */
   --status-extreme: oklch(63.7% 0.237 25.331);
   /* #FB2C36 */
+
+  /* Mobile app brand */
+  --violet-dark: #420080;
+  --lavender: #ebe6fe;
+}
+
+/*
+ * Mobile app theme. Light values are the Figma "App Design" colours; dark is
+ * the same violet brand on a violet-black canvas. Follows the site theme by
+ * default; `.app-light` / `.app-dark` force one theme on a subtree.
+ */
+:root,
+.app-light {
+  --app-background: #ffffff;
+  --app-foreground: #030303;
+  --app-surface: #fbfaff; /* bottom sheets */
+  --app-field: #ffffff; /* inputs, segmented controls */
+  --app-border: #e2e2e2;
+  --app-track: #dedede; /* switch off */
+  --app-pill: #ebe6fe; /* lavender chips, secondary buttons */
+  --app-pill-foreground: #030303;
+  --app-brand: #420080; /* filled: primary buttons, progress, glow */
+  --app-brand-foreground: #ffffff;
+  --app-accent: #420080; /* marks, dashed outlines, focus */
+  --app-glow: #420080;
+  --app-card-shadow: inset 0 0 30px rgb(66 0 128 / 0.2);
+}
+
+.dark,
+.app-dark {
+  --app-background: #0b0612;
+  --app-foreground: #f4f1fb;
+  --app-surface: #150c22;
+  --app-field: #140b20;
+  --app-border: #2e2440;
+  --app-track: #3a3049;
+  --app-pill: #2a1a48;
+  --app-pill-foreground: #ebe6fe;
+  --app-brand: #6a1fd0;
+  --app-brand-foreground: #ffffff;
+  --app-accent: #b996ff;
+  --app-glow: #5414a8;
+  --app-card-shadow: inset 0 0 30px rgb(185 150 255 / 0.16);
+}
+
+/* Inside an app screen, the shared primitives (Input, Select, Switch, Tabs…)
+   read the app theme instead of the site theme. */
+[data-slot="app-screen"] {
+  --background: var(--app-background);
+  --foreground: var(--app-foreground);
+  --border: var(--app-border);
+  --input: var(--app-border);
+  --ring: var(--app-accent);
+  --primary: var(--app-brand);
+  --primary-foreground: var(--app-brand-foreground);
+  --muted: var(--app-pill);
+  /* typo.css paints every <p> with muted-foreground; app body copy is full-strength. */
+  --muted-foreground: var(--app-foreground);
 }
 
 @layer base {

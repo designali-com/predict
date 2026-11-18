@@ -4,7 +4,7 @@ import type { Metadata } from "next"
 import "@workspace/ui/globals.css"
 import { ThemeProvider } from "@/src/components/theme-provider"
 import { cn } from "@workspace/ui/lib/utils";
-import { NeueMontreal } from "@/src/lib/fonts"; 
+import { fontSans } from "@/src/lib/fonts"
 
 const fontMono = Geist_Mono({
   subsets: ["latin"],
@@ -92,7 +92,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn("antialiased", fontMono.variable, "font-sans", NeueMontreal.variable)}
+      className={cn("antialiased", fontMono.variable, "font-sans", fontSans.variable)}
     >
       <body>
         <ThemeProvider>

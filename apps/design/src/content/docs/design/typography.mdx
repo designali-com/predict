@@ -7,16 +7,16 @@ PREDICT uses two typefaces and one size scale. Good type does most of the work i
 
 ## Typefaces
 
-**Neue Montreal** is the brand typeface, used for everything from headlines to buttons. **Geist Mono** is for codes, IDs, tokens, and numbers that need to line up.
+**Inter** is the brand typeface, used for everything from headlines to buttons. **Geist Mono** is for codes, IDs, tokens, and numbers that need to line up.
 
 <FontFamilies />
 
 | Font | Class | Weights | Loaded in |
 | --- | --- | --- | --- |
-| Neue Montreal | `font-sans` (the default) | 300, 400, 500, 700 | `apps/design/src/lib/fonts.ts`, as `--font-montreal` |
+| Inter | `font-sans` (the default) | Variable | `apps/design/src/lib/fonts.ts`, from Google Fonts, as `--font-inter` |
 | Geist Mono | `font-mono` | Variable | `app/layout.tsx`, from Google Fonts, as `--font-mono` |
 
-- Neue Montreal is loaded in four weights only. `font-semibold` (600) has no file, so it renders as Bold. Use `font-medium` or `font-bold` so you get what you see in code.
+- Inter is a variable font, so every weight from 100 to 900 renders as written.
 - `font-sans` is set on `html`, so you rarely need to write it.
 
 ## Type scale
@@ -123,8 +123,8 @@ Use `tabular-nums` wherever numbers sit in columns or update live, so digits lin
 | File | What it holds |
 | --- | --- |
 | `packages/ui/src/styles/typo.css` | The `text-heading-*` scale and the semantic HTML defaults. |
-| `packages/ui/src/styles/globals.css` | Imports `typo.css` and maps `font-sans` to Neue Montreal. |
-| `apps/design/src/lib/fonts.ts` | Loads Neue Montreal from local files. |
+| `packages/ui/src/styles/globals.css` | Imports `typo.css` and maps `font-sans` to Inter. |
+| `apps/design/src/lib/fonts.ts` | Loads Inter from Google Fonts. |
 | `apps/design/src/app/layout.tsx` | Loads Geist Mono and adds both font variables to `html`. |
 
 To add a size, add it to the `@theme` block in `typo.css`:
@@ -135,4 +135,4 @@ To add a size, add it to the `@theme` block in `typo.css`:
 }
 ```
 
-Then use it as `text-heading-28`. Each app that uses `@workspace/ui` must load Neue Montreal and set `--font-montreal` itself, as `apps/design` does.
+Then use it as `text-heading-28`. Each app that uses `@workspace/ui` must load Inter and set `--font-inter` itself, as `apps/design` does.

@@ -11,7 +11,8 @@ const navLinks = [
     { name: "Components", href: "/docs/components/accordion" }, 
     { name: "Blocks", href: "/blocks" },
     { name: "Brand", href: "/docs/design/logos" },  
-    { name: "Biomarkers", href: "/biomarkers" }, 
+    { name: "Biomarkers", href: "/biomarkers" },
+    { name: "Screens", href: "/screens" },
 ]
 
 export function Header() {

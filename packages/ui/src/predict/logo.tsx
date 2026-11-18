@@ -57,6 +57,23 @@ export const LogoIcon: React.FC<LogoProps> = (props) => {
 };
 
 
+/** The PREDICT mark as drawn in the mobile app designs. Inherits `currentColor`. */
+export const PredictMark: React.FC<LogoProps> = (props) => {
+  return (
+    <svg
+      width={64}
+      height={72}
+      viewBox="0 0 64.0002 71.6925"
+      fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path d="M64.0002 34.0579V45.2929H46.1654C41.4464 45.2929 37.6007 49.1554 37.6007 53.8576V71.6925H26.3658V53.8576C26.3658 46.0318 30.9672 39.2136 37.6007 36.006C40.2037 34.7465 43.109 34.0579 46.1654 34.0579H64.0002Z" />
+      <path d="M6.86646e-05 37.6345V26.3996H17.8349C22.5539 26.3996 26.3996 22.5371 26.3996 17.8348V0H37.6346V17.8348C37.6346 25.6607 33.0331 32.4789 26.3996 35.6865C23.7966 36.946 20.8913 37.6345 17.8349 37.6345H6.86646e-05Z" />
+    </svg>
+  );
+};
+
 export function PredictLogo({
   className = "",
   ...props

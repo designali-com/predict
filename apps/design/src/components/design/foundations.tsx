@@ -474,7 +474,7 @@ export function FontFamilies() {
     <div className="not-prose mt-6 grid gap-4 lg:grid-cols-2">
       <div className="flex flex-col gap-4 rounded-lg border p-5">
         <div className="flex items-baseline justify-between">
-          <span className="text-sm font-medium">Neue Montreal</span>
+          <span className="text-sm font-medium">Inter</span>
           <span className="font-mono text-[11px] text-muted-foreground">font-sans</span>
         </div>
         <p className="font-sans text-7xl font-medium tracking-tight text-foreground">Aa</p>

@@ -18,6 +18,15 @@ const buttonVariants = cva(
           "hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground hover:bg-border/50 hover:dark:shadow-[inset_0_-1px_8px_rgba(255,255,255,0.2)] hover:shadow-[inset_0_-1px_8px_rgba(0,0,0,0.1)]",
         destructive:
           "bg-destructive text-primary-foreground hover:bg-destructive/80 focus-visible:border-destructive/40 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 shadow-[inset_0_4px_6px_rgba(255,255,255,0.2),inset_0_-1px_8px_rgba(255,255,255,0.2)]",
+        brand:
+          "bg-violet-dark text-white hover:bg-violet-dark/90 shadow-[inset_0_4px_6px_rgba(255,255,255,0.4),inset_0_-1px_8px_rgba(255,255,255,0.2)]",
+        lavender:
+          "bg-lavender text-[#030303] hover:bg-[color-mix(in_oklch,var(--lavender),black_4%)] shadow-[inset_0_-1px_8px_rgba(0,0,0,0.1)]",
+        /* Mobile app screens: follow the --app-* theme (light = brand / lavender). */
+        app:
+          "bg-app-brand text-app-brand-foreground hover:bg-app-brand/90 shadow-[inset_0_4px_6px_rgba(255,255,255,0.4),inset_0_-1px_8px_rgba(255,255,255,0.2)]",
+        "app-secondary":
+          "bg-app-pill text-app-pill-foreground hover:bg-[color-mix(in_oklch,var(--app-pill),var(--app-foreground)_4%)] shadow-[inset_0_-1px_8px_rgba(0,0,0,0.1)]",
         link: "text-foreground underline-offset-4 hover:underline",
         invert: "bg-foreground text-background hover:bg-foreground/80 shadow-[inset_0_4px_6px_rgba(255,255,255,0.4),inset_0_-1px_8px_rgba(255,255,255,0.2)] dark:shadow-[inset_0_4px_6px_rgba(0,0,0,0.4),inset_0_-1px_8px_rgba(0,0,0,0.2)]",
       },
