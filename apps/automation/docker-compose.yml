@@ -1,0 +1,27 @@
+services:
+  redis:
+    container_name: redis__automation
+    image: redis:8
+    restart: unless-stopped
+    # noeviction is BullMQ's requirement, not a preference — under any other
+    # policy Redis is free to drop a job key and the run it belonged to just
+    # never resumes. It is already the default; stated here so a later
+    # maxmemory tweak can't quietly change it.
+    command: redis-server --appendonly yes --appendfsync everysec --maxmemory-policy noeviction
+    # Loopback-only on purpose. This Redis has no password, and a bare
+    # "6380:6379" publishes it on 0.0.0.0 — on EC2 that is worse than it
+    # looks, because Docker writes its own iptables rules and the published
+    # port bypasses the instance's security group. The worker and webhook run
+    # on the same host, so they only ever need localhost.
+    ports:
+      - "127.0.0.1:${REDIS_PORT:-6380}:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+    volumes:
+      - redis_data:/data
+
+volumes:
+  redis_data:

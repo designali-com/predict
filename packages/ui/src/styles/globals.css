@@ -2,36 +2,13 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
-/* `.app-light` / `.app-dark` force a theme on one subtree (e.g. a phone frame)
-   regardless of the site theme, so `dark:` must respect them too. */
-@custom-variant dark (&:is(.dark *, .app-dark *):not(:where(.app-light *)));
+@custom-variant dark (&:is(.dark *));
 @source "../../../apps/**/*.{ts,tsx}";
 @source "../../../components/**/*.{ts,tsx}";
 @source "../**/*.{ts,tsx}";
-@import "./typo.css";
 
 @theme inline {
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  /* Display face: Inter as well, so the whole project uses one typeface. */
-  --font-display: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-
-  /* Mobile app theme (see the --app-* tokens below) */
-  --color-app-background: var(--app-background);
-  --color-app-foreground: var(--app-foreground);
-  --color-app-surface: var(--app-surface);
-  --color-app-field: var(--app-field);
-  --color-app-border: var(--app-border);
-  --color-app-track: var(--app-track);
-  --color-app-pill: var(--app-pill);
-  --color-app-pill-foreground: var(--app-pill-foreground);
-  --color-app-brand: var(--app-brand);
-  --color-app-brand-foreground: var(--app-brand-foreground);
-  --color-app-accent: var(--app-accent);
-  --color-app-glow: var(--app-glow);
-
-  /* Brand violet used across the mobile app designs */
-  --color-violet-dark: var(--violet-dark);
-  --color-lavender: var(--lavender);
+  --font-sans: var(--font-montreal);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -71,176 +48,189 @@
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
 
+  /* Predict colour system: Violet tonal ramp (500 = exact reference), Ink, Paper. */
+  --color-brand-50: #F7F0FF;
+  --color-brand-100: #EEDCFF;
+  --color-brand-200: #DDBAFF;
+  --color-brand-300: #C88DFF;
+  --color-brand-400: #AC4FFF;
+  --color-brand-500: #8504FE;
+  --color-brand-600: #7000D9;
+  --color-brand-700: #5900AE;
+  --color-brand-800: #420080;
+  --color-brand-900: #2B0054;
+  --color-brand-950: #19002F;
+  --color-ink: #0B0611;
+  --color-paper: #EFEFEF;
+
   /* Severity Colors */
   --color-status-normal: var(--status-normal);
   --color-status-mild: var(--status-mild);
   --color-status-moderate: var(--status-moderate);
   --color-status-severe: var(--status-severe);
   --color-status-extreme: var(--status-extreme);
-
-  /* Animations */
-  --animate-spin-around: spin-around 0.8s linear infinite;
   --animate-marquee-left: marquee-left var(--marquee-duration) linear var(--marquee-loop-count);
   --animate-marquee-right: marquee-right var(--marquee-duration) linear var(--marquee-loop-count);
   --animate-marquee-left-rtl: marquee-left-rtl var(--marquee-duration) linear var(--marquee-loop-count);
   --animate-marquee-right-rtl: marquee-right-rtl var(--marquee-duration) linear var(--marquee-loop-count);
   --animate-marquee-up: marquee-up var(--marquee-duration) linear var(--marquee-loop-count);
   --animate-marquee-down: marquee-down var(--marquee-duration) linear var(--marquee-loop-count);
+  /* A ring that widens outward from a point and fades — the body map's
+     domain markers. Two of these half a cycle apart means one is always
+     on screen, where animate-ping leaves the spot empty half the time. */
+  --animate-ring-out: ring-out 1.8s cubic-bezier(0.2, 0.6, 0.35, 1) infinite;
+  @keyframes ring-out {
+  0% {
+    transform: scale(0.35);
+    opacity: 1;
+    }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+    }
+  }
+  @keyframes marquee-left {
+  0% {
+    transform: translateX(0%);
+    }
+  100% {
+    transform: translateX(calc(-100% - var(--marquee-gap)));
+    }
+  }
+  @keyframes marquee-right {
+  0% {
+    transform: translateX(calc(-100% - var(--marquee-gap)));
+    }
+  100% {
+    transform: translateX(0%);
+    }
+  }
+  @keyframes marquee-up {
+  0% {
+    transform: translateY(0%);
+    }
+  100% {
+    transform: translateY(calc(-100% - var(--marquee-gap)));
+    }
+  }
+  @keyframes marquee-down {
+  0% {
+    transform: translateY(calc(-100% - var(--marquee-gap)));
+    }
+  100% {
+    transform: translateY(0%);
+    }
+  }
+  @keyframes marquee-left-rtl {
+  0% {
+    transform: translateX(0%);
+    }
+  100% {
+    transform: translateX(calc(100% + var(--marquee-gap)));
+    }
+  }
+  @keyframes marquee-right-rtl {
+  0% {
+    transform: translateX(calc(100% + var(--marquee-gap)));
+    }
+  100% {
+    transform: translateX(0%);
+    }
+  }
 }
 
 :root {
+  /* Tells the browser which scheme to paint native controls in. Without it a
+     <select> popup, a date picker and the scrollbars stay LIGHT in dark mode —
+     which is why an opened dropdown was white text on a white list. */
+  color-scheme: light;
+
   --background: oklch(1 0 0);
   --foreground: oklch(0 0 0);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0 0 0);
+  --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0 0 0);
-  --primary: oklch(0.536 0.2917 295.68);
-  --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(96.1% 0.0343 295.7);
-  --secondary-foreground: oklch(0.1 0 0);
-  --muted: oklch(0.8 0 0);
-  --muted-foreground: oklch(0.2 0 0);
-  --accent: oklch(0.7 0 0);
-  --accent-foreground: oklch(0.3 0 0);
-  --destructive: oklch(0.58 0.22 27);
-  --border: oklch(0.9 0 0);
-  --input: oklch(0.9 0 0);
-  --ring: oklch(0.7 0 0);
-  --chart-1: oklch(99.2% 0.0052 295.7);
-  --chart-2: oklch(96.1% 0.0343 295.7);
-  --chart-3: oklch(90.2% 0.0897 295.7);
-  --chart-4: oklch(80.5% 0.1475 295.7);
-  --chart-5: oklch(53.6% 0.2917 295.7);
-  --radius: 1rem;
-  --sidebar: oklch(0.9 0 0);
-  --sidebar-foreground: oklch(0.1 0 0);
-  --sidebar-primary: oklch(0.1 0 0);
-  --sidebar-primary-foreground: oklch(0.9 0 0);
-  --sidebar-accent: oklch(0.8 0 0);
-  --sidebar-accent-foreground: oklch(0.2 0 0);
-  --sidebar-border: oklch(0.9 0 0);
-  --sidebar-ring: oklch(0.7 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: #8504FE; /* Predict Violet 500 */
+  --primary-foreground: #FFFFFF;
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.49 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.87 0 0);
+  --input: oklch(0.87 0 0);
+  --ring: oklch(0.6 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --radius: 0.45rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
 
   /* Severity Colors */
-  --status-normal: oklch(72.3% 0.219 149.579);
-  /* #00C950 */
-  --status-mild: oklch(79.5% 0.184 86.047);
-  /* #F0B100 */
-  --status-moderate: oklch(62.3% 0.214 259.815);
-  /* #2B7FFF */
-  --status-severe: oklch(70.5% 0.213 47.604);
-  /* #FF6900 */
-  --status-extreme: oklch(63.7% 0.237 25.331);
-  /* #FB2C36 */
-
-  /* Mobile app brand */
-  --violet-dark: #420080;
-  --lavender: #ebe6fe;
+  /* Predict colour system: the severity reference palette. Always with Ink
+     text on top (every pairing is at least 4.5:1) and always with its name. */
+  --status-normal: #3EC873;
+  --status-mild: #E4BD36;
+  --status-moderate: #FB9B00;
+  --status-severe: #F5642B;
+  --status-extreme: #E62A3B;
 }
 
 .dark {
+  color-scheme: dark;
+
   --background: oklch(0 0 0);
-  --foreground: oklch(1 0 0);
-  --card: oklch(0 0 0);
-  --card-foreground: oklch(1 0 0);
-  --popover: oklch(0 0 0);
-  --popover-foreground: oklch(1 0 0);
-  --primary: oklch(0.536 0.2917 295.68);
-  --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(25.3% 0.1037 295.7);
-  --secondary-foreground: oklch(0.9 0 0);
-  --muted: oklch(0.2 0 0);
-  --muted-foreground: oklch(0.8 0 0);
-  --accent: oklch(0.3 0 0);
-  --accent-foreground: oklch(0.7 0 0);
-  --destructive: oklch(0.58 0.22 27);
-  --border: oklch(0.3 0 0);
-  --input: oklch(0.3 0 0);
-  --ring: oklch(0.4 0 0);
-  --chart-1: oklch(0% 0.0389 295.7);
-  --chart-2: oklch(25.3% 0.1037 295.7);
-  --chart-3: oklch(34.2% 0.154 295.7);
-  --chart-4: oklch(44.6% 0.1771 295.7);
-  --chart-5: oklch(53.6% 0.2917 295.7);
-  --sidebar: oklch(0.1 0 0);
-  --sidebar-foreground: oklch(0.9 0 0);
-  --sidebar-primary: oklch(0.9 0 0);
-  --sidebar-primary-foreground: oklch(0.1 0 0);
-  --sidebar-accent: oklch(0.2 0 0);
-  --sidebar-accent-foreground: oklch(0.8 0 0);
-  --sidebar-border: oklch(0.3 0 0);
-  --sidebar-ring: oklch(0.4 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: #8504FE; /* Predict Violet 500 */
+  --primary-foreground: #FFFFFF;
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
 
   /* Severity Colors */
-  --status-normal: oklch(72.3% 0.219 149.579);
-  /* #00C950 */
-  --status-mild: oklch(79.5% 0.184 86.047);
-  /* #F0B100 */
-  --status-moderate: oklch(62.3% 0.214 259.815);
-  /* #2B7FFF */
-  --status-severe: oklch(70.5% 0.213 47.604);
-  /* #FF6900 */
-  --status-extreme: oklch(63.7% 0.237 25.331);
-  /* #FB2C36 */
-
-  /* Mobile app brand */
-  --violet-dark: #420080;
-  --lavender: #ebe6fe;
-}
-
-/*
- * Mobile app theme. Light values are the Figma "App Design" colours; dark is
- * the same violet brand on a violet-black canvas. Follows the site theme by
- * default; `.app-light` / `.app-dark` force one theme on a subtree.
- */
-:root,
-.app-light {
-  --app-background: #ffffff;
-  --app-foreground: #030303;
-  --app-surface: #fbfaff; /* bottom sheets */
-  --app-field: #ffffff; /* inputs, segmented controls */
-  --app-border: #e2e2e2;
-  --app-track: #dedede; /* switch off */
-  --app-pill: #ebe6fe; /* lavender chips, secondary buttons */
-  --app-pill-foreground: #030303;
-  --app-brand: #420080; /* filled: primary buttons, progress, glow */
-  --app-brand-foreground: #ffffff;
-  --app-accent: #420080; /* marks, dashed outlines, focus */
-  --app-glow: #420080;
-  --app-card-shadow: inset 0 0 30px rgb(66 0 128 / 0.2);
-}
-
-.dark,
-.app-dark {
-  --app-background: #0b0612;
-  --app-foreground: #f4f1fb;
-  --app-surface: #150c22;
-  --app-field: #140b20;
-  --app-border: #2e2440;
-  --app-track: #3a3049;
-  --app-pill: #2a1a48;
-  --app-pill-foreground: #ebe6fe;
-  --app-brand: #6a1fd0;
-  --app-brand-foreground: #ffffff;
-  --app-accent: #b996ff;
-  --app-glow: #5414a8;
-  --app-card-shadow: inset 0 0 30px rgb(185 150 255 / 0.16);
-}
-
-/* Inside an app screen, the shared primitives (Input, Select, Switch, Tabs…)
-   read the app theme instead of the site theme. */
-[data-slot="app-screen"] {
-  --background: var(--app-background);
-  --foreground: var(--app-foreground);
-  --border: var(--app-border);
-  --input: var(--app-border);
-  --ring: var(--app-accent);
-  --primary: var(--app-brand);
-  --primary-foreground: var(--app-brand-foreground);
-  --muted: var(--app-pill);
-  /* typo.css paints every <p> with muted-foreground; app body copy is full-strength. */
-  --muted-foreground: var(--app-foreground);
+  /* Predict colour system: the severity reference palette. Always with Ink
+     text on top (every pairing is at least 4.5:1) and always with its name. */
+  --status-normal: #3EC873;
+  --status-mild: #E4BD36;
+  --status-moderate: #FB9B00;
+  --status-severe: #F5642B;
+  --status-extreme: #E62A3B;
 }
 
 @layer base {
@@ -257,6 +247,16 @@
     cursor: pointer;
   }
 
+  /* Belt and braces for the dropdown. color-scheme above fixes the popup on
+     every current browser; some still paint <option> from the page colours, and
+     a select styled bg-background text-foreground then hands its options white
+     text on a white list. Naming both explicitly costs nothing. */
+  select option,
+  select optgroup {
+    background-color: var(--popover);
+    color: var(--popover-foreground);
+  }
+
   html {
     @apply font-sans;
     scroll-behavior: smooth;
@@ -264,69 +264,24 @@
   }
 }
 
-.lucide { 
-  stroke-width: 1.5px;
+@utility container {
+  @apply mx-auto max-w-[1400px] xl:max-w-screen-xl;
 }
-  
-@keyframes spin-around {
-  0% {
-     transform: rotate(-90deg);
-   }
-  100% {
-    transform: rotate(270deg);
+/* ── Density ────────────────────────────────────────────────────────────────
+   An app opts in on <html className="density-compact">. Every size in the
+   design system is in rem, so this one number shrinks text, padding, gaps,
+   inputs and the sidebar together and in proportion — instead of each page
+   picking its own smaller classes and drifting apart. 15px ≈ 94% of default. */
+@layer base {
+  html.density-compact {
+    font-size: 15px;
   }
 }
 
-@keyframes marquee-left {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(calc(-100% - var(--marquee-gap)));
-  }
+/* Page heading text, shared by every panel through <PageHeader>. */
+@utility page-title {
+  @apply text-xl font-semibold tracking-tight;
 }
- 
-@keyframes marquee-right {
-  0% {
-    transform: translateX(calc(-100% - var(--marquee-gap)));
-  }
-  100% {
-    transform: translateX(0%);
-  }
-}
- 
-@keyframes marquee-up {
-  0% {
-    transform: translateY(0%);
-  }
-  100% {
-    transform: translateY(calc(-100% - var(--marquee-gap)));
-  }
-}
- 
-@keyframes marquee-down {
-  0% {
-    transform: translateY(calc(-100% - var(--marquee-gap)));
-  }
-  100% {
-    transform: translateY(0%);
-  }
-}
- 
-@keyframes marquee-left-rtl {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(calc(100% + var(--marquee-gap)));
-  }
-}
- 
-@keyframes marquee-right-rtl {
-  0% {
-    transform: translateX(calc(100% + var(--marquee-gap)));
-  }
-  100% {
-    transform: translateX(0%);
-  }
+@utility page-description {
+  @apply mt-0.5 text-sm text-muted-foreground;
 }

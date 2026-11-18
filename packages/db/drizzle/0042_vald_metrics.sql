@@ -1,0 +1,13 @@
+-- The rest of what a DynaMo test measures.
+--
+-- The first pass kept only peak force and range of motion, which is what the
+-- summary table shows. The VALD app also reports rate of force development,
+-- time to peak force and impulse, and those are the numbers a clinician reads
+-- when judging whether a limb is recovering — a peak force can look fine while
+-- the force takes twice as long to arrive.
+--
+-- Held per side as one document rather than ten more columns: the shape is
+-- VALD's, it differs between a strength test and a range-of-motion test, and
+-- pinning each metric to its own column would mean a migration every time they
+-- add one.
+ALTER TABLE "vald_test" ADD COLUMN IF NOT EXISTS "sides" jsonb;

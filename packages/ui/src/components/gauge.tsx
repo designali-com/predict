@@ -1,515 +1,491 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { cn } from "@workspace/ui/lib/utils"
+import { Slot as SlotPrimitive } from "radix-ui";
+import * as React from "react";
+import { cn } from "@workspace/ui/lib/utils";
 
-const GAUGE_NAME = "Gauge"
-const INDICATOR_NAME = "GaugeIndicator"
-const TRACK_NAME = "GaugeTrack"
-const RANGE_NAME = "GaugeRange"
-const VALUE_TEXT_NAME = "GaugeValueText"
+const GAUGE_NAME = "Gauge";
+const INDICATOR_NAME = "GaugeIndicator";
+const TRACK_NAME = "GaugeTrack";
+const RANGE_NAME = "GaugeRange";
+const VALUE_TEXT_NAME = "GaugeValueText";
+const LABEL_NAME = "GaugeLabel";
 
-const DEFAULT_MAX = 100
-const DEFAULT_START_ANGLE = 0
-const DEFAULT_END_ANGLE = 360
-const DEFAULT_SEGMENTS = 60
-const DEFAULT_GAP = 4
-const DEFAULT_THICKNESS = 2
-const DEFAULT_DURATION = 700
+const DEFAULT_MAX = 100;
+const DEFAULT_START_ANGLE = 0;
+const DEFAULT_END_ANGLE = 360;
 
-type GaugeState = "indeterminate" | "complete" | "loading"
+type GaugeState = "indeterminate" | "complete" | "loading";
 
-type DivProps = React.ComponentProps<"div">
-
-interface GaugeContextValue {
-  value: number | null
-  valueText: string | undefined
-  animatedValueText: string | undefined
-  max: number
-  min: number
-  state: GaugeState
-  radius: number
-  thickness: number
-  size: number
-  center: number
-  percentage: number | null
-  animatedPercentage: number | null
-  startAngle: number
-  endAngle: number
-  segments: number
-  gap: number
-  tickInnerRadius: number
-  tickOuterRadius: number
-  valueTextId: string
-  labelId: string
+interface DivProps extends React.ComponentProps<"div"> {
+  asChild?: boolean;
 }
 
-const GaugeContext = React.createContext<GaugeContextValue | null>(null)
+interface PathProps extends React.ComponentProps<"path"> {}
 
-function useGaugeContext(consumerName: string) {
-  const context = React.useContext(GaugeContext)
-
-  if (!context) {
-    throw new Error(
-      `\`${consumerName}\` must be used within \`${GAUGE_NAME}\``
-    )
-  }
-
-  return context
+function getGaugeState(
+  value: number | undefined | null,
+  maxValue: number,
+): GaugeState {
+  return value == null
+    ? "indeterminate"
+    : value === maxValue
+      ? "complete"
+      : "loading";
 }
 
-function isFiniteNumber(value: unknown): value is number {
-  return typeof value === "number" && Number.isFinite(value)
+function getIsValidNumber(value: unknown): value is number {
+  return typeof value === "number" && Number.isFinite(value);
 }
 
-function getDefaultValueText(value: number, min: number, max: number) {
-  const percentage = max === min ? 100 : ((value - min) / (max - min)) * 100
-
-  return `${Math.round(percentage)}%`
+function getIsValidMaxNumber(max: unknown): max is number {
+  return getIsValidNumber(max) && max > 0;
 }
 
-function getEffectiveSegments(
-  radius: number,
-  thickness: number,
-  gap: number,
-  requestedSegments: number
-) {
-  const circumference = 2 * Math.PI * radius
-  const minimumSpacing = Math.max(1, thickness + gap)
+function getIsValidValueNumber(
+  value: unknown,
+  min: number,
+  max: number,
+): value is number {
+  return getIsValidNumber(value) && value <= max && value >= min;
+}
 
-  const maxPossibleSegments = Math.max(
-    1,
-    Math.floor(circumference / minimumSpacing)
-  )
+function getDefaultValueText(value: number, min: number, max: number): string {
+  const percentage = max === min ? 100 : ((value - min) / (max - min)) * 100;
+  return Math.round(percentage).toString();
+}
 
-  return Math.min(requestedSegments, maxPossibleSegments)
+function getInvalidValueError(
+  propValue: string,
+  componentName: string,
+): string {
+  return `Invalid prop \`value\` of value \`${propValue}\` supplied to \`${componentName}\`. The \`value\` prop must be a number between \`min\` and \`max\` (inclusive), or \`null\`/\`undefined\` for indeterminate state. The value will be clamped to the valid range.`;
+}
+
+function getInvalidMaxError(propValue: string, componentName: string): string {
+  return `Invalid prop \`max\` of value \`${propValue}\` supplied to \`${componentName}\`. Only numbers greater than 0 are valid. Defaulting to ${DEFAULT_MAX}.`;
+}
+
+function getNormalizedAngle(angle: number) {
+  return ((angle % 360) + 360) % 360;
 }
 
 function polarToCartesian(
   centerX: number,
   centerY: number,
   radius: number,
-  angleInDegrees: number
+  angleInDegrees: number,
 ) {
-  const angleInRadians = ((angleInDegrees - 90) * Math.PI) / 180
-
+  const angleInRadians = ((angleInDegrees - 90) * Math.PI) / 180.0;
   return {
     x: centerX + radius * Math.cos(angleInRadians),
     y: centerY + radius * Math.sin(angleInRadians),
-  }
+  };
 }
 
-function useAnimatedNumber(target: number | null, duration: number) {
-  const [current, setCurrent] = React.useState<number | null>(
-    target === null ? null : 0
-  )
-  const currentRef = React.useRef(0)
+function describeArc(
+  x: number,
+  y: number,
+  radius: number,
+  startAngle: number,
+  endAngle: number,
+) {
+  const angleDiff = endAngle - startAngle;
 
-  React.useEffect(() => {
-    if (target === null) {
-      currentRef.current = 0
-      setCurrent(null)
-      return
-    }
+  // For full circles (360 degrees), draw as two semi-circles
+  if (Math.abs(angleDiff) >= 360) {
+    const start = polarToCartesian(x, y, radius, startAngle);
+    const mid = polarToCartesian(x, y, radius, startAngle + 180);
+    return [
+      "M",
+      start.x,
+      start.y,
+      "A",
+      radius,
+      radius,
+      0,
+      0,
+      1,
+      mid.x,
+      mid.y,
+      "A",
+      radius,
+      radius,
+      0,
+      0,
+      1,
+      start.x,
+      start.y,
+    ].join(" ");
+  }
 
-    const reduceMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches
+  const start = polarToCartesian(x, y, radius, startAngle);
+  const end = polarToCartesian(x, y, radius, endAngle);
+  const largeArcFlag = angleDiff <= 180 ? "0" : "1";
 
-    if (reduceMotion || duration <= 0) {
-      currentRef.current = target
-      setCurrent(target)
-      return
-    }
+  return [
+    "M",
+    start.x,
+    start.y,
+    "A",
+    radius,
+    radius,
+    0,
+    largeArcFlag,
+    1,
+    end.x,
+    end.y,
+  ].join(" ");
+}
 
-    const from = currentRef.current
-    const start = performance.now()
-    let raf = 0
+interface GaugeContextValue {
+  value: number | null;
+  valueText: string | undefined;
+  max: number;
+  min: number;
+  state: GaugeState;
+  radius: number;
+  thickness: number;
+  size: number;
+  center: number;
+  percentage: number | null;
+  startAngle: number;
+  endAngle: number;
+  arcLength: number;
+  arcCenterY: number;
+  valueTextId?: string;
+  labelId?: string;
+}
 
-    const tick = (now: number) => {
-      const t = Math.min(1, (now - start) / duration)
-      const eased = 1 - Math.pow(1 - t, 3) // ease-out cubic
-      const next = t === 1 ? target : from + (target - from) * eased
+const GaugeContext = React.createContext<GaugeContextValue | null>(null);
 
-      currentRef.current = next
-      setCurrent(next)
-
-      if (t < 1) raf = requestAnimationFrame(tick)
-    }
-
-    raf = requestAnimationFrame(tick)
-    return () => cancelAnimationFrame(raf)
-  }, [target, duration])
-
-  return current
+function useGaugeContext(consumerName: string) {
+  const context = React.useContext(GaugeContext);
+  if (!context) {
+    throw new Error(
+      `\`${consumerName}\` must be used within \`${GAUGE_NAME}\``,
+    );
+  }
+  return context;
 }
 
 interface GaugeProps extends DivProps {
-  value?: number | null
-  getValueText?: (value: number, min: number, max: number) => string
-  min?: number
-  max?: number
-  size?: number
-  thickness?: number
-  gap?: number
-  startAngle?: number
-  endAngle?: number
-  segments?: number
-  tickInnerRadius?: number
-  tickOuterRadius?: number
-  duration?: number
+  value?: number | null | undefined;
+  getValueText?(value: number, min: number, max: number): string;
+  min?: number;
+  max?: number;
+  size?: number;
+  thickness?: number;
+  startAngle?: number;
+  endAngle?: number;
 }
 
-function Gauge({
-  value: valueProp = null,
-  getValueText = getDefaultValueText,
-  min: minProp = 0,
-  max: maxProp = DEFAULT_MAX,
-  size = 200,
-  thickness = DEFAULT_THICKNESS,
-  gap = DEFAULT_GAP,
-  startAngle = DEFAULT_START_ANGLE,
-  endAngle = DEFAULT_END_ANGLE,
-  segments = DEFAULT_SEGMENTS,
-  tickInnerRadius,
-  tickOuterRadius,
-  duration = DEFAULT_DURATION,
-  className,
-  children,
-  ...rootProps
-}: GaugeProps) {
-  const min = isFiniteNumber(minProp) ? minProp : 0
+function Gauge(props: GaugeProps) {
+  const {
+    value: valueProp = null,
+    getValueText = getDefaultValueText,
+    min: minProp = 0,
+    max: maxProp,
+    size = 120,
+    thickness = 8,
+    startAngle = DEFAULT_START_ANGLE,
+    endAngle = DEFAULT_END_ANGLE,
+    asChild,
+    className,
+    ...rootProps
+  } = props;
 
-  const max =
-    isFiniteNumber(maxProp) && maxProp > min
-      ? maxProp
-      : Math.max(DEFAULT_MAX, min + 1)
+  if ((maxProp || maxProp === 0) && !getIsValidMaxNumber(maxProp)) {
+    if (process.env.NODE_ENV !== "production") {
+      console.error(getInvalidMaxError(`${maxProp}`, GAUGE_NAME));
+    }
+  }
 
-  const safeSize = isFiniteNumber(size) && size > 0 ? size : 200
+  const rawMax = getIsValidMaxNumber(maxProp) ? maxProp : DEFAULT_MAX;
+  const min = getIsValidNumber(minProp) ? minProp : 0;
+  const max = rawMax <= min ? min + 1 : rawMax;
 
-  const safeThickness =
-    isFiniteNumber(thickness) && thickness > 0
-      ? thickness
-      : DEFAULT_THICKNESS
+  if (process.env.NODE_ENV !== "production" && thickness >= size) {
+    console.warn(
+      `Gauge: thickness (${thickness}) should be less than size (${size}) for proper rendering.`,
+    );
+  }
 
-  const safeGap =
-    isFiniteNumber(gap) && gap >= 0 ? gap : DEFAULT_GAP
+  if (valueProp !== null && !getIsValidValueNumber(valueProp, min, max)) {
+    if (process.env.NODE_ENV !== "production") {
+      console.error(getInvalidValueError(`${valueProp}`, GAUGE_NAME));
+    }
+  }
 
-  const requestedSegments =
-    Number.isInteger(segments) && segments > 0
-      ? segments
-      : DEFAULT_SEGMENTS
+  const value = getIsValidValueNumber(valueProp, min, max)
+    ? valueProp
+    : getIsValidNumber(valueProp) && valueProp > max
+      ? max
+      : getIsValidNumber(valueProp) && valueProp < min
+        ? min
+        : null;
 
-  const center = safeSize / 2
-  const radius = Math.max(0, (safeSize - safeThickness) / 2)
+  const valueText = getIsValidNumber(value)
+    ? getValueText(value, min, max)
+    : undefined;
+  const state = getGaugeState(value, max);
+  const radius = Math.max(0, (size - thickness) / 2);
+  const center = size / 2;
 
-  const effectiveSegments = getEffectiveSegments(
-    radius,
-    safeThickness,
-    safeGap,
-    requestedSegments
-  )
+  const angleDiff = Math.abs(endAngle - startAngle);
+  const arcLength = (Math.min(angleDiff, 360) / 360) * (2 * Math.PI * radius);
 
-  const validValue = isFiniteNumber(valueProp)
-    ? Math.min(max, Math.max(min, valueProp))
-    : null
+  const percentage = getIsValidNumber(value)
+    ? max === min
+      ? 1
+      : (value - min) / (max - min)
+    : null;
 
-  const percentage =
-    validValue === null
-      ? null
-      : Math.max(0, Math.min(1, (validValue - min) / (max - min)))
+  // Calculate the visual center Y of the arc for text positioning
+  // For full circles, use geometric center. For partial arcs, calculate based on bounding box
+  const angleDiffDeg = Math.abs(endAngle - startAngle);
+  const isFullCircle = angleDiffDeg >= 360;
 
-  const animatedPercentage = useAnimatedNumber(percentage, duration)
+  let arcCenterY = center;
+  if (!isFullCircle) {
+    const startRad = (startAngle * Math.PI) / 180;
+    const endRad = (endAngle * Math.PI) / 180;
 
-  const valueText =
-    validValue === null
-      ? undefined
-      : getValueText(validValue, min, max)
+    const startY = center - radius * Math.cos(startRad);
+    const endY = center - radius * Math.cos(endRad);
 
-  // Text shown in the center while the ticks sweep (respects custom getValueText).
-  // aria-valuetext still uses the real value.
-  const animatedValueText =
-    validValue === null || animatedPercentage === null
-      ? valueText
-      : getValueText(min + animatedPercentage * (max - min), min, max)
+    let minY = Math.min(startY, endY);
+    let maxY = Math.max(startY, endY);
 
-  const state: GaugeState =
-    validValue === null
-      ? "indeterminate"
-      : validValue >= max
-        ? "complete"
-        : "loading"
+    const normStart = getNormalizedAngle(startAngle);
+    const normEnd = getNormalizedAngle(endAngle);
 
-  const labelId = React.useId()
-  const valueTextId = React.useId()
+    const includesTop =
+      normStart > normEnd
+        ? normStart <= 270 || normEnd >= 270
+        : normStart <= 270 && normEnd >= 270;
+    const includesBottom =
+      normStart > normEnd
+        ? normStart <= 90 || normEnd >= 90
+        : normStart <= 90 && normEnd >= 90;
+
+    if (includesTop) minY = Math.min(minY, center - radius);
+    if (includesBottom) maxY = Math.max(maxY, center + radius);
+
+    arcCenterY = (minY + maxY) / 2;
+  }
+
+  const labelId = React.useId();
+  const valueTextId = React.useId();
 
   const contextValue = React.useMemo<GaugeContextValue>(
     () => ({
-      value: validValue,
+      value,
       valueText,
-      animatedValueText,
-      min,
       max,
+      min,
       state,
       radius,
-      thickness: safeThickness,
-      size: safeSize,
+      thickness,
+      size,
       center,
       percentage,
-      animatedPercentage,
       startAngle,
       endAngle,
-      segments: effectiveSegments,
-      gap: safeGap,
-      tickInnerRadius: tickInnerRadius ?? Math.max(0, radius - 24),
-      tickOuterRadius: tickOuterRadius ?? radius,
+      arcLength,
+      arcCenterY,
       valueTextId,
       labelId,
     }),
     [
-      validValue,
+      value,
       valueText,
-      animatedValueText,
-      min,
       max,
+      min,
       state,
       radius,
-      safeThickness,
-      safeSize,
+      thickness,
+      size,
       center,
       percentage,
-      animatedPercentage,
       startAngle,
       endAngle,
-      effectiveSegments,
-      safeGap,
-      tickInnerRadius,
-      tickOuterRadius,
+      arcLength,
+      arcCenterY,
       valueTextId,
       labelId,
-    ]
-  )
+    ],
+  );
+
+  const RootPrimitive = asChild ? SlotPrimitive.Slot : "div";
 
   return (
     <GaugeContext.Provider value={contextValue}>
-      <div
+      <RootPrimitive
         role="meter"
         aria-describedby={valueText ? valueTextId : undefined}
         aria-labelledby={labelId}
         aria-valuemax={max}
         aria-valuemin={min}
-        aria-valuenow={validValue ?? undefined}
+        aria-valuenow={getIsValidNumber(value) ? value : undefined}
         aria-valuetext={valueText}
         data-state={state}
-        data-value={validValue ?? undefined}
+        data-value={value ?? undefined}
         data-max={max}
         data-min={min}
-        data-percentage={percentage ?? undefined}
+        data-percentage={percentage}
         {...rootProps}
         className={cn(
           "relative inline-flex w-fit flex-col items-center justify-center",
-          className
+          className,
         )}
-      >
-        {children}
-      </div>
+      />
     </GaugeContext.Provider>
-  )
-}
-
-function getTickAngles(
-  startAngle: number,
-  endAngle: number,
-  segments: number
-) {
-  const step = (endAngle - startAngle) / segments
-
-  return Array.from({ length: segments }, (_, index) => ({
-    angle: startAngle + step * (index + 0.5),
-  }))
+  );
 }
 
 function GaugeIndicator(props: React.ComponentProps<"svg">) {
-  const { className, children, ...indicatorProps } = props
+  const { className, ...indicatorProps } = props;
 
   const { size, state, value, max, min, percentage } =
-    useGaugeContext(INDICATOR_NAME)
+    useGaugeContext(INDICATOR_NAME);
 
   return (
     <svg
       aria-hidden="true"
       focusable="false"
       viewBox={`0 0 ${size} ${size}`}
-      width={size}
-      height={size}
       data-state={state}
       data-value={value ?? undefined}
       data-max={max}
       data-min={min}
-      data-percentage={percentage ?? undefined}
+      data-percentage={percentage}
+      width={size}
+      height={size}
       {...indicatorProps}
-      className={cn("block overflow-visible", className)}
-    >
-      {children}
-    </svg>
-  )
+      className={cn("transform", className)}
+    />
+  );
 }
 
-function GaugeTrack(props: React.ComponentProps<"line">) {
-  const { className, ...trackProps } = props
+function GaugeTrack(props: PathProps) {
+  const { className, ...trackProps } = props;
 
-  const {
-    center,
-    thickness,
-    segments,
-    startAngle,
-    endAngle,
-    tickInnerRadius,
-    tickOuterRadius,
-    state,
-  } = useGaugeContext(TRACK_NAME)
+  const { center, radius, startAngle, endAngle, thickness, state } =
+    useGaugeContext(TRACK_NAME);
+
+  const pathData = describeArc(center, center, radius, startAngle, endAngle);
 
   return (
-    <>
-      {getTickAngles(startAngle, endAngle, segments).map((tick, index) => {
-        const inner = polarToCartesian(
-          center,
-          center,
-          tickInnerRadius,
-          tick.angle
-        )
-
-        const outer = polarToCartesian(
-          center,
-          center,
-          tickOuterRadius,
-          tick.angle
-        )
-
-        return (
-          <line
-            key={index}
-            x1={inner.x}
-            y1={inner.y}
-            x2={outer.x}
-            y2={outer.y}
-            stroke="currentColor"
-            strokeWidth={thickness}
-            strokeLinecap="round"
-            vectorEffect="non-scaling-stroke"
-            data-state={state}
-            {...trackProps}
-            className={cn("text-muted-foreground/20", className)}
-          />
-        )
-      })}
-    </>
-  )
+    <path
+      data-state={state}
+      d={pathData}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={thickness}
+      strokeLinecap="round"
+      vectorEffect="non-scaling-stroke"
+      {...trackProps}
+      className={cn("text-muted-foreground/20", className)}
+    />
+  );
 }
 
-function GaugeRange(props: React.ComponentProps<"line">) {
-  const { className, ...rangeProps } = props
+function GaugeRange(props: PathProps) {
+  const { className, ...rangeProps } = props;
 
   const {
     center,
-    thickness,
-    segments,
+    radius,
     startAngle,
     endAngle,
-    tickInnerRadius,
-    tickOuterRadius,
-    percentage,
-    animatedPercentage,
-    state,
     value,
     max,
     min,
-  } = useGaugeContext(RANGE_NAME)
+    state,
+    thickness,
+    arcLength,
+    percentage,
+  } = useGaugeContext(RANGE_NAME);
 
-  if (percentage === null || animatedPercentage === null) return null
+  const pathData = describeArc(center, center, radius, startAngle, endAngle);
 
-  return (
-    <>
-      {getTickAngles(startAngle, endAngle, segments).map((tick, index) => {
-        const isActive = animatedPercentage >= (index + 1) / segments
-
-        if (!isActive) return null
-
-        const inner = polarToCartesian(
-          center,
-          center,
-          tickInnerRadius,
-          tick.angle
-        )
-
-        const outer = polarToCartesian(
-          center,
-          center,
-          tickOuterRadius,
-          tick.angle
-        )
-
-        return (
-          <line
-            key={index}
-            x1={inner.x}
-            y1={inner.y}
-            x2={outer.x}
-            y2={outer.y}
-            stroke="currentColor"
-            strokeWidth={thickness}
-            strokeLinecap="round"
-            vectorEffect="non-scaling-stroke"
-            data-state={state}
-            data-value={value ?? undefined}
-            data-max={max}
-            data-min={min}
-            data-percentage={percentage}
-            {...rangeProps}
-            className={cn("text-primary", className)}
-          />
-        )
-      })}
-    </>
-  )
-}
-
-function GaugeValueText({
-  className,
-  children,
-  ...props
-}: DivProps) {
-  const { valueTextId, state, animatedValueText } =
-    useGaugeContext(VALUE_TEXT_NAME)
+  const strokeDasharray = arcLength;
+  const strokeDashoffset =
+    state === "indeterminate"
+      ? 0
+      : percentage !== null
+        ? arcLength - percentage * arcLength
+        : arcLength;
 
   return (
-    <div
-      id={valueTextId}
+    <path
       data-state={state}
-      {...props}
+      data-value={value ?? undefined}
+      data-max={max}
+      data-min={min}
+      d={pathData}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={thickness}
+      strokeLinecap="round"
+      strokeDasharray={strokeDasharray}
+      strokeDashoffset={strokeDashoffset}
+      vectorEffect="non-scaling-stroke"
+      {...rangeProps}
       className={cn(
-        "absolute inset-0 flex items-center justify-center text-3xl font-medium",
-        className
-      )}
-    >
-      {children ?? animatedValueText}
-    </div>
-  )
-}
-
-function GaugeLabel({ className, ...props }: DivProps) {
-  const { labelId } = useGaugeContext("GaugeLabel")
-
-  return (
-    <div
-      id={labelId}
-      {...props}
-      className={cn(
-        "text-sm font-medium text-muted-foreground",
-        className
+        "text-primary transition-[stroke-dashoffset] duration-700 ease-out",
+        className,
       )}
     />
-  )
+  );
+}
+
+function GaugeValueText(props: DivProps) {
+  const { asChild, className, children, style, ...valueTextProps } = props;
+
+  const { valueTextId, state, arcCenterY, valueText } =
+    useGaugeContext(VALUE_TEXT_NAME);
+
+  const ValueTextPrimitive = asChild ? SlotPrimitive.Slot : "div";
+
+  return (
+    <ValueTextPrimitive
+      id={valueTextId}
+      data-state={state}
+      {...valueTextProps}
+      style={{
+        top: `${arcCenterY}px`,
+        ...style,
+      }}
+      className={cn(
+        "absolute end-0 start-0 flex -translate-y-1/2 items-center justify-center font-semibold text-2xl",
+        className,
+      )}
+    >
+      {children ?? valueText}
+    </ValueTextPrimitive>
+  );
+}
+
+function GaugeLabel(props: DivProps) {
+  const { asChild, className, ...labelProps } = props;
+
+  const { labelId, state } = useGaugeContext(LABEL_NAME);
+
+  const LabelPrimitive = asChild ? SlotPrimitive.Slot : "div";
+
+  return (
+    <LabelPrimitive
+      id={labelId}
+      data-state={state}
+      {...labelProps}
+      className={cn(
+        "mt-2 font-medium text-muted-foreground text-sm",
+        className,
+      )}
+    />
+  );
 }
 
 function GaugeCombined(props: GaugeProps) {
@@ -519,10 +495,9 @@ function GaugeCombined(props: GaugeProps) {
         <GaugeTrack />
         <GaugeRange />
       </GaugeIndicator>
-
       <GaugeValueText />
     </Gauge>
-  )
+  );
 }
 
 export {
@@ -530,8 +505,8 @@ export {
   GaugeCombined,
   GaugeIndicator,
   GaugeLabel,
+  type GaugeProps,
   GaugeRange,
   GaugeTrack,
   GaugeValueText,
-  type GaugeProps,
-}
+};

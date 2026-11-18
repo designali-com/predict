@@ -1,6 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema.json",
-  "style": "base-mira",
+  "style": "base-maia",
   "rsc": true,
   "tsx": true,
   "tailwind": {
@@ -10,14 +10,19 @@
     "cssVariables": true
   },
   "iconLibrary": "lucide",
+  "rtl": true,
+  "menuColor": "default-translucent",
+  "menuAccent": "subtle",
   "aliases": {
     "components": "@workspace/ui/components",
     "utils": "@workspace/ui/lib/utils",
-    "hooks": "@workspace/ui/hooks",
+    "ui": "@workspace/ui/components",
     "lib": "@workspace/ui/lib",
-    "ui": "@workspace/ui/components"
+    "hooks": "@workspace/ui/hooks"
   },
-  "rtl": true,
-  "menuColor": "default-translucent",
-  "menuAccent": "subtle"
+  "registries": {
+    "@diceui": "https://diceui.com/r/{style}/{name}.json",
+    "@ai-elements": "https://ai-sdk.dev/elements/api/registry/{name}.json",
+    "@canvas-ui": "https://canvasui.dev/r/{name}.json"
+  }
 }

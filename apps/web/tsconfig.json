@@ -14,6 +14,7 @@
   "include": [
     "next-env.d.ts",
     "next.config.ts",
+    "**/*.mdx",
     "**/*.ts",
     "**/*.tsx",
     "**/*.mts",

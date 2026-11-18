@@ -1,0 +1,45 @@
+{
+  "name": "clinic",
+  "version": "0.0.1",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --port 3002",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "format": "prettier --write \"**/*.{ts,tsx}\"",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^5.4.0",
+    "@sparticuz/chromium": "153.0.0",
+    "@workspace/communication": "workspace:*",
+    "@workspace/db": "workspace:*",
+    "@workspace/storage": "workspace:*",
+    "@workspace/ui": "workspace:*",
+    "better-auth": "^1.6.11",
+    "lucide-react": "^1.25.0",
+    "motion": "^13.0.0",
+    "next": "16.2.6",
+    "pdfjs-dist": "^6.1.200",
+    "puppeteer-core": "^24.43.1",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "react-hook-form": "^7.76.1",
+    "react-signature-canvas": "1.1.0-alpha.2",
+    "recharts": "3.8.0",
+    "resend": "^6.12.4",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@workspace/eslint-config": "workspace:^",
+    "@workspace/typescript-config": "workspace:*",
+    "eslint": "^9",
+    "typescript": "^5"
+  }
+}

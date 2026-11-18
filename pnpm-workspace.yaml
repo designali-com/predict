@@ -3,7 +3,8 @@ packages:
   - "packages/*"
 
 allowBuilds:
-  esbuild: true
   sharp: true
   unrs-resolver: true
   msw: false
+  esbuild: false
+  msgpackr-extract: false

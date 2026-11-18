@@ -1,23 +1,22 @@
 "use client"
 
 import * as React from "react"
-import { ThemeProvider as NextThemesProvider, useTheme } from "next-themes"
+import { ThemeProvider as BaseThemeProvider, useTheme } from "@workspace/ui/components/theme"
 
-function ThemeProvider({
-  children,
-  ...props
-}: React.ComponentProps<typeof NextThemesProvider>) {
+/**
+ * The app's theme, plus the "d" hotkey.
+ *
+ * Was next-themes, which renders its no-flash script from inside a client
+ * component — something React 19 will not execute, and warns about on every
+ * page. The script now lives in the server-rendered <head> (see THEME_SCRIPT
+ * in @workspace/ui/components/theme), which is where React asks for it.
+ */
+function ThemeProvider({ children }: { children: React.ReactNode }) {
   return (
-    <NextThemesProvider
-      attribute="class"
-      defaultTheme="system"
-      enableSystem
-      disableTransitionOnChange
-      {...props}
-    >
+    <BaseThemeProvider defaultTheme="dark">
       <ThemeHotkey />
       {children}
-    </NextThemesProvider>
+    </BaseThemeProvider>
   )
 }
 
@@ -47,7 +46,7 @@ function ThemeHotkey() {
         return
       }
 
-      if (event.key.toLowerCase() !== "d") {
+      if (event.key?.toLowerCase() !== "d") {
         return
       }
 
